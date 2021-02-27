@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=55 format=2]
 
 [ext_resource path="res://UI/craftpix-895410-free-jungle-cartoon-2d-game-ui/TXT/soup_of_justice/soupofjustice.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://UI/craftpix-895410-free-jungle-cartoon-2d-game-ui/PNG/settings/94.png" type="Texture" id=2]
@@ -37,6 +37,27 @@
 [ext_resource path="res://UI/craftpix-895410-free-jungle-cartoon-2d-game-ui/QuizBG.png" type="Texture" id=35]
 [ext_resource path="res://UI/3_normal.png" type="Texture" id=36]
 [ext_resource path="res://UI/3__normal_sel.png" type="Texture" id=37]
+[ext_resource path="res://UI/craftpix-895410-free-jungle-cartoon-2d-game-ui/PNG/btn/menu.png" type="Texture" id=38]
+[ext_resource path="res://UI/craftpix-895410-free-jungle-cartoon-2d-game-ui/PNG/settings/bg.png" type="Texture" id=39]
+[ext_resource path="res://UI/craftpix-895410-free-jungle-cartoon-2d-game-ui/PNG/CancelBt.png" type="Texture" id=40]
+[ext_resource path="res://UI/craftpix-895410-free-jungle-cartoon-2d-game-ui/PNG/MenuTitle.png" type="Texture" id=41]
+[ext_resource path="res://UI/craftpix-895410-free-jungle-cartoon-2d-game-ui/PNG/settings/table.png" type="Texture" id=42]
+[ext_resource path="res://UI/craftpix-895410-free-jungle-cartoon-2d-game-ui/PNG/HomePageBt.png" type="Texture" id=43]
+[ext_resource path="res://UI/craftpix-895410-free-jungle-cartoon-2d-game-ui/PNG/YouWinTitle.png" type="Texture" id=44]
+[ext_resource path="res://UI/craftpix-895410-free-jungle-cartoon-2d-game-ui/PNG/you_win/table.png" type="Texture" id=45]
+[ext_resource path="res://UI/craftpix-895410-free-jungle-cartoon-2d-game-ui/PNG/btn/close.png" type="Texture" id=46]
+[ext_resource path="res://UI/craftpix-895410-free-jungle-cartoon-2d-game-ui/PNG/btn/next.png" type="Texture" id=47]
+[ext_resource path="res://UI/craftpix-895410-free-jungle-cartoon-2d-game-ui/PNG/btn/restart.png" type="Texture" id=48]
+[ext_resource path="res://UI/craftpix-895410-free-jungle-cartoon-2d-game-ui/PNG/YouLoseTitle.png" type="Texture" id=49]
+
+[sub_resource type="DynamicFont" id=3]
+size = 50
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 30
+extra_spacing_char = 2
+font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 37
@@ -49,36 +70,32 @@ size = 32
 extra_spacing_char = 3
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=3]
-size = 50
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=4]
-size = 30
+[sub_resource type="DynamicFont" id=5]
+size = 55
 extra_spacing_char = 2
 font_data = ExtResource( 1 )
 
 [node name="Overall" type="Node2D"]
 
 [node name="FightBG" type="Sprite" parent="."]
-visible = false
 position = Vector2( 832, -136 )
 scale = Vector2( 1.41458, 1.64444 )
 texture = ExtResource( 28 )
 
 [node name="FightQuestionBG" type="Sprite" parent="."]
-visible = false
 modulate = Color( 0.176471, 0.309804, 0.231373, 0.784314 )
 position = Vector2( 656, 608 )
 scale = Vector2( 0.718535, 0.753348 )
 texture = ExtResource( 35 )
 
 [node name="NormalBg" type="Sprite" parent="."]
+visible = false
 position = Vector2( 648, 128 )
 scale = Vector2( 0.847721, 0.835243 )
 texture = ExtResource( 24 )
 
 [node name="startPage" type="Node2D" parent="."]
+visible = false
 
 [node name="Logo_UI_jungle" type="Sprite" parent="startPage"]
 position = Vector2( 616, 176 )
@@ -307,58 +324,135 @@ position = Vector2( 0, -68.79 )
 scale = Vector2( 1.01552, 1.00057 )
 texture = ExtResource( 19 )
 
-[node name="PlayGame" type="Node2D" parent="."]
+[node name="SinglePlayerMode" type="Node2D" parent="."]
 visible = false
 
-[node name="PlayerControl" type="Node2D" parent="PlayGame"]
+[node name="UpperPart" type="Control" parent="SinglePlayerMode"]
+margin_left = 9.0
+margin_top = 4.0
+margin_right = 1280.0
+margin_bottom = 120.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="upBG" type="Sprite" parent="SinglePlayerMode/UpperPart"]
+position = Vector2( 632.126, 49.7546 )
+scale = Vector2( 0.459799, 0.54645 )
+texture = ExtResource( 29 )
+
+[node name="Timer" type="Sprite" parent="SinglePlayerMode/UpperPart/upBG"]
+position = Vector2( -462.856, -23.1548 )
+scale = Vector2( 1.45098, 1.12476 )
+texture = ExtResource( 33 )
+
+[node name="TimerText" type="Label" parent="SinglePlayerMode/UpperPart/upBG/Timer"]
+margin_left = -52.1398
+margin_top = -23.1252
+margin_right = 64.8602
+margin_bottom = 27.8748
+custom_fonts/font = SubResource( 3 )
+text = "00:60"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="clock" type="Sprite" parent="SinglePlayerMode/UpperPart/upBG/Timer"]
+position = Vector2( -112.035, -3.2608 )
+scale = Vector2( 1.01686, 0.96006 )
+texture = ExtResource( 30 )
+
+[node name="QuestionNum" type="Sprite" parent="SinglePlayerMode/UpperPart"]
+position = Vector2( 869.311, 37.1016 )
+scale = Vector2( 0.667159, 0.614624 )
+texture = ExtResource( 33 )
+
+[node name="ico1" type="Sprite" parent="SinglePlayerMode/UpperPart/QuestionNum"]
+position = Vector2( -110.313, 0.395287 )
+scale = Vector2( 0.475322, 0.357311 )
+texture = ExtResource( 32 )
+
+[node name="QuestionNumText" type="Label" parent="SinglePlayerMode/UpperPart/QuestionNum"]
+margin_left = -52.0
+margin_top = -25.1718
+margin_right = 80.0
+margin_bottom = 25.8282
+custom_fonts/font = SubResource( 3 )
+text = "3 ) 5"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SectionName" type="Label" parent="SinglePlayerMode/UpperPart"]
+margin_left = 532.28
+margin_top = 20.4364
+margin_right = 738.28
+margin_bottom = 56.4364
+custom_fonts/font = SubResource( 4 )
+text = "Section Name"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuButton" type="TextureButton" parent="SinglePlayerMode/UpperPart"]
+margin_left = 1199.0
+margin_right = 1413.0
+margin_bottom = 215.0
+rect_scale = Vector2( 0.3, 0.3 )
+texture_normal = ExtResource( 38 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerControl" type="Node2D" parent="SinglePlayerMode"]
 position = Vector2( 108.894, 53.1986 )
 
-[node name="bg3" type="Sprite" parent="PlayGame/PlayerControl"]
+[node name="bg3" type="Sprite" parent="SinglePlayerMode/PlayerControl"]
 position = Vector2( 155.606, 124.926 )
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 5 )
 
-[node name="bg4" type="Sprite" parent="PlayGame/PlayerControl"]
+[node name="bg4" type="Sprite" parent="SinglePlayerMode/PlayerControl"]
 position = Vector2( 95.1028, 126.178 )
 scale = Vector2( 0.25, 0.245353 )
 texture = ExtResource( 27 )
 
-[node name="1_normal" type="Sprite" parent="PlayGame/PlayerControl"]
+[node name="1_normal" type="Sprite" parent="SinglePlayerMode/PlayerControl"]
 position = Vector2( 161.843, 274.677 )
 scale = Vector2( 0.609412, 0.609413 )
 texture = ExtResource( 14 )
 
-[node name="MonsterControl" type="Node2D" parent="PlayGame"]
-position = Vector2( -64, 57.9265 )
+[node name="MonsterControl" type="Node2D" parent="SinglePlayerMode"]
+position = Vector2( -8, 57.9265 )
 
-[node name="bg" type="Sprite" parent="PlayGame/MonsterControl"]
+[node name="bg" type="Sprite" parent="SinglePlayerMode/MonsterControl"]
 position = Vector2( 1016.5, 122.125 )
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 5 )
 
-[node name="bg2" type="Sprite" parent="PlayGame/MonsterControl"]
+[node name="bg2" type="Sprite" parent="SinglePlayerMode/MonsterControl"]
 position = Vector2( 955.997, 123.376 )
 scale = Vector2( 0.25, 0.245353 )
 texture = ExtResource( 31 )
 
-[node name="1_normal2" type="Sprite" parent="PlayGame/MonsterControl"]
-position = Vector2( 1020.75, 260.466 )
+[node name="1_normal2" type="Sprite" parent="SinglePlayerMode/MonsterControl"]
+position = Vector2( 1048, 260.466 )
 scale = Vector2( 0.4158, 0.4158 )
 texture = ExtResource( 7 )
 flip_h = true
 
-[node name="QuizControl2" type="Node2D" parent="PlayGame"]
+[node name="QuizControl2" type="Node2D" parent="SinglePlayerMode"]
 position = Vector2( 8.90894, 3.5636 )
 scale = Vector2( 0.88, 1 )
 
-[node name="QuizPart" type="Control" parent="PlayGame/QuizControl2"]
+[node name="QuizPart" type="Control" parent="SinglePlayerMode/QuizControl2"]
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Answer1" type="TextureButton" parent="PlayGame/QuizControl2/QuizPart"]
+[node name="Answer1" type="TextureButton" parent="SinglePlayerMode/QuizControl2/QuizPart"]
 margin_left = 280.785
 margin_top = 556.436
 margin_right = 737.785
@@ -369,7 +463,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnswerText1" type="Label" parent="PlayGame/QuizControl2/QuizPart/Answer1"]
+[node name="AnswerText1" type="Label" parent="SinglePlayerMode/QuizControl2/QuizPart/Answer1"]
 margin_left = 27.5931
 margin_top = 10.379
 margin_right = 411.593
@@ -383,7 +477,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Answer2" type="TextureButton" parent="PlayGame/QuizControl2/QuizPart"]
+[node name="Answer2" type="TextureButton" parent="SinglePlayerMode/QuizControl2/QuizPart"]
 modulate = Color( 0.388062, 0.730469, 0.401437, 0.8 )
 margin_left = 726.025
 margin_top = 556.436
@@ -395,7 +489,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnswerText2" type="Label" parent="PlayGame/QuizControl2/QuizPart/Answer2"]
+[node name="AnswerText2" type="Label" parent="SinglePlayerMode/QuizControl2/QuizPart/Answer2"]
 margin_left = 27.5932
 margin_top = 10.379
 margin_right = 411.593
@@ -409,7 +503,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Answer3" type="TextureButton" parent="PlayGame/QuizControl2/QuizPart"]
+[node name="Answer3" type="TextureButton" parent="SinglePlayerMode/QuizControl2/QuizPart"]
 modulate = Color( 0.388062, 0.730469, 0.401437, 0.8 )
 margin_left = 280.785
 margin_top = 636.873
@@ -421,7 +515,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnswerText3" type="Label" parent="PlayGame/QuizControl2/QuizPart/Answer3"]
+[node name="AnswerText3" type="Label" parent="SinglePlayerMode/QuizControl2/QuizPart/Answer3"]
 margin_left = 27.593
 margin_top = 10.379
 margin_right = 411.593
@@ -435,7 +529,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Answer4" type="TextureButton" parent="PlayGame/QuizControl2/QuizPart"]
+[node name="Answer4" type="TextureButton" parent="SinglePlayerMode/QuizControl2/QuizPart"]
 modulate = Color( 0.388062, 0.730469, 0.401437, 0.8 )
 margin_left = 726.025
 margin_top = 636.873
@@ -447,7 +541,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnswerText4" type="Label" parent="PlayGame/QuizControl2/QuizPart/Answer4"]
+[node name="AnswerText4" type="Label" parent="SinglePlayerMode/QuizControl2/QuizPart/Answer4"]
 margin_left = 27.5933
 margin_top = 10.379
 margin_right = 411.593
@@ -461,7 +555,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="QuestionText" type="Label" parent="PlayGame/QuizControl2/QuizPart"]
+[node name="QuestionText" type="Label" parent="SinglePlayerMode/QuizControl2/QuizPart"]
 margin_left = 17.1489
 margin_top = 508.436
 margin_right = 1241.15
@@ -473,7 +567,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Tick" type="TextureRect" parent="PlayGame/QuizControl2/QuizPart"]
+[node name="Tick" type="TextureRect" parent="SinglePlayerMode/QuizControl2/QuizPart"]
 margin_left = 598.967
 margin_top = 556.436
 margin_right = 1174.97
@@ -484,7 +578,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Cross" type="TextureRect" parent="PlayGame/QuizControl2/QuizPart"]
+[node name="Cross" type="TextureRect" parent="SinglePlayerMode/QuizControl2/QuizPart"]
 visible = false
 margin_left = 598.967
 margin_top = 556.436
@@ -496,24 +590,243 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="UpperPart" type="Control" parent="PlayGame/QuizControl2"]
+[node name="PopUpMenu" type="Control" parent="SinglePlayerMode"]
+visible = false
+margin_left = 8.0
+margin_right = 48.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PopupBG" type="TextureRect" parent="SinglePlayerMode/PopUpMenu"]
+margin_left = 312.0
+margin_top = 136.0
+margin_right = 1610.0
+margin_bottom = 1088.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 39 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BG2" type="TextureRect" parent="SinglePlayerMode/PopUpMenu/PopupBG"]
+margin_left = 48.0
+margin_top = 32.0
+margin_right = 1209.0
+margin_bottom = 876.0
+texture = ExtResource( 42 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuTile" type="TextureRect" parent="SinglePlayerMode/PopUpMenu/PopupBG/BG2"]
+margin_left = 112.0
+margin_top = -144.0
+margin_right = 1265.0
+margin_bottom = 311.0
+rect_scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 41 )
+
+[node name="HomePageButton" type="TextureButton" parent="SinglePlayerMode/PopUpMenu/PopupBG/BG2"]
+margin_left = 352.0
+margin_top = 272.0
+margin_right = 660.0
+margin_bottom = 379.0
+rect_scale = Vector2( 1.5, 1.5 )
+texture_normal = ExtResource( 43 )
+
+[node name="ExitButton" type="TextureButton" parent="SinglePlayerMode/PopUpMenu/PopupBG/BG2"]
+margin_left = 352.0
+margin_top = 464.0
+margin_right = 660.0
+margin_bottom = 571.0
+rect_scale = Vector2( 1.5, 1.5 )
+texture_normal = ExtResource( 40 )
+
+[node name="YouWin" type="Control" parent="SinglePlayerMode"]
+visible = false
+margin_top = 24.0
+margin_right = 40.0
+margin_bottom = 64.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PopupBG" type="TextureRect" parent="SinglePlayerMode/YouWin"]
+margin_left = 344.0
+margin_top = 64.0
+margin_right = 1642.0
+margin_bottom = 1359.0
+rect_scale = Vector2( 0.45, 0.45 )
+texture = ExtResource( 20 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BG2" type="TextureRect" parent="SinglePlayerMode/YouWin/PopupBG"]
+margin_left = 231.111
+margin_top = 142.222
+margin_right = 1392.11
+margin_bottom = 1091.22
+texture = ExtResource( 45 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WinTile" type="TextureRect" parent="SinglePlayerMode/YouWin/PopupBG/BG2"]
+margin_left = -53.3333
+margin_top = -160.0
+margin_right = 1099.67
+margin_bottom = 295.0
+rect_scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 44 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextLvl" type="TextureButton" parent="SinglePlayerMode/YouWin/PopupBG/BG2"]
+margin_left = 320.0
+margin_top = 586.667
+margin_right = 534.0
+margin_bottom = 801.667
+rect_scale = Vector2( 0.8, 0.8 )
+texture_normal = ExtResource( 47 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Restart" type="TextureButton" parent="SinglePlayerMode/YouWin/PopupBG/BG2"]
+margin_left = 106.667
+margin_top = 586.667
+margin_right = 320.667
+margin_bottom = 801.667
+rect_scale = Vector2( 0.8, 0.8 )
+texture_normal = ExtResource( 48 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Exit" type="TextureButton" parent="SinglePlayerMode/YouWin/PopupBG/BG2"]
+margin_left = 533.333
+margin_top = 586.667
+margin_right = 747.333
+margin_bottom = 801.667
+rect_scale = Vector2( 0.8, 0.8 )
+texture_normal = ExtResource( 46 )
+
+[node name="YouLose" type="Control" parent="SinglePlayerMode"]
+visible = false
+margin_top = 24.0
+margin_right = 40.0
+margin_bottom = 64.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PopupBG" type="TextureRect" parent="SinglePlayerMode/YouLose"]
+margin_left = 344.0
+margin_top = 64.0
+margin_right = 1642.0
+margin_bottom = 1359.0
+rect_scale = Vector2( 0.45, 0.45 )
+texture = ExtResource( 20 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BG2" type="TextureRect" parent="SinglePlayerMode/YouLose/PopupBG"]
+margin_left = 231.111
+margin_top = 142.222
+margin_right = 1392.11
+margin_bottom = 1091.22
+texture = ExtResource( 45 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LoseTile" type="TextureRect" parent="SinglePlayerMode/YouLose/PopupBG/BG2"]
+margin_left = -53.3333
+margin_top = -160.0
+margin_right = 1099.67
+margin_bottom = 295.0
+rect_scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 49 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Restart" type="TextureButton" parent="SinglePlayerMode/YouLose/PopupBG/BG2"]
+margin_left = 195.556
+margin_top = 586.667
+margin_right = 409.556
+margin_bottom = 801.667
+rect_scale = Vector2( 0.8, 0.8 )
+texture_normal = ExtResource( 48 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Exit" type="TextureButton" parent="SinglePlayerMode/YouLose/PopupBG/BG2"]
+margin_left = 426.667
+margin_top = 586.667
+margin_right = 640.667
+margin_bottom = 801.667
+rect_scale = Vector2( 0.8, 0.8 )
+texture_normal = ExtResource( 46 )
+
+[node name="PVPMode" type="Control" parent="."]
+visible = false
+margin_top = 24.0
+margin_right = 40.0
+margin_bottom = 64.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Waiting" type="Control" parent="PVPMode"]
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="upBG" type="Sprite" parent="PlayGame/QuizControl2/UpperPart"]
-position = Vector2( 716.994, 49.7546 )
+[node name="Label" type="Label" parent="PVPMode/Waiting"]
+margin_left = 816.0
+margin_top = 288.0
+margin_right = 1158.0
+margin_bottom = 348.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 5
+text = "Waiting......"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpperPart" type="Control" parent="PVPMode"]
+margin_left = 9.0
+margin_top = -20.0
+margin_right = 1280.0
+margin_bottom = 96.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="upBG" type="Sprite" parent="PVPMode/UpperPart"]
+position = Vector2( 632.126, 49.7546 )
 scale = Vector2( 0.459799, 0.54645 )
 texture = ExtResource( 29 )
 
-[node name="Timer" type="Sprite" parent="PlayGame/QuizControl2/UpperPart/upBG"]
+[node name="Timer" type="Sprite" parent="PVPMode/UpperPart/upBG"]
 position = Vector2( -462.856, -23.1548 )
 scale = Vector2( 1.45098, 1.12476 )
 texture = ExtResource( 33 )
 
-[node name="TimerText" type="Label" parent="PlayGame/QuizControl2/UpperPart/upBG/Timer"]
+[node name="TimerText" type="Label" parent="PVPMode/UpperPart/upBG/Timer"]
 margin_left = -52.1398
 margin_top = -23.1252
 margin_right = 64.8602
@@ -524,22 +837,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="clock" type="Sprite" parent="PlayGame/QuizControl2/UpperPart/upBG/Timer"]
+[node name="clock" type="Sprite" parent="PVPMode/UpperPart/upBG/Timer"]
 position = Vector2( -112.035, -3.2608 )
 scale = Vector2( 1.01686, 0.96006 )
 texture = ExtResource( 30 )
 
-[node name="QuestionNum" type="Sprite" parent="PlayGame/QuizControl2/UpperPart"]
-position = Vector2( 954.18, 37.1016 )
+[node name="QuestionNum" type="Sprite" parent="PVPMode/UpperPart"]
+position = Vector2( 869.311, 37.1016 )
 scale = Vector2( 0.667159, 0.614624 )
 texture = ExtResource( 33 )
 
-[node name="ico1" type="Sprite" parent="PlayGame/QuizControl2/UpperPart/QuestionNum"]
+[node name="ico1" type="Sprite" parent="PVPMode/UpperPart/QuestionNum"]
 position = Vector2( -110.313, 0.395287 )
 scale = Vector2( 0.475322, 0.357311 )
 texture = ExtResource( 32 )
 
-[node name="QuestionNumText" type="Label" parent="PlayGame/QuizControl2/UpperPart/QuestionNum"]
+[node name="QuestionNumText" type="Label" parent="PVPMode/UpperPart/QuestionNum"]
 margin_left = -52.0
 margin_top = -25.1718
 margin_right = 80.0
@@ -550,13 +863,411 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SectionName" type="Label" parent="PlayGame/QuizControl2/UpperPart"]
-margin_left = 617.149
+[node name="SectionName" type="Label" parent="PVPMode/UpperPart"]
+margin_left = 532.28
 margin_top = 20.4364
-margin_right = 823.149
+margin_right = 738.28
 margin_bottom = 56.4364
 custom_fonts/font = SubResource( 4 )
 text = "Section Name"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="MenuButton" type="TextureButton" parent="PVPMode/UpperPart"]
+margin_left = 1199.0
+margin_right = 1413.0
+margin_bottom = 215.0
+rect_scale = Vector2( 0.3, 0.3 )
+texture_normal = ExtResource( 38 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerControl" type="Node2D" parent="PVPMode"]
+position = Vector2( 108.894, 29.1986 )
+
+[node name="bg3" type="Sprite" parent="PVPMode/PlayerControl"]
+position = Vector2( 155.606, 124.926 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 5 )
+
+[node name="bg4" type="Sprite" parent="PVPMode/PlayerControl"]
+position = Vector2( 95.1028, 126.178 )
+scale = Vector2( 0.25, 0.245353 )
+texture = ExtResource( 27 )
+
+[node name="1_normal" type="Sprite" parent="PVPMode/PlayerControl"]
+position = Vector2( 161.843, 274.677 )
+scale = Vector2( 0.609412, 0.609413 )
+texture = ExtResource( 14 )
+
+[node name="Player2Control" type="Node2D" parent="PVPMode"]
+visible = false
+position = Vector2( -8, 33.9265 )
+
+[node name="PlayerAppear" type="Control" parent="PVPMode/Player2Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bg" type="Sprite" parent="PVPMode/Player2Control/PlayerAppear"]
+position = Vector2( 1016.5, 122.125 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 5 )
+
+[node name="bg2" type="Sprite" parent="PVPMode/Player2Control/PlayerAppear"]
+position = Vector2( 955.997, 123.376 )
+scale = Vector2( 0.25, 0.245353 )
+texture = ExtResource( 31 )
+
+[node name="1_normal2" type="Sprite" parent="PVPMode/Player2Control/PlayerAppear"]
+position = Vector2( 1024, 278.073 )
+scale = Vector2( 0.57554, 0.57554 )
+texture = ExtResource( 36 )
+flip_h = true
+
+[node name="Waiting" type="Control" parent="PVPMode/Player2Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuizControl" type="Node2D" parent="PVPMode"]
+position = Vector2( 8.90894, -20.4364 )
+scale = Vector2( 0.88, 1 )
+
+[node name="QuizPart" type="Control" parent="PVPMode/QuizControl"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Answer1" type="TextureButton" parent="PVPMode/QuizControl/QuizPart"]
+margin_left = 280.785
+margin_top = 556.436
+margin_right = 737.785
+margin_bottom = 613.436
+rect_scale = Vector2( 0.862, 1 )
+texture_normal = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnswerText1" type="Label" parent="PVPMode/QuizControl/QuizPart/Answer1"]
+margin_left = 27.5931
+margin_top = 10.379
+margin_right = 411.593
+margin_bottom = 74.379
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.756863, 0.431373, 0.12549, 1 )
+custom_colors/font_outline_modulate = Color( 0.137255, 0.0196078, 0.0196078, 1 )
+custom_colors/font_color_shadow = Color( 0.054902, 0.0509804, 0.0156863, 1 )
+text = "Answer 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Answer2" type="TextureButton" parent="PVPMode/QuizControl/QuizPart"]
+modulate = Color( 0.388062, 0.730469, 0.401437, 0.8 )
+margin_left = 726.025
+margin_top = 556.436
+margin_right = 1183.02
+margin_bottom = 613.436
+rect_scale = Vector2( 0.862, 1 )
+texture_normal = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnswerText2" type="Label" parent="PVPMode/QuizControl/QuizPart/Answer2"]
+margin_left = 27.5932
+margin_top = 10.379
+margin_right = 411.593
+margin_bottom = 74.379
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.756863, 0.431373, 0.12549, 1 )
+custom_colors/font_outline_modulate = Color( 0.137255, 0.0196078, 0.0196078, 1 )
+custom_colors/font_color_shadow = Color( 0.054902, 0.0509804, 0.0156863, 1 )
+text = "Answer 2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Answer3" type="TextureButton" parent="PVPMode/QuizControl/QuizPart"]
+modulate = Color( 0.388062, 0.730469, 0.401437, 0.8 )
+margin_left = 280.785
+margin_top = 636.873
+margin_right = 737.785
+margin_bottom = 693.873
+rect_scale = Vector2( 0.862, 1 )
+texture_normal = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnswerText3" type="Label" parent="PVPMode/QuizControl/QuizPart/Answer3"]
+margin_left = 27.593
+margin_top = 10.379
+margin_right = 411.593
+margin_bottom = 74.379
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.756863, 0.431373, 0.12549, 1 )
+custom_colors/font_outline_modulate = Color( 0.137255, 0.0196078, 0.0196078, 1 )
+custom_colors/font_color_shadow = Color( 0.054902, 0.0509804, 0.0156863, 1 )
+text = "Answer 3"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Answer4" type="TextureButton" parent="PVPMode/QuizControl/QuizPart"]
+modulate = Color( 0.388062, 0.730469, 0.401437, 0.8 )
+margin_left = 726.025
+margin_top = 636.873
+margin_right = 1183.02
+margin_bottom = 693.873
+rect_scale = Vector2( 0.862, 1 )
+texture_normal = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnswerText4" type="Label" parent="PVPMode/QuizControl/QuizPart/Answer4"]
+margin_left = 27.5933
+margin_top = 10.379
+margin_right = 411.593
+margin_bottom = 74.379
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.756863, 0.431373, 0.12549, 1 )
+custom_colors/font_outline_modulate = Color( 0.137255, 0.0196078, 0.0196078, 1 )
+custom_colors/font_color_shadow = Color( 0.054902, 0.0509804, 0.0156863, 1 )
+text = "Answer 4"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuestionText" type="Label" parent="PVPMode/QuizControl/QuizPart"]
+margin_left = 17.1489
+margin_top = 508.436
+margin_right = 1241.15
+margin_bottom = 564.436
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.77, 1, 0.88, 0.84 )
+text = "Q1:  Which one is correct?"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tick" type="TextureRect" parent="PVPMode/QuizControl/QuizPart"]
+margin_left = 598.967
+margin_top = 556.436
+margin_right = 1174.97
+margin_bottom = 1096.44
+rect_scale = Vector2( 0.102, 0.088 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cross" type="TextureRect" parent="PVPMode/QuizControl/QuizPart"]
+visible = false
+margin_left = 598.967
+margin_top = 556.436
+margin_right = 1174.97
+margin_bottom = 1096.44
+rect_scale = Vector2( 0.102, 0.088 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PopUpMenu" type="Control" parent="PVPMode"]
+visible = false
+margin_left = 8.0
+margin_top = -24.0
+margin_right = 48.0
+margin_bottom = 16.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PopupBG" type="TextureRect" parent="PVPMode/PopUpMenu"]
+margin_left = 312.0
+margin_top = 136.0
+margin_right = 1610.0
+margin_bottom = 1088.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 39 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BG2" type="TextureRect" parent="PVPMode/PopUpMenu/PopupBG"]
+margin_left = 48.0
+margin_top = 32.0
+margin_right = 1209.0
+margin_bottom = 876.0
+texture = ExtResource( 42 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuTile" type="TextureRect" parent="PVPMode/PopUpMenu/PopupBG/BG2"]
+margin_left = 112.0
+margin_top = -144.0
+margin_right = 1265.0
+margin_bottom = 311.0
+rect_scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 41 )
+
+[node name="HomePageButton" type="TextureButton" parent="PVPMode/PopUpMenu/PopupBG/BG2"]
+margin_left = 352.0
+margin_top = 272.0
+margin_right = 660.0
+margin_bottom = 379.0
+rect_scale = Vector2( 1.5, 1.5 )
+texture_normal = ExtResource( 43 )
+
+[node name="ExitButton" type="TextureButton" parent="PVPMode/PopUpMenu/PopupBG/BG2"]
+margin_left = 352.0
+margin_top = 464.0
+margin_right = 660.0
+margin_bottom = 571.0
+rect_scale = Vector2( 1.5, 1.5 )
+texture_normal = ExtResource( 40 )
+
+[node name="YouWin" type="Control" parent="PVPMode"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PopupBG" type="TextureRect" parent="PVPMode/YouWin"]
+margin_left = 344.0
+margin_top = 64.0
+margin_right = 1642.0
+margin_bottom = 1359.0
+rect_scale = Vector2( 0.45, 0.45 )
+texture = ExtResource( 20 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BG2" type="TextureRect" parent="PVPMode/YouWin/PopupBG"]
+margin_left = 231.111
+margin_top = 142.222
+margin_right = 1392.11
+margin_bottom = 1091.22
+texture = ExtResource( 45 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WinTile" type="TextureRect" parent="PVPMode/YouWin/PopupBG/BG2"]
+margin_left = -53.3333
+margin_top = -160.0
+margin_right = 1099.67
+margin_bottom = 295.0
+rect_scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 44 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextLvl" type="TextureButton" parent="PVPMode/YouWin/PopupBG/BG2"]
+margin_left = 320.0
+margin_top = 586.667
+margin_right = 534.0
+margin_bottom = 801.667
+rect_scale = Vector2( 0.8, 0.8 )
+texture_normal = ExtResource( 47 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Restart" type="TextureButton" parent="PVPMode/YouWin/PopupBG/BG2"]
+margin_left = 106.667
+margin_top = 586.667
+margin_right = 320.667
+margin_bottom = 801.667
+rect_scale = Vector2( 0.8, 0.8 )
+texture_normal = ExtResource( 48 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Exit" type="TextureButton" parent="PVPMode/YouWin/PopupBG/BG2"]
+margin_left = 533.333
+margin_top = 586.667
+margin_right = 747.333
+margin_bottom = 801.667
+rect_scale = Vector2( 0.8, 0.8 )
+texture_normal = ExtResource( 46 )
+
+[node name="YouLose" type="Control" parent="PVPMode"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PopupBG" type="TextureRect" parent="PVPMode/YouLose"]
+margin_left = 344.0
+margin_top = 64.0
+margin_right = 1642.0
+margin_bottom = 1359.0
+rect_scale = Vector2( 0.45, 0.45 )
+texture = ExtResource( 20 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BG2" type="TextureRect" parent="PVPMode/YouLose/PopupBG"]
+margin_left = 231.111
+margin_top = 142.222
+margin_right = 1392.11
+margin_bottom = 1091.22
+texture = ExtResource( 45 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LoseTile" type="TextureRect" parent="PVPMode/YouLose/PopupBG/BG2"]
+margin_left = -53.3333
+margin_top = -160.0
+margin_right = 1099.67
+margin_bottom = 295.0
+rect_scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 49 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Restart" type="TextureButton" parent="PVPMode/YouLose/PopupBG/BG2"]
+margin_left = 195.556
+margin_top = 586.667
+margin_right = 409.556
+margin_bottom = 801.667
+rect_scale = Vector2( 0.8, 0.8 )
+texture_normal = ExtResource( 48 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Exit" type="TextureButton" parent="PVPMode/YouLose/PopupBG/BG2"]
+margin_left = 426.667
+margin_top = 586.667
+margin_right = 640.667
+margin_bottom = 801.667
+rect_scale = Vector2( 0.8, 0.8 )
+texture_normal = ExtResource( 46 )
