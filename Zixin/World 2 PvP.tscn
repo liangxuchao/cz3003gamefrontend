@@ -1,20 +1,20 @@
 [gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://Characters/3.png" type="Texture" id=1]
-[ext_resource path="res://2D Game GUI BY MJ/PNG/Buttons/0.5x/home button@0.5x.png" type="Texture" id=2]
-[ext_resource path="res://BG desert.jpg" type="Texture" id=3]
-[ext_resource path="res://B Background forest/png/clouds.png" type="Texture" id=4]
-[ext_resource path="res://2D Game GUI BY MJ/PNG/Bars/helth Bar/power.png" type="Texture" id=5]
-[ext_resource path="res://C Zombie-Character/run_001.png" type="Texture" id=6]
-[ext_resource path="res://B Background forest/png/ground.png" type="Texture" id=7]
-[ext_resource path="res://wood 4.png" type="Texture" id=8]
-[ext_resource path="res://2D Game GUI BY MJ/PNG/Bars/helth Bar/healthy bar.png" type="Texture" id=9]
-[ext_resource path="res://2D Game GUI BY MJ/PNG/Buttons/Buttons/Button1.png" type="Texture" id=10]
-[ext_resource path="res://Characters/1 copy.png" type="Texture" id=11]
-[ext_resource path="res://2D Game GUI BY MJ/PNG/Bars/loading Bar/load bar.png" type="Texture" id=12]
-[ext_resource path="res://2D Game GUI BY MJ/PNG/Bars/helth Bar/enrgy.png" type="Texture" id=13]
-[ext_resource path="res://wood.png" type="Texture" id=14]
-[ext_resource path="res://soupofjustice.tres" type="DynamicFont" id=15]
+[ext_resource path="res://element/Characters/3.png" type="Texture" id=1]
+[ext_resource path="res://element/2D Game GUI BY MJ/PNG/Buttons/0.5x/menu button@0.5x.png" type="Texture" id=2]
+[ext_resource path="res://element/BG desert.jpg" type="Texture" id=3]
+[ext_resource path="res://element/B Background forest/png/clouds.png" type="Texture" id=4]
+[ext_resource path="res://element/2D Game GUI BY MJ/PNG/Bars/helth Bar/power.png" type="Texture" id=5]
+[ext_resource path="res://element/C Zombie-Character/run_001.png" type="Texture" id=6]
+[ext_resource path="res://element/B Background forest/png/ground.png" type="Texture" id=7]
+[ext_resource path="res://element/wood4.png" type="Texture" id=8]
+[ext_resource path="res://element/2D Game GUI BY MJ/PNG/Bars/helth Bar/healthy bar.png" type="Texture" id=9]
+[ext_resource path="res://element/2D Game GUI BY MJ/PNG/Buttons/Buttons/Button1.png" type="Texture" id=10]
+[ext_resource path="res://element/Characters/1 copy.png" type="Texture" id=11]
+[ext_resource path="res://element/2D Game GUI BY MJ/PNG/Bars/loading Bar/load bar.png" type="Texture" id=12]
+[ext_resource path="res://element/2D Game GUI BY MJ/PNG/Bars/helth Bar/enrgy.png" type="Texture" id=13]
+[ext_resource path="res://element/wood1.png" type="Texture" id=14]
+[ext_resource path="res://text/soupofjustice75.tres" type="DynamicFont" id=15]
 
 [node name="Layer 1" type="Sprite"]
 position = Vector2( 640.751, 358.163 )
@@ -71,7 +71,7 @@ position = Vector2( 478.814, 26.9335 )
 scale = Vector2( 1.45, 1.18503 )
 texture = ExtResource( 6 )
 
-[node name="home button05x" type="Sprite" parent="."]
+[node name="menu button05x" type="Sprite" parent="."]
 position = Vector2( -865.018, -444.181 )
 texture = ExtResource( 2 )
 
@@ -143,27 +143,27 @@ margin_bottom = 65.3479
 custom_fonts/font = ExtResource( 15 )
 text = "d ..."
 
-[node name="wood header" type="Sprite" parent="."]
+[node name="wood1" type="Sprite" parent="."]
 position = Vector2( -1.12634, -468.34 )
 scale = Vector2( 2.59031, 2.02597 )
 texture = ExtResource( 14 )
 
-[node name="Timer" type="Sprite" parent="wood header"]
+[node name="Timer" type="Sprite" parent="wood1"]
 visible = false
 position = Vector2( 0, 5.96251 )
 scale = Vector2( 0.157802, 0.493591 )
 texture = ExtResource( 10 )
 
-[node name="wood 4" type="Sprite" parent="wood header"]
-position = Vector2( -0.00012207, 5.96251 )
+[node name="wood 4" type="Sprite" parent="wood1"]
+position = Vector2( 6.10352e-05, 5.96239 )
 scale = Vector2( 0.330872, 0.447447 )
 texture = ExtResource( 8 )
 
-[node name="Label" type="Label" parent="wood header/wood 4"]
-margin_left = -37.7229
-margin_top = -30.3467
-margin_right = 48.2771
-margin_bottom = 48.6533
+[node name="timer" type="Label" parent="wood1/wood 4"]
+margin_left = -37.7234
+margin_top = -30.3464
+margin_right = 48.2766
+margin_bottom = 48.6536
 custom_fonts/font = ExtResource( 15 )
 text = "58"
 uppercase = true

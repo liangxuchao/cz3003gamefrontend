@@ -15,7 +15,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Arsenal"
+config/name="Zixin"
 run/main_scene="res://Background1.tscn"
 
 [display]

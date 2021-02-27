@@ -1,15 +1,16 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://Characters/2.png" type="Texture" id=1]
-[ext_resource path="res://Characters/3.png" type="Texture" id=2]
-[ext_resource path="res://wood3.png" type="Texture" id=3]
-[ext_resource path="res://BG desert.jpg" type="Texture" id=4]
-[ext_resource path="res://Characters/1.png" type="Texture" id=5]
-[ext_resource path="res://B Background forest/png/clouds.png" type="Texture" id=6]
-[ext_resource path="res://soupofjustice.tres" type="DynamicFont" id=7]
-[ext_resource path="res://2D Game GUI BY MJ/PNG/Buttons/0.5x/okay button@0.5x.png" type="Texture" id=8]
-[ext_resource path="res://2D Game GUI BY MJ/PNG/Buttons/Buttons/Button3.png" type="Texture" id=9]
-[ext_resource path="res://iShot2021-02-25_17.27.53-removebg-preview.png" type="Texture" id=12]
+[ext_resource path="res://element/Characters/2.png" type="Texture" id=1]
+[ext_resource path="res://element/Characters/3.png" type="Texture" id=2]
+[ext_resource path="res://element/wood3.png" type="Texture" id=3]
+[ext_resource path="res://element/BG desert.jpg" type="Texture" id=4]
+[ext_resource path="res://element/Characters/1.png" type="Texture" id=5]
+[ext_resource path="res://element/B Background forest/png/clouds.png" type="Texture" id=6]
+[ext_resource path="res://text/soupofjustice75.tres" type="DynamicFont" id=7]
+[ext_resource path="res://element/2D Game GUI BY MJ/PNG/Buttons/0.5x/okay button@0.5x.png" type="Texture" id=8]
+[ext_resource path="res://element/2D Game GUI BY MJ/PNG/Buttons/Buttons/Button3.png" type="Texture" id=9]
+[ext_resource path="res://element/2D Game GUI BY MJ/PNG/Buttons/0.5x/menu button@0.5x.png" type="Texture" id=10]
+[ext_resource path="res://element/board1.png" type="Texture" id=12]
 
 [node name="Layer 1" type="Sprite"]
 position = Vector2( 640.751, 358.163 )
@@ -21,7 +22,7 @@ scale = Vector2( 1.05458, 1.06387 )
 texture = ExtResource( 4 )
 
 [node name="okay button05x" type="Sprite" parent="."]
-position = Vector2( -575.555, 469.358 )
+position = Vector2( -548.558, 461.808 )
 scale = Vector2( 0.810549, 0.871177 )
 texture = ExtResource( 8 )
 
@@ -36,12 +37,17 @@ position = Vector2( -3.87073, -232.818 )
 scale = Vector2( 1.08246, 1.06874 )
 texture = ExtResource( 6 )
 
-[node name="header board" type="Sprite" parent="."]
+[node name="menu button05x" type="Sprite" parent="."]
+position = Vector2( -865.437, -445.447 )
+scale = Vector2( 0.942094, 0.93174 )
+texture = ExtResource( 10 )
+
+[node name="header board1" type="Sprite" parent="."]
 position = Vector2( -2.00185, -399.127 )
 scale = Vector2( 0.917242, 0.617295 )
 texture = ExtResource( 12 )
 
-[node name="choose character" type="Sprite" parent="header board"]
+[node name="choose character" type="Sprite" parent="header board1"]
 position = Vector2( 0.954346, 83.5662 )
 scale = Vector2( 0.837486, 1.0392 )
 
