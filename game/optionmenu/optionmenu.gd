@@ -16,8 +16,4 @@ func open(args={}):
 	.open()
 	continue_button.grab_focus()
 
-func backToHome():
-	pass # Replace with function body.
 
-func _on_Button_pressed():
-	get_tree().change_scene('res://game/title_screen/TitleScreen.tscn')

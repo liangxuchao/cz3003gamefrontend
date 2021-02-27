@@ -59,6 +59,7 @@ alignment = 1
 
 [node name="pveBtn" parent="Menu/CenterRow/Buttons" instance=ExtResource( 3 )]
 margin_right = 518.0
+scene_to_load = "res://game/pve/chooseWorld/chooseWorld.tscn"
 
 [node name="pvpBtn" parent="Menu/CenterRow/Buttons" instance=ExtResource( 4 )]
 margin_top = 80.0
