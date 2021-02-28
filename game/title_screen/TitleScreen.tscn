@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://game/title_screen/title_screen.gd" type="Script" id=1]
 [ext_resource path="res://game/title_screen/logo.png" type="Texture" id=2]
@@ -8,7 +8,6 @@
 [ext_resource path="res://game/title_screen/characters.png" type="Texture" id=6]
 [ext_resource path="res://public/fonts/montserrat_eb_24.tres" type="DynamicFont" id=7]
 [ext_resource path="res://fade_in/FadeIn.tscn" type="PackedScene" id=8]
-[ext_resource path="res://public/image/common/titlescreenbg.png" type="Texture" id=9]
 [ext_resource path="res://game/title_screen/buttons/optionButton.tscn" type="PackedScene" id=10]
 [ext_resource path="res://game/title_screen/buttons/leaderboardButton.tscn" type="PackedScene" id=11]
 
@@ -42,13 +41,6 @@ margin_right = 1040.0
 margin_bottom = 528.0
 size_flags_vertical = 3
 
-[node name="bg" type="Sprite" parent="Menu/CenterRow"]
-position = Vector2( 517.622, 131.484 )
-scale = Vector2( 0.825453, 0.784332 )
-texture = ExtResource( 9 )
-region_enabled = true
-region_rect = Rect2( 0, 828.881, 1561.59, 929.001 )
-
 [node name="Buttons" type="VBoxContainer" parent="Menu/CenterRow"]
 margin_right = 518.0
 margin_bottom = 380.0
@@ -59,7 +51,6 @@ alignment = 1
 
 [node name="pveBtn" parent="Menu/CenterRow/Buttons" instance=ExtResource( 3 )]
 margin_right = 518.0
-scene_to_load = "res://game/pve/chooseWorld/chooseWorld.tscn"
 
 [node name="pvpBtn" parent="Menu/CenterRow/Buttons" instance=ExtResource( 4 )]
 margin_top = 80.0

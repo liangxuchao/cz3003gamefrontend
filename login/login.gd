@@ -5,7 +5,7 @@ onready var httpNode = $HTTPRequest
 onready var username = $ColorRect/VBoxContainer/Username
 onready var password = $ColorRect/VBoxContainer/Password
 
-var dict = {}
+var dict = {} 
 
 func _ready():
   var file = File.new()

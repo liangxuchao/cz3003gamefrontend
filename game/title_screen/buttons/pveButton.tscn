@@ -8,7 +8,7 @@ size = 42
 font_data = ExtResource( 2 )
 
 [node name="pveButton" instance=ExtResource( 1 )]
-scene_to_load = "res://game/pve/chooseWorld.tscn"
+scene_to_load = "res://game/gameselection/chooseCharacter/chooseCharacter.tscn"
 
 [node name="Label" parent="." index="0"]
 rect_scale = Vector2( 0.988849, 0.996255 )

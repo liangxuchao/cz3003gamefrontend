@@ -3,7 +3,7 @@
 [ext_resource path="res://public/fonts/soupofjustice.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://game/optionmenu/Column.gd" type="Script" id=2]
 [ext_resource path="res://game/optionmenu/optionmenu.gd" type="Script" id=3]
-[ext_resource path="res://game/pve/route.gd" type="Script" id=4]
+[ext_resource path="res://game/gameselection/route.gd" type="Script" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
