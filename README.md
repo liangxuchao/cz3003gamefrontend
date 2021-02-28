@@ -11,3 +11,7 @@ Start godot.exe and open the proejct folder. Some development practice to follow
   2. Place images in appropriate folders, e.g world1 image should place in public/image/world1 folder. Any image will be share across please place under public、image/common folder
   3. All scence will be in 1280 x 720 resolution
   4. All arrange of content please use proper position settings instead of dragging
+  5. Please edit your scence in your own folder 
+      - Ma xin world 1
+      - Zi xin world 2
+      - Lin yan world 3
