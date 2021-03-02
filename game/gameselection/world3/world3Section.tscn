@@ -1,9 +1,9 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://public/image/world1/chooseSec.png" type="Texture" id=1]
-[ext_resource path="res://public/image/world3/small.png" type="Texture" id=2]
-[ext_resource path="res://public/image/world3/background.png" type="Texture" id=3]
-[ext_resource path="res://public/image/world1/sectionbg.png" type="Texture" id=4]
+[ext_resource path="res://public/image/world3/Background.jpg" type="Texture" id=1]
+[ext_resource path="res://public/image/world3/Title_BG1.png" type="Texture" id=2]
+[ext_resource path="res://public/image/world3/Button.png" type="Texture" id=3]
+[ext_resource path="res://public/image/world3/Section_BG.png" type="Texture" id=4]
 [ext_resource path="res://public/fonts/soupofjustice.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://game/interface/boss/world3/section3.tscn" type="PackedScene" id=6]
 [ext_resource path="res://game/interface/boss/world3/section2.tscn" type="PackedScene" id=7]
@@ -11,6 +11,10 @@
 [ext_resource path="res://game/gameselection/route.gd" type="Script" id=9]
 
 [sub_resource type="DynamicFont" id=1]
+size = 48
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=2]
 size = 45
 font_data = ExtResource( 5 )
 
@@ -25,31 +29,44 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_clip_content = true
-texture = ExtResource( 3 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Title" type="TextureRect" parent="."]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -200.0
-margin_top = 45.0
-margin_right = 200.0
-margin_bottom = 225.0
-rect_clip_content = true
 texture = ExtResource( 1 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Title" type="TextureRect" parent="Background"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -175.0
+margin_top = 20.0
+margin_right = 175.0
+margin_bottom = 170.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Background/Title"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -49.5
+margin_bottom = 49.5
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.00392157, 0.309804, 0.47451, 1 )
+text = "CHOOSE 
+SECTION"
+align = 1
+valign = 1
+
 [node name="SectionButton2" type="TextureButton" parent="."]
 margin_left = 490.0
-margin_top = 250.0
+margin_top = 220.0
 margin_right = 790.0
-margin_bottom = 500.0
+margin_bottom = 520.0
 texture_normal = ExtResource( 4 )
 expand = true
 __meta__ = {
@@ -68,9 +85,9 @@ margin_bottom = 107.5
 
 [node name="SectionButton1" type="TextureButton" parent="."]
 margin_left = 100.0
-margin_top = 250.0
+margin_top = 220.0
 margin_right = 400.0
-margin_bottom = 500.0
+margin_bottom = 520.0
 texture_normal = ExtResource( 4 )
 expand = true
 __meta__ = {
@@ -89,9 +106,9 @@ margin_bottom = 107.5
 
 [node name="SectionButton3" type="TextureButton" parent="."]
 margin_left = 880.0
-margin_top = 250.0
+margin_top = 220.0
 margin_right = 1180.0
-margin_bottom = 500.0
+margin_bottom = 520.0
 texture_normal = ExtResource( 4 )
 expand = true
 __meta__ = {
@@ -110,10 +127,10 @@ margin_bottom = 107.5
 
 [node name="Easy" type="TextureButton" parent="."]
 margin_left = 150.0
-margin_top = 520.0
+margin_top = 550.0
 margin_right = 350.0
-margin_bottom = 600.0
-texture_normal = ExtResource( 2 )
+margin_bottom = 630.0
+texture_normal = ExtResource( 3 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -121,11 +138,11 @@ __meta__ = {
 
 [node name="Medium" type="TextureButton" parent="."]
 margin_left = 540.0
-margin_top = 520.0
+margin_top = 550.0
 margin_right = 740.0
-margin_bottom = 600.0
+margin_bottom = 630.0
 size_flags_horizontal = 0
-texture_normal = ExtResource( 2 )
+texture_normal = ExtResource( 3 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -133,11 +150,11 @@ __meta__ = {
 
 [node name="Hard" type="TextureButton" parent="."]
 margin_left = 930.0
-margin_top = 520.0
+margin_top = 550.0
 margin_right = 1130.0
-margin_bottom = 600.0
+margin_bottom = 630.0
 size_flags_horizontal = 0
-texture_normal = ExtResource( 2 )
+texture_normal = ExtResource( 3 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -152,7 +169,7 @@ margin_left = -62.5
 margin_top = -93.0
 margin_right = 62.5
 margin_bottom = -41.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0.290196, 0.882353, 0.239216, 1 )
 text = "Start"
