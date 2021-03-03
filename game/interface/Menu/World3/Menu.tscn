@@ -90,16 +90,14 @@ __meta__ = {
 
 [node name="Button" type="Button" parent="TextureRect"]
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -86.0
-margin_top = -110.0
-margin_right = 86.0
-margin_bottom = -49.0
+margin_left = -97.5
+margin_top = 80.0
+margin_right = 97.5
+margin_bottom = 141.0
 custom_styles/normal = SubResource( 2 )
 custom_fonts/font = SubResource( 3 )
-text = "Easy"
+text = "Home page"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -115,7 +113,7 @@ margin_right = 86.0
 margin_bottom = 31.0
 custom_styles/normal = SubResource( 2 )
 custom_fonts/font = SubResource( 3 )
-text = "Medium"
+text = "Quit"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -160,7 +158,9 @@ margin_right = 69.5
 margin_bottom = 16.0
 custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.0117647, 0.309804, 0.478431, 1 )
-text = "Section II"
+text = "Menu"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }

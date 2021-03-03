@@ -1,4 +1,4 @@
-extends TextureButton
+extends "res://game/gameselection/world3/SectionButton2.gd"
 
 
 # Declare member variables here. Examples:
@@ -14,7 +14,3 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-
-func _on_TextureButton_pressed():
-	 get_tree().change_scene('res://game/gameselection/world3/world3Section.tscn')
-	#get_tree().get_root().remove_child(level_scene)# Replace with function body.

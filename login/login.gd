@@ -21,8 +21,8 @@ func _on_submit_pressed():
 
 func _on_request_completed(result, response_code,headers, body):	
 	var json = JSON.parse(body.get_string_from_utf8())
-	print(json.result["hello"])
-	if json.result["hello"] == "world" :
-		get_tree().change_scene('res://game/title_screen/TitleScreen.tscn')
+	#print(json.result["hello"])
+	#if json.result["hello"] == "world" :
+	get_tree().change_scene('res://game/title_screen/TitleScreen.tscn')
 
 	
