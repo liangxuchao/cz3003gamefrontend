@@ -15,7 +15,7 @@ func _ready():
 #func _process(delta):
 #	pass
 
-var level_scene = preload("res://game/interface/Menu/World3/Select Level.tscn").instance()
+var level_scene = preload("res://game/gameselection/world3/Select Level.tscn").instance()
 var menu_scene = preload("res://game/interface/Menu/World3/Menu.tscn").instance()
 
 func _on_SectionButton2_pressed():
