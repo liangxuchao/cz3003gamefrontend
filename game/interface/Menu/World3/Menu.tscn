@@ -4,7 +4,7 @@
 [ext_resource path="res://public/fonts/soupofjustice.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://public/image/world3/Button.png" type="Texture" id=3]
 [ext_resource path="res://public/image/world3/PVP_Title.png" type="Texture" id=4]
-[ext_resource path="res://game/gameselection/world3/Select Level.gd" type="Script" id=5]
+[ext_resource path="res://game/interface/Menu/World3/Menu.gd" type="Script" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 38
@@ -55,7 +55,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureButton" type="TextureButton" parent="TextureRect"]
+[node name="CloseButton" type="TextureButton" parent="TextureRect"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -70,7 +70,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="TextureRect/TextureButton"]
+[node name="Label" type="Label" parent="TextureRect/CloseButton"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -164,4 +164,4 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="TextureRect/TextureButton" to="." method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="TextureRect/CloseButton" to="." method="_on_CloseButton_pressed"]

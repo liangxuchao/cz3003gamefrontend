@@ -12,7 +12,7 @@ func _ready():
 
 func _on_Answer1_pressed():
 	$Sword/Sprite.frame=0
-	animation.player("Move")
+	animation.play("Move")
 	$"Question BOX/Question".text="Q2: ABABABAB" # Show different text
 
 
