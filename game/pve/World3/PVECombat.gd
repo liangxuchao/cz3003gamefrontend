@@ -26,4 +26,5 @@ func _lose_pressed():
 
 
 func _on_Hit_Box_area_entered(area):
+	print("1233")
 	$Sword/Sprite.frame=1 # Replace with function body.
