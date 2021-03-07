@@ -1,13 +1,13 @@
 [gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://public/fonts/soupofjustice.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://public/image/world3/Button.png" type="Texture" id=2]
-[ext_resource path="res://game/pvp/World3/PVP Room.gd" type="Script" id=3]
-[ext_resource path="res://game/interface/boss/world3/section1.tscn" type="PackedScene" id=4]
-[ext_resource path="res://game/interface/character/Sword.tscn" type="PackedScene" id=5]
-[ext_resource path="res://game/interface/character/character1.tscn" type="PackedScene" id=6]
-[ext_resource path="res://game/interface/lifebar/Hit Box.tscn" type="PackedScene" id=7]
-[ext_resource path="res://game/interface/boss/world3/section1.gd" type="Script" id=8]
+[ext_resource path="res://game/pve/World3/PVECombat.gd" type="Script" id=1]
+[ext_resource path="res://game/interface/boss/world3/section1.gd" type="Script" id=2]
+[ext_resource path="res://public/image/world3/Button.png" type="Texture" id=3]
+[ext_resource path="res://public/fonts/soupofjustice.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://game/interface/boss/world3/section1.tscn" type="PackedScene" id=5]
+[ext_resource path="res://game/interface/lifebar/Hit Box.tscn" type="PackedScene" id=6]
+[ext_resource path="res://game/interface/character/character1.tscn" type="PackedScene" id=7]
+[ext_resource path="res://game/interface/character/Sword.tscn" type="PackedScene" id=8]
 
 [sub_resource type="StreamTexture" id=1]
 flags = 4
@@ -15,11 +15,11 @@ load_path = "res://.import/PVP BG.jpg-7f19383d3849c9d6a8cd95e10fb56576.stex"
 
 [sub_resource type="DynamicFont" id=2]
 size = 40
-font_data = ExtResource( 1 )
+font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 48
-font_data = ExtResource( 1 )
+font_data = ExtResource( 4 )
 
 [sub_resource type="CapsuleShape2D" id=4]
 radius = 84.4353
@@ -41,7 +41,7 @@ tracks/0/keys = {
 }
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource( 3 )
+script = ExtResource( 1 )
 
 [node name="Background" type="TextureRect" parent="."]
 margin_left = 1.78174
@@ -79,7 +79,7 @@ margin_left = 200.0
 margin_top = 80.0
 margin_right = 560.0
 margin_bottom = 160.0
-texture_normal = ExtResource( 2 )
+texture_normal = ExtResource( 3 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -108,7 +108,7 @@ margin_left = 750.0
 margin_top = 80.0
 margin_right = 1110.0
 margin_bottom = 160.0
-texture_normal = ExtResource( 2 )
+texture_normal = ExtResource( 3 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -135,7 +135,7 @@ margin_left = 200.0
 margin_top = 160.0
 margin_right = 560.0
 margin_bottom = 240.0
-texture_normal = ExtResource( 2 )
+texture_normal = ExtResource( 3 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -162,7 +162,7 @@ margin_left = 750.0
 margin_top = 160.0
 margin_right = 1110.0
 margin_bottom = 240.0
-texture_normal = ExtResource( 2 )
+texture_normal = ExtResource( 3 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -196,31 +196,31 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Control" parent="." instance=ExtResource( 6 )]
+[node name="Control" parent="." instance=ExtResource( 7 )]
 margin_left = 123.233
 margin_top = 187.436
 margin_right = 123.233
 margin_bottom = 187.436
 rect_scale = Vector2( 1.3, 1.2 )
 
-[node name="Boss1" parent="." instance=ExtResource( 4 )]
+[node name="Boss1" parent="." instance=ExtResource( 5 )]
 position = Vector2( 900.753, 216.035 )
-script = ExtResource( 8 )
+script = ExtResource( 2 )
 
-[node name="Hit Box" parent="Boss1" instance=ExtResource( 7 )]
+[node name="Hit Box" parent="Boss1" instance=ExtResource( 6 )]
 position = Vector2( -106.908, -89.0899 )
 
 [node name="CollisionShape2D" parent="Boss1/Hit Box" index="0"]
 position = Vector2( 285.088, 383.086 )
 shape = SubResource( 4 )
 
-[node name="Sword" parent="." instance=ExtResource( 5 )]
+[node name="Sword" parent="." instance=ExtResource( 8 )]
 position = Vector2( 580, -90.872 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sword"]
 anims/Move = SubResource( 5 )
 
-[node name="Hit Box" parent="Sword" instance=ExtResource( 7 )]
+[node name="Hit Box" parent="Sword" instance=ExtResource( 6 )]
 [connection signal="pressed" from="Question BOX/Answer1" to="." method="_on_Answer1_pressed"]
 [connection signal="pressed" from="Question BOX/Answer3" to="." method="_win_pressed"]
 [connection signal="pressed" from="Question BOX/Answer4" to="." method="_lose_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://game/gameselection/world3/world3Section.gd" type="Script" id=1]
 [ext_resource path="res://public/image/world3/Section_BG.png" type="Texture" id=2]
@@ -8,8 +8,7 @@
 [ext_resource path="res://game/interface/boss/world3/section3.tscn" type="PackedScene" id=6]
 [ext_resource path="res://game/interface/boss/world3/section2.tscn" type="PackedScene" id=7]
 [ext_resource path="res://game/interface/boss/world3/section1.tscn" type="PackedScene" id=8]
-[ext_resource path="res://game/gameselection/route.gd" type="Script" id=9]
-[ext_resource path="res://public/image/world3/menuButton.png" type="Texture" id=10]
+[ext_resource path="res://game/gameselection/backbutton/back.tscn" type="PackedScene" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 48
@@ -17,10 +16,6 @@ font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 42
-font_data = ExtResource( 5 )
-
-[sub_resource type="DynamicFont" id=3]
-size = 45
 font_data = ExtResource( 5 )
 
 [node name="Control" type="Control"]
@@ -71,6 +66,36 @@ SECTION"
 align = 1
 valign = 1
 
+[node name="SectionButton1" type="TextureButton" parent="."]
+margin_left = 100.0
+margin_top = 250.0
+margin_right = 400.0
+margin_bottom = 500.0
+texture_normal = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Boss1" parent="SectionButton1" instance=ExtResource( 8 )]
+position = Vector2( 62.225, 41 )
+
+[node name="Section1" type="Label" parent="SectionButton1"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -85.5
+margin_top = 25.0
+margin_right = 85.5
+margin_bottom = 68.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.0117647, 0.309804, 0.478431, 1 )
+text = "SECTION I"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="SectionButton2" type="TextureButton" parent="."]
 margin_left = 490.0
 margin_top = 250.0
@@ -101,33 +126,6 @@ text = "SECTION II"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="SectionButton1" type="TextureButton" parent="."]
-margin_left = 100.0
-margin_top = 250.0
-margin_right = 400.0
-margin_bottom = 500.0
-texture_normal = ExtResource( 2 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Boss1" parent="SectionButton1" instance=ExtResource( 8 )]
-position = Vector2( 62.225, 41 )
-
-[node name="Section1" type="Label" parent="SectionButton1"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -85.5
-margin_top = 25.0
-margin_right = 85.5
-margin_bottom = 68.0
-custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 0.0117647, 0.309804, 0.478431, 1 )
-text = "SECTION I"
 
 [node name="SectionButton3" type="TextureButton" parent="."]
 margin_left = 880.0
@@ -166,36 +164,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Start" type="Button" parent="."]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -62.5
-margin_top = -93.0
-margin_right = 62.5
-margin_bottom = -41.0
-custom_fonts/font = SubResource( 3 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_hover = Color( 0.290196, 0.882353, 0.239216, 1 )
-text = "Start"
-flat = true
-script = ExtResource( 9 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MenuButton" type="TextureButton" parent="."]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -187.998
-margin_top = 40.363
-margin_right = -105.998
-margin_bottom = 124.363
-texture_normal = ExtResource( 10 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="backbutton" parent="." instance=ExtResource( 9 )]
+scene_to_load = "res://game/gameselection/chooseWorld/chooseWorld.tscn"
+[connection signal="pressed" from="SectionButton1" to="." method="_on_SectionButton_pressed"]
 [connection signal="pressed" from="SectionButton2" to="." method="_on_SectionButton2_pressed"]
-[connection signal="pressed" from="Start" to="Start" method="_on_world3Start_pressed"]
-[connection signal="pressed" from="MenuButton" to="." method="_on_MenuButton_pressed"]
+[connection signal="pressed" from="SectionButton3" to="." method="_on_SectionButton_pressed"]

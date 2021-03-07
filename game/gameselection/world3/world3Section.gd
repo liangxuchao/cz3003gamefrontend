@@ -18,7 +18,7 @@ func _ready():
 var level_scene = preload("res://game/gameselection/world3/Select Level.tscn").instance()
 var menu_scene = preload("res://game/interface/Menu/World3/Menu.tscn").instance()
 
-func _on_SectionButton2_pressed():
+func _on_SectionButton_pressed():
 	get_tree().get_root().add_child(level_scene)
 	pass # Replace with function body.
 

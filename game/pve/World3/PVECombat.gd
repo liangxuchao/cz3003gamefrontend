@@ -1,6 +1,6 @@
 extends Node2D
-var win_scene = preload("res://game/pvp/World3/Winner.tscn").instance()
-var lose_scene = preload("res://game/pvp/World3/LOSE.tscn").instance()
+var win_scene = preload("res://game/pve/World3/Winner.tscn").instance()
+var lose_scene = preload("res://game/pve/World3/LOSE.tscn").instance()
 var animation = null
 
 # Called when the node enters the scene tree for the first time.

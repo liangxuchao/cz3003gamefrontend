@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://public/image/world1/MEDIUM.png" type="Texture" id=1]
 [ext_resource path="res://public/image/world1/chooseSec.png" type="Texture" id=2]
@@ -6,12 +6,7 @@
 [ext_resource path="res://public/image/world1/HARD.png" type="Texture" id=4]
 [ext_resource path="res://public/image/world1/sectionbg.png" type="Texture" id=5]
 [ext_resource path="res://public/image/world1/jungleBG3.jpg" type="Texture" id=6]
-[ext_resource path="res://public/fonts/soupofjustice.ttf" type="DynamicFontData" id=7]
-[ext_resource path="res://game/gameselection/route.gd" type="Script" id=8]
-
-[sub_resource type="DynamicFont" id=1]
-size = 45
-font_data = ExtResource( 7 )
+[ext_resource path="res://game/gameselection/backbutton/back.tscn" type="PackedScene" id=7]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -114,26 +109,5 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Start" type="Button" parent="."]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -62.5
-margin_top = -93.0
-margin_right = 62.5
-margin_bottom = -41.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_hover = Color( 0.290196, 0.882353, 0.239216, 1 )
-text = "Start"
-flat = true
-script = ExtResource( 8 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureButton" type="TextureButton" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-[connection signal="pressed" from="Start" to="Start" method="_on_world1Start_pressed"]
+[node name="backbutton" parent="." instance=ExtResource( 7 )]
+scene_to_load = "res://game/gameselection/chooseWorld/chooseWorld.tscn"

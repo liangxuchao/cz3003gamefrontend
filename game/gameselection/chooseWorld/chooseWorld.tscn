@@ -1,15 +1,20 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://public/fonts/soupofjustice.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://game/gameselection/route.gd" type="Script" id=2]
 [ext_resource path="res://game/gameselection/backbutton/back.tscn" type="PackedScene" id=3]
+[ext_resource path="res://public/image/common/chooseworldbg1.png" type="Texture" id=4]
+[ext_resource path="res://public/image/common/chooseworldbg2.png" type="Texture" id=5]
+[ext_resource path="res://public/image/common/chooseworldbg3.png" type="Texture" id=6]
+[ext_resource path="res://public/image/common/chooseworldbg3_normal.png" type="Texture" id=7]
+[ext_resource path="res://public/image/common/chooseworldbg1_normal.png" type="Texture" id=8]
+[ext_resource path="res://public/image/common/chooseworldbg2_normal.png" type="Texture" id=9]
+[ext_resource path="res://public/image/common/java.png" type="Texture" id=10]
+[ext_resource path="res://public/image/common/php.png" type="Texture" id=11]
+[ext_resource path="res://public/image/common/python.png" type="Texture" id=12]
 
 [sub_resource type="DynamicFont" id=1]
-size = 42
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=2]
-size = 30
+size = 44
 font_data = ExtResource( 1 )
 
 [node name="Control" type="Control"]
@@ -19,63 +24,123 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 1.18921
-margin_bottom = 1.18921
+color = Color( 0.784314, 0.780392, 0.780392, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 487.0
-margin_top = 190.0
-margin_right = 792.0
-margin_bottom = 530.0
-custom_constants/separation = 50
+[node name="world1" type="TextureButton" parent="."]
+anchor_bottom = 1.0
+margin_right = 426.6
+margin_bottom = 6.10352e-05
+texture_normal = ExtResource( 4 )
+texture_hover = ExtResource( 8 )
+expand = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
-margin_right = 305.0
-margin_bottom = 43.0
+[node name="TextureRect" type="TextureRect" parent="world1"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -100.0
+margin_right = 100.0
+margin_bottom = 100.0
+texture = ExtResource( 12 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="world2" type="TextureButton" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -213.0
+margin_top = -360.0
+margin_right = 213.0
+margin_bottom = 360.0
+texture_normal = ExtResource( 5 )
+texture_hover = ExtResource( 9 )
+expand = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="world2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -100.0
+margin_right = 100.0
+margin_bottom = 100.0
+texture = ExtResource( 11 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="world3" type="TextureButton" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -426.8
+margin_top = -360.0
+margin_bottom = 360.0
+texture_normal = ExtResource( 6 )
+texture_hover = ExtResource( 7 )
+expand = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="world3"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -100.0
+margin_right = 100.0
+margin_bottom = 100.0
+texture = ExtResource( 10 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -261.0
+margin_top = 61.0
+margin_right = 261.0
+margin_bottom = 105.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color_shadow = Color( 1, 0.592157, 0, 1 )
 custom_constants/shadow_offset_x = 0
 custom_constants/shadow_offset_y = 5
-text = "New Game Scene"
-
-[node name="world1" type="Button" parent="CenterContainer/VBoxContainer"]
-margin_top = 93.0
-margin_right = 305.0
-margin_bottom = 113.0
-text = "World 1"
-script = ExtResource( 2 )
-
-[node name="world2" type="Button" parent="CenterContainer/VBoxContainer"]
-margin_top = 163.0
-margin_right = 305.0
-margin_bottom = 183.0
-text = "World 2"
-script = ExtResource( 2 )
-
-[node name="world3" type="Button" parent="CenterContainer/VBoxContainer"]
-margin_top = 233.0
-margin_right = 305.0
-margin_bottom = 253.0
-text = "World 3"
-script = ExtResource( 2 )
-
-[node name="Button" type="Button" parent="CenterContainer/VBoxContainer"]
-margin_top = 303.0
-margin_right = 305.0
-margin_bottom = 340.0
-custom_fonts/font = SubResource( 2 )
-text = "Back"
-script = ExtResource( 2 )
+text = "Start advanture"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="backbutton" parent="." instance=ExtResource( 3 )]
 scene_to_load = "res://game/gameselection/chooseCharacter/chooseCharacter.tscn"
-[connection signal="pressed" from="CenterContainer/VBoxContainer/world1" to="CenterContainer/VBoxContainer/world1" method="_on_world1_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/world2" to="CenterContainer/VBoxContainer/world2" method="_on_world2_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/world3" to="CenterContainer/VBoxContainer/world3" method="_on_world3_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/Button" to="CenterContainer/VBoxContainer/Button" method="_on_redirectCharacter_pressed"]
+[connection signal="pressed" from="world1" to="world1" method="_on_world1_pressed"]
+[connection signal="pressed" from="world2" to="world2" method="_on_world2_pressed"]
+[connection signal="pressed" from="world3" to="world3" method="_on_world3_pressed"]
