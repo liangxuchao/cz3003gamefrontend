@@ -1,7 +1,6 @@
 {
   "APIrooturl": "http://cz3003arsenal.southeastasia.cloudapp.azure.com:8080",
-  "APItoken": true,
-  "Username":"",
-  "Password":"",
-
+  "AccessToken": "",
+  "Username": "",
+  "Password": ""
 }
