@@ -26,3 +26,7 @@ func _on_SectionButton_pressed():
 func _on_MenuButton_pressed():
 	get_tree().get_root().add_child(menu_scene)
 	pass # Replace with function body.
+
+
+func _on_SectionButton2_pressed():
+	get_tree().get_root().add_child(level_scene) # Replace with function body.
