@@ -1,6 +1,4 @@
 extends Control
-
-
 onready var httpNode = $HTTPRequest
 onready var username = $TextureRect2/VBoxContainer/Username
 onready var password = $TextureRect2/VBoxContainer/Password
@@ -18,7 +16,7 @@ func _ready():
 	if dict["Username"] != "" && dict["Password"] != "":
 		username.text = dict["Username"]
 		password.text = dict["Password"] 
-	
+
 func _on_submit_pressed():
 	if username.text == "" || password.text == "":
 		alertLabel.text = "Please key in \n both username \n and password!"

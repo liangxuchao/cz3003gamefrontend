@@ -3,11 +3,20 @@ var win_scene = preload("res://game/pve/World3/Winner.tscn").instance()
 var lose_scene = preload("res://game/pve/World3/LOSE.tscn").instance()
 var animation = null
 
+var menu_scene = preload("res://game/interface/Menu/World3/Menu.tscn").instance()
+var currentlvl;
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	currentlvl = Global.pvelvlselection;
+	#api call
+	
+	#end 
 	$Sword/Sprite.frame=1
 	animation = $Sword/AnimationPlayer
 
+func _on_MenuButton_pressed():
+	get_tree().get_root().add_child(menu_scene)
+	pass # Replace with function body.
 
 
 func _on_Answer1_pressed():

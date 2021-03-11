@@ -5,15 +5,15 @@
 [ext_resource path="res://login/login.gd" type="Script" id=3]
 [ext_resource path="res://public/image/common/vectorstock_7926680.jpg" type="Texture" id=4]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 30
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 size = 18
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=3]
 size = 35
 font_data = ExtResource( 1 )
 
@@ -76,7 +76,7 @@ margin_left = -165.0
 margin_top = -63.0
 margin_right = 165.0
 margin_bottom = 63.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 align = 1
 valign = 1
 __meta__ = {
@@ -92,7 +92,7 @@ margin_left = -28.5
 margin_top = -41.0
 margin_right = 28.5
 margin_bottom = -16.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "Enter"
 flat = true
 __meta__ = {
@@ -113,7 +113,7 @@ __meta__ = {
 [node name="Title" type="Label" parent="TextureRect2/VBoxContainer"]
 margin_right = 330.0
 margin_bottom = 36.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 text = "Login"
 align = 1
 

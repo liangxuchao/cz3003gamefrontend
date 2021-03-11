@@ -91,13 +91,13 @@ __meta__ = {
 [node name="Button" type="Button" parent="TextureRect"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -97.5
-margin_top = 80.0
-margin_right = 97.5
-margin_bottom = 141.0
+margin_left = -86.0
+margin_top = 100.0
+margin_right = 86.0
+margin_bottom = 161.0
 custom_styles/normal = SubResource( 2 )
 custom_fonts/font = SubResource( 3 )
-text = "Home page"
+text = "Retry"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -108,28 +108,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -86.0
-margin_top = -30.0
+margin_top = -9.99998
 margin_right = 86.0
-margin_bottom = 31.0
+margin_bottom = 51.0
 custom_styles/normal = SubResource( 2 )
 custom_fonts/font = SubResource( 3 )
 text = "Quit"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button3" type="Button" parent="TextureRect"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -86.0
-margin_top = 50.0
-margin_right = 86.0
-margin_bottom = 111.0
-custom_styles/normal = SubResource( 2 )
-custom_fonts/font = SubResource( 3 )
-text = "hard"
 __meta__ = {
 "_edit_use_anchors_": false
 }

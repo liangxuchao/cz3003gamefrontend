@@ -1,32 +1,26 @@
 extends Control
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+onready var levelpopup = $levelpopup
+onready var leveltitle = $levelpopup/TextureRect/levelTitle/Title
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _on_SectionButton_pressed(sectiontitle):
+	#api call
+	leveltitle.text = sectiontitle
+	levelpopup.popup()
 
-var level_scene = preload("res://game/gameselection/world3/Select Level.tscn").instance()
-var menu_scene = preload("res://game/interface/Menu/World3/Menu.tscn").instance()
 
-func _on_SectionButton_pressed():
-	get_tree().get_root().add_child(level_scene)
+
+func _on_CloseButton_pressed():
+	levelpopup.visible = false
+
+
+func _on_level_pressed(level):
+	Global.pvelvlselection = level
+	get_tree().change_scene("res://game/pve/World3/PVECombat.tscn")
 	pass # Replace with function body.
-
-
-func _on_MenuButton_pressed():
-	get_tree().get_root().add_child(menu_scene)
-	pass # Replace with function body.
-
-
-func _on_SectionButton2_pressed():
-	get_tree().get_root().add_child(level_scene) # Replace with function body.
