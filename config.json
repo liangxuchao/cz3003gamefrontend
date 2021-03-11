@@ -1,6 +1,6 @@
 {
   "APIrooturl": "http://cz3003arsenal.southeastasia.cloudapp.azure.com:8080",
-  "AccessToken": "",
-  "Username": "",
-  "Password": ""
+  "AccessToken": "eyJraWQiOiJrMSIsImFsZyI6IlJTNTEyIn0.eyJpc3MiOiJBcnNlbmFsU2VydmVyIiwiYXVkIjoiQXJzZW5hbEFwcCIsImV4cCI6MTYxNTU1ODc4MCwianRpIjoiNTk1UDZGVjVIVVVidkctS2tSMnp4QSIsImlhdCI6MTYxNTQ3MjM4MCwibmJmIjoxNjE1NDcyMjYwLCJzdWIiOiJzdGQxIiwiZ3JhbnRlZEF1dGhvcml0aWVzIjpbIlBMQVlFUiJdfQ.p2xoDqX_TYdHAO8njza--FuYZg_Xxe1AFq4arEz5iYTsEiKNCnW96dg5PeqURp4UTL-DsTZX26hRTm0cFPTem3q2T_e-NkJODO7l02FDyC6m1rpEZ8_LUqZ2hOrBZ6ec8CKPy7Hl7S0AgUhTt88Oe_2FNxSusMdy-KRDRr4DuyV6S_tgUovou44pA5nefJMaNsnzf2wjA6KKKrk9UKwZWgD7CZfk7M3zHjPaJ97g9iK8DnWGGjxH8g19ketfYNCOWCJ3Q0HkvHsT-WeyOysu9UqSBBLSIBoT-ICQY70u04dYg9My5YmgxDN58iVngzX7Jx14a4PG8N1AVH7BJkZKbQ",
+  "Password": "std1",
+  "Username": "std1"
 }

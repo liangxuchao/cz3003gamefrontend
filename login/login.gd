@@ -5,17 +5,12 @@ onready var password = $TextureRect2/VBoxContainer/Password
 onready var alertpopup = $TextureRect2/PopupDialog
 onready var alertLabel = $TextureRect2/PopupDialog/Label
 
-var dict = {} 
 
 func _ready():
-	var file = File.new()
-	file.open("res://config.json", file.READ)
-	var text = file.get_as_text();
-	dict = parse_json(text);
-	file.close();
-	if dict["Username"] != "" && dict["Password"] != "":
-		username.text = dict["Username"]
-		password.text = dict["Password"] 
+		
+	if Global.Username != "" && Global.Password != "":
+		username.text = Global.Username
+		password.text = Global.Password
 
 func _on_submit_pressed():
 	if username.text == "" || password.text == "":
@@ -34,9 +29,10 @@ func _on_submit_pressed():
 		
 func _on_request_completed(result, response_code,headers, body):	
 	var json = JSON.parse(body.get_string_from_utf8())
-	print(body.get_string_from_utf8())
 	
 	if response_code == 200:
+		Global.updateConfig("AccessToken",json.result["access_token"])
+		Global.AccessToken = json.result["access_token"];
 		get_tree().change_scene('res://game/title_screen/TitleScreen.tscn')
 	else:
 		alertLabel.text = "Login failed! \n Please try again!"
