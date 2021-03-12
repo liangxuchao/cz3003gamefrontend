@@ -16,7 +16,7 @@
 size = 48
 font_data = ExtResource( 5 )
 
-[sub_resource type="GDScript" id=7]
+[sub_resource type="GDScript" id=2]
 script/source = "extends TextureButton
 
 export(String) var sectiontitle
@@ -24,22 +24,22 @@ export(String) var sectiontitle
 
 "
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 size = 42
 font_data = ExtResource( 5 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=4]
 size = 38
 font_data = ExtResource( 5 )
 
-[sub_resource type="StyleBoxFlat" id=6]
+[sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 0.2, 0.337255, 0.541176, 0.862745 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=6]
 size = 40
 font_data = ExtResource( 5 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=7]
 size = 32
 font_data = ExtResource( 5 )
 
@@ -98,7 +98,7 @@ margin_right = 400.0
 margin_bottom = 500.0
 texture_normal = ExtResource( 2 )
 expand = true
-script = SubResource( 7 )
+script = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -116,7 +116,7 @@ margin_left = -85.5
 margin_top = 25.0
 margin_right = 85.5
 margin_bottom = 68.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.0117647, 0.309804, 0.478431, 1 )
 text = "SECTION I"
 __meta__ = {
@@ -147,7 +147,7 @@ margin_left = -91.5
 margin_top = 25.0
 margin_right = 91.5
 margin_bottom = 68.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.0117647, 0.309804, 0.478431, 1 )
 text = "SECTION II"
 __meta__ = {
@@ -177,7 +177,7 @@ margin_left = -97.5
 margin_top = 25.0
 margin_right = 97.5
 margin_bottom = 68.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.0117647, 0.309804, 0.478431, 1 )
 text = "SECTION III"
 __meta__ = {
@@ -249,7 +249,7 @@ margin_left = -51.5
 margin_top = -19.5
 margin_right = 51.5
 margin_bottom = 19.5
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.0117647, 0.309804, 0.592157, 1 )
 text = "Close"
 align = 1
@@ -267,8 +267,8 @@ margin_left = -86.0
 margin_top = -110.0
 margin_right = 86.0
 margin_bottom = -49.0
-custom_styles/normal = SubResource( 6 )
-custom_fonts/font = SubResource( 3 )
+custom_styles/normal = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 text = "Easy"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -283,8 +283,8 @@ margin_left = -86.0
 margin_top = -30.0
 margin_right = 86.0
 margin_bottom = 31.0
-custom_styles/normal = SubResource( 6 )
-custom_fonts/font = SubResource( 3 )
+custom_styles/normal = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 text = "Medium"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -299,8 +299,8 @@ margin_left = -86.0
 margin_top = 50.0
 margin_right = 86.0
 margin_bottom = 111.0
-custom_styles/normal = SubResource( 6 )
-custom_fonts/font = SubResource( 3 )
+custom_styles/normal = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 text = "hard"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -328,7 +328,7 @@ margin_left = -69.5
 margin_top = -16.0
 margin_right = 69.5
 margin_bottom = 16.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0.0117647, 0.309804, 0.478431, 1 )
 __meta__ = {
 "_edit_use_anchors_": false

@@ -1,6 +1,6 @@
 extends Node2D
-var win_scene = preload("res://game/pve/World3/Winner.tscn").instance()
-var lose_scene = preload("res://game/pve/World3/LOSE.tscn").instance()
+var win_scene = preload("res://game/pve/World2/Winner.tscn").instance()
+var lose_scene = preload("res://game/pve/World2/LOSE.tscn").instance()
 var animation = null
 
 var menu_scene = preload("res://game/interface/Menu/World3/Menu.tscn").instance()
