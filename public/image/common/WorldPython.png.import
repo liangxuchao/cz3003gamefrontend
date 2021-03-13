@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/chooseworldbg2_normal.png-516da039b48b6d0a4710b888290c721c.stex"
+path="res://.import/WorldPython.png-2f9a62abd9733c3c4afc7509ffc6e246.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://public/image/common/chooseworldbg2_normal.png"
-dest_files=[ "res://.import/chooseworldbg2_normal.png-516da039b48b6d0a4710b888290c721c.stex" ]
+source_file="res://public/image/common/WorldPython.png"
+dest_files=[ "res://.import/WorldPython.png-2f9a62abd9733c3c4afc7509ffc6e246.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/chooseworldbg3.png-78e9f49376dfa21493741236eff284a3.stex"
+path="res://.import/WorldphpHover.png-e41873ea13ae294863e7b1dc81a17a2e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://public/image/common/chooseworldbg3.png"
-dest_files=[ "res://.import/chooseworldbg3.png-78e9f49376dfa21493741236eff284a3.stex" ]
+source_file="res://public/image/common/WorldphpHover.png"
+dest_files=[ "res://.import/WorldphpHover.png-e41873ea13ae294863e7b1dc81a17a2e.stex" ]
 
 [params]
 
