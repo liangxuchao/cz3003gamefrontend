@@ -42,8 +42,11 @@ radius = 41.1866
 radius = 84.4353
 height = 76.3243
 
-[node name="Node2D" type="Node2D"]
+[node name="Control" type="Control"]
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Background" type="TextureRect" parent="."]
 margin_left = 1.78174
