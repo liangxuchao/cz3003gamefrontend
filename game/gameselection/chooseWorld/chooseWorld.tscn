@@ -1,22 +1,18 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://public/fonts/soupofjustice.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://game/gameselection/route.gd" type="Script" id=2]
 [ext_resource path="res://game/backbutton/back.tscn" type="PackedScene" id=3]
-[ext_resource path="res://public/image/common/chooseworldbg1.png" type="Texture" id=4]
-[ext_resource path="res://public/image/common/chooseworldbg2.png" type="Texture" id=5]
-[ext_resource path="res://public/image/common/chooseworldbg3.png" type="Texture" id=6]
-[ext_resource path="res://public/image/common/chooseworldbg3_normal.png" type="Texture" id=7]
-[ext_resource path="res://public/image/common/chooseworldbg1_normal.png" type="Texture" id=8]
-[ext_resource path="res://public/image/common/chooseworldbg2_normal.png" type="Texture" id=9]
-[ext_resource path="res://public/image/common/java.png" type="Texture" id=10]
-[ext_resource path="res://public/image/common/php.png" type="Texture" id=11]
-[ext_resource path="res://public/image/common/python.png" type="Texture" id=12]
-
-
+[ext_resource path="res://public/image/common/WorldphpHover.png" type="Texture" id=4]
+[ext_resource path="res://public/image/common/Worldphp.png" type="Texture" id=5]
+[ext_resource path="res://public/image/common/WorldPythonHover.png" type="Texture" id=6]
+[ext_resource path="res://public/image/common/WorldJavaHover.png" type="Texture" id=7]
+[ext_resource path="res://public/image/common/WorldJava.png" type="Texture" id=8]
+[ext_resource path="res://public/image/common/WorldPython.png" type="Texture" id=9]
 
 [sub_resource type="DynamicFont" id=1]
-size = 44
+size = 61
+extra_spacing_char = 6
 font_data = ExtResource( 1 )
 
 [node name="Control" type="Control"]
@@ -38,25 +34,10 @@ __meta__ = {
 anchor_bottom = 1.0
 margin_right = 426.6
 margin_bottom = 6.10352e-05
-texture_normal = ExtResource( 4 )
-texture_hover = ExtResource( 8 )
+texture_normal = ExtResource( 5 )
+texture_hover = ExtResource( 4 )
 expand = true
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect" type="TextureRect" parent="world1"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -100.0
-margin_top = -100.0
-margin_right = 100.0
-margin_bottom = 100.0
-texture = ExtResource( 12 )
-expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -70,25 +51,10 @@ margin_left = -213.0
 margin_top = -360.0
 margin_right = 213.0
 margin_bottom = 360.0
-texture_normal = ExtResource( 5 )
-texture_hover = ExtResource( 9 )
+texture_normal = ExtResource( 8 )
+texture_hover = ExtResource( 7 )
 expand = true
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect2" type="TextureRect" parent="world2"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -100.0
-margin_top = -100.0
-margin_right = 100.0
-margin_bottom = 100.0
-texture = ExtResource( 11 )
-expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -101,47 +67,34 @@ anchor_bottom = 0.5
 margin_left = -426.8
 margin_top = -360.0
 margin_bottom = 360.0
-texture_normal = ExtResource( 6 )
-texture_hover = ExtResource( 7 )
+texture_normal = ExtResource( 9 )
+texture_hover = ExtResource( 6 )
 expand = true
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="world3"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -100.0
-margin_top = -100.0
-margin_right = 100.0
-margin_bottom = 100.0
-texture = ExtResource( 10 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Label" type="Label" parent="."]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -261.0
-margin_top = 61.0
-margin_right = 261.0
-margin_bottom = 105.0
+anchor_left = 0.286328
+anchor_top = 0.0916667
+anchor_right = 0.713672
+anchor_bottom = 0.177778
 custom_fonts/font = SubResource( 1 )
-custom_colors/font_color_shadow = Color( 1, 0.592157, 0, 1 )
+custom_colors/font_color = Color( 0.0771484, 0.488861, 0.617188, 1 )
+custom_colors/font_color_shadow = Color( 0.6, 0.6, 0.6, 1 )
 custom_constants/shadow_offset_x = 0
 custom_constants/shadow_offset_y = 5
 text = "Start advanture"
 align = 1
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": true
 }
 
 [node name="backbutton" parent="." instance=ExtResource( 3 )]
+margin_top = 18.3182
+margin_right = 122.0
+margin_bottom = 64.3182
 scene_to_load = "res://game/gameselection/chooseCharacter/chooseCharacter.tscn"
 [connection signal="pressed" from="world1" to="world1" method="_on_world1_pressed"]
 [connection signal="pressed" from="world2" to="world2" method="_on_world2_pressed"]
