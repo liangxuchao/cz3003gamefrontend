@@ -1,0 +1,20 @@
+[gd_scene format=2]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -216.781
+margin_top = -375.38
+margin_right = 121.219
+margin_bottom = -6.37964
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
