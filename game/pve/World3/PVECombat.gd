@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 var win_scene = preload("res://game/pve/World3/Winner.tscn").instance()
 var lose_scene = preload("res://game/pve/World3/LOSE.tscn").instance()
 var animation = null

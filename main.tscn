@@ -1,11 +1,9 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://login/login.tscn" type="PackedScene" id=2]
+[ext_resource path="res://login/Loading.tscn" type="PackedScene" id=1]
 
 [node name="Game" type="Node"]
 
 [node name="Interface" type="CanvasLayer" parent="."]
 
-[node name="LoginScreen" parent="Interface" instance=ExtResource( 2 )]
-anchor_top = 0.00134794
-anchor_bottom = 1.00135
+[node name="Control" parent="Interface" instance=ExtResource( 1 )]
