@@ -8,9 +8,8 @@ onready var alertLabel = $TextureRect2/PopupDialog/Label
 
 func _ready():
 		
-	if Global.Username != "" && Global.Password != "":
+	if Global.Username != "" :
 		username.text = Global.Username
-		password.text = Global.Password
 
 func _on_submit_pressed():
 	if username.text == "" || password.text == "":

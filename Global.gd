@@ -7,7 +7,6 @@ var AccessToken;
 var pvelvlselection;
 var APIrooturl;
 var Username;
-var Password;
 
 func _ready():
 	var file = File.new()
@@ -17,7 +16,6 @@ func _ready():
 	file.close();
 	
 	Username = dict["Username"];
-	Password = dict["Password"];
 	
 	APIrooturl = dict["APIrooturl"];
 	AccessToken = dict["AccessToken"];

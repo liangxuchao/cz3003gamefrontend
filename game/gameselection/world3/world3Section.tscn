@@ -8,7 +8,7 @@
 [ext_resource path="res://game/interface/boss/world3/section3.tscn" type="PackedScene" id=6]
 [ext_resource path="res://game/interface/boss/world3/section2.tscn" type="PackedScene" id=7]
 [ext_resource path="res://game/interface/boss/world3/section1.tscn" type="PackedScene" id=8]
-[ext_resource path="res://game/gameselection/backbutton/back.tscn" type="PackedScene" id=9]
+[ext_resource path="res://game/backbutton/back.tscn" type="PackedScene" id=9]
 [ext_resource path="res://public/image/world3/Button.png" type="Texture" id=10]
 [ext_resource path="res://public/image/world3/PVP_Title.png" type="Texture" id=11]
 
@@ -188,6 +188,7 @@ __meta__ = {
 scene_to_load = "res://game/gameselection/chooseWorld/chooseWorld.tscn"
 
 [node name="levelpopup" type="Popup" parent="."]
+visible = true
 margin_right = 1280.0
 margin_bottom = 720.0
 __meta__ = {
@@ -337,3 +338,5 @@ __meta__ = {
 [connection signal="pressed" from="SectionButton3" to="." method="_on_SectionButton_pressed" binds= [ "SECTION III" ]]
 [connection signal="pressed" from="levelpopup/TextureRect/CloseButton" to="." method="_on_CloseButton_pressed"]
 [connection signal="pressed" from="levelpopup/TextureRect/Button" to="." method="_on_level_pressed" binds= [ "1" ]]
+[connection signal="pressed" from="levelpopup/TextureRect/Button2" to="." method="_on_level_pressed" binds= [ 2 ]]
+[connection signal="pressed" from="levelpopup/TextureRect/Button3" to="." method="_on_level_pressed" binds= [ 3 ]]

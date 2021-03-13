@@ -1,12 +1,23 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://game/leaderboard/Panel.gd" type="Script" id=1]
+[ext_resource path="res://public/image/common/vectorstock_7926680.jpg" type="Texture" id=2]
+[ext_resource path="res://game/backbutton/back.tscn" type="PackedScene" id=3]
 
 [node name="leaderboard" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -2.24512
 margin_right = -2.24512
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -27,3 +38,6 @@ __meta__ = {
 }
 
 [node name="HTTPRequest" type="HTTPRequest" parent="Panel"]
+
+[node name="backbutton" parent="." instance=ExtResource( 3 )]
+scene_to_load = "res://game/title_screen/TitleScreen.tscn"

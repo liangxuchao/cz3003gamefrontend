@@ -6,7 +6,7 @@
 [ext_resource path="res://public/image/world1/HARD.png" type="Texture" id=4]
 [ext_resource path="res://public/image/world1/sectionbg.png" type="Texture" id=5]
 [ext_resource path="res://public/image/world1/jungleBG3.jpg" type="Texture" id=6]
-[ext_resource path="res://game/gameselection/backbutton/back.tscn" type="PackedScene" id=7]
+[ext_resource path="res://game/backbutton/back.tscn" type="PackedScene" id=7]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0

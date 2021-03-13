@@ -2,7 +2,7 @@
 
 [ext_resource path="res://public/fonts/soupofjustice.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://game/gameselection/route.gd" type="Script" id=2]
-[ext_resource path="res://game/gameselection/backbutton/back.tscn" type="PackedScene" id=3]
+[ext_resource path="res://game/backbutton/back.tscn" type="PackedScene" id=3]
 [ext_resource path="res://public/image/common/chooseworldbg1.png" type="Texture" id=4]
 [ext_resource path="res://public/image/common/chooseworldbg2.png" type="Texture" id=5]
 [ext_resource path="res://public/image/common/chooseworldbg3.png" type="Texture" id=6]
@@ -12,6 +12,8 @@
 [ext_resource path="res://public/image/common/java.png" type="Texture" id=10]
 [ext_resource path="res://public/image/common/php.png" type="Texture" id=11]
 [ext_resource path="res://public/image/common/python.png" type="Texture" id=12]
+
+
 
 [sub_resource type="DynamicFont" id=1]
 size = 44
