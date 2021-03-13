@@ -14,11 +14,8 @@ size = 18
 font_data = ExtResource( 1 )
 
 [node name="LoginScreen" type="Control"]
-anchor_left = -0.000827789
-anchor_right = 0.999172
+anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 1.0
-margin_right = 1.0
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -29,8 +26,6 @@ __meta__ = {
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 0.05957
-margin_right = 0.0595703
 texture = ExtResource( 2 )
 expand = true
 __meta__ = {
