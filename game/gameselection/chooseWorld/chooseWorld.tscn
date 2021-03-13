@@ -13,8 +13,6 @@
 [ext_resource path="res://public/image/common/php.png" type="Texture" id=11]
 [ext_resource path="res://public/image/common/python.png" type="Texture" id=12]
 
-
-
 [sub_resource type="DynamicFont" id=1]
 size = 44
 font_data = ExtResource( 1 )
