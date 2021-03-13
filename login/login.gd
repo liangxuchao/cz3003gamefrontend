@@ -40,5 +40,4 @@ func _on_request_completed_login(result, response_code,headers, body):
 
 
 func _on_enter_pressed():
-	
 	alertpopup.visible = false;

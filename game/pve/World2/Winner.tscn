@@ -7,11 +7,11 @@
 [ext_resource path="res://game/pve/World3/Winner.gd" type="Script" id=5]
 [ext_resource path="res://public/image/world2/4Z_2101.w017.n001.354B.p15.354-removebg-preview copy 4.png" type="Texture" id=6]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 48
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 38
 font_data = ExtResource( 2 )
 
@@ -59,7 +59,7 @@ margin_left = -69.5
 margin_top = -31.0
 margin_right = 69.5
 margin_bottom = 1.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "YOU WIN"
 __meta__ = {
@@ -105,7 +105,7 @@ margin_left = -51.5
 margin_top = -20.634
 margin_right = 51.5
 margin_bottom = 18.366
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.351562, 0.215942, 0.0609474, 1 )
 text = "NEXT"
 align = 1
@@ -136,7 +136,7 @@ margin_left = -85.5
 margin_top = -24.0
 margin_right = 85.5
 margin_bottom = 24.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.396078, 0.12549, 0.0156863, 1 )
 text = "YOU WIN"
 align = 1
