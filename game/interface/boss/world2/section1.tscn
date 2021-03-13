@@ -1,3 +1,8 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
 
-[node name="Node2D" type="Sprite"]
+[ext_resource path="res://public/image/world2/boss1.png" type="Texture" id=1]
+
+[node name="boss1" type="Sprite"]
+position = Vector2( 91.8108, 108.94 )
+scale = Vector2( 0.730431, 0.653344 )
+texture = ExtResource( 1 )
