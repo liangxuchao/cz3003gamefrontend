@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/chooseworldbg1.png-e447bbe76d039dba375dd6c11065dc05.stex"
+path="res://.import/Worldphp.png-491d91fc5248ff872af0f0632d7a44cd.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://public/image/common/chooseworldbg1.png"
-dest_files=[ "res://.import/chooseworldbg1.png-e447bbe76d039dba375dd6c11065dc05.stex" ]
+source_file="res://public/image/common/Worldphp.png"
+dest_files=[ "res://.import/Worldphp.png-491d91fc5248ff872af0f0632d7a44cd.stex" ]
 
 [params]
 

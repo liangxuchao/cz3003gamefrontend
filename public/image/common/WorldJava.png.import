@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/chooseworldbg1_normal.png-ae244e494657d83aefe17f188daaac75.stex"
+path="res://.import/WorldJava.png-0f97663d3248dd8fecbcee1a3a7a4088.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://public/image/common/chooseworldbg1_normal.png"
-dest_files=[ "res://.import/chooseworldbg1_normal.png-ae244e494657d83aefe17f188daaac75.stex" ]
+source_file="res://public/image/common/WorldJava.png"
+dest_files=[ "res://.import/WorldJava.png-0f97663d3248dd8fecbcee1a3a7a4088.stex" ]
 
 [params]
 

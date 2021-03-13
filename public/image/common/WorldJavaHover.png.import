@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/php.png-40bb217a5240e7445ae40966339aa094.stex"
+path="res://.import/WorldJavaHover.png-df6dd8f620f2859211555e1e6e29b668.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://public/image/common/php.png"
-dest_files=[ "res://.import/php.png-40bb217a5240e7445ae40966339aa094.stex" ]
+source_file="res://public/image/common/WorldJavaHover.png"
+dest_files=[ "res://.import/WorldJavaHover.png-df6dd8f620f2859211555e1e6e29b668.stex" ]
 
 [params]
 
