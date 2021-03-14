@@ -64,9 +64,9 @@ __meta__ = {
 [node name="Title_bg" type="TextureRect" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -200.0
+margin_left = -198.218
 margin_top = 45.0
-margin_right = 200.0
+margin_right = 201.782
 margin_bottom = 225.0
 rect_clip_content = true
 texture = ExtResource( 3 )
@@ -188,7 +188,6 @@ __meta__ = {
 scene_to_load = "res://game/gameselection/chooseWorld/chooseWorld.tscn"
 
 [node name="levelpopup" type="Popup" parent="."]
-visible = true
 margin_right = 1280.0
 margin_bottom = 720.0
 __meta__ = {
