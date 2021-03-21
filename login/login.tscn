@@ -134,6 +134,9 @@ text = "Username"
 margin_top = 114.0
 margin_right = 330.0
 margin_bottom = 138.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="PasswordTitle" type="Label" parent="TextureRect2/VBoxContainer"]
 margin_top = 142.0
