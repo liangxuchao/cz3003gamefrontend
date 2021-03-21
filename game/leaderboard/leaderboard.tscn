@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://game/leaderboard/Panel.gd" type="Script" id=1]
-[ext_resource path="res://public/image/common/vectorstock_7926680.jpg" type="Texture" id=2]
+[ext_resource path="res://public/image/common/bgMain.jpg" type="Texture" id=2]
 [ext_resource path="res://game/backbutton/back.tscn" type="PackedScene" id=3]
 
 [node name="leaderboard" type="Control"]
