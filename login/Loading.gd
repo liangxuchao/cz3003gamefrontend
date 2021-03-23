@@ -11,11 +11,12 @@ func _ready():
 		var query = "?token=" + Global.AccessToken;
 		httpNode.connect("request_completed", self, "_on_request_completed_tokenstatus")
 		httpNode.request(Global.APIrooturl +  "/verify" + query,[],false,HTTPClient.METHOD_POST)
+		#animation = $Label/AnimationPlayer
+		#animation.play("Loading")
 	else:
 		get_tree().change_scene('res://login/login.tscn')
 		
-#	animation = $Label/AnimationPlayer
-#	animation.play("loading")
+	
 		
 
 func _on_request_completed_tokenstatus(result, response_code,headers, body):	
