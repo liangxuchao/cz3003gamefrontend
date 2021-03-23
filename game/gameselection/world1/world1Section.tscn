@@ -67,7 +67,7 @@ texture_normal = ExtResource( 3 )
 expand = true
 script = ExtResource( 14 )
 __meta__ = {
-"_edit_use_anchors_": true
+"_edit_use_anchors_": false
 }
 
 [node name="boss1" parent="SectionButton1" instance=ExtResource( 10 )]
@@ -93,7 +93,7 @@ anchor_bottom = 0.673611
 texture_normal = ExtResource( 3 )
 expand = true
 __meta__ = {
-"_edit_use_anchors_": true
+"_edit_use_anchors_": false
 }
 
 [node name="boss2" parent="SectionButton2" instance=ExtResource( 8 )]
@@ -119,7 +119,7 @@ anchor_bottom = 0.673611
 texture_normal = ExtResource( 3 )
 expand = true
 __meta__ = {
-"_edit_use_anchors_": true
+"_edit_use_anchors_": false
 }
 
 [node name="boss3" parent="SectionButton3" instance=ExtResource( 9 )]
@@ -154,8 +154,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="Popup"]
-modulate = Color( 0.152941, 0.345098, 0.196078, 0.494118 )
+[node name="BG" type="ColorRect" parent="Popup"]
+modulate = Color( 0.152941, 0.345098, 0.196078, 0.552941 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -254,3 +254,7 @@ __meta__ = {
 [connection signal="pressed" from="SectionButton1" to="." method="_on_SectionButton1_pressed" binds= [ "SECION I" ]]
 [connection signal="pressed" from="SectionButton2" to="." method="_on_SectionButton1_pressed" binds= [ "SECTION II" ]]
 [connection signal="pressed" from="SectionButton3" to="." method="_on_SectionButton1_pressed" binds= [ "SECION III" ]]
+[connection signal="pressed" from="Popup/TextureRect/Easy" to="." method="_on_level_pressed" binds= [ 1 ]]
+[connection signal="pressed" from="Popup/TextureRect/Medium" to="." method="_on_level_pressed" binds= [ 2 ]]
+[connection signal="pressed" from="Popup/TextureRect/Hard" to="." method="_on_level_pressed" binds= [ 3 ]]
+[connection signal="pressed" from="Popup/TextureRect/Close" to="." method="_on_Close_pressed"]
