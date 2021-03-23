@@ -18,14 +18,14 @@
 size = 45
 font_data = ExtResource( 5 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=2]
 size = 48
 font_data = ExtResource( 5 )
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.396078, 0.12549, 0.0156863, 1 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=4]
 size = 48
 font_data = ExtResource( 5 )
 
@@ -284,7 +284,7 @@ margin_left = -109.687
 margin_top = -20.1865
 margin_right = 117.313
 margin_bottom = 27.8135
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 2 )
 text = "CLOSE"
 align = 1
 valign = 1
@@ -292,19 +292,19 @@ valign = 1
 [node name="Button" type="Button" parent="levelpopup/TextureRect"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -72.5
+margin_left = -79.5
 margin_top = 92.0838
-margin_right = 78.5
+margin_right = 80.5
 margin_bottom = 162.084
-custom_styles/normal = SubResource( 2 )
-custom_fonts/font = SubResource( 3 )
+custom_styles/normal = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color_disabled = Color( 0.396078, 0.12549, 0.0156863, 1 )
 text = "easy"
 
 [node name="Button2" type="Button" parent="levelpopup/TextureRect"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -77.2794
+margin_left = -79.2794
 margin_top = 167.228
 margin_right = 80.7206
 margin_bottom = 237.228
@@ -320,10 +320,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -71.9158
-margin_top = -194.043
-margin_right = 68.0842
-margin_bottom = -125.043
+margin_left = -79.9158
+margin_top = -189.043
+margin_right = 80.0842
+margin_bottom = -120.043
 custom_styles/normal = SubResource( 7 )
 custom_fonts/font = SubResource( 8 )
 text = "HARD"

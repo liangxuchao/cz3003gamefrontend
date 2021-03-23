@@ -6,4 +6,4 @@ func _ready():
 
 
 func _on_CloseButton_pressed():
-	get_tree().change_scene("res://game/gameselection/world3/world3Section.tscn") 
+	get_tree().change_scene("res://game/gameselection/world2/world2Section.tscn") 

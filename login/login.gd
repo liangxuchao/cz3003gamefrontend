@@ -1,7 +1,7 @@
 extends Control
 onready var httpNode = $HTTPRequest
-onready var username = $TextureRect2/Username
-onready var password = $TextureRect2/Password
+onready var username = $TextureRect2/VBoxContainer/Username
+onready var password = $TextureRect2/VBoxContainer/Password
 onready var alertpopup = $TextureRect2/PopupDialog
 onready var alertLabel = $TextureRect2/PopupDialog/Label
 
@@ -28,8 +28,8 @@ func _on_submit_pressed():
 func _on_request_completed_login(result, response_code,headers, body):	
 	var json = JSON.parse(body.get_string_from_utf8())
 	
+	print(json.result)
 	if response_code == 200:
-		print(json.result)
 		var time = OS.get_unix_time()
 		Global.updateConfig({"Username":username.text, "AccessToken":json.result["access_token"], "TokenExpire": json.result["expires_in"], "lastlogin":time })
 		Global.AccessToken = json.result["access_token"];

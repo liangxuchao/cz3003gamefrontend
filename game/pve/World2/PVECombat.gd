@@ -3,7 +3,7 @@ var win_scene = preload("res://game/pve/World2/Winner.tscn").instance()
 var lose_scene = preload("res://game/pve/World2/LOSE.tscn").instance()
 var animation = null
 
-var menu_scene = preload("res://game/interface/Menu/World2/Menu.tscn").instance()
+var menu_scene = preload("res://game/pve/World2/Menu.tscn").instance()
 var currentlvl;
 # Called when the node enters the scene tree for the first time.
 func _ready():
