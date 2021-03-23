@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ico1.png-e9e7fd2e8f99cb9dd3116c426f968f5f.stex"
+path="res://.import/ico1.png-5a2ba48a3a446f7df97b5431640f9af6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://public/image/world1/ico1.png"
-dest_files=[ "res://.import/ico1.png-e9e7fd2e8f99cb9dd3116c426f968f5f.stex" ]
+source_file="res://public/image/world1/CombatUI/ico1.png"
+dest_files=[ "res://.import/ico1.png-5a2ba48a3a446f7df97b5431640f9af6.stex" ]
 
 [params]
 

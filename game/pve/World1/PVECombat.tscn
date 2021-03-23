@@ -1,22 +1,22 @@
 [gd_scene load_steps=19 format=2]
 
-[ext_resource path="res://public/image/world1/SectionUI/jungleBG3.jpg" type="Texture" id=1]
-[ext_resource path="res://public/image/world1/94.png" type="Texture" id=2]
+[ext_resource path="res://public/image/world1/CombatUI/CombatBGSmall.png" type="Texture" id=1]
+[ext_resource path="res://public/image/world1/CombatUI/94.png" type="Texture" id=2]
 [ext_resource path="res://public/fonts/soupofjustice.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://public/image/world1/table.png" type="Texture" id=4]
-[ext_resource path="res://public/image/world1/ico1.png" type="Texture" id=5]
-[ext_resource path="res://public/image/world1/bg.png" type="Texture" id=6]
-[ext_resource path="res://public/image/world1/clock.png" type="Texture" id=7]
-[ext_resource path="res://public/image/world1/up.png" type="Texture" id=8]
-[ext_resource path="res://public/image/world1/monster1.png" type="Texture" id=9]
-[ext_resource path="res://public/image/world1/1.png" type="Texture" id=10]
-[ext_resource path="res://public/image/world1/Character.png" type="Texture" id=11]
-[ext_resource path="res://public/image/world1/3.png" type="Texture" id=12]
-[ext_resource path="res://public/image/world1/QuizBG.png" type="Texture" id=13]
-[ext_resource path="res://public/image/world1/tick.png" type="Texture" id=14]
+[ext_resource path="res://public/image/world1/CombatUI/table.png" type="Texture" id=4]
+[ext_resource path="res://public/image/world1/CombatUI/ico1.png" type="Texture" id=5]
+[ext_resource path="res://public/image/world1/CombatUI/bg.png" type="Texture" id=6]
+[ext_resource path="res://public/image/world1/CombatUI/clock.png" type="Texture" id=7]
+[ext_resource path="res://public/image/world1/CombatUI/up.png" type="Texture" id=8]
+[ext_resource path="res://public/image/world1/CombatUI/monster1.png" type="Texture" id=9]
+[ext_resource path="res://public/image/world1/CombatUI/1.png" type="Texture" id=10]
+[ext_resource path="res://public/image/world1/CombatUI/Character.png" type="Texture" id=11]
+[ext_resource path="res://public/image/world1/CombatUI/3.png" type="Texture" id=12]
+[ext_resource path="res://public/image/world1/CombatUI/QuizBG_v2.png" type="Texture" id=13]
+[ext_resource path="res://public/image/world1/CombatUI/tick.png" type="Texture" id=14]
 
 [sub_resource type="DynamicFont" id=1]
-size = 50
+size = 30
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=2]
@@ -36,22 +36,34 @@ size = 32
 extra_spacing_char = 3
 font_data = ExtResource( 3 )
 
-[node name="Overall" type="Node2D"]
+[node name="Overall" type="Control"]
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="FightBG" type="Sprite" parent="."]
-position = Vector2( 833.682, -136 )
-scale = Vector2( 1.41458, 1.64444 )
+[node name="FightBG" type="TextureRect" parent="."]
+margin_top = -40.0
+margin_right = 1351.0
+margin_bottom = 720.0
 texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
-[node name="FightQuestionBG" type="Sprite" parent="."]
+[node name="FightQuestionBG" type="TextureRect" parent="."]
 modulate = Color( 0.176471, 0.309804, 0.231373, 0.784314 )
-position = Vector2( 656, 608 )
-scale = Vector2( 0.718535, 0.753348 )
+margin_top = 488.0
+margin_right = 1280.0
+margin_bottom = 718.0
 texture = ExtResource( 13 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
-[node name="SinglePlayerMode" type="Node2D" parent="."]
-
-[node name="UpperPart" type="Control" parent="SinglePlayerMode"]
+[node name="UpperPart" type="Control" parent="."]
 margin_left = 9.0
 margin_top = 4.0
 margin_right = 1280.0
@@ -60,65 +72,98 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="upBG" type="Sprite" parent="SinglePlayerMode/UpperPart"]
-position = Vector2( 632.126, 49.7546 )
-scale = Vector2( 0.459799, 0.54645 )
+[node name="upBG" type="TextureRect" parent="UpperPart"]
+margin_left = 280.0
+margin_top = -4.0
+margin_right = 980.0
+margin_bottom = 96.0
 texture = ExtResource( 8 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Timer" type="Sprite" parent="SinglePlayerMode/UpperPart/upBG"]
-position = Vector2( -462.856, -23.1548 )
-scale = Vector2( 1.45098, 1.12476 )
+[node name="Timer" type="TextureRect" parent="UpperPart/upBG"]
+margin_left = 45.0
+margin_top = 15.0
+margin_right = 179.0
+margin_bottom = 58.0
 texture = ExtResource( 4 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="TimerText" type="Label" parent="SinglePlayerMode/UpperPart/upBG/Timer"]
-margin_left = -52.1398
-margin_top = -23.1252
-margin_right = 64.8602
-margin_bottom = 27.8748
+[node name="TimerText" type="Label" parent="UpperPart/upBG/Timer"]
+margin_left = 48.0
+margin_top = 6.63041
+margin_right = 120.0
+margin_bottom = 37.6304
 custom_fonts/font = SubResource( 1 )
 text = "00:60"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="clock" type="Sprite" parent="SinglePlayerMode/UpperPart/upBG/Timer"]
-position = Vector2( -112.035, -3.2608 )
-scale = Vector2( 1.01686, 0.96006 )
+[node name="clock" type="TextureRect" parent="UpperPart/upBG/Timer"]
+margin_left = -8.0
+margin_top = -11.0
+margin_right = 40.0
+margin_bottom = 47.0
 texture = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="QuestionNum" type="Sprite" parent="SinglePlayerMode/UpperPart"]
-position = Vector2( 869.311, 37.1016 )
-scale = Vector2( 0.667159, 0.614624 )
+[node name="Question" type="TextureRect" parent="UpperPart/upBG"]
+margin_left = 519.0
+margin_top = 15.0
+margin_right = 653.0
+margin_bottom = 58.0
 texture = ExtResource( 4 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="ico1" type="Sprite" parent="SinglePlayerMode/UpperPart/QuestionNum"]
-position = Vector2( -110.313, 0.395287 )
-scale = Vector2( 0.475322, 0.357311 )
-texture = ExtResource( 5 )
-
-[node name="QuestionNumText" type="Label" parent="SinglePlayerMode/UpperPart/QuestionNum"]
-margin_left = -52.0
-margin_top = -25.1718
-margin_right = 80.0
-margin_bottom = 25.8282
+[node name="QuestionNum" type="Label" parent="UpperPart/upBG/Question"]
+margin_left = 48.0
+margin_top = 6.63041
+margin_right = 120.0
+margin_bottom = 37.6304
 custom_fonts/font = SubResource( 1 )
 text = "3 I 5"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SectionName" type="Label" parent="SinglePlayerMode/UpperPart"]
-margin_left = 533.962
-margin_top = 20.4364
-margin_right = 739.962
-margin_bottom = 56.4364
+[node name="Icon" type="TextureRect" parent="UpperPart/upBG/Question"]
+margin_left = -16.0
+margin_top = -11.0
+margin_right = 28.0
+margin_bottom = 53.0
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SectionName" type="Label" parent="UpperPart"]
+margin_left = 527.0
+margin_top = 15.0
+margin_right = 733.0
+margin_bottom = 51.0
 custom_fonts/font = SubResource( 2 )
 text = "Section Name"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MenuButton" type="TextureButton" parent="SinglePlayerMode/UpperPart"]
+[node name="MenuButton" type="TextureButton" parent="UpperPart"]
 margin_left = 1199.0
 margin_right = 1413.0
 margin_bottom = 215.0
@@ -127,55 +172,104 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PlayerControl" type="Node2D" parent="SinglePlayerMode"]
-position = Vector2( 108.894, 53.1986 )
+[node name="PlayerControl" type="Control" parent="."]
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="bg3" type="Sprite" parent="SinglePlayerMode/PlayerControl"]
-position = Vector2( 155.606, 124.926 )
-scale = Vector2( 0.25, 0.25 )
+[node name="bg3" type="TextureRect" parent="PlayerControl"]
+margin_left = 64.0
+margin_top = 176.0
+margin_right = 424.0
+margin_bottom = 191.0
 texture = ExtResource( 6 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="bg4" type="Sprite" parent="SinglePlayerMode/PlayerControl"]
-position = Vector2( 95.1028, 126.178 )
-scale = Vector2( 0.25, 0.245353 )
+[node name="bg4" type="TextureRect" parent="PlayerControl"]
+margin_left = 64.0
+margin_top = 176.0
+margin_right = 360.0
+margin_bottom = 191.0
 texture = ExtResource( 10 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="1_normal" type="Sprite" parent="SinglePlayerMode/PlayerControl"]
-position = Vector2( 161.843, 274.677 )
-scale = Vector2( 0.609412, 0.609413 )
+[node name="Character" type="TextureRect" parent="PlayerControl"]
+margin_left = 143.0
+margin_top = 214.0
+margin_right = 368.0
+margin_bottom = 448.0
 texture = ExtResource( 11 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="MonsterControl" type="Node2D" parent="SinglePlayerMode"]
-position = Vector2( -8, 57.9265 )
+[node name="MonsterControl" type="Control" parent="."]
+margin_left = 717.04
+margin_right = 717.04
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="bg" type="Sprite" parent="SinglePlayerMode/MonsterControl"]
-position = Vector2( 1016.5, 122.125 )
-scale = Vector2( 0.25, 0.25 )
+[node name="bg3" type="TextureRect" parent="MonsterControl"]
+margin_left = 64.0
+margin_top = 176.0
+margin_right = 424.0
+margin_bottom = 191.0
 texture = ExtResource( 6 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="bg2" type="Sprite" parent="SinglePlayerMode/MonsterControl"]
-position = Vector2( 955.997, 123.376 )
-scale = Vector2( 0.25, 0.245353 )
+[node name="bg4" type="TextureRect" parent="MonsterControl"]
+margin_left = 64.0
+margin_top = 176.0
+margin_right = 360.0
+margin_bottom = 191.0
 texture = ExtResource( 12 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="1_normal2" type="Sprite" parent="SinglePlayerMode/MonsterControl"]
-position = Vector2( 1048, 260.466 )
-scale = Vector2( 0.376802, 0.328661 )
+[node name="Character" type="TextureRect" parent="MonsterControl"]
+margin_left = 99.0
+margin_top = 240.0
+margin_right = 337.0
+margin_bottom = 422.0
 texture = ExtResource( 9 )
+expand = true
+stretch_mode = 1
 flip_h = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="QuizControl2" type="Node2D" parent="SinglePlayerMode"]
-position = Vector2( 8.90894, 3.5636 )
-scale = Vector2( 0.88, 1 )
+[node name="QuizControl2" type="Control" parent="."]
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="QuizPart" type="Control" parent="SinglePlayerMode/QuizControl2"]
+[node name="QuizPart" type="Control" parent="QuizControl2"]
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Answer1" type="TextureButton" parent="SinglePlayerMode/QuizControl2/QuizPart"]
+[node name="Answer1" type="TextureButton" parent="QuizControl2/QuizPart"]
 margin_left = 280.785
 margin_top = 556.436
 margin_right = 737.785
@@ -186,7 +280,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnswerText1" type="Label" parent="SinglePlayerMode/QuizControl2/QuizPart/Answer1"]
+[node name="AnswerText1" type="Label" parent="QuizControl2/QuizPart/Answer1"]
 margin_left = 27.5931
 margin_top = 10.379
 margin_right = 411.593
@@ -200,7 +294,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Answer2" type="TextureButton" parent="SinglePlayerMode/QuizControl2/QuizPart"]
+[node name="Answer2" type="TextureButton" parent="QuizControl2/QuizPart"]
 margin_left = 726.025
 margin_top = 556.436
 margin_right = 1183.02
@@ -211,7 +305,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnswerText2" type="Label" parent="SinglePlayerMode/QuizControl2/QuizPart/Answer2"]
+[node name="AnswerText2" type="Label" parent="QuizControl2/QuizPart/Answer2"]
 margin_left = 27.5932
 margin_top = 10.379
 margin_right = 411.593
@@ -225,7 +319,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Answer3" type="TextureButton" parent="SinglePlayerMode/QuizControl2/QuizPart"]
+[node name="Answer3" type="TextureButton" parent="QuizControl2/QuizPart"]
 margin_left = 280.785
 margin_top = 636.873
 margin_right = 737.785
@@ -236,7 +330,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnswerText3" type="Label" parent="SinglePlayerMode/QuizControl2/QuizPart/Answer3"]
+[node name="AnswerText3" type="Label" parent="QuizControl2/QuizPart/Answer3"]
 margin_left = 27.593
 margin_top = 10.379
 margin_right = 411.593
@@ -250,7 +344,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Answer4" type="TextureButton" parent="SinglePlayerMode/QuizControl2/QuizPart"]
+[node name="Answer4" type="TextureButton" parent="QuizControl2/QuizPart"]
 margin_left = 726.025
 margin_top = 636.873
 margin_right = 1183.02
@@ -261,7 +355,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnswerText4" type="Label" parent="SinglePlayerMode/QuizControl2/QuizPart/Answer4"]
+[node name="AnswerText4" type="Label" parent="QuizControl2/QuizPart/Answer4"]
 margin_left = 27.5933
 margin_top = 10.379
 margin_right = 411.593
@@ -275,7 +369,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="QuestionText" type="Label" parent="SinglePlayerMode/QuizControl2/QuizPart"]
+[node name="QuestionText" type="Label" parent="QuizControl2/QuizPart"]
 margin_left = 17.1489
 margin_top = 508.436
 margin_right = 1241.15
@@ -287,7 +381,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Tick" type="TextureRect" parent="SinglePlayerMode/QuizControl2/QuizPart"]
+[node name="Tick" type="TextureRect" parent="QuizControl2/QuizPart"]
 visible = false
 margin_left = 598.967
 margin_top = 556.436
@@ -299,7 +393,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Cross" type="TextureRect" parent="SinglePlayerMode/QuizControl2/QuizPart"]
+[node name="Cross" type="TextureRect" parent="QuizControl2/QuizPart"]
 visible = false
 margin_left = 598.967
 margin_top = 556.436
@@ -309,175 +403,3 @@ rect_scale = Vector2( 0.102, 0.088 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="PopUpMenu" type="Control" parent="SinglePlayerMode"]
-visible = false
-margin_left = 8.0
-margin_right = 48.0
-margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="PopupBG" type="TextureRect" parent="SinglePlayerMode/PopUpMenu"]
-margin_left = 312.0
-margin_top = 136.0
-margin_right = 1610.0
-margin_bottom = 1088.0
-rect_scale = Vector2( 0.5, 0.5 )
-stretch_mode = 4
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="BG2" type="TextureRect" parent="SinglePlayerMode/PopUpMenu/PopupBG"]
-margin_left = 48.0
-margin_top = 32.0
-margin_right = 1209.0
-margin_bottom = 876.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MenuTile" type="TextureRect" parent="SinglePlayerMode/PopUpMenu/PopupBG/BG2"]
-margin_left = 112.0
-margin_top = -144.0
-margin_right = 1265.0
-margin_bottom = 311.0
-rect_scale = Vector2( 0.8, 0.8 )
-
-[node name="HomePageButton" type="TextureButton" parent="SinglePlayerMode/PopUpMenu/PopupBG/BG2"]
-margin_left = 352.0
-margin_top = 272.0
-margin_right = 660.0
-margin_bottom = 379.0
-rect_scale = Vector2( 1.5, 1.5 )
-
-[node name="ExitButton" type="TextureButton" parent="SinglePlayerMode/PopUpMenu/PopupBG/BG2"]
-margin_left = 352.0
-margin_top = 464.0
-margin_right = 660.0
-margin_bottom = 571.0
-rect_scale = Vector2( 1.5, 1.5 )
-
-[node name="YouWin" type="Control" parent="SinglePlayerMode"]
-visible = false
-margin_top = 24.0
-margin_right = 40.0
-margin_bottom = 64.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="PopupBG" type="TextureRect" parent="SinglePlayerMode/YouWin"]
-margin_left = 344.0
-margin_top = 64.0
-margin_right = 1642.0
-margin_bottom = 1359.0
-rect_scale = Vector2( 0.45, 0.45 )
-stretch_mode = 4
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="BG2" type="TextureRect" parent="SinglePlayerMode/YouWin/PopupBG"]
-margin_left = 231.111
-margin_top = 142.222
-margin_right = 1392.11
-margin_bottom = 1091.22
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="WinTile" type="TextureRect" parent="SinglePlayerMode/YouWin/PopupBG/BG2"]
-margin_left = -53.3333
-margin_top = -160.0
-margin_right = 1099.67
-margin_bottom = 295.0
-rect_scale = Vector2( 0.8, 0.8 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="NextLvl" type="TextureButton" parent="SinglePlayerMode/YouWin/PopupBG/BG2"]
-margin_left = 320.0
-margin_top = 586.667
-margin_right = 534.0
-margin_bottom = 801.667
-rect_scale = Vector2( 0.8, 0.8 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Restart" type="TextureButton" parent="SinglePlayerMode/YouWin/PopupBG/BG2"]
-margin_left = 106.667
-margin_top = 586.667
-margin_right = 320.667
-margin_bottom = 801.667
-rect_scale = Vector2( 0.8, 0.8 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Exit" type="TextureButton" parent="SinglePlayerMode/YouWin/PopupBG/BG2"]
-margin_left = 533.333
-margin_top = 586.667
-margin_right = 747.333
-margin_bottom = 801.667
-rect_scale = Vector2( 0.8, 0.8 )
-
-[node name="YouLose" type="Control" parent="SinglePlayerMode"]
-visible = false
-margin_top = 24.0
-margin_right = 40.0
-margin_bottom = 64.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="PopupBG" type="TextureRect" parent="SinglePlayerMode/YouLose"]
-margin_left = 344.0
-margin_top = 64.0
-margin_right = 1642.0
-margin_bottom = 1359.0
-rect_scale = Vector2( 0.45, 0.45 )
-stretch_mode = 4
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="BG2" type="TextureRect" parent="SinglePlayerMode/YouLose/PopupBG"]
-margin_left = 231.111
-margin_top = 142.222
-margin_right = 1392.11
-margin_bottom = 1091.22
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="LoseTile" type="TextureRect" parent="SinglePlayerMode/YouLose/PopupBG/BG2"]
-margin_left = -53.3333
-margin_top = -160.0
-margin_right = 1099.67
-margin_bottom = 295.0
-rect_scale = Vector2( 0.8, 0.8 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Restart" type="TextureButton" parent="SinglePlayerMode/YouLose/PopupBG/BG2"]
-margin_left = 195.556
-margin_top = 586.667
-margin_right = 409.556
-margin_bottom = 801.667
-rect_scale = Vector2( 0.8, 0.8 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Exit" type="TextureButton" parent="SinglePlayerMode/YouLose/PopupBG/BG2"]
-margin_left = 426.667
-margin_top = 586.667
-margin_right = 640.667
-margin_bottom = 801.667
-rect_scale = Vector2( 0.8, 0.8 )

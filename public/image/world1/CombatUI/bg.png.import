@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/arrow.png-1e73c692ef29a489daa35f1d49d430db.stex"
+path="res://.import/bg.png-fdcf140cd2fb1b2db408f651564e4c64.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://public/image/world1/arrow.png"
-dest_files=[ "res://.import/arrow.png-1e73c692ef29a489daa35f1d49d430db.stex" ]
+source_file="res://public/image/world1/CombatUI/bg.png"
+dest_files=[ "res://.import/bg.png-fdcf140cd2fb1b2db408f651564e4c64.stex" ]
 
 [params]
 

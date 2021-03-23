@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Character.png-02d796ebaa625d847f0878562cdfc366.stex"
+path="res://.import/NextBtn.png-0d31fdf2da36ec64abb6ada8c9abc448.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://public/image/world1/Character.png"
-dest_files=[ "res://.import/Character.png-02d796ebaa625d847f0878562cdfc366.stex" ]
+source_file="res://public/image/world1/PVE_WinUI/NextBtn.png"
+dest_files=[ "res://.import/NextBtn.png-0d31fdf2da36ec64abb6ada8c9abc448.stex" ]
 
 [params]
 

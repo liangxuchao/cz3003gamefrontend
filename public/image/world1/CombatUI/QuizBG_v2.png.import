@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tick.png-2043d3f652554e04a60666bfb237ee1d.stex"
+path="res://.import/QuizBG_v2.png-d6a4a606d7bf8b57e068b5ec43192cac.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://public/image/world1/tick.png"
-dest_files=[ "res://.import/tick.png-2043d3f652554e04a60666bfb237ee1d.stex" ]
+source_file="res://public/image/world1/CombatUI/QuizBG_v2.png"
+dest_files=[ "res://.import/QuizBG_v2.png-d6a4a606d7bf8b57e068b5ec43192cac.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/monster1.png-b24aa9eb88f1fc6eb61950968bfdfe2e.stex"
+path="res://.import/arrow.png-37f5631d953f226157f21ba60b1584b0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://public/image/world1/monster1.png"
-dest_files=[ "res://.import/monster1.png-b24aa9eb88f1fc6eb61950968bfdfe2e.stex" ]
+source_file="res://public/image/world1/CombatUI/arrow.png"
+dest_files=[ "res://.import/arrow.png-37f5631d953f226157f21ba60b1584b0.stex" ]
 
 [params]
 
