@@ -1,32 +1,45 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=19 format=2]
 
-[ext_resource path="res://public/image/world1/jungleBG3.jpg" type="Texture" id=1]
-[ext_resource path="res://UI/craftpix-895410-free-jungle-cartoon-2d-game-ui/TXT/soup_of_justice/soupofjustice.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://public/image/world1/SectionUI/jungleBG3.jpg" type="Texture" id=1]
+[ext_resource path="res://public/image/world1/94.png" type="Texture" id=2]
+[ext_resource path="res://public/fonts/soupofjustice.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://public/image/world1/table.png" type="Texture" id=4]
+[ext_resource path="res://public/image/world1/ico1.png" type="Texture" id=5]
+[ext_resource path="res://public/image/world1/bg.png" type="Texture" id=6]
+[ext_resource path="res://public/image/world1/clock.png" type="Texture" id=7]
+[ext_resource path="res://public/image/world1/up.png" type="Texture" id=8]
+[ext_resource path="res://public/image/world1/monster1.png" type="Texture" id=9]
+[ext_resource path="res://public/image/world1/1.png" type="Texture" id=10]
+[ext_resource path="res://public/image/world1/Character.png" type="Texture" id=11]
+[ext_resource path="res://public/image/world1/3.png" type="Texture" id=12]
+[ext_resource path="res://public/image/world1/QuizBG.png" type="Texture" id=13]
+[ext_resource path="res://public/image/world1/tick.png" type="Texture" id=14]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
-font_data = ExtResource( 2 )
+font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 30
 extra_spacing_char = 2
-font_data = ExtResource( 2 )
+font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 37
 extra_spacing_top = 3
-extra_spacing_char = 1
-font_data = ExtResource( 2 )
+extra_spacing_char = 5
+extra_spacing_space = 6
+font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 32
 extra_spacing_char = 3
-font_data = ExtResource( 2 )
+font_data = ExtResource( 3 )
 
 [node name="Overall" type="Node2D"]
 
 [node name="FightBG" type="Sprite" parent="."]
-position = Vector2( 832, -136 )
+position = Vector2( 833.682, -136 )
 scale = Vector2( 1.41458, 1.64444 )
 texture = ExtResource( 1 )
 
@@ -34,6 +47,7 @@ texture = ExtResource( 1 )
 modulate = Color( 0.176471, 0.309804, 0.231373, 0.784314 )
 position = Vector2( 656, 608 )
 scale = Vector2( 0.718535, 0.753348 )
+texture = ExtResource( 13 )
 
 [node name="SinglePlayerMode" type="Node2D" parent="."]
 
@@ -49,10 +63,12 @@ __meta__ = {
 [node name="upBG" type="Sprite" parent="SinglePlayerMode/UpperPart"]
 position = Vector2( 632.126, 49.7546 )
 scale = Vector2( 0.459799, 0.54645 )
+texture = ExtResource( 8 )
 
 [node name="Timer" type="Sprite" parent="SinglePlayerMode/UpperPart/upBG"]
 position = Vector2( -462.856, -23.1548 )
 scale = Vector2( 1.45098, 1.12476 )
+texture = ExtResource( 4 )
 
 [node name="TimerText" type="Label" parent="SinglePlayerMode/UpperPart/upBG/Timer"]
 margin_left = -52.1398
@@ -68,14 +84,17 @@ __meta__ = {
 [node name="clock" type="Sprite" parent="SinglePlayerMode/UpperPart/upBG/Timer"]
 position = Vector2( -112.035, -3.2608 )
 scale = Vector2( 1.01686, 0.96006 )
+texture = ExtResource( 7 )
 
 [node name="QuestionNum" type="Sprite" parent="SinglePlayerMode/UpperPart"]
 position = Vector2( 869.311, 37.1016 )
 scale = Vector2( 0.667159, 0.614624 )
+texture = ExtResource( 4 )
 
 [node name="ico1" type="Sprite" parent="SinglePlayerMode/UpperPart/QuestionNum"]
 position = Vector2( -110.313, 0.395287 )
 scale = Vector2( 0.475322, 0.357311 )
+texture = ExtResource( 5 )
 
 [node name="QuestionNumText" type="Label" parent="SinglePlayerMode/UpperPart/QuestionNum"]
 margin_left = -52.0
@@ -83,15 +102,15 @@ margin_top = -25.1718
 margin_right = 80.0
 margin_bottom = 25.8282
 custom_fonts/font = SubResource( 1 )
-text = "3 ) 5"
+text = "3 I 5"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="SectionName" type="Label" parent="SinglePlayerMode/UpperPart"]
-margin_left = 532.28
+margin_left = 533.962
 margin_top = 20.4364
-margin_right = 738.28
+margin_right = 739.962
 margin_bottom = 56.4364
 custom_fonts/font = SubResource( 2 )
 text = "Section Name"
@@ -114,14 +133,17 @@ position = Vector2( 108.894, 53.1986 )
 [node name="bg3" type="Sprite" parent="SinglePlayerMode/PlayerControl"]
 position = Vector2( 155.606, 124.926 )
 scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 6 )
 
 [node name="bg4" type="Sprite" parent="SinglePlayerMode/PlayerControl"]
 position = Vector2( 95.1028, 126.178 )
 scale = Vector2( 0.25, 0.245353 )
+texture = ExtResource( 10 )
 
 [node name="1_normal" type="Sprite" parent="SinglePlayerMode/PlayerControl"]
 position = Vector2( 161.843, 274.677 )
 scale = Vector2( 0.609412, 0.609413 )
+texture = ExtResource( 11 )
 
 [node name="MonsterControl" type="Node2D" parent="SinglePlayerMode"]
 position = Vector2( -8, 57.9265 )
@@ -129,14 +151,17 @@ position = Vector2( -8, 57.9265 )
 [node name="bg" type="Sprite" parent="SinglePlayerMode/MonsterControl"]
 position = Vector2( 1016.5, 122.125 )
 scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 6 )
 
 [node name="bg2" type="Sprite" parent="SinglePlayerMode/MonsterControl"]
 position = Vector2( 955.997, 123.376 )
 scale = Vector2( 0.25, 0.245353 )
+texture = ExtResource( 12 )
 
 [node name="1_normal2" type="Sprite" parent="SinglePlayerMode/MonsterControl"]
 position = Vector2( 1048, 260.466 )
-scale = Vector2( 0.4158, 0.4158 )
+scale = Vector2( 0.376802, 0.328661 )
+texture = ExtResource( 9 )
 flip_h = true
 
 [node name="QuizControl2" type="Node2D" parent="SinglePlayerMode"]
@@ -156,6 +181,7 @@ margin_top = 556.436
 margin_right = 737.785
 margin_bottom = 613.436
 rect_scale = Vector2( 0.862, 1 )
+texture_normal = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -169,18 +195,18 @@ custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.756863, 0.431373, 0.12549, 1 )
 custom_colors/font_outline_modulate = Color( 0.137255, 0.0196078, 0.0196078, 1 )
 custom_colors/font_color_shadow = Color( 0.054902, 0.0509804, 0.0156863, 1 )
-text = "Answer 1"
+text = "Correct"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Answer2" type="TextureButton" parent="SinglePlayerMode/QuizControl2/QuizPart"]
-modulate = Color( 0.388062, 0.730469, 0.401437, 0.8 )
 margin_left = 726.025
 margin_top = 556.436
 margin_right = 1183.02
 margin_bottom = 613.436
 rect_scale = Vector2( 0.862, 1 )
+texture_normal = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -194,18 +220,18 @@ custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.756863, 0.431373, 0.12549, 1 )
 custom_colors/font_outline_modulate = Color( 0.137255, 0.0196078, 0.0196078, 1 )
 custom_colors/font_color_shadow = Color( 0.054902, 0.0509804, 0.0156863, 1 )
-text = "Answer 2"
+text = "Wrong"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Answer3" type="TextureButton" parent="SinglePlayerMode/QuizControl2/QuizPart"]
-modulate = Color( 0.388062, 0.730469, 0.401437, 0.8 )
 margin_left = 280.785
 margin_top = 636.873
 margin_right = 737.785
 margin_bottom = 693.873
 rect_scale = Vector2( 0.862, 1 )
+texture_normal = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -219,18 +245,18 @@ custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.756863, 0.431373, 0.12549, 1 )
 custom_colors/font_outline_modulate = Color( 0.137255, 0.0196078, 0.0196078, 1 )
 custom_colors/font_color_shadow = Color( 0.054902, 0.0509804, 0.0156863, 1 )
-text = "Answer 3"
+text = "You Win"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Answer4" type="TextureButton" parent="SinglePlayerMode/QuizControl2/QuizPart"]
-modulate = Color( 0.388062, 0.730469, 0.401437, 0.8 )
 margin_left = 726.025
 margin_top = 636.873
 margin_right = 1183.02
 margin_bottom = 693.873
 rect_scale = Vector2( 0.862, 1 )
+texture_normal = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -244,7 +270,7 @@ custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.756863, 0.431373, 0.12549, 1 )
 custom_colors/font_outline_modulate = Color( 0.137255, 0.0196078, 0.0196078, 1 )
 custom_colors/font_color_shadow = Color( 0.054902, 0.0509804, 0.0156863, 1 )
-text = "Answer 4"
+text = "You LOSE"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -262,11 +288,13 @@ __meta__ = {
 }
 
 [node name="Tick" type="TextureRect" parent="SinglePlayerMode/QuizControl2/QuizPart"]
+visible = false
 margin_left = 598.967
 margin_top = 556.436
 margin_right = 1174.97
 margin_bottom = 1096.44
 rect_scale = Vector2( 0.102, 0.088 )
+texture = ExtResource( 14 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
