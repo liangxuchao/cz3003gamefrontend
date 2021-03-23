@@ -1,7 +1,7 @@
 extends Control
 onready var httpNode = $HTTPRequest
-onready var username = $TextureRect2/Username
-onready var password = $TextureRect2/Password
+onready var username = $TextureRect2/VBoxContainer/Username
+onready var password = $TextureRect2/VBoxContainer/Password
 onready var alertpopup = $TextureRect2/PopupDialog
 onready var alertLabel = $TextureRect2/PopupDialog/Label
 
