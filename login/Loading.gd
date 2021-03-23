@@ -14,8 +14,8 @@ func _ready():
 	else:
 		get_tree().change_scene('res://login/login.tscn')
 		
-	animation = $Label/AnimationPlayer
-	animation.play("loading")
+#	animation = $Label/AnimationPlayer
+#	animation.play("loading")
 		
 
 func _on_request_completed_tokenstatus(result, response_code,headers, body):	
