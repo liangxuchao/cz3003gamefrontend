@@ -1,7 +1,8 @@
 extends Control
 var win_scene = preload("res://game/pve/World3/Winner.tscn").instance()
 var lose_scene = preload("res://game/pve/World3/LOSE.tscn").instance()
-var animation = null
+var plarAnimation = null
+var bossAnimation = null
 var boss =null
 
 
@@ -20,8 +21,12 @@ func _ready():
 	#api call
 	
 	#end 
+	$Sword/Sprite.texture = preload("res://public/image/world2/IMG_0414-removebg-preview.png");
 	$Sword/Sprite.frame=1
-	animation = $Sword/AnimationPlayer
+	$BossAttack/Sprite.frame=1
+	plarAnimation = $Sword/AnimationPlayer
+	bossAnimation=$BossAttack/AnimationPlayer
+	
 
 func _on_MenuButton_pressed():
 	get_tree().get_root().add_child(menu_scene)
@@ -30,7 +35,7 @@ func _on_MenuButton_pressed():
 
 func _on_Answer1_pressed():
 	$Sword/Sprite.frame=0
-	animation.play("Move")
+	plarAnimation.play("Move")
 	$"Question BOX/Question".text="Q2: ABABABAB" # Show different text
 
 
@@ -46,3 +51,17 @@ func _lose_pressed():
 func _on_Hit_Box_area_entered(area):
 	print("1233")
 	$Sword/Sprite.frame=1 # Replace with function body.
+
+
+func _on_Answer2_pressed():
+	$BossAttack/Sprite.frame=0
+	bossAnimation.play("Boss Attack")
+	$"Question BOX/Question".text="Q2: ABABABAB" 
+	
+
+
+
+func _on_Hit_Box_playArea_entered(area):
+	print("ABCS")
+	$BossAttack/Sprite.frame=1
+	
