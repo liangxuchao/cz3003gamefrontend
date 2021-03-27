@@ -256,7 +256,7 @@ text = "CLOSE"
 align = 1
 valign = 1
 
-[node name="Button" type="Button" parent="levelpopup/TextureRect"]
+[node name="level1" type="Button" parent="levelpopup/TextureRect"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -79.5
@@ -268,7 +268,7 @@ custom_fonts/font = SubResource( 4 )
 custom_colors/font_color_disabled = Color( 0.396078, 0.12549, 0.0156863, 1 )
 text = "easy"
 
-[node name="Button2" type="Button" parent="levelpopup/TextureRect"]
+[node name="level2" type="Button" parent="levelpopup/TextureRect"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -79.2794
@@ -282,7 +282,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button3" type="Button" parent="levelpopup/TextureRect"]
+[node name="level3" type="Button" parent="levelpopup/TextureRect"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -319,10 +319,10 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="SectionButton1" to="." method="_on_SectionButton_pressed" binds= [ "SECTION I" ]]
-[connection signal="pressed" from="SectionButton2" to="." method="_on_SectionButton_pressed" binds= [ "SECTION II" ]]
-[connection signal="pressed" from="SectionButton3" to="." method="_on_SectionButton_pressed" binds= [ "SECTION III" ]]
+[connection signal="pressed" from="SectionButton1" to="." method="_on_SectionButton_pressed" binds= [ 0 ]]
+[connection signal="pressed" from="SectionButton2" to="." method="_on_SectionButton_pressed" binds= [ 1 ]]
+[connection signal="pressed" from="SectionButton3" to="." method="_on_SectionButton_pressed" binds= [ 2 ]]
 [connection signal="pressed" from="levelpopup/TextureRect/CloseButton" to="." method="_on_CloseButton_pressed"]
-[connection signal="pressed" from="levelpopup/TextureRect/Button" to="." method="_on_level_pressed" binds= [ "1" ]]
-[connection signal="pressed" from="levelpopup/TextureRect/Button2" to="." method="_on_level_pressed" binds= [ "2" ]]
-[connection signal="pressed" from="levelpopup/TextureRect/Button3" to="." method="_on_level_pressed" binds= [ "3" ]]
+[connection signal="pressed" from="levelpopup/TextureRect/level1" to="." method="_on_level_pressed" binds= [ "1" ]]
+[connection signal="pressed" from="levelpopup/TextureRect/level2" to="." method="_on_level_pressed" binds= [ "2" ]]
+[connection signal="pressed" from="levelpopup/TextureRect/level3" to="." method="_on_level_pressed" binds= [ "3" ]]
