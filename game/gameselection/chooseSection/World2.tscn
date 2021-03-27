@@ -6,13 +6,13 @@
 [ext_resource path="res://public/image/world2/4Z_2101.w017.n001.354B.p15.354-removebg-preview copy 4.png" type="Texture" id=4]
 [ext_resource path="res://public/image/world2/BG desert.jpg" type="Texture" id=5]
 [ext_resource path="res://public/image/world2/wood bg world.png" type="Texture" id=6]
-[ext_resource path="res://game/backbutton/back.tscn" type="PackedScene" id=7]
-[ext_resource path="res://game/interface/boss/world2/section1.tscn" type="PackedScene" id=8]
-[ext_resource path="res://game/interface/boss/world2/section2.tscn" type="PackedScene" id=9]
+[ext_resource path="res://game/interface/boss/world2/section4.tscn" type="PackedScene" id=7]
+[ext_resource path="res://game/interface/boss/world2/section5.tscn" type="PackedScene" id=8]
+[ext_resource path="res://game/backbutton/back.tscn" type="PackedScene" id=9]
 [ext_resource path="res://public/fonts/soupofjustice.ttf" type="DynamicFontData" id=10]
 [ext_resource path="res://public/fonts/main.tres" type="DynamicFont" id=11]
-[ext_resource path="res://game/gameselection/chooseSection/worldSection.gd" type="Script" id=12]
-[ext_resource path="res://public/image/world2/iShot2021-03-13_16.21.44-removebg-preview.png" type="Texture" id=13]
+[ext_resource path="res://public/image/world2/iShot2021-03-13_16.21.44-removebg-preview.png" type="Texture" id=12]
+[ext_resource path="res://game/gameselection/chooseSection/worldSection.gd" type="Script" id=13]
 
 [sub_resource type="DynamicFont" id=1]
 size = 45
@@ -50,7 +50,7 @@ font_data = ExtResource( 10 )
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 12 )
+script = ExtResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -101,7 +101,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="boss1" parent="SectionButton1" instance=ExtResource( 8 )]
+[node name="boss1" parent="SectionButton1" instance=ExtResource( 7 )]
 position = Vector2( 154.965, 123.339 )
 scale = Vector2( 0.368969, 0.35523 )
 centered = true
@@ -134,7 +134,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="boss2" parent="SectionButton2" instance=ExtResource( 9 )]
+[node name="boss2" parent="SectionButton2" instance=ExtResource( 8 )]
 position = Vector2( 149.961, 135.509 )
 scale = Vector2( 0.430849, 0.384902 )
 centered = true
@@ -170,7 +170,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="SectionButton3"]
 position = Vector2( 139.191, 136.331 )
 scale = Vector2( 0.389421, 0.330914 )
-texture = ExtResource( 13 )
+texture = ExtResource( 12 )
 
 [node name="Label" type="Label" parent="SectionButton3"]
 anchor_left = 0.5
@@ -189,7 +189,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="backbutton" parent="." instance=ExtResource( 7 )]
+[node name="backbutton" parent="." instance=ExtResource( 9 )]
 scene_to_load = "res://game/gameselection/chooseWorld/chooseWorld.tscn"
 
 [node name="levelpopup" type="Popup" parent="."]
@@ -306,7 +306,7 @@ margin_bottom = 76.6019
 texture = ExtResource( 2 )
 expand = true
 
-[node name="Title" type="Label" parent="levelpopup/TextureRect/levelTitle"]
+[node name="Label" type="Label" parent="levelpopup/TextureRect/levelTitle"]
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
@@ -323,6 +323,6 @@ __meta__ = {
 [connection signal="pressed" from="SectionButton2" to="." method="_on_SectionButton_pressed" binds= [ 1 ]]
 [connection signal="pressed" from="SectionButton3" to="." method="_on_SectionButton_pressed" binds= [ 2 ]]
 [connection signal="pressed" from="levelpopup/TextureRect/CloseButton" to="." method="_on_CloseButton_pressed"]
-[connection signal="pressed" from="levelpopup/TextureRect/level1" to="." method="_on_level_pressed" binds= [ "1" ]]
+[connection signal="pressed" from="levelpopup/TextureRect/level1" to="." method="_on_level_pressed" binds= [ 0 ]]
 [connection signal="pressed" from="levelpopup/TextureRect/level2" to="." method="_on_level_pressed" binds= [ "2" ]]
-[connection signal="pressed" from="levelpopup/TextureRect/level3" to="." method="_on_level_pressed" binds= [ "3" ]]
+[connection signal="pressed" from="levelpopup/TextureRect/level3" to="." method="_on_level_pressed" binds= [ 2 ]]

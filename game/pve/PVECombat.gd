@@ -4,20 +4,20 @@ var lose_scene = preload("res://game/pve/World2/LOSE.tscn").instance()
 var animation = null
 
 
-onready var boss = $VBoxContainer
+onready var boss = $boss
+onready var character = $character
 onready var menupopup = $Popup
-var currentlvl;
-var currentsection;
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	currentlvl = Global.pvelvl;
-	currentsection = Global.pvesection;
 	#api call
 	
 	#end 
-	var scence = load("res://game/interface/boss/world2/section" + currentsection + ".tscn").instance()
-	boss.add_child(scence) # Replace with function body.
-
+#	var scence = load("res://game/interface/boss/" + Global.worldmapper[Global.pveworld.name] +"/section" + str(Global.pvesection.id)  + ".tscn").instance()
+	var bossscence = load("res://game/interface/boss/" + Global.worldmapper[Global.pveworld.name] +"/section7.tscn").instance()
+	boss.add_child(bossscence) # Replace with function body.
+	
+	var charascence = load("res://game/interface/character/character" + str(Global.character) + ".tscn").instance()
+	boss.add_child(charascence) # Replace with function body.
 
 	$Sword/Sprite.frame=1
 	animation = $Sword/AnimationPlayer

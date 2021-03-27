@@ -6,6 +6,7 @@ var APIrooturl = "http://cz3003ntu.southeastasia.cloudapp.azure.com:8080";
 var dict = {} 
 var AccessToken;
 
+var character = 1;
 var pvelvl;
 var pvesection;
 var pveworld;
@@ -16,6 +17,8 @@ var lastlogin;
 var pvebossselection;
 
 var WorldsDetails = {};
+
+var worldmapper = {"Taming the Python": "World1",  "php": "World2", "Surfing on Java" : "World3"}
 
 func _ready():
 	var file = File.new()

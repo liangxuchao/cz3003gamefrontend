@@ -13,14 +13,13 @@ func _on_world_pressed(title):
 	for key in Global.WorldsDetails.size():
 		if Global.WorldsDetails[key].name == title:
 			Global.pveworld = Global.WorldsDetails[key]
+			break;
 		else:
 			Global.pveworld = {}
-	if title == "Taming the Python":
-		get_tree().change_scene("res://game/gameselection/chooseSection/world1Section.tscn")
-	elif title == "php":
-		get_tree().change_scene("res://game/gameselection/chooseSection/world2Section.tscn")
-	elif title == "Surfing on Java":
-		get_tree().change_scene("res://game/gameselection/chooseSection/world3Section.tscn")
+			
+	
+	get_tree().change_scene("res://game/gameselection/chooseSection/" + Global.worldmapper[title] + ".tscn")
+	
 	pass # Replace with function body.
 	
 		

@@ -32,7 +32,5 @@ func _on_FadeIn_fade_finished():
 func _on_request_completed_getWorlds(result, response_code,headers, body):	
 	var json = JSON.parse(body.get_string_from_utf8())
 	
-	print(json.result)
-	
 	if response_code == 200:
 		Global.WorldsDetails = json.result

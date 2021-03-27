@@ -8,9 +8,9 @@
 [ext_resource path="res://public/image/world1/SectionUI/MEDIUM.png" type="Texture" id=6]
 [ext_resource path="res://public/image/world1/SectionUI/cancelBtn.png" type="Texture" id=7]
 [ext_resource path="res://game/interface/boss/world1/section3.tscn" type="PackedScene" id=8]
-[ext_resource path="res://game/backbutton/back.tscn" type="PackedScene" id=9]
-[ext_resource path="res://game/interface/boss/world1/section1.tscn" type="PackedScene" id=10]
-[ext_resource path="res://game/interface/boss/world1/section2.tscn" type="PackedScene" id=11]
+[ext_resource path="res://game/interface/boss/world1/section1.tscn" type="PackedScene" id=9]
+[ext_resource path="res://game/interface/boss/world1/section2.tscn" type="PackedScene" id=10]
+[ext_resource path="res://game/backbutton/back.tscn" type="PackedScene" id=11]
 [ext_resource path="res://public/fonts/soupofjustice.ttf" type="DynamicFontData" id=12]
 [ext_resource path="res://public/image/world1/SectionUI/chooseSec.png" type="Texture" id=13]
 [ext_resource path="res://game/gameselection/chooseSection/worldSection.gd" type="Script" id=14]
@@ -69,7 +69,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="boss1" parent="SectionButton1" instance=ExtResource( 10 )]
+[node name="boss1" parent="SectionButton1" instance=ExtResource( 9 )]
 position = Vector2( 150.476, 122.168 )
 centered = true
 
@@ -95,7 +95,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="boss2" parent="SectionButton2" instance=ExtResource( 11 )]
+[node name="boss2" parent="SectionButton2" instance=ExtResource( 10 )]
 position = Vector2( 156.123, 124.794 )
 centered = true
 
@@ -136,10 +136,10 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="backbutton" parent="." instance=ExtResource( 9 )]
+[node name="backbutton" parent="." instance=ExtResource( 11 )]
 scene_to_load = "res://game/gameselection/chooseWorld/chooseworld.tscn"
 
-[node name="Popup" type="Popup" parent="."]
+[node name="levelpopup" type="Popup" parent="."]
 visible = true
 anchor_left = 0.5
 anchor_top = 0.5
@@ -153,7 +153,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BG" type="ColorRect" parent="Popup"]
+[node name="BG" type="ColorRect" parent="levelpopup"]
 modulate = Color( 0.152941, 0.345098, 0.196078, 0.552941 )
 anchor_left = 0.5
 anchor_top = 0.5
@@ -168,7 +168,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="Popup"]
+[node name="TextureRect" type="TextureRect" parent="levelpopup"]
 anchor_left = -5.75
 anchor_top = -5.96476
 anchor_right = 6.75
@@ -180,7 +180,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="level1" type="TextureButton" parent="Popup/TextureRect"]
+[node name="level1" type="TextureButton" parent="levelpopup/TextureRect"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -96.5
@@ -193,7 +193,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="level2" type="TextureButton" parent="Popup/TextureRect"]
+[node name="level2" type="TextureButton" parent="levelpopup/TextureRect"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -96.5
@@ -206,7 +206,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="level3" type="TextureButton" parent="Popup/TextureRect"]
+[node name="level3" type="TextureButton" parent="levelpopup/TextureRect"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -96.5
@@ -219,7 +219,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Close" type="TextureButton" parent="Popup/TextureRect"]
+[node name="Close" type="TextureButton" parent="levelpopup/TextureRect"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -234,7 +234,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Popup/TextureRect"]
+[node name="Label" type="Label" parent="levelpopup/TextureRect"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -78.5
@@ -253,7 +253,7 @@ __meta__ = {
 [connection signal="pressed" from="SectionButton1" to="." method="_on_SectionButton_pressed" binds= [ 0 ]]
 [connection signal="pressed" from="SectionButton2" to="." method="_on_SectionButton_pressed" binds= [ 1 ]]
 [connection signal="pressed" from="SectionButton3" to="." method="_on_SectionButton_pressed" binds= [ 2 ]]
-[connection signal="pressed" from="Popup/TextureRect/level1" to="." method="_on_level_pressed" binds= [ 1 ]]
-[connection signal="pressed" from="Popup/TextureRect/level2" to="." method="_on_level_pressed" binds= [ 2 ]]
-[connection signal="pressed" from="Popup/TextureRect/level3" to="." method="_on_level_pressed" binds= [ 3 ]]
-[connection signal="pressed" from="Popup/TextureRect/Close" to="." method="_on_Close_pressed"]
+[connection signal="pressed" from="levelpopup/TextureRect/level1" to="." method="_on_level_pressed" binds= [ 0 ]]
+[connection signal="pressed" from="levelpopup/TextureRect/level2" to="." method="_on_level_pressed" binds= [ 1 ]]
+[connection signal="pressed" from="levelpopup/TextureRect/level3" to="." method="_on_level_pressed" binds= [ 2 ]]
+[connection signal="pressed" from="levelpopup/TextureRect/Close" to="." method="_on_Close_pressed"]
