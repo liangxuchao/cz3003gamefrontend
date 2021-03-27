@@ -7,12 +7,12 @@ var animation = null
 
 func _ready():
 	yield(get_tree().create_timer(2),"timeout")
-	if Global.AccessToken != "":
-		var query = "?token=" + Global.AccessToken;
-		httpNode.connect("request_completed", self, "_on_request_completed_tokenstatus")
-		httpNode.request(Global.APIrooturl +  "/verify" + query,[],false,HTTPClient.METHOD_POST)
-	else:
-		get_tree().change_scene('res://login/login.tscn')
+#	if Global.AccessToken != "":
+#		var query = "?token=" + Global.AccessToken;
+#		httpNode.connect("request_completed", self, "_on_request_completed_tokenstatus")
+#		httpNode.request(Global.APIrooturl +  "/verify" + query,[],false,HTTPClient.METHOD_POST)
+#	else:
+	get_tree().change_scene('res://login/login.tscn')
 		
 #	animation = $Label/AnimationPlayer
 #	animation.play("loading")
