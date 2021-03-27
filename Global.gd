@@ -9,6 +9,7 @@ var pvelvlselection;
 var Username;
 var TokenExpire;
 var lastlogin;
+var pvebossselection;
 
 func _ready():
 	var file = File.new()

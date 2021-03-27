@@ -11,21 +11,11 @@
 [ext_resource path="res://game/backbutton/back.tscn" type="PackedScene" id=9]
 [ext_resource path="res://public/image/world3/Button.png" type="Texture" id=10]
 [ext_resource path="res://public/image/world3/PVP_Title.png" type="Texture" id=11]
+[ext_resource path="res://public/image/world3/menuButton.png" type="Texture" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 size = 48
 font_data = ExtResource( 5 )
-
-[sub_resource type="GDScript" id=2]
-script/source = "extends TextureButton
-
-export(String) var sectiontitle
-
-
-
-
-
-"
 
 [sub_resource type="DynamicFont" id=3]
 size = 42
@@ -57,6 +47,8 @@ __meta__ = {
 [node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 2.24487
+margin_right = 2.24487
 rect_clip_content = true
 texture = ExtResource( 4 )
 expand = true
@@ -101,11 +93,9 @@ margin_right = 400.0
 margin_bottom = 500.0
 texture_normal = ExtResource( 2 )
 expand = true
-script = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-sectiontitle = "SECTION I"
 
 [node name="Boss1" parent="SectionButton1" instance=ExtResource( 8 )]
 position = Vector2( 62.225, 41 )
@@ -335,9 +325,19 @@ custom_colors/font_color = Color( 0.0117647, 0.309804, 0.478431, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="SectionButton1" to="." method="_on_SectionButton_pressed" binds= [ "SECTION I" ]]
-[connection signal="pressed" from="SectionButton2" to="." method="_on_SectionButton_pressed" binds= [ "SECTION II" ]]
-[connection signal="pressed" from="SectionButton3" to="." method="_on_SectionButton_pressed" binds= [ "SECTION III" ]]
+
+[node name="Menu" type="TextureButton" parent="."]
+margin_left = 1149.4
+margin_top = 40.4087
+margin_right = 1231.4
+margin_bottom = 124.409
+texture_normal = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="SectionButton1" to="." method="_on_SectionButton_pressed" binds= [ "SECTION I", 31 ]]
+[connection signal="pressed" from="SectionButton2" to="." method="_on_SectionButton_pressed" binds= [ "SECTION II", 32 ]]
+[connection signal="pressed" from="SectionButton3" to="." method="_on_SectionButton_pressed" binds= [ "SECTION III", 33 ]]
 [connection signal="pressed" from="levelpopup/TextureRect/CloseButton" to="." method="_on_CloseButton_pressed"]
 [connection signal="pressed" from="levelpopup/TextureRect/Button" to="." method="_on_level_pressed" binds= [ "1" ]]
 [connection signal="pressed" from="levelpopup/TextureRect/Button2" to="." method="_on_level_pressed" binds= [ 2 ]]

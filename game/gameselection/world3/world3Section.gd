@@ -9,9 +9,10 @@ func _ready():
 	pass # Replace with function body.
 
 
-func _on_SectionButton_pressed(sectiontitle):
+func _on_SectionButton_pressed(sectiontitle, boss):
 	#api call
 	leveltitle.text = sectiontitle
+	Global.pvebossselection=boss
 	levelpopup.popup()
 
 

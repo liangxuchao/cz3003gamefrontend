@@ -202,9 +202,9 @@ __meta__ = {
 }
 
 [node name="Control" parent="." instance=ExtResource( 7 )]
-margin_left = 123.233
+margin_left = 124.355
 margin_top = 187.436
-margin_right = 123.233
+margin_right = 124.355
 margin_bottom = 187.436
 rect_scale = Vector2( 1.3, 1.2 )
 
