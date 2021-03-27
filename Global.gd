@@ -13,6 +13,7 @@ var pveworld;
 var Username;
 var TokenExpire;
 var lastlogin;
+var pvebossselection;
 
 var WorldsDetails = {};
 
