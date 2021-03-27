@@ -14,10 +14,13 @@ func _ready():
 	boss = Global.pvebossselection;
 	if boss == 31 :
 		$Boss1.texture = preload("res://.import/boss1.png-14b1a06b9eb8c50a1d693d016094455e.stex");
+		$BossAttack/Sprite.texture = preload("res://public/image/world3/Bone Weapon.png");
 	elif boss == 32:
 		 $Boss1.texture = preload("res://.import/boss2.png-7698100e92789fa74544eb4d12ec6649.stex");
+		 $BossAttack/Sprite.texture = preload("res://public/image/world3/stone attack.png");
 	else:
 		 $Boss1.texture = preload("res://.import/boss3.png-6335d50488a5f84548acfc72a8a7c1a5.stex");
+		 $BossAttack/Sprite.texture = preload("res://public/image/world3/blade of death.png");
 	#api call
 	
 	#end 
@@ -49,7 +52,6 @@ func _lose_pressed():
 
 
 func _on_Hit_Box_area_entered(area):
-	print("1233")
 	$Sword/Sprite.frame=1 # Replace with function body.
 
 
@@ -62,6 +64,5 @@ func _on_Answer2_pressed():
 
 
 func _on_Hit_Box_playArea_entered(area):
-	print("ABCS")
 	$BossAttack/Sprite.frame=1
 	

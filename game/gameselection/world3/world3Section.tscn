@@ -47,8 +47,8 @@ __meta__ = {
 [node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 2.24487
-margin_right = 2.24487
+margin_left = 3.36737
+margin_right = 3.36743
 rect_clip_content = true
 texture = ExtResource( 4 )
 expand = true
