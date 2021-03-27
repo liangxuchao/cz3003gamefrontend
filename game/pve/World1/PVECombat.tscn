@@ -43,6 +43,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
 [node name="FightBG" type="TextureRect" parent="."]
 margin_top = -40.0
 margin_right = 1351.0

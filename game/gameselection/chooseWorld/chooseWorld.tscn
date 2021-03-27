@@ -60,8 +60,7 @@ __meta__ = {
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -428.0
-margin_right = -2.0
+margin_left = -426.0
 margin_bottom = 6.10352e-05
 texture_normal = ExtResource( 8 )
 texture_hover = ExtResource( 7 )
@@ -93,5 +92,5 @@ margin_right = 122.0
 margin_bottom = 64.3182
 scene_to_load = "res://game/gameselection/chooseCharacter/chooseCharacter.tscn"
 [connection signal="pressed" from="world1" to="world1" method="_on_world_pressed" binds= [ "Taming the Python" ]]
-[connection signal="pressed" from="world2" to="world2" method="_on_world_pressed" binds= [ "php" ]]
+[connection signal="pressed" from="world2" to="world2" method="_on_world_pressed" binds= [ "Understanding PHP" ]]
 [connection signal="pressed" from="world3" to="world3" method="_on_world_pressed" binds= [ "Surfing on Java" ]]

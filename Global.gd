@@ -18,7 +18,7 @@ var pvebossselection;
 
 var WorldsDetails = {};
 
-var worldmapper = {"Taming the Python": "World1",  "php": "World2", "Surfing on Java" : "World3"}
+var worldmapper = {"Taming the Python": "World1",  "Understanding PHP": "World2", "Surfing on Java" : "World3"}
 
 func _ready():
 	var file = File.new()
