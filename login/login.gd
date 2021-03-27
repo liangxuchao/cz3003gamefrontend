@@ -16,7 +16,8 @@ func _on_submit_pressed():
 		alertpopup.popup()
 	else:
 		var query = "?username="+username.text+"&password=" +password.text;
-		#print(query)
+		print(query)
+		print(Global.APIrooturl +  "/login")
 		#var headers: PoolStringArray = ["Content-Length: " + str(query.length()), 
 		#"Content-Type : multipart/form-data; boundary=1", 
 		#"HOST: cz3003arsenal.southeastasia.cloudapp.azure.com:8080"] 
@@ -28,16 +29,17 @@ func _on_submit_pressed():
 func _on_request_completed_login(result, response_code,headers, body):	
 	var json = JSON.parse(body.get_string_from_utf8())
 	
-	print(json.result)
 	if response_code == 200:
 		var time = OS.get_unix_time()
 		Global.updateConfig({"Username":username.text, "AccessToken":json.result["access_token"], "TokenExpire": json.result["expires_in"], "lastlogin":time })
 		Global.AccessToken = json.result["access_token"];
+		
 		get_tree().change_scene('res://game/title_screen/TitleScreen.tscn');
 	else:
 		alertLabel.text = "Login failed! \n Please try again!"
 		alertpopup.popup()
 
 
+		
 func _on_enter_pressed():
 	alertpopup.visible = false;

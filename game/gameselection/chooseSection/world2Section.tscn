@@ -1,56 +1,56 @@
 [gd_scene load_steps=23 format=2]
 
-[ext_resource path="res://public/image/world2/BG desert.jpg" type="Texture" id=1]
-[ext_resource path="res://public/image/world2/4Z_2101.w017.n001.354B.p15.354-removebg-preview copy 4.png" type="Texture" id=2]
-[ext_resource path="res://public/image/world2/wood bg world.png" type="Texture" id=3]
-[ext_resource path="res://public/image/world2/ChooseSectionTitle.png" type="Texture" id=4]
-[ext_resource path="res://public/fonts/soupofjustice.ttf" type="DynamicFontData" id=5]
-[ext_resource path="res://game/backbutton/back.tscn" type="PackedScene" id=6]
-[ext_resource path="res://public/fonts/main.tres" type="DynamicFont" id=7]
+[ext_resource path="res://public/image/world2/ChooseSectionTitle.png" type="Texture" id=1]
+[ext_resource path="res://public/image/world2/4Z_2101.w017.n001.354B.p15.354-removebg-preview copy 2.png" type="Texture" id=2]
+[ext_resource path="res://public/image/world2/4Z_2101.w017.n001.354B.p15.354-removebg-preview copy.png" type="Texture" id=3]
+[ext_resource path="res://public/image/world2/4Z_2101.w017.n001.354B.p15.354-removebg-preview copy 4.png" type="Texture" id=4]
+[ext_resource path="res://public/image/world2/BG desert.jpg" type="Texture" id=5]
+[ext_resource path="res://public/image/world2/wood bg world.png" type="Texture" id=6]
+[ext_resource path="res://game/backbutton/back.tscn" type="PackedScene" id=7]
 [ext_resource path="res://game/interface/boss/world2/section1.tscn" type="PackedScene" id=8]
 [ext_resource path="res://game/interface/boss/world2/section2.tscn" type="PackedScene" id=9]
-[ext_resource path="res://public/image/world2/4Z_2101.w017.n001.354B.p15.354-removebg-preview copy.png" type="Texture" id=10]
-[ext_resource path="res://game/gameselection/world2/world2Section.gd" type="Script" id=11]
-[ext_resource path="res://public/image/world2/4Z_2101.w017.n001.354B.p15.354-removebg-preview copy 2.png" type="Texture" id=12]
+[ext_resource path="res://public/fonts/soupofjustice.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://public/fonts/main.tres" type="DynamicFont" id=11]
+[ext_resource path="res://game/gameselection/chooseSection/worldSection.gd" type="Script" id=12]
 [ext_resource path="res://public/image/world2/iShot2021-03-13_16.21.44-removebg-preview.png" type="Texture" id=13]
 
 [sub_resource type="DynamicFont" id=1]
 size = 45
-font_data = ExtResource( 5 )
+font_data = ExtResource( 10 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 48
-font_data = ExtResource( 5 )
+font_data = ExtResource( 10 )
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.396078, 0.12549, 0.0156863, 1 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 48
-font_data = ExtResource( 5 )
+font_data = ExtResource( 10 )
 
 [sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 0.396078, 0.12549, 0.0156863, 1 )
 
 [sub_resource type="DynamicFont" id=6]
 size = 48
-font_data = ExtResource( 5 )
+font_data = ExtResource( 10 )
 
 [sub_resource type="StyleBoxFlat" id=7]
 bg_color = Color( 0.396078, 0.12549, 0.0156863, 1 )
 
 [sub_resource type="DynamicFont" id=8]
 size = 48
-font_data = ExtResource( 5 )
+font_data = ExtResource( 10 )
 
 [sub_resource type="DynamicFont" id=9]
 size = 48
-font_data = ExtResource( 5 )
+font_data = ExtResource( 10 )
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 11 )
+script = ExtResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -59,7 +59,7 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_clip_content = true
-texture = ExtResource( 1 )
+texture = ExtResource( 5 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -70,7 +70,7 @@ margin_left = 490.0
 margin_right = 790.0
 margin_bottom = 230.0
 rect_clip_content = true
-texture = ExtResource( 4 )
+texture = ExtResource( 1 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -90,27 +90,45 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SectionButton" type="TextureButton" parent="."]
+[node name="SectionButton1" type="TextureButton" parent="."]
 margin_left = 100.0
 margin_top = 250.0
 margin_right = 400.0
 margin_bottom = 500.0
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 6 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="boss1" parent="SectionButton" instance=ExtResource( 8 )]
+[node name="boss1" parent="SectionButton1" instance=ExtResource( 8 )]
 position = Vector2( 154.965, 123.339 )
 scale = Vector2( 0.368969, 0.35523 )
+centered = true
+
+[node name="Label" type="Label" parent="SectionButton1"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -59.686
+margin_top = 159.929
+margin_right = 82.314
+margin_bottom = 195.929
+custom_fonts/font = ExtResource( 11 )
+custom_colors/font_color = Color( 0.352941, 0.215686, 0.0627451, 1 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="SectionButton2" type="TextureButton" parent="."]
 margin_left = 490.0
 margin_top = 250.0
 margin_right = 790.0
 margin_bottom = 500.0
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 6 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -119,13 +137,31 @@ __meta__ = {
 [node name="boss2" parent="SectionButton2" instance=ExtResource( 9 )]
 position = Vector2( 149.961, 135.509 )
 scale = Vector2( 0.430849, 0.384902 )
+centered = true
+
+[node name="Label" type="Label" parent="SectionButton2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -76.0
+margin_top = 167.0
+margin_right = 76.0
+margin_bottom = 203.0
+custom_fonts/font = ExtResource( 11 )
+custom_colors/font_color = Color( 0.352941, 0.215686, 0.0627451, 1 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="SectionButton3" type="TextureButton" parent="."]
 margin_left = 880.0
 margin_top = 250.0
 margin_right = 1180.0
 margin_bottom = 500.0
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 6 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -136,96 +172,24 @@ position = Vector2( 139.191, 136.331 )
 scale = Vector2( 0.389421, 0.330914 )
 texture = ExtResource( 13 )
 
-[node name="s1" type="TextureButton" parent="."]
-margin_left = 161.314
-margin_top = 512.929
-margin_right = 361.314
-margin_bottom = 592.929
-texture_normal = ExtResource( 2 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="s1"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -71.0
-margin_top = -18.0
-margin_right = 71.0
-margin_bottom = 18.0
-custom_fonts/font = ExtResource( 7 )
-custom_colors/font_color = Color( 0.352941, 0.215686, 0.0627451, 1 )
-text = "section i"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="s2" type="TextureButton" parent="."]
-margin_left = 540.0
-margin_top = 520.0
-margin_right = 740.0
-margin_bottom = 600.0
-size_flags_horizontal = 0
-texture_normal = ExtResource( 2 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="s2"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -76.0
-margin_top = -18.0
-margin_right = 76.0
-margin_bottom = 18.0
-custom_fonts/font = ExtResource( 7 )
-custom_colors/font_color = Color( 0.352941, 0.215686, 0.0627451, 1 )
-text = "section ii"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="s3" type="TextureButton" parent="."]
-margin_left = 930.0
-margin_top = 520.0
-margin_right = 1130.0
-margin_bottom = 600.0
-size_flags_horizontal = 0
-texture_normal = ExtResource( 2 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="s3"]
+[node name="Label" type="Label" parent="SectionButton3"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -81.0
-margin_top = -18.0
+margin_top = 167.0
 margin_right = 81.0
-margin_bottom = 18.0
-custom_fonts/font = ExtResource( 7 )
+margin_bottom = 203.0
+custom_fonts/font = ExtResource( 11 )
 custom_colors/font_color = Color( 0.352941, 0.215686, 0.0627451, 1 )
-text = "section iii"
 align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="backbutton" parent="." instance=ExtResource( 6 )]
+[node name="backbutton" parent="." instance=ExtResource( 7 )]
 scene_to_load = "res://game/gameselection/chooseWorld/chooseWorld.tscn"
 
 [node name="levelpopup" type="Popup" parent="."]
@@ -246,6 +210,9 @@ __meta__ = {
 margin_right = 1280.0
 margin_bottom = 720.0
 color = Color( 0.19, 0.12, 0.02, 0.65 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="TextureRect" type="TextureRect" parent="levelpopup"]
 anchor_left = 0.5
@@ -256,7 +223,7 @@ margin_left = -228.5
 margin_top = -215.5
 margin_right = 228.5
 margin_bottom = 215.5
-texture = ExtResource( 10 )
+texture = ExtResource( 3 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -269,7 +236,7 @@ margin_left = 116.705
 margin_top = 344.278
 margin_right = 325.662
 margin_bottom = 402.152
-texture_normal = ExtResource( 2 )
+texture_normal = ExtResource( 4 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -336,7 +303,7 @@ margin_left = 98.499
 margin_top = -30.3981
 margin_right = 356.499
 margin_bottom = 76.6019
-texture = ExtResource( 12 )
+texture = ExtResource( 2 )
 expand = true
 
 [node name="Title" type="Label" parent="levelpopup/TextureRect/levelTitle"]
@@ -352,7 +319,7 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="SectionButton" to="." method="_on_SectionButton_pressed" binds= [ "SECTION I" ]]
+[connection signal="pressed" from="SectionButton1" to="." method="_on_SectionButton_pressed" binds= [ "SECTION I" ]]
 [connection signal="pressed" from="SectionButton2" to="." method="_on_SectionButton_pressed" binds= [ "SECTION II" ]]
 [connection signal="pressed" from="SectionButton3" to="." method="_on_SectionButton_pressed" binds= [ "SECTION III" ]]
 [connection signal="pressed" from="levelpopup/TextureRect/CloseButton" to="." method="_on_CloseButton_pressed"]

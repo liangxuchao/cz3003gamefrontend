@@ -3,11 +3,11 @@ var win_scene = preload("res://game/pve/World3/Winner.tscn").instance()
 var lose_scene = preload("res://game/pve/World3/LOSE.tscn").instance()
 var animation = null
 
-var menu_scene = preload("res://game/pve/World3/Menu.tscn").instance()
+onready var menupopup = $Popup
 var currentlvl;
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	currentlvl = Global.pvelvlselection;
+	currentlvl = Global.pvelvl;
 	#api call
 	
 	#end 
@@ -15,7 +15,7 @@ func _ready():
 	animation = $Sword/AnimationPlayer
 
 func _on_MenuButton_pressed():
-	get_tree().get_root().add_child(menu_scene)
+	menupopup.popup()
 	pass # Replace with function body.
 
 
@@ -37,3 +37,19 @@ func _lose_pressed():
 func _on_Hit_Box_area_entered(area):
 	print("1233")
 	$Sword/Sprite.frame=1 # Replace with function body.
+
+
+func _on_CloseButton_pressed():
+	menupopup.visible = false;
+	pass # Replace with function body.
+
+
+func _on_quit_pressed():
+	
+	get_tree().change_scene('res://game/gameselection/world3/world3Section.tscn')
+	pass # Replace with function body.
+
+
+func _on_retry_pressed():
+	
+	pass # Replace with function body.

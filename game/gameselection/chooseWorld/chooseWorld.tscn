@@ -32,10 +32,10 @@ __meta__ = {
 
 [node name="world1" type="TextureButton" parent="."]
 anchor_bottom = 1.0
-margin_right = 426.6
+margin_right = 426.0
 margin_bottom = 6.10352e-05
-texture_normal = ExtResource( 5 )
-texture_hover = ExtResource( 4 )
+texture_normal = ExtResource( 9 )
+texture_hover = ExtResource( 6 )
 expand = true
 script = ExtResource( 2 )
 __meta__ = {
@@ -44,15 +44,12 @@ __meta__ = {
 
 [node name="world2" type="TextureButton" parent="."]
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -213.0
-margin_top = -360.0
-margin_right = 213.0
-margin_bottom = 360.0
-texture_normal = ExtResource( 8 )
-texture_hover = ExtResource( 7 )
+anchor_bottom = 1.0
+margin_left = -215.0
+margin_right = 215.0
+texture_normal = ExtResource( 5 )
+texture_hover = ExtResource( 4 )
 expand = true
 script = ExtResource( 2 )
 __meta__ = {
@@ -61,14 +58,13 @@ __meta__ = {
 
 [node name="world3" type="TextureButton" parent="."]
 anchor_left = 1.0
-anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = -426.8
-margin_top = -360.0
-margin_bottom = 360.0
-texture_normal = ExtResource( 9 )
-texture_hover = ExtResource( 6 )
+anchor_bottom = 1.0
+margin_left = -428.0
+margin_right = -2.0
+margin_bottom = 6.10352e-05
+texture_normal = ExtResource( 8 )
+texture_hover = ExtResource( 7 )
 expand = true
 script = ExtResource( 2 )
 __meta__ = {
@@ -96,6 +92,6 @@ margin_top = 18.3182
 margin_right = 122.0
 margin_bottom = 64.3182
 scene_to_load = "res://game/gameselection/chooseCharacter/chooseCharacter.tscn"
-[connection signal="pressed" from="world1" to="world1" method="_on_world1_pressed"]
-[connection signal="pressed" from="world2" to="world2" method="_on_world2_pressed"]
-[connection signal="pressed" from="world3" to="world3" method="_on_world3_pressed"]
+[connection signal="pressed" from="world1" to="world1" method="_on_world_pressed" binds= [ "Taming the Python" ]]
+[connection signal="pressed" from="world2" to="world2" method="_on_world_pressed" binds= [ "php" ]]
+[connection signal="pressed" from="world3" to="world3" method="_on_world_pressed" binds= [ "Surfing on Java" ]]

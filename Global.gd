@@ -2,13 +2,19 @@ extends Node
 
 onready var httpNode = HTTPRequest.new();
 
-var APIrooturl = "http://cz3003arsenal.southeastasia.cloudapp.azure.com:8080";
+var APIrooturl = "http://cz3003ntu.southeastasia.cloudapp.azure.com:8080";
 var dict = {} 
 var AccessToken;
-var pvelvlselection;
+
+var pvelvl;
+var pvesection;
+var pveworld;
+
 var Username;
 var TokenExpire;
 var lastlogin;
+
+var WorldsDetails = {};
 
 func _ready():
 	var file = File.new()

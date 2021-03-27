@@ -1,28 +1,28 @@
 [gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://public/fonts/soupofjustice.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://public/image/world1/SectionUI/chooseSec.png" type="Texture" id=2]
-[ext_resource path="res://public/image/world1/SectionUI/board.png" type="Texture" id=3]
-[ext_resource path="res://public/image/world1/SectionUI/HARD.png" type="Texture" id=4]
-[ext_resource path="res://public/image/world1/SectionUI/easy.png" type="Texture" id=5]
-[ext_resource path="res://public/image/world1/SectionUI/jungleBG3.jpg" type="Texture" id=6]
-[ext_resource path="res://game/backbutton/back.tscn" type="PackedScene" id=7]
-[ext_resource path="res://game/interface/boss/world1/section2.tscn" type="PackedScene" id=8]
-[ext_resource path="res://game/interface/boss/world1/section3.tscn" type="PackedScene" id=9]
+[ext_resource path="res://public/image/world1/SectionUI/board.png" type="Texture" id=1]
+[ext_resource path="res://public/image/world1/SectionUI/easy.png" type="Texture" id=2]
+[ext_resource path="res://public/image/world1/SectionUI/HARD.png" type="Texture" id=3]
+[ext_resource path="res://public/image/world1/SectionUI/jungleBG3.jpg" type="Texture" id=4]
+[ext_resource path="res://public/image/world1/SectionUI/PopupBoard.png" type="Texture" id=5]
+[ext_resource path="res://public/image/world1/SectionUI/MEDIUM.png" type="Texture" id=6]
+[ext_resource path="res://public/image/world1/SectionUI/cancelBtn.png" type="Texture" id=7]
+[ext_resource path="res://game/interface/boss/world1/section3.tscn" type="PackedScene" id=8]
+[ext_resource path="res://game/backbutton/back.tscn" type="PackedScene" id=9]
 [ext_resource path="res://game/interface/boss/world1/section1.tscn" type="PackedScene" id=10]
-[ext_resource path="res://public/image/world1/SectionUI/PopupBoard.png" type="Texture" id=11]
-[ext_resource path="res://public/image/world1/SectionUI/MEDIUM.png" type="Texture" id=12]
-[ext_resource path="res://public/image/world1/SectionUI/cancelBtn.png" type="Texture" id=13]
-[ext_resource path="res://game/gameselection/world1/world1Section.gd" type="Script" id=14]
+[ext_resource path="res://game/interface/boss/world1/section2.tscn" type="PackedScene" id=11]
+[ext_resource path="res://public/fonts/soupofjustice.ttf" type="DynamicFontData" id=12]
+[ext_resource path="res://public/image/world1/SectionUI/chooseSec.png" type="Texture" id=13]
+[ext_resource path="res://game/gameselection/chooseSection/worldSection.gd" type="Script" id=14]
 
 [sub_resource type="DynamicFont" id=1]
 size = 35
-font_data = ExtResource( 1 )
+font_data = ExtResource( 12 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 37
 extra_spacing_char = 2
-font_data = ExtResource( 1 )
+font_data = ExtResource( 12 )
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -38,7 +38,7 @@ anchor_bottom = 1.0
 margin_top = -1.7818
 margin_bottom = -1.7818
 rect_clip_content = true
-texture = ExtResource( 6 )
+texture = ExtResource( 4 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": true
@@ -52,7 +52,7 @@ margin_top = 20.0
 margin_right = 200.0
 margin_bottom = 200.0
 rect_clip_content = true
-texture = ExtResource( 2 )
+texture = ExtResource( 13 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": true
@@ -63,50 +63,50 @@ anchor_left = 0.078125
 anchor_top = 0.326389
 anchor_right = 0.3125
 anchor_bottom = 0.673611
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 1 )
 expand = true
-script = ExtResource( 14 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="boss1" parent="SectionButton1" instance=ExtResource( 10 )]
 position = Vector2( 150.476, 122.168 )
+centered = true
 
-[node name="Section1" type="Label" parent="SectionButton1"]
+[node name="Label" type="Label" parent="SectionButton1"]
 modulate = Color( 0.960784, 0.960784, 0.960784, 1 )
 anchor_left = 0.248333
 anchor_top = 1.16407
 anchor_right = 0.751667
 anchor_bottom = 1.31607
 custom_fonts/font = SubResource( 1 )
-text = "section i"
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="SectionButton2" type="TextureButton" parent="."]
+visible = false
 anchor_left = 0.382813
 anchor_top = 0.326389
 anchor_right = 0.617188
 anchor_bottom = 0.673611
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 1 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="boss2" parent="SectionButton2" instance=ExtResource( 8 )]
+[node name="boss2" parent="SectionButton2" instance=ExtResource( 11 )]
 position = Vector2( 156.123, 124.794 )
+centered = true
 
-[node name="Section2" type="Label" parent="SectionButton2"]
+[node name="Label" type="Label" parent="SectionButton2"]
 modulate = Color( 0.960784, 0.960784, 0.960784, 1 )
 anchor_left = 0.246667
 anchor_top = 1.16407
 anchor_right = 0.753333
 anchor_bottom = 1.31607
 custom_fonts/font = SubResource( 1 )
-text = "section ii"
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -116,29 +116,29 @@ anchor_left = 0.6875
 anchor_top = 0.326389
 anchor_right = 0.921875
 anchor_bottom = 0.673611
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 1 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="boss3" parent="SectionButton3" instance=ExtResource( 9 )]
+[node name="boss3" parent="SectionButton3" instance=ExtResource( 8 )]
 position = Vector2( 148.114, 124.794 )
+centered = true
 
-[node name="Section3" type="Label" parent="SectionButton3"]
+[node name="Label" type="Label" parent="SectionButton3"]
 modulate = Color( 0.960784, 0.960784, 0.960784, 1 )
 anchor_left = 0.23
 anchor_top = 1.16407
 anchor_right = 0.77
 anchor_bottom = 1.31607
 custom_fonts/font = SubResource( 1 )
-text = "section iii"
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="backbutton" parent="." instance=ExtResource( 7 )]
-scene_to_load = "res://game/gameselection/chooseWorld/chooseWorld.tscn"
+[node name="backbutton" parent="." instance=ExtResource( 9 )]
+scene_to_load = "res://game/gameselection/chooseWorld/chooseworld.tscn"
 
 [node name="Popup" type="Popup" parent="."]
 visible = true
@@ -175,46 +175,46 @@ anchor_top = -5.96476
 anchor_right = 6.75
 anchor_bottom = 5.53524
 margin_bottom = 1.52588e-05
-texture = ExtResource( 11 )
+texture = ExtResource( 5 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Easy" type="TextureButton" parent="Popup/TextureRect"]
+[node name="level1" type="TextureButton" parent="Popup/TextureRect"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -96.5
 margin_top = 128.691
 margin_right = 96.5
 margin_bottom = 213.691
-texture_normal = ExtResource( 5 )
+texture_normal = ExtResource( 2 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Medium" type="TextureButton" parent="Popup/TextureRect"]
+[node name="level2" type="TextureButton" parent="Popup/TextureRect"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -96.5
 margin_top = 222.447
 margin_right = 96.5
 margin_bottom = 307.447
-texture_normal = ExtResource( 12 )
+texture_normal = ExtResource( 6 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Hard" type="TextureButton" parent="Popup/TextureRect"]
+[node name="level3" type="TextureButton" parent="Popup/TextureRect"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -96.5
 margin_top = 317.0
 margin_right = 96.5
 margin_bottom = 402.0
-texture_normal = ExtResource( 4 )
+texture_normal = ExtResource( 3 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -229,7 +229,7 @@ margin_left = -109.5
 margin_top = -41.3927
 margin_right = 109.5
 margin_bottom = 42.6073
-texture_normal = ExtResource( 13 )
+texture_normal = ExtResource( 7 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -251,10 +251,10 @@ text = "section i"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="SectionButton1" to="." method="_on_SectionButton1_pressed" binds= [ "SECION I" ]]
-[connection signal="pressed" from="SectionButton2" to="." method="_on_SectionButton1_pressed" binds= [ "SECTION II" ]]
-[connection signal="pressed" from="SectionButton3" to="." method="_on_SectionButton1_pressed" binds= [ "SECION III" ]]
-[connection signal="pressed" from="Popup/TextureRect/Easy" to="." method="_on_level_pressed" binds= [ 1 ]]
-[connection signal="pressed" from="Popup/TextureRect/Medium" to="." method="_on_level_pressed" binds= [ 2 ]]
-[connection signal="pressed" from="Popup/TextureRect/Hard" to="." method="_on_level_pressed" binds= [ 3 ]]
+[connection signal="pressed" from="SectionButton1" to="." method="_on_SectionButton_pressed"]
+[connection signal="pressed" from="SectionButton2" to="." method="_on_SectionButton2_pressed"]
+[connection signal="pressed" from="SectionButton3" to="." method="_on_SectionButton3_pressed"]
+[connection signal="pressed" from="Popup/TextureRect/level1" to="." method="_on_level_pressed" binds= [ 1 ]]
+[connection signal="pressed" from="Popup/TextureRect/level2" to="." method="_on_level_pressed" binds= [ 2 ]]
+[connection signal="pressed" from="Popup/TextureRect/level3" to="." method="_on_level_pressed" binds= [ 3 ]]
 [connection signal="pressed" from="Popup/TextureRect/Close" to="." method="_on_Close_pressed"]
