@@ -16,16 +16,11 @@ func _on_submit_pressed():
 		alertpopup.popup()
 	else:
 		var query = "?username="+username.text+"&password=" +password.text;
-		print(query)
-		print(Global.APIrooturl +  "/login")
-		#var headers: PoolStringArray = ["Content-Length: " + str(query.length()), 
-		#"Content-Type : multipart/form-data; boundary=1", 
-		#"HOST: cz3003arsenal.southeastasia.cloudapp.azure.com:8080"] 
-		
+	
 		httpNode.connect("request_completed", self, "_on_request_completed_login")
 		httpNode.request(Global.APIrooturl +  "/login" + query,[],false,HTTPClient.METHOD_POST)
 		
-		
+	
 func _on_request_completed_login(result, response_code,headers, body):	
 	var json = JSON.parse(body.get_string_from_utf8())
 	

@@ -31,6 +31,7 @@ onready var winScore= $win/TextureRect/Score
 onready var lose = $lose
 onready var loseScore= $lose/TextureRect/Score
 
+onready var RespondLabel = $QuestionBOX/RespondLabel
 
 var s = 3
 var questions = []
@@ -54,8 +55,6 @@ func _ready():
 	httpNode.request(Global.APIrooturl +  "/api/v1/question/1",authheader,false,HTTPClient.METHOD_GET)
 	
 	#end 
-	#print(Global.pvesection)
-	
 	var bossscence = load("res://game/interface/boss/" + Global.worldmapper[Global.pveworld.name] +"/section" + str(Global.pvesection.id)  + ".tscn").instance()
 	bossAttack.texture = load("res://game/interface/boss/" + Global.worldmapper[Global.pveworld.name] +"/Attack/section" + str(Global.pvesection.id)  + ".png")
 	
@@ -79,8 +78,13 @@ func _on_MenuButton_pressed():
 	pass # Replace with function body.
 
 
-
+	
 func _on_Answer_pressed(option):
+	questionAns1.visible = false
+	questionAns2.visible = false
+	questionAns3.visible = false
+	questionAns4.visible = false
+	
 	var userinputAns = questions[questionIndex].answerOptions[option]
 	var authheader: PoolStringArray = ['Authorization: Bearer ' + Global.AccessToken, 'Content-Type: application/json', ] 
 	var body = '[{ "answerIds" : [' + str(userinputAns.id) +'],"levelId":1, "questionId": 1, "questionValue" : "string" }]'
@@ -96,23 +100,31 @@ func _on_Answer_pressed(option):
 		currentscore += 1
 		correctAns += 1
 		# character animation
+		RespondLabel.text = "Correct!"
+		RespondLabel.set("custom_colors/font_color", Color(0, 1, 0, 1))
+		RespondLabel.visible = true
+		
 		charAttack.frame =0
 		charattackanimation.play("charAttack")
+		
 		print("charac")
 		yield(charattackanimation, "animation_finished")
 		
+		RespondLabel.visible = false
 	else:
 		
 		print("boss")
 		failAns += 1
-		# boss animation
-		#charAttack.frame =0
-		#charattackanimation.play("charAttack")
-		#yield(charattackanimation, "animation_finished")
+		
+		RespondLabel.text = "Wrong!"
+		RespondLabel.set("custom_colors/font_color", Color(1,0,0,1))
+		RespondLabel.visible = true
 		bossAttack.frame = 0
 		bossattackanimation.play("bossAttack")
+		
 		yield(bossattackanimation, "animation_finished")
 		
+		RespondLabel.visible = false
 		if failAns == 2:
 			#print("failed")
 			loseScore.text = "Score " + str(currentscore)
@@ -134,7 +146,6 @@ func _on_Hit_Box_area_entered(area):
 	charAttack.frame=1
 	bossAttack.frame=1
 	 
-
 func _on_CloseButton_pressed():
 	menupopup.visible =false
 

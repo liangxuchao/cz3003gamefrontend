@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://game/pve/PVECombat.gd" type="Script" id=1]
 [ext_resource path="res://public/image/world3/Section_BG.png" type="Texture" id=2]
@@ -20,6 +20,10 @@ font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 48
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=20]
+size = 50
 font_data = ExtResource( 4 )
 
 [sub_resource type="Animation" id=16]
@@ -263,6 +267,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="RespondLabel" type="Label" parent="QuestionBOX"]
+visible = false
+margin_right = 1280.0
+margin_bottom = 240.0
+custom_fonts/font = SubResource( 20 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="character" type="VBoxContainer" parent="."]
 margin_left = 144.0
 margin_top = 225.0
@@ -282,7 +297,7 @@ anims/charAttack = SubResource( 16 )
 
 [node name="CollisionShape2D" parent="character/charAttack/Hit Box" index="0"]
 position = Vector2( 108, 103 )
-scale = Vector2( 3, 3 )
+scale = Vector2( 8, 8 )
 shape = SubResource( 19 )
 
 [node name="boss" type="VBoxContainer" parent="."]
@@ -302,8 +317,8 @@ anims/bossAttack = SubResource( 17 )
 [node name="Hit Box" parent="boss/bossAttack" instance=ExtResource( 6 )]
 
 [node name="CollisionShape2D" parent="boss/bossAttack/Hit Box" index="0"]
-position = Vector2( -20, -33 )
-scale = Vector2( 3, 3 )
+position = Vector2( 12, 15 )
+scale = Vector2( 5, 5 )
 shape = SubResource( 18 )
 
 [node name="Popup" type="Popup" parent="."]
