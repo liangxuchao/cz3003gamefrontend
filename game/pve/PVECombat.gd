@@ -100,14 +100,13 @@ func _on_Answer_pressed(option):
 		charattackanimation.play("charAttack")
 		yield(charattackanimation, "animation_finished")
 		
-		
 	else:
 		failAns += 1
 		# boss animation
 		#charAttack.frame =0
 		#charattackanimation.play("charAttack")
 		#yield(charattackanimation, "animation_finished")
-		bossAttack.frame =0
+		bossAttack.frame = 0
 		bossattackanimation.play("bossAttack")
 		yield(bossattackanimation, "animation_finished")
 		
@@ -118,6 +117,7 @@ func _on_Answer_pressed(option):
 	
 	questionIndex += 1
 	print(questionIndex)
+	print(questions.size())
 	if(questionIndex <= questions.size()-1):
 		showQuestion()	
 	else:
@@ -128,7 +128,6 @@ func _on_Answer_pressed(option):
 	
 
 func _on_Hit_Box_area_entered(area):
-
 	charAttack.frame=1
 	bossAttack.frame=1
 	 
@@ -136,20 +135,15 @@ func _on_Hit_Box_area_entered(area):
 func _on_CloseButton_pressed():
 	menupopup.visible =false
 
-
 func _on_quit_pressed():
 	get_tree().change_scene('res://game/gameselection/chooseSection/'+ Global.worldmapper[Global.pveworld.name] +'.tscn')
-
-
-
-
 
 func _on_request_completed_checkanswer(result, response_code,headers, body):	
 	var json = JSON.parse(body.get_string_from_utf8())
 	print(json.result)
 	if response_code == 200:
 		if json.result[0].isAnswerCorrect == true:
-			checkAnsValid = false
+			checkAnsValid = true
 		else:
 			checkAnsValid = false
 	else: 
