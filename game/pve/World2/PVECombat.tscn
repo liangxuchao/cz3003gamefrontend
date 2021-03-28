@@ -1,11 +1,9 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://game/pve/PVECombat.gd" type="Script" id=1]
 [ext_resource path="res://public/image/world2/world2 bg.jpg" type="Texture" id=2]
-[ext_resource path="res://public/image/world2/QuizBG.png" type="Texture" id=3]
+[ext_resource path="res://game/interface/character/charAttack.tscn" type="PackedScene" id=3]
 [ext_resource path="res://public/fonts/soupofjustice.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://game/interface/lifebar/Hit Box.tscn" type="PackedScene" id=6]
-[ext_resource path="res://game/interface/character/Sword.tscn" type="PackedScene" id=8]
 [ext_resource path="res://public/image/world2/4Z_2101.w017.n001.354B.p15.354-removebg-preview copy 3.png" type="Texture" id=9]
 [ext_resource path="res://public/image/world2/4Z_2101.w017.n001.354B.p15.354-removebg-preview copy 2.png" type="Texture" id=10]
 [ext_resource path="res://public/image/world2/4Z_2101.w017.n001.354B.p15.354-removebg-preview copy.png" type="Texture" id=11]
@@ -19,24 +17,6 @@ font_data = ExtResource( 4 )
 [sub_resource type="DynamicFont" id=2]
 size = 48
 font_data = ExtResource( 4 )
-
-[sub_resource type="Animation" id=3]
-resource_name = "Move"
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 0.406127 ),
-"update": 0,
-"values": [ Vector2( 47.5658, -90.8717 ), Vector2( 580, -90.872 ) ]
-}
-
-[sub_resource type="CircleShape2D" id=4]
-radius = 41.1866
 
 [sub_resource type="GDScript" id=5]
 script/source = "extends Control
@@ -58,6 +38,18 @@ font_data = ExtResource( 4 )
 size = 48
 font_data = ExtResource( 4 )
 
+[sub_resource type="DynamicFont" id=8]
+size = 28
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 32
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 32
+font_data = ExtResource( 4 )
+
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -68,6 +60,12 @@ __meta__ = {
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
+[node name="Timer" type="Timer" parent="."]
+pause_mode = 2
+one_shot = true
+
+[node name="QuestionTimer" type="Timer" parent="."]
+
 [node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -77,26 +75,24 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Question box" type="TextureRect" parent="."]
-modulate = Color( 0, 0, 0, 0.45 )
+[node name="QuestionBOX2" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="QuestionBOX2"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -5.0
-margin_top = 425.0
-margin_right = 4.0
-margin_bottom = 78.0
-texture = ExtResource( 3 )
-expand = true
+margin_top = 485.0
+margin_right = 1240.0
+margin_bottom = 685.0
+rect_clip_content = true
+color = Color( 0.352941, 0.215686, 0.0627451, 0.721569 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="Question box"]
-modulate = Color( 0.710938, 0.629773, 0.629773, 1 )
-margin_right = 40.0
-margin_bottom = 40.0
-
-[node name="Answer1" type="TextureButton" parent="."]
+[node name="Answer1" type="TextureButton" parent="QuestionBOX2"]
 margin_left = 200.0
 margin_top = 560.0
 margin_right = 560.0
@@ -107,7 +103,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Answer1"]
+[node name="Label1" type="Label" parent="QuestionBOX2/Answer1"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -125,7 +121,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Answer2" type="TextureButton" parent="."]
+[node name="Answer2" type="TextureButton" parent="QuestionBOX2"]
 margin_left = 750.0
 margin_top = 560.0
 margin_right = 1110.0
@@ -136,7 +132,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label2" type="Label" parent="Answer2"]
+[node name="Label2" type="Label" parent="QuestionBOX2/Answer2"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -152,7 +148,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Answer3" type="TextureButton" parent="."]
+[node name="Answer3" type="TextureButton" parent="QuestionBOX2"]
 margin_left = 200.0
 margin_top = 640.0
 margin_right = 560.0
@@ -163,7 +159,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label3" type="Label" parent="Answer3"]
+[node name="Label3" type="Label" parent="QuestionBOX2/Answer3"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -179,7 +175,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Answer4" type="TextureButton" parent="."]
+[node name="Answer4" type="TextureButton" parent="QuestionBOX2"]
 margin_left = 750.0
 margin_top = 640.0
 margin_right = 1110.0
@@ -190,7 +186,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label4" type="Label" parent="Answer4"]
+[node name="Label4" type="Label" parent="QuestionBOX2/Answer4"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -218,18 +214,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Sword" parent="." instance=ExtResource( 8 )]
-position = Vector2( 47.5658, -90.8717 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Sword"]
-anims/Move = SubResource( 3 )
-
-[node name="Hit Box" parent="Sword" instance=ExtResource( 6 )]
-
-[node name="CollisionShape2D" parent="Sword/Hit Box" index="0"]
-position = Vector2( 411.529, 413.417 )
-shape = SubResource( 4 )
-
 [node name="character" type="VBoxContainer" parent="."]
 margin_left = 144.0
 margin_top = 225.0
@@ -238,6 +222,8 @@ margin_bottom = 375.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="charAttack" parent="character" instance=ExtResource( 3 )]
 
 [node name="boss" type="VBoxContainer" parent="."]
 margin_left = 900.0
@@ -249,6 +235,7 @@ __meta__ = {
 }
 
 [node name="Popup" type="Popup" parent="."]
+visible = true
 margin_right = 1280.0
 margin_bottom = 720.0
 script = SubResource( 5 )
@@ -256,7 +243,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BG" type="ColorRect" parent="Popup"]
+[node name="ColorRect" type="ColorRect" parent="Popup"]
 modulate = Color( 0.0117647, 0.309804, 0.478431, 1 )
 self_modulate = Color( 0.0117647, 0.309804, 0.478431, 1 )
 margin_right = 1280.0
@@ -281,119 +268,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="retry" type="TextureButton" parent="Popup/TextureRect"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -100.0
-margin_top = -146.0
-margin_right = 100.0
-margin_bottom = -46.0
-texture_normal = ExtResource( 9 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="Popup/TextureRect/retry"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -51.5
-margin_top = -19.5
-margin_right = 51.5
-margin_bottom = 19.5
-custom_fonts/font = SubResource( 6 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "retry"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="quit" type="TextureButton" parent="Popup/TextureRect"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -100.0
-margin_top = -26.0
-margin_right = 100.0
-margin_bottom = 74.0
-texture_normal = ExtResource( 9 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="Popup/TextureRect/quit"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -51.5
-margin_top = -19.5
-margin_right = 51.5
-margin_bottom = 19.5
-custom_fonts/font = SubResource( 6 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "quit"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Title" type="TextureRect" parent="Popup"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -191.5
-margin_top = 48.0
-margin_right = 191.5
-margin_bottom = 208.0
-texture = ExtResource( 10 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MENU" type="Label" parent="Popup/Title"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -69.5
-margin_top = -24.0
-margin_right = 69.5
-margin_bottom = 24.0
-custom_fonts/font = SubResource( 7 )
-custom_colors/font_color = Color( 0.396078, 0.12549, 0.0156863, 1 )
-text = "Menu"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CloseButton" type="TextureButton" parent="Popup"]
+[node name="CloseButton" type="TextureButton" parent="Popup/TextureRect"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -75.0
-margin_top = -243.0
+margin_top = -126.0
 margin_right = 75.0
-margin_bottom = -163.0
+margin_bottom = -46.0
 texture_normal = ExtResource( 12 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Popup/CloseButton"]
+[node name="Label" type="Label" parent="Popup/TextureRect/CloseButton"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -411,6 +301,63 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="retry" type="Button" parent="Popup/TextureRect"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -163.0
+margin_top = 100.0
+margin_right = 9.0
+margin_bottom = 161.0
+text = "Retry"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="quit" type="Button" parent="Popup/TextureRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -165.0
+margin_top = -61.0
+margin_right = 7.00002
+margin_bottom = 1.52588e-05
+text = "Quit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PVP_Title" type="TextureRect" parent="Popup"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -191.5
+margin_top = 48.0
+margin_right = 191.5
+margin_bottom = 208.0
+texture = ExtResource( 10 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="Popup/PVP_Title"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -69.5
+margin_top = -24.0
+margin_right = 69.5
+margin_bottom = 24.0
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 0.396078, 0.12549, 0.0156863, 1 )
+text = "Menu"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="TextureButton" type="TextureButton" parent="."]
 margin_left = 10.0
 margin_top = 10.0
@@ -421,13 +368,278 @@ expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="Answer1" to="." method="_on_Answer1_pressed"]
-[connection signal="pressed" from="Answer3" to="." method="_win_pressed"]
-[connection signal="pressed" from="Answer4" to="." method="_lose_pressed"]
-[connection signal="area_entered" from="Sword/Hit Box" to="." method="_on_Hit_Box_area_entered"]
-[connection signal="pressed" from="Popup/TextureRect/retry" to="Popup" method="_on_CloseButton_pressed"]
-[connection signal="pressed" from="Popup/TextureRect/quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="Popup/CloseButton" to="." method="_on_CloseButton_pressed"]
-[connection signal="pressed" from="TextureButton" to="." method="_on_MenuButton_pressed"]
 
-[editable path="Sword/Hit Box"]
+[node name="countdown" type="Popup" parent="."]
+visible = true
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="countdown"]
+margin_right = 1280.0
+margin_bottom = 720.0
+color = Color( 0, 0, 0, 0.501961 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="countdown"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 520.0
+margin_top = 300.0
+margin_right = 720.0
+margin_bottom = 380.0
+align = 1
+
+[node name="lose" type="Popup" parent="."]
+visible = true
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="lose"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1240.0
+margin_bottom = 680.0
+color = Color( 0, 0, 0, 0.501961 )
+
+[node name="TextureRect" type="TextureRect" parent="lose"]
+anchor_left = 16.075
+anchor_top = 9.6
+anchor_right = 16.075
+anchor_bottom = 9.6
+margin_left = -195.0
+margin_top = -216.0
+margin_right = 195.0
+margin_bottom = 170.0
+texture = ExtResource( 11 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back" type="TextureButton" parent="lose/TextureRect"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -150.0
+margin_top = -80.0
+texture_normal = ExtResource( 12 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="lose/TextureRect/Back"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -50.8157
+margin_top = -19.5
+margin_right = 52.1843
+margin_bottom = 19.5
+rect_min_size = Vector2( 103, 39 )
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0.352941, 0.215686, 0.0627451, 1 )
+text = "Back"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Try Again" type="TextureButton" parent="lose/TextureRect"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -80.0
+margin_right = 150.0
+texture_normal = ExtResource( 12 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="lose/TextureRect/Try Again"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -61.5
+margin_top = -19.5
+margin_right = 61.5
+margin_bottom = 19.5
+rect_min_size = Vector2( 103, 39 )
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0.352941, 0.215686, 0.0627451, 1 )
+text = "Try Again"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="TextureRect" parent="lose/TextureRect"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -122.0
+margin_top = -101.0
+margin_right = 122.0
+margin_bottom = 4.0
+texture = ExtResource( 10 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="lose/TextureRect/Title"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -66.0
+margin_top = -16.0
+margin_right = 66.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 0.352941, 0.215686, 0.0627451, 1 )
+text = "You LOSE"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="Label" parent="lose/TextureRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -43.5
+margin_top = -16.0
+margin_right = 43.5
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="win" type="Popup" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="win"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1240.0
+margin_bottom = 680.0
+color = Color( 0, 0, 0, 0.501961 )
+
+[node name="TextureRect" type="TextureRect" parent="win"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 428.0
+margin_top = 148.0
+margin_right = 818.0
+margin_bottom = 534.0
+texture = ExtResource( 11 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Next Button" type="TextureButton" parent="win/TextureRect"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -75.0
+margin_top = -80.0
+margin_right = 75.0
+texture_normal = ExtResource( 12 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="win/TextureRect/Next Button"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -50.8157
+margin_top = -19.5
+margin_right = 52.1843
+margin_bottom = 19.5
+rect_min_size = Vector2( 103, 39 )
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0.352941, 0.215686, 0.0627451, 1 )
+text = "NEXT"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="TextureRect" parent="win/TextureRect"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -122.0
+margin_top = -101.0
+margin_right = 122.0
+margin_bottom = 4.0
+texture = ExtResource( 10 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="win/TextureRect/Title"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -66.0
+margin_top = -16.0
+margin_right = 66.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 0.352941, 0.215686, 0.0627451, 1 )
+text = "You win"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="Label" parent="win/TextureRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -43.5
+margin_top = -16.0
+margin_right = 43.5
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="QuestionBOX2/Answer1" to="." method="_on_Answer1_pressed"]
+[connection signal="pressed" from="QuestionBOX2/Answer3" to="." method="_win_pressed"]
+[connection signal="pressed" from="QuestionBOX2/Answer4" to="." method="_lose_pressed"]
+[connection signal="pressed" from="Popup/TextureRect/CloseButton" to="." method="_on_CloseButton_pressed"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_MenuButton_pressed"]

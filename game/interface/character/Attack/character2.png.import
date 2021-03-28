@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/section8.png-35dde2182f13c36050b4cdd7453f0440.stex"
+path="res://.import/character2.png-d78e390cb01c3fe96ed81418ff8290a6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/interface/boss/world3/Attack/section8.png"
-dest_files=[ "res://.import/section8.png-35dde2182f13c36050b4cdd7453f0440.stex" ]
+source_file="res://game/interface/character/Attack/character2.png"
+dest_files=[ "res://.import/character2.png-d78e390cb01c3fe96ed81418ff8290a6.stex" ]
 
 [params]
 

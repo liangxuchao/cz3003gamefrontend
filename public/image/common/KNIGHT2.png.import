@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/section8.png-35dde2182f13c36050b4cdd7453f0440.stex"
+path="res://.import/KNIGHT2.png-0e4af022f227d3804c11ff93b5305f6f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/interface/boss/world3/Attack/section8.png"
-dest_files=[ "res://.import/section8.png-35dde2182f13c36050b4cdd7453f0440.stex" ]
+source_file="res://public/image/common/KNIGHT2.png"
+dest_files=[ "res://.import/KNIGHT2.png-0e4af022f227d3804c11ff93b5305f6f.stex" ]
 
 [params]
 

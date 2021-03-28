@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://public/image/world1/CombatUI/CombatBGSmall.png" type="Texture" id=1]
 [ext_resource path="res://public/image/world1/CombatUI/94.png" type="Texture" id=2]
@@ -13,8 +13,9 @@
 [ext_resource path="res://public/image/world1/CombatUI/Character.png" type="Texture" id=11]
 [ext_resource path="res://public/image/world1/CombatUI/3.png" type="Texture" id=12]
 [ext_resource path="res://public/image/world1/CombatUI/QuizBG_v2.png" type="Texture" id=13]
-[ext_resource path="res://public/image/world1/CombatUI/tick.png" type="Texture" id=14]
+[ext_resource path="res://game/interface/character/charAttack.tscn" type="PackedScene" id=14]
 [ext_resource path="res://game/pve/PVECombat.gd" type="Script" id=15]
+[ext_resource path="res://game/interface/lifebar/Hit Box.tscn" type="PackedScene" id=16]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
@@ -33,11 +34,25 @@ extra_spacing_space = 6
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=4]
-size = 32
-extra_spacing_char = 3
+size = 48
 font_data = ExtResource( 3 )
 
-[node name="Overall" type="Control"]
+[sub_resource type="Animation" id=5]
+resource_name = "charAttract"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 240, 232 ) ]
+}
+
+[node name="Control" type="Control"]
 script = ExtResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -45,7 +60,11 @@ __meta__ = {
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
-[node name="FightBG" type="TextureRect" parent="."]
+[node name="Timer" type="Timer" parent="."]
+
+[node name="QuestionTimer" type="Timer" parent="."]
+
+[node name="Background" type="TextureRect" parent="."]
 margin_top = -40.0
 margin_right = 1351.0
 margin_bottom = 720.0
@@ -55,28 +74,16 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="FightQuestionBG" type="TextureRect" parent="."]
-modulate = Color( 0.176471, 0.309804, 0.231373, 0.784314 )
-margin_top = 488.0
-margin_right = 1280.0
-margin_bottom = 718.0
-texture = ExtResource( 13 )
-expand = true
-stretch_mode = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="UpperPart" type="Control" parent="."]
+[node name="UpperPart" type="Control" parent="Background"]
 margin_left = 9.0
-margin_top = 4.0
+margin_top = 44.0
 margin_right = 1280.0
-margin_bottom = 120.0
+margin_bottom = 160.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="upBG" type="TextureRect" parent="UpperPart"]
+[node name="upBG" type="TextureRect" parent="Background/UpperPart"]
 margin_left = 280.0
 margin_top = -4.0
 margin_right = 980.0
@@ -88,7 +95,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Timer" type="TextureRect" parent="UpperPart/upBG"]
+[node name="Timer" type="TextureRect" parent="Background/UpperPart/upBG"]
 margin_left = 45.0
 margin_top = 15.0
 margin_right = 179.0
@@ -100,7 +107,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TimerText" type="Label" parent="UpperPart/upBG/Timer"]
+[node name="TimerText" type="Label" parent="Background/UpperPart/upBG/Timer"]
 margin_left = 48.0
 margin_top = 6.63041
 margin_right = 120.0
@@ -111,7 +118,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="clock" type="TextureRect" parent="UpperPart/upBG/Timer"]
+[node name="clock" type="TextureRect" parent="Background/UpperPart/upBG/Timer"]
 margin_left = -8.0
 margin_top = -11.0
 margin_right = 40.0
@@ -122,7 +129,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Question" type="TextureRect" parent="UpperPart/upBG"]
+[node name="Question" type="TextureRect" parent="Background/UpperPart/upBG"]
 margin_left = 519.0
 margin_top = 15.0
 margin_right = 653.0
@@ -134,7 +141,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="QuestionNum" type="Label" parent="UpperPart/upBG/Question"]
+[node name="QuestionNum" type="Label" parent="Background/UpperPart/upBG/Question"]
 margin_left = 48.0
 margin_top = 6.63041
 margin_right = 120.0
@@ -145,7 +152,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Icon" type="TextureRect" parent="UpperPart/upBG/Question"]
+[node name="Icon" type="TextureRect" parent="Background/UpperPart/upBG/Question"]
 margin_left = -16.0
 margin_top = -11.0
 margin_right = 28.0
@@ -156,7 +163,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SectionName" type="Label" parent="UpperPart"]
+[node name="SectionName" type="Label" parent="Background/UpperPart"]
 margin_left = 527.0
 margin_top = 15.0
 margin_right = 733.0
@@ -167,7 +174,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MenuButton" type="TextureButton" parent="UpperPart"]
+[node name="MenuButton" type="TextureButton" parent="Background/UpperPart"]
 margin_left = 1199.0
 margin_right = 1413.0
 margin_bottom = 215.0
@@ -176,46 +183,148 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PlayerControl" type="Control" parent="."]
+[node name="QuestionBOX" type="Control" parent="."]
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="bg3" type="TextureRect" parent="PlayerControl"]
-margin_left = 64.0
-margin_top = 176.0
-margin_right = 424.0
-margin_bottom = 191.0
-texture = ExtResource( 6 )
+[node name="QuestionBG" type="TextureRect" parent="QuestionBOX"]
+modulate = Color( 0.176471, 0.309804, 0.231373, 0.784314 )
+margin_top = 488.0
+margin_right = 1280.0
+margin_bottom = 718.0
+texture = ExtResource( 13 )
 expand = true
 stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Answer1" type="TextureButton" parent="QuestionBOX"]
+margin_left = 280.785
+margin_top = 556.436
+margin_right = 737.785
+margin_bottom = 613.436
+rect_scale = Vector2( 0.862, 1 )
+texture_normal = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="bg4" type="TextureRect" parent="PlayerControl"]
-margin_left = 64.0
-margin_top = 176.0
-margin_right = 360.0
-margin_bottom = 191.0
-texture = ExtResource( 10 )
-expand = true
-stretch_mode = 1
+[node name="Label1" type="Label" parent="QuestionBOX/Answer1"]
+margin_left = 27.5931
+margin_top = 10.379
+margin_right = 411.593
+margin_bottom = 74.379
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.756863, 0.431373, 0.12549, 1 )
+custom_colors/font_outline_modulate = Color( 0.137255, 0.0196078, 0.0196078, 1 )
+custom_colors/font_color_shadow = Color( 0.054902, 0.0509804, 0.0156863, 1 )
+text = "Correct"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Character" type="TextureRect" parent="PlayerControl"]
-margin_left = 143.0
-margin_top = 214.0
-margin_right = 368.0
-margin_bottom = 448.0
-texture = ExtResource( 11 )
-expand = true
-stretch_mode = 1
+[node name="Answer2" type="TextureButton" parent="QuestionBOX"]
+margin_left = 726.025
+margin_top = 556.436
+margin_right = 1183.03
+margin_bottom = 613.436
+rect_scale = Vector2( 0.862, 1 )
+texture_normal = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Label2" type="Label" parent="QuestionBOX/Answer2"]
+margin_left = 27.5932
+margin_top = 10.379
+margin_right = 411.593
+margin_bottom = 74.379
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.756863, 0.431373, 0.12549, 1 )
+custom_colors/font_outline_modulate = Color( 0.137255, 0.0196078, 0.0196078, 1 )
+custom_colors/font_color_shadow = Color( 0.054902, 0.0509804, 0.0156863, 1 )
+text = "Wrong"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Answer3" type="TextureButton" parent="QuestionBOX"]
+margin_left = 280.785
+margin_top = 636.873
+margin_right = 737.785
+margin_bottom = 693.873
+rect_scale = Vector2( 0.862, 1 )
+texture_normal = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="QuestionBOX/Answer3"]
+margin_left = 27.593
+margin_top = 10.379
+margin_right = 411.593
+margin_bottom = 74.379
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.756863, 0.431373, 0.12549, 1 )
+custom_colors/font_outline_modulate = Color( 0.137255, 0.0196078, 0.0196078, 1 )
+custom_colors/font_color_shadow = Color( 0.054902, 0.0509804, 0.0156863, 1 )
+text = "You Win"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Answer4" type="TextureButton" parent="QuestionBOX"]
+margin_left = 726.025
+margin_top = 636.873
+margin_right = 1183.03
+margin_bottom = 693.873
+rect_scale = Vector2( 0.862, 1 )
+texture_normal = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="QuestionBOX/Answer4"]
+margin_left = 27.5933
+margin_top = 10.379
+margin_right = 411.593
+margin_bottom = 74.379
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.756863, 0.431373, 0.12549, 1 )
+custom_colors/font_outline_modulate = Color( 0.137255, 0.0196078, 0.0196078, 1 )
+custom_colors/font_color_shadow = Color( 0.054902, 0.0509804, 0.0156863, 1 )
+text = "You LOSE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Question" type="RichTextLabel" parent="QuestionBOX"]
+margin_left = 17.1489
+margin_top = 508.436
+margin_right = 1241.15
+margin_bottom = 564.436
+custom_fonts/normal_font = SubResource( 4 )
+text = "Q1:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="character" type="VBoxContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="charAttack" parent="character" instance=ExtResource( 14 )]
+position = Vector2( 240, 232 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="character/charAttack"]
+anims/charAttract = SubResource( 5 )
+
+[node name="Hit Box" parent="character/charAttack" instance=ExtResource( 16 )]
 
 [node name="MonsterControl" type="Control" parent="."]
 margin_left = 717.04
@@ -261,149 +370,47 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="QuizControl2" type="Control" parent="."]
+[node name="PlayerControl" type="Control" parent="."]
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="QuizPart" type="Control" parent="QuizControl2"]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="bg3" type="TextureRect" parent="PlayerControl"]
+margin_left = 64.0
+margin_top = 176.0
+margin_right = 424.0
+margin_bottom = 191.0
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Answer1" type="TextureButton" parent="QuizControl2/QuizPart"]
-margin_left = 280.785
-margin_top = 556.436
-margin_right = 737.785
-margin_bottom = 613.436
-rect_scale = Vector2( 0.862, 1 )
-texture_normal = ExtResource( 2 )
+[node name="bg4" type="TextureRect" parent="PlayerControl"]
+margin_left = 64.0
+margin_top = 176.0
+margin_right = 360.0
+margin_bottom = 191.0
+texture = ExtResource( 10 )
+expand = true
+stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnswerText1" type="Label" parent="QuizControl2/QuizPart/Answer1"]
-margin_left = 27.5931
-margin_top = 10.379
-margin_right = 411.593
-margin_bottom = 74.379
-custom_fonts/font = SubResource( 3 )
-custom_colors/font_color = Color( 0.756863, 0.431373, 0.12549, 1 )
-custom_colors/font_outline_modulate = Color( 0.137255, 0.0196078, 0.0196078, 1 )
-custom_colors/font_color_shadow = Color( 0.054902, 0.0509804, 0.0156863, 1 )
-text = "Correct"
+[node name="Character" type="TextureRect" parent="PlayerControl"]
+margin_left = 143.0
+margin_top = 214.0
+margin_right = 368.0
+margin_bottom = 448.0
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Answer2" type="TextureButton" parent="QuizControl2/QuizPart"]
-margin_left = 726.025
-margin_top = 556.436
-margin_right = 1183.02
-margin_bottom = 613.436
-rect_scale = Vector2( 0.862, 1 )
-texture_normal = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[editable path="character/charAttack"]
 
-[node name="AnswerText2" type="Label" parent="QuizControl2/QuizPart/Answer2"]
-margin_left = 27.5932
-margin_top = 10.379
-margin_right = 411.593
-margin_bottom = 74.379
-custom_fonts/font = SubResource( 3 )
-custom_colors/font_color = Color( 0.756863, 0.431373, 0.12549, 1 )
-custom_colors/font_outline_modulate = Color( 0.137255, 0.0196078, 0.0196078, 1 )
-custom_colors/font_color_shadow = Color( 0.054902, 0.0509804, 0.0156863, 1 )
-text = "Wrong"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Answer3" type="TextureButton" parent="QuizControl2/QuizPart"]
-margin_left = 280.785
-margin_top = 636.873
-margin_right = 737.785
-margin_bottom = 693.873
-rect_scale = Vector2( 0.862, 1 )
-texture_normal = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="AnswerText3" type="Label" parent="QuizControl2/QuizPart/Answer3"]
-margin_left = 27.593
-margin_top = 10.379
-margin_right = 411.593
-margin_bottom = 74.379
-custom_fonts/font = SubResource( 3 )
-custom_colors/font_color = Color( 0.756863, 0.431373, 0.12549, 1 )
-custom_colors/font_outline_modulate = Color( 0.137255, 0.0196078, 0.0196078, 1 )
-custom_colors/font_color_shadow = Color( 0.054902, 0.0509804, 0.0156863, 1 )
-text = "You Win"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Answer4" type="TextureButton" parent="QuizControl2/QuizPart"]
-margin_left = 726.025
-margin_top = 636.873
-margin_right = 1183.02
-margin_bottom = 693.873
-rect_scale = Vector2( 0.862, 1 )
-texture_normal = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="AnswerText4" type="Label" parent="QuizControl2/QuizPart/Answer4"]
-margin_left = 27.5933
-margin_top = 10.379
-margin_right = 411.593
-margin_bottom = 74.379
-custom_fonts/font = SubResource( 3 )
-custom_colors/font_color = Color( 0.756863, 0.431373, 0.12549, 1 )
-custom_colors/font_outline_modulate = Color( 0.137255, 0.0196078, 0.0196078, 1 )
-custom_colors/font_color_shadow = Color( 0.054902, 0.0509804, 0.0156863, 1 )
-text = "You LOSE"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="QuestionText" type="Label" parent="QuizControl2/QuizPart"]
-margin_left = 17.1489
-margin_top = 508.436
-margin_right = 1241.15
-margin_bottom = 564.436
-custom_fonts/font = SubResource( 4 )
-custom_colors/font_color = Color( 0.77, 1, 0.88, 0.84 )
-text = "Q1:  Which one is correct?"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Tick" type="TextureRect" parent="QuizControl2/QuizPart"]
-visible = false
-margin_left = 598.967
-margin_top = 556.436
-margin_right = 1174.97
-margin_bottom = 1096.44
-rect_scale = Vector2( 0.102, 0.088 )
-texture = ExtResource( 14 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Cross" type="TextureRect" parent="QuizControl2/QuizPart"]
-visible = false
-margin_left = 598.967
-margin_top = 556.436
-margin_right = 1174.97
-margin_bottom = 1096.44
-rect_scale = Vector2( 0.102, 0.088 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[editable path="character/charAttack/Hit Box"]

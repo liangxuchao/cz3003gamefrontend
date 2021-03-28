@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/section8.png-35dde2182f13c36050b4cdd7453f0440.stex"
+path="res://.import/Ninja.png-6e1fb22ff09bdff1a8172211ddc62afb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/interface/boss/world3/Attack/section8.png"
-dest_files=[ "res://.import/section8.png-35dde2182f13c36050b4cdd7453f0440.stex" ]
+source_file="res://public/image/common/Ninja.png"
+dest_files=[ "res://.import/Ninja.png-6e1fb22ff09bdff1a8172211ddc62afb.stex" ]
 
 [params]
 
