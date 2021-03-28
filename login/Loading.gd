@@ -3,10 +3,12 @@ extends Control
 onready var httpNode = $HTTPRequest
 
 onready var labelnode = $Label
-var animation = null
+onready var animation = $Label/AnimationPlayer
 
 func _ready():
+	animation.play("loading")
 	yield(get_tree().create_timer(2),"timeout")
+	
 	if Global.AccessToken != "":
 		var authheader: PoolStringArray = ['Authorization: Bearer ' + Global.AccessToken ] 
 		
@@ -15,8 +17,7 @@ func _ready():
 	else:
 		get_tree().change_scene('res://login/login.tscn')
 			
-#		animation = $Label/AnimationPlayer
-#		animation.play("loading")
+	
 		
 
 func _on_request_completed_tokenstatus(result, response_code,headers, body):	

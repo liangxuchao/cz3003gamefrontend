@@ -33,6 +33,7 @@ onready var lose = $lose
 onready var loseScore= $lose/TextureRect/Score
 
 
+onready var RespondLabel = $QuestionBOX/RespondLabel
 var s = 3
 var questions = []
 
@@ -72,6 +73,7 @@ func _ready():
 	countdownlabel.text = "Ready?"
 	countdown.popup()
 	
+	yield(httpNode, "request_completed")
 	get_tree().paused = true
 	
 	
@@ -83,9 +85,15 @@ func _on_MenuButton_pressed():
 
 
 func _on_Answer_pressed(option):
+	questionAns1.visible = false
+	questionAns2.visible = false
+	questionAns3.visible = false
+	questionAns4.visible = false
+	
 	var userinputAns = questions[questionIndex].answerOptions[option]
 	var authheader: PoolStringArray = ['Authorization: Bearer ' + Global.AccessToken, 'Content-Type: application/json', ] 
-	var body = '[{ "answerIds" : [1],"levelId":1, "questionId": 1, "questionValue" : "string" }]'
+	
+	var body = '[{ "answerIds" : [' + str(userinputAns.id) +'],"levelId":1, "questionId": '+ str(userinputAns.questionId) +', "questionValue" : "'+ str(userinputAns.value) +'" }]'
 	#check answer
 	httpNode.connect("request_completed", self, "_on_request_completed_checkanswer")
 	#httpNode.request(Global.APIrooturl +  "/api/v1/question/1",authheader,false,HTTPClient.METHOD_GET)
@@ -99,8 +107,11 @@ func _on_Answer_pressed(option):
 		# character animation
 		charAttack.frame =0
 		charattackanimation.play("charAttack")
+		RespondLabel.text = "Correct!"
+		RespondLabel.set("custom_colors/font_color", Color(0, 1, 0, 1))
+		RespondLabel.visible = true
 		yield(charattackanimation, "animation_finished")
-		
+		RespondLabel.visible = false
 	else:
 		failAns += 1
 		# boss animation
@@ -109,8 +120,12 @@ func _on_Answer_pressed(option):
 		#yield(charattackanimation, "animation_finished")
 		bossAttack.frame = 0
 		bossattackanimation.play("bossAttack")
+		RespondLabel.text = "Wrong!"
+		RespondLabel.set("custom_colors/font_color", Color(1,0,0,1))
+		RespondLabel.visible = true
 		yield(bossattackanimation, "animation_finished")
 		
+		RespondLabel.visible = false
 		if failAns == 2:
 			#print("failed")
 			loseScore.text = "Score " + str(currentscore)
@@ -149,13 +164,14 @@ func _on_request_completed_checkanswer(result, response_code,headers, body):
 			checkAnsValid = false
 	else: 
 		checkAnsValid = false
+	httpNode.disconnect("request_completed",self,"_on_request_completed_checkanswer")
 	
 func _on_request_completed_questionlist(result, response_code,headers, body):	
 	var json = JSON.parse(body.get_string_from_utf8())
 
 	if response_code == 200:
 		questions = json.result
-	
+	httpNode.disconnect("request_completed",self,"_on_request_completed_questionlist")
 
 func _on_Timer_timeout():
 	if s == 0:
@@ -213,14 +229,14 @@ func showQuestion():
 
 
 
-func _on_Try_Again_pressed():
-	
-	get_tree().reload_current_scene()
-	pass # Replace with function body.
-
-
 func _on_Back_pressed():
 	get_tree().change_scene("res://game/gameselection/chooseSection/"+ Global.worldmapper[Global.pveworld.name] +".tscn")
 	
 func select_Boss_Attack(boss):
 	pass
+
+
+func _on_retry_pressed():
+	
+	get_tree().reload_current_scene()
+	pass # Replace with function body.
