@@ -76,11 +76,11 @@ anchor_top = 0.0916667
 anchor_right = 0.713672
 anchor_bottom = 0.177778
 custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.780392, 0.290196, 0.211765, 1 )
+custom_colors/font_color = Color( 0.0771484, 0.488861, 0.617188, 1 )
 custom_colors/font_color_shadow = Color( 0.6, 0.6, 0.6, 1 )
 custom_constants/shadow_offset_x = 0
 custom_constants/shadow_offset_y = 5
-text = "Start adventure"
+text = "Start advanture"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": true
