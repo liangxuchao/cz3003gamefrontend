@@ -105,12 +105,12 @@ func _on_Answer_pressed(option):
 	else:
 		failAns += 1
 		# boss animation
-		charAttack.frame =0
-		charattackanimation.play("charAttack")
-		yield(charattackanimation, "animation_finished")
-		#bossAttack.frame =0
-		#bossattackanimation.play("bossAttack")
-		#yield(bossattackanimation, "animation_finished")
+		#charAttack.frame =0
+		#charattackanimation.play("charAttack")
+		#yield(charattackanimation, "animation_finished")
+		bossAttack.frame =0
+		bossattackanimation.play("bossAttack")
+		yield(bossattackanimation, "animation_finished")
 		
 		if failAns == 2:
 			print("failed")

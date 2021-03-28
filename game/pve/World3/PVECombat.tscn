@@ -31,10 +31,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 50, 0 ), Vector2( 700, 0 ) ]
+"values": [ Vector2( 50, 0 ), Vector2( 700, 0 ), Vector2( 50, 0 ) ]
 }
 
 [sub_resource type="CircleShape2D" id=7]
@@ -48,10 +48,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( -7.13525, 68.974 ), Vector2( -700, 68.974 ) ]
+"values": [ Vector2( -7.13525, 68.974 ), Vector2( -700, 68.974 ), Vector2( -7, 68.974 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:rotation_degrees")
@@ -286,7 +286,7 @@ __meta__ = {
 }
 
 [node name="charAttack" parent="character" instance=ExtResource( 5 )]
-position = Vector2( -13, -3 )
+position = Vector2( 1150, 59 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="character/charAttack"]
 anims/charAttack = SubResource( 6 )
@@ -308,7 +308,7 @@ __meta__ = {
 }
 
 [node name="bossAttack" parent="boss" instance=ExtResource( 7 )]
-position = Vector2( -534.714, -42.026 )
+position = Vector2( 479, -72.026 )
 rotation = -6.9115
 scale = Vector2( 0.8, 0.8 )
 
@@ -752,6 +752,7 @@ __meta__ = {
 [connection signal="pressed" from="QuestionBOX/Answer3" to="." method="_on_Answer_pressed"]
 [connection signal="pressed" from="QuestionBOX/Answer4" to="." method="_on_Answer_pressed" binds= [ 3 ]]
 [connection signal="area_entered" from="character/charAttack/Hit Box" to="." method="_on_Hit_Box_area_entered"]
+[connection signal="area_entered" from="boss/bossAttack/Hit Box" to="." method="_on_Hit_Box_area_entered"]
 [connection signal="pressed" from="Popup/TextureRect/CloseButton" to="." method="_on_CloseButton_pressed"]
 [connection signal="pressed" from="Popup/TextureRect/retry" to="." method="_on_retry_pressed"]
 [connection signal="pressed" from="Popup/TextureRect/quit" to="." method="_on_quit_pressed"]
