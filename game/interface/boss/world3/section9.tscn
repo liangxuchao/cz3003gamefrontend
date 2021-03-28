@@ -1,8 +1,20 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://public/image/world3/boss3.png" type="Texture" id=1]
+[ext_resource path="res://game/interface/lifebar/Hit Box.tscn" type="PackedScene" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
 
 [node name="Control" type="Sprite"]
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 1 )
 centered = false
+
+[node name="Hit Box" parent="." instance=ExtResource( 2 )]
+
+[node name="CollisionShape2D" parent="Hit Box" index="0"]
+position = Vector2( 145.92, 258.167 )
+scale = Vector2( 7, 10 )
+shape = SubResource( 1 )
+
+[editable path="Hit Box"]
