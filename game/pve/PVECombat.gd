@@ -42,20 +42,19 @@ var currentscore = 0;
 var correctAns = 0;
 var failAns = 0;
 
-var authheader: PoolStringArray = ['Authorization: Bearer ' + Global.AccessToken ] 
 
 var checkAnsValid = false;
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#api call
-	
+	var authheader: PoolStringArray = ['Authorization: Bearer ' + Global.AccessToken ] 
+
 	httpNode.connect("request_completed", self, "_on_request_completed_questionlist")
 	#httpNode.request(Global.APIrooturl +  "/api/v1/question/" + str(Global.pvelvl.id),authheader,false,HTTPClient.METHOD_GET)
 	httpNode.request(Global.APIrooturl +  "/api/v1/question/1",authheader,false,HTTPClient.METHOD_GET)
 	
 	#end 
-	print(Global.pvesection)
-	#var bossscence = load("res://game/interface/boss/" + Global.worldmapper[Global.pveworld.name] +"/section7.tscn").instance()
+	#print(Global.pvesection)
 	
 	var bossscence = load("res://game/interface/boss/" + Global.worldmapper[Global.pveworld.name] +"/section" + str(Global.pvesection.id)  + ".tscn").instance()
 	bossAttack.texture = load("res://game/interface/boss/" + Global.worldmapper[Global.pveworld.name] +"/Attack/section" + str(Global.pvesection.id)  + ".png")
@@ -84,15 +83,15 @@ func _on_MenuButton_pressed():
 
 func _on_Answer_pressed(option):
 	var userinputAns = questions[questionIndex].answerOptions[option]
-	
+	var authheader: PoolStringArray = ['Authorization: Bearer ' + Global.AccessToken, 'Content-Type: application/json', ] 
+	var body = '[{ "answerIds" : [1],"levelId":1, "questionId": 1, "questionValue" : "string" }]'
 	#check answer
 	httpNode.connect("request_completed", self, "_on_request_completed_checkanswer")
-	#httpNode.request(Global.APIrooturl +  "/api/v1/question/" + str(Global.pvelvl.id),authheader,false,HTTPClient.METHOD_GET)
-	httpNode.request(Global.APIrooturl +  "/api/v1/question/1",authheader,false,HTTPClient.METHOD_GET)
+	#httpNode.request(Global.APIrooturl +  "/api/v1/question/1",authheader,false,HTTPClient.METHOD_GET)
+	httpNode.request(Global.APIrooturl +  "/api/v1/pve/answerLevel?levelId=1",authheader,false,HTTPClient.METHOD_POST,body)
 	
 	yield(httpNode, "request_completed")
-	#
-	print(checkAnsValid)
+
 	if checkAnsValid == true:
 		currentscore += 1
 		correctAns += 1
@@ -113,7 +112,7 @@ func _on_Answer_pressed(option):
 		yield(bossattackanimation, "animation_finished")
 		
 		if failAns == 2:
-			print("failed")
+			#print("failed")
 			loseScore.text = "Score " + str(currentscore)
 			lose.popup()
 	
@@ -129,10 +128,10 @@ func _on_Answer_pressed(option):
 	
 
 func _on_Hit_Box_area_entered(area):
+
 	charAttack.frame=1
 	bossAttack.frame=1
 	 
-
 
 func _on_CloseButton_pressed():
 	menupopup.visible =false
@@ -147,9 +146,12 @@ func _on_quit_pressed():
 
 func _on_request_completed_checkanswer(result, response_code,headers, body):	
 	var json = JSON.parse(body.get_string_from_utf8())
-
+	print(json.result)
 	if response_code == 200:
-		checkAnsValid = false
+		if json.result[0].isAnswerCorrect == true:
+			checkAnsValid = false
+		else:
+			checkAnsValid = false
 	else: 
 		checkAnsValid = false
 	
