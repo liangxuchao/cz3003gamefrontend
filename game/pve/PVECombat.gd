@@ -1,5 +1,8 @@
 extends Control
-var animation = null
+onready var charattackanimation = $character/charAttack/AnimationPlayer
+onready var charAttack = $character/charAttack/Sprite
+onready var bossattackanimation = $boss/bossAttack/AnimationPlayer
+onready var bossAttack = $boss/bossAttack/Sprite
 
 onready var httpNode = $HTTPRequest
 onready var boss = $boss
@@ -54,13 +57,16 @@ func _ready():
 	#print(Global.pvesection)
 	
 	var bossscence = load("res://game/interface/boss/" + Global.worldmapper[Global.pveworld.name] +"/section" + str(Global.pvesection.id)  + ".tscn").instance()
+	bossAttack.texture = load("res://game/interface/boss/" + Global.worldmapper[Global.pveworld.name] +"/Attack/section" + str(Global.pvesection.id)  + ".png")
+	
 	boss.add_child(bossscence) # Replace with function body.
 	
 	var charascence = load("res://game/interface/character/character" + str(Global.character) + ".tscn").instance()
 	character.add_child(charascence) # Replace with function body.
 	
-	$Sword/Sprite.frame=1
-	animation = $Sword/AnimationPlayer
+	# accttack
+	charAttack.frame=1
+	bossAttack.frame=1
 	
 	countdownlabel.text = "Ready?"
 	countdown.popup()
@@ -90,16 +96,20 @@ func _on_Answer_pressed(option):
 		currentscore += 1
 		correctAns += 1
 		# character animation
-		$Sword/Sprite.frame=0
-		animation.play("Move")
-		yield( animation, "animation_finished" )
+		charAttack.frame =0
+		charattackanimation.play("charAttack")
+		yield(charattackanimation, "animation_finished")
+		
 		
 	else:
 		failAns += 1
 		# boss animation
-		$Sword/Sprite.frame=0
-		animation.play("Move")
-		yield( animation, "animation_finished" )
+		#charAttack.frame =0
+		#charattackanimation.play("charAttack")
+		#yield(charattackanimation, "animation_finished")
+		bossAttack.frame =0
+		bossattackanimation.play("bossAttack")
+		yield(bossattackanimation, "animation_finished")
 		
 		if failAns == 2:
 			#print("failed")
@@ -118,19 +128,18 @@ func _on_Answer_pressed(option):
 	
 
 func _on_Hit_Box_area_entered(area):
-	#print("1233")
-	$Sword/Sprite.frame=1 # Replace with function body.
 
+	charAttack.frame=1
+	bossAttack.frame=1
+	 
 
 func _on_CloseButton_pressed():
 	menupopup.visible =false
-	pass # Replace with function body.
 
 
 func _on_quit_pressed():
-	
 	get_tree().change_scene('res://game/gameselection/chooseSection/'+ Global.worldmapper[Global.pveworld.name] +'.tscn')
-	pass # Replace with function body.
+
 
 
 
@@ -218,4 +227,5 @@ func _on_Try_Again_pressed():
 func _on_Back_pressed():
 	get_tree().change_scene("res://game/gameselection/chooseSection/"+ Global.worldmapper[Global.pveworld.name] +".tscn")
 	
-	pass # Replace with function body.
+func select_Boss_Attack(boss):
+	pass
