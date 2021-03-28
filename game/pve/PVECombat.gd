@@ -4,6 +4,7 @@ onready var charAttack = $character/charAttack/Sprite
 onready var bossattackanimation = $boss/bossAttack/AnimationPlayer
 onready var bossAttack = $boss/bossAttack/Sprite
 
+
 onready var httpNode = $HTTPRequest
 onready var boss = $boss
 onready var character = $character
@@ -62,6 +63,7 @@ func _ready():
 	boss.add_child(bossscence) # Replace with function body.
 	
 	var charascence = load("res://game/interface/character/character" + str(Global.character) + ".tscn").instance()
+	charAttack.texture = load("res://game/interface/character/Attack/character" + str(Global.character) + ".png")
 	character.add_child(charascence) # Replace with function body.
 	
 	# accttack
