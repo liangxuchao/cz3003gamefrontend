@@ -28,14 +28,12 @@ func _on_SectionButton_pressed(index):
 	if(sectiondetail.has("levels")):
 		if(0 <= sectiondetail.levels.size()-1):
 			level1label.text = sectiondetail.levels[0].name
-			leveltitle.text = sectiondetail.levels[0].name
 		if(1 <= sectiondetail.levels.size()-1):
 			level2label.text = sectiondetail.levels[1].name
-			leveltitle.text = sectiondetail.levels[1].name
 		if(2 <= sectiondetail.levels.size()-1):
 			level3label.text = sectiondetail.levels[2].name
-			leveltitle.text = sectiondetail.levels[2].name
 	
+	leveltitle.text = sectiondetail.name
 	Global.pvesection = sectiondetail
 	levelpopup.popup()
 
@@ -50,5 +48,6 @@ func _on_level_pressed(level):
 	print(Global.pvesection.levels[0])
 	get_tree().change_scene("res://game/pve/"+ Global.worldmapper[Global.pveworld.name] +"/PVECombat.tscn")
 	pass # Replace with function body.
+
 
 

@@ -111,12 +111,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -59.686
-margin_top = 159.929
-margin_right = 82.314
-margin_bottom = 195.929
+margin_left = -101.0
+margin_top = 152.0
+margin_right = 119.0
+margin_bottom = 188.0
 custom_fonts/font = ExtResource( 11 )
-custom_colors/font_color = Color( 0.352941, 0.215686, 0.0627451, 1 )
+custom_colors/font_color = Color( 0.992157, 0.980392, 0.968627, 1 )
 align = 1
 valign = 1
 __meta__ = {
@@ -141,15 +141,15 @@ centered = true
 
 [node name="Label" type="Label" parent="SectionButton2"]
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -76.0
-margin_top = 167.0
-margin_right = 76.0
-margin_bottom = 203.0
+anchor_bottom = 1.0
+margin_left = -110.0
+margin_top = 27.0
+margin_right = 110.0
+margin_bottom = 63.0
 custom_fonts/font = ExtResource( 11 )
-custom_colors/font_color = Color( 0.352941, 0.215686, 0.0627451, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 align = 1
 valign = 1
 __meta__ = {
@@ -174,15 +174,15 @@ texture = ExtResource( 12 )
 
 [node name="Label" type="Label" parent="SectionButton3"]
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -81.0
-margin_top = 167.0
-margin_right = 81.0
-margin_bottom = 203.0
+anchor_bottom = 1.0
+margin_left = -110.0
+margin_top = 27.0
+margin_right = 110.0
+margin_bottom = 63.0
 custom_fonts/font = ExtResource( 11 )
-custom_colors/font_color = Color( 0.352941, 0.215686, 0.0627451, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 align = 1
 valign = 1
 __meta__ = {
@@ -190,10 +190,11 @@ __meta__ = {
 }
 
 [node name="backbutton" parent="." instance=ExtResource( 9 )]
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 0.65 )
 scene_to_load = "res://game/gameselection/chooseWorld/chooseWorld.tscn"
 
 [node name="levelpopup" type="Popup" parent="."]
-visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -322,7 +323,7 @@ __meta__ = {
 [connection signal="pressed" from="SectionButton1" to="." method="_on_SectionButton_pressed" binds= [ 0 ]]
 [connection signal="pressed" from="SectionButton2" to="." method="_on_SectionButton_pressed" binds= [ 1 ]]
 [connection signal="pressed" from="SectionButton3" to="." method="_on_SectionButton_pressed" binds= [ 6 ]]
-[connection signal="pressed" from="levelpopup/TextureRect/CloseButton" to="." method="_on_CloseButton_pressed"]
+[connection signal="pressed" from="levelpopup/TextureRect/CloseButton" to="." method="_on_Close_pressed"]
 [connection signal="pressed" from="levelpopup/TextureRect/level1" to="." method="_on_level_pressed" binds= [ 0 ]]
 [connection signal="pressed" from="levelpopup/TextureRect/level2" to="." method="_on_level_pressed" binds= [ "2" ]]
 [connection signal="pressed" from="levelpopup/TextureRect/level3" to="." method="_on_level_pressed" binds= [ 2 ]]

@@ -90,6 +90,8 @@ __meta__ = {
 margin_top = 18.3182
 margin_right = 122.0
 margin_bottom = 64.3182
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 0.65 )
 scene_to_load = "res://game/gameselection/chooseCharacter/chooseCharacter.tscn"
 [connection signal="pressed" from="world1" to="world1" method="_on_world_pressed" binds= [ "Taming the Python" ]]
 [connection signal="pressed" from="world2" to="world2" method="_on_world_pressed" binds= [ "Understanding PHP" ]]

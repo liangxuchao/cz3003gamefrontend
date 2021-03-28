@@ -13,7 +13,7 @@
 [ext_resource path="res://game/gameselection/chooseSection/worldSection.gd" type="Script" id=11]
 
 [sub_resource type="DynamicFont" id=1]
-size = 48
+size = 44
 font_data = ExtResource( 7 )
 
 [sub_resource type="GDScript" id=2]
@@ -43,7 +43,7 @@ size = 40
 font_data = ExtResource( 7 )
 
 [sub_resource type="DynamicFont" id=7]
-size = 32
+size = 27
 font_data = ExtResource( 7 )
 
 [node name="Control" type="Control"]
@@ -92,7 +92,9 @@ custom_colors/font_color = Color( 0.00392157, 0.317647, 0.490196, 1 )
 text = "CHOOSE
 SECTION"
 align = 1
-valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="SectionButton1" type="TextureButton" parent="."]
 margin_left = 100.0
@@ -116,12 +118,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -85.5
-margin_top = 25.0
-margin_right = 85.5
-margin_bottom = 68.0
+margin_left = -110.0
+margin_top = 27.0
+margin_right = 110.0
+margin_bottom = 70.0
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.0117647, 0.309804, 0.478431, 1 )
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -147,12 +150,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -91.5
-margin_top = 25.0
-margin_right = 91.5
-margin_bottom = 68.0
+margin_left = -125.0
+margin_top = 27.0
+margin_right = 125.0
+margin_bottom = 70.0
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.0117647, 0.309804, 0.478431, 1 )
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -177,17 +181,20 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -97.5
-margin_top = 25.0
-margin_right = 97.5
-margin_bottom = 68.0
+margin_left = -110.0
+margin_top = 27.0
+margin_right = 110.0
+margin_bottom = 70.0
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.0117647, 0.309804, 0.478431, 1 )
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="backbutton" parent="." instance=ExtResource( 6 )]
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 0.65 )
 scene_to_load = "res://game/gameselection/chooseWorld/chooseWorld.tscn"
 
 [node name="levelpopup" type="Popup" parent="."]
@@ -324,22 +331,23 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="levelpopup/TextureRect/levelTitle"]
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -69.5
-margin_top = -16.0
-margin_right = 69.5
-margin_bottom = 16.0
+anchor_bottom = 1.0
+margin_left = -85.0
+margin_top = -54.0
+margin_right = 85.0
+margin_bottom = -14.0
 custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0.0117647, 0.309804, 0.478431, 1 )
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="pressed" from="SectionButton1" to="." method="_on_SectionButton_pressed" binds= [ 0 ]]
 [connection signal="pressed" from="SectionButton2" to="." method="_on_SectionButton_pressed" binds= [ 1 ]]
 [connection signal="pressed" from="SectionButton3" to="." method="_on_SectionButton_pressed" binds= [ 2 ]]
-[connection signal="pressed" from="levelpopup/TextureRect/CloseButton" to="." method="_on_CloseButton_pressed"]
+[connection signal="pressed" from="levelpopup/TextureRect/CloseButton" to="." method="_on_Close_pressed"]
 [connection signal="pressed" from="levelpopup/TextureRect/level1" to="." method="_on_level_pressed" binds= [ 0 ]]
 [connection signal="pressed" from="levelpopup/TextureRect/level2" to="." method="_on_level_pressed" binds= [ 1 ]]
 [connection signal="pressed" from="levelpopup/TextureRect/level3" to="." method="_on_level_pressed" binds= [ 2 ]]

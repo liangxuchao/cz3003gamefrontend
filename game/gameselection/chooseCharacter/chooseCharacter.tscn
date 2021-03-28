@@ -43,5 +43,7 @@ __meta__ = {
 }
 
 [node name="backbutton" parent="." instance=ExtResource( 3 )]
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 0.65098 )
 scene_to_load = "res://game/title_screen/TitleScreen.tscn"
 [connection signal="pressed" from="Button" to="Button" method="_on_redirectWorld_pressed"]
