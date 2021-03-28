@@ -741,7 +741,7 @@ __meta__ = {
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="QuestionBOX/Answer1" to="." method="_on_Answer_pressed" binds= [ 0 ]]
 [connection signal="pressed" from="QuestionBOX/Answer2" to="." method="_on_Answer_pressed" binds= [ 1 ]]
-[connection signal="pressed" from="QuestionBOX/Answer3" to="." method="_on_Answer_pressed"]
+[connection signal="pressed" from="QuestionBOX/Answer3" to="." method="_on_Answer_pressed" binds= [ 2 ]]
 [connection signal="pressed" from="QuestionBOX/Answer4" to="." method="_on_Answer_pressed" binds= [ 3 ]]
 [connection signal="area_entered" from="character/charAttack/Hit Box" to="." method="_on_Hit_Box_area_entered"]
 [connection signal="area_entered" from="boss/bossAttack/Hit Box" to="." method="_on_Hit_Box_area_entered"]

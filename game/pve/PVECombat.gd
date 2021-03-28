@@ -77,17 +77,16 @@ func _on_MenuButton_pressed():
 	menupopup.popup()
 	pass # Replace with function body.
 
-
-	
 func _on_Answer_pressed(option):
 	questionAns1.visible = false
 	questionAns2.visible = false
 	questionAns3.visible = false
 	questionAns4.visible = false
-	
+
 	var userinputAns = questions[questionIndex].answerOptions[option]
+	print(userinputAns)
 	var authheader: PoolStringArray = ['Authorization: Bearer ' + Global.AccessToken, 'Content-Type: application/json', ] 
-	var body = '[{ "answerIds" : [' + str(userinputAns.id) +'],"levelId":1, "questionId": 1, "questionValue" : "string" }]'
+	var body = '[{ "answerIds" : [' + str(userinputAns.id) +'],"levelId":1, "questionId": '+ str(userinputAns.questionId) +', "questionValue" : "'+ str(userinputAns.value) +'" }]'
 	#check answer
 	httpNode.connect("request_completed", self, "_on_request_completed_checkanswer")
 	#httpNode.request(Global.APIrooturl +  "/api/v1/question/1",authheader,false,HTTPClient.METHOD_GET)
@@ -95,7 +94,6 @@ func _on_Answer_pressed(option):
 	
 	yield(httpNode, "request_completed")
 
-	
 	if checkAnsValid == true:
 		currentscore += 1
 		correctAns += 1
@@ -154,9 +152,10 @@ func _on_quit_pressed():
 
 func _on_request_completed_checkanswer(result, response_code,headers, body):	
 	var json = JSON.parse(body.get_string_from_utf8())
+	
+	print(json.result )
 	if response_code == 200:
 		
-		print(json.result[0].isAnswerCorrect )
 		if json.result[0].isAnswerCorrect == true:
 			checkAnsValid = true
 		else:
