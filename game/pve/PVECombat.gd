@@ -43,13 +43,12 @@ var currentscore = 0;
 var correctAns = 0;
 var failAns = 0;
 
-
 var checkAnsValid = false;
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#api call
 	var authheader: PoolStringArray = ['Authorization: Bearer ' + Global.AccessToken ] 
-
+	
 	httpNode.connect("request_completed", self, "_on_request_completed_questionlist")
 	#httpNode.request(Global.APIrooturl +  "/api/v1/question/" + str(Global.pvelvl.id),authheader,false,HTTPClient.METHOD_GET)
 	httpNode.request(Global.APIrooturl +  "/api/v1/question/1",authheader,false,HTTPClient.METHOD_GET)
