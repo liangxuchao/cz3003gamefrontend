@@ -4,10 +4,6 @@ extends Control
 func _ready():
 	Global.character = 1
 
-
-
-
-
 func _on_character1_pressed():
 	Global.character = 1
 	$character1.texture_normal=preload("res://public/image/common/Ninja.png")

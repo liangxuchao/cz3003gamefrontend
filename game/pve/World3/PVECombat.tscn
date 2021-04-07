@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://game/pve/PVECombat.gd" type="Script" id=1]
 [ext_resource path="res://public/image/world3/Section_BG.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://game/interface/boss/World3/bossAttack.tscn" type="PackedScene" id=5]
 [ext_resource path="res://game/interface/lifebar/Hit Box.tscn" type="PackedScene" id=6]
 [ext_resource path="res://game/interface/character/charAttack.tscn" type="PackedScene" id=7]
+[ext_resource path="res://public/image/world3/QuizBG.png" type="Texture" id=8]
 [ext_resource path="res://public/image/world3/PVP_Title.png" type="Texture" id=9]
 [ext_resource path="res://public/image/world3/menuButton.png" type="Texture" id=10]
 
@@ -14,20 +15,19 @@
 flags = 4
 load_path = "res://.import/PVP BG.jpg-7f19383d3849c9d6a8cd95e10fb56576.stex"
 
-[sub_resource type="DynamicFont" id=18]
+[sub_resource type="DynamicFont" id=2]
 size = 50
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 size = 20
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=4]
 size = 48
 font_data = ExtResource( 4 )
 
-[sub_resource type="Animation" id=4]
-resource_name = "charAttack"
+[sub_resource type="Animation" id=5]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
@@ -41,10 +41,9 @@ tracks/0/keys = {
 "values": [ Vector2( 90, 0 ), Vector2( 700, 0 ), Vector2( 90, 0 ) ]
 }
 
-[sub_resource type="CircleShape2D" id=5]
+[sub_resource type="CircleShape2D" id=6]
 
-[sub_resource type="Animation" id=6]
-resource_name = "bossAttack"
+[sub_resource type="Animation" id=7]
 length = 1.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
@@ -56,7 +55,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1, 1.1 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( -700, 0 ), Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, 25 ), Vector2( -700, 25 ), Vector2( 0, 25 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:rotation_degrees")
@@ -71,33 +70,29 @@ tracks/1/keys = {
 "values": [ -36.0, -72.0, -108.0, -144.0, -180.0, -216.0, -252.0, -288.0, -324.0, -360.0, -396.0 ]
 }
 
-[sub_resource type="CircleShape2D" id=7]
+[sub_resource type="CircleShape2D" id=8]
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=9]
 size = 38
 font_data = ExtResource( 4 )
 
-[sub_resource type="StyleBoxFlat" id=9]
+[sub_resource type="StyleBoxFlat" id=10]
 bg_color = Color( 0.2, 0.337255, 0.541176, 0.862745 )
 
-[sub_resource type="DynamicFont" id=10]
+[sub_resource type="DynamicFont" id=11]
 size = 40
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=11]
-size = 32
-font_data = ExtResource( 4 )
-
 [sub_resource type="DynamicFont" id=12]
-size = 50
+size = 32
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=13]
-size = 28
+size = 50
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=14]
-size = 32
+size = 28
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=15]
@@ -105,10 +100,14 @@ size = 32
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=16]
-size = 38
+size = 32
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=17]
+size = 38
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=18]
 size = 32
 font_data = ExtResource( 4 )
 
@@ -148,19 +147,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="QuestionBOX"]
+[node name="ColorRect" type="TextureRect" parent="QuestionBOX"]
+modulate = Color( 0.0431373, 0.301961, 0.505882, 0.760784 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_clip_content = true
-color = Color( 0.0117647, 0.309804, 0.478431, 0.733333 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+texture = ExtResource( 8 )
+expand = true
 
 [node name="RespondLabel" type="Label" parent="QuestionBOX"]
 margin_right = 1280.0
 margin_bottom = 240.0
-custom_fonts/font = SubResource( 18 )
+custom_fonts/font = SubResource( 2 )
 align = 1
 valign = 1
 __meta__ = {
@@ -187,7 +185,7 @@ margin_left = -125.0
 margin_top = -20.0
 margin_right = 125.0
 margin_bottom = 20.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 valign = 1
@@ -215,7 +213,7 @@ margin_left = -125.0
 margin_top = -20.0
 margin_right = 125.0
 margin_bottom = 20.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 valign = 1
@@ -243,7 +241,7 @@ margin_left = -125.0
 margin_top = -20.0
 margin_right = 125.0
 margin_bottom = 20.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 valign = 1
@@ -271,7 +269,7 @@ margin_left = -125.0
 margin_top = -20.0
 margin_right = 125.0
 margin_bottom = 20.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 valign = 1
@@ -284,7 +282,7 @@ margin_left = 10.0
 margin_top = 10.0
 margin_right = 1280.0
 margin_bottom = 80.0
-custom_fonts/normal_font = SubResource( 3 )
+custom_fonts/normal_font = SubResource( 4 )
 custom_colors/default_color = Color( 1, 1, 1, 1 )
 text = "Q1: "
 __meta__ = {
@@ -301,17 +299,17 @@ __meta__ = {
 }
 
 [node name="charAttack" parent="character" instance=ExtResource( 7 )]
-position = Vector2( 90, 0 )
+position = Vector2( -92.873, -451.176 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="character/charAttack"]
-anims/charAttack = SubResource( 4 )
+anims/charAttack = SubResource( 5 )
 
 [node name="Hit Box" parent="character/charAttack" instance=ExtResource( 6 )]
 
 [node name="CollisionShape2D" parent="character/charAttack/Hit Box" index="0"]
 position = Vector2( 108, 103 )
 scale = Vector2( 3, 3 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="boss" type="VBoxContainer" parent="."]
 margin_left = 900.0
@@ -323,20 +321,20 @@ __meta__ = {
 }
 
 [node name="bossAttack" parent="boss" instance=ExtResource( 5 )]
+position = Vector2( 0, 25 )
 rotation = -6.9115
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="boss/bossAttack"]
-anims/bossAttack = SubResource( 6 )
+anims/bossAttack = SubResource( 7 )
 
 [node name="Hit Box" parent="boss/bossAttack" instance=ExtResource( 6 )]
 
 [node name="CollisionShape2D" parent="boss/bossAttack/Hit Box" index="0"]
 position = Vector2( -20, -33 )
 scale = Vector2( 3, 3 )
-shape = SubResource( 7 )
+shape = SubResource( 8 )
 
 [node name="Popup" type="Popup" parent="."]
-visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -348,6 +346,7 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="Popup"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0.52 )
@@ -356,6 +355,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="Popup"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -370,6 +370,7 @@ __meta__ = {
 }
 
 [node name="CloseButton" type="TextureButton" parent="Popup/TextureRect"]
+visible = false
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -393,7 +394,7 @@ margin_left = -51.5
 margin_top = -19.5
 margin_right = 51.5
 margin_bottom = 19.5
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0.0117647, 0.309804, 0.592157, 1 )
 text = "Close"
 align = 1
@@ -409,8 +410,8 @@ margin_left = -86.0
 margin_top = 100.0
 margin_right = 86.0
 margin_bottom = 161.0
-custom_styles/normal = SubResource( 9 )
-custom_fonts/font = SubResource( 10 )
+custom_styles/normal = SubResource( 10 )
+custom_fonts/font = SubResource( 11 )
 text = "Retry"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -425,8 +426,8 @@ margin_left = -88.0
 margin_top = -8.00005
 margin_right = 84.0
 margin_bottom = 52.9999
-custom_styles/normal = SubResource( 9 )
-custom_fonts/font = SubResource( 10 )
+custom_styles/normal = SubResource( 10 )
+custom_fonts/font = SubResource( 11 )
 text = "Quit"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -454,7 +455,7 @@ margin_left = -69.5
 margin_top = -16.0
 margin_right = 69.5
 margin_bottom = 16.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 12 )
 custom_colors/font_color = Color( 0.0117647, 0.309804, 0.478431, 1 )
 text = "Menu"
 align = 1
@@ -475,7 +476,6 @@ __meta__ = {
 }
 
 [node name="countdown" type="Popup" parent="."]
-visible = true
 margin_right = 1280.0
 margin_bottom = 720.0
 __meta__ = {
@@ -483,6 +483,7 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="countdown"]
+visible = false
 margin_right = 1280.0
 margin_bottom = 720.0
 color = Color( 0, 0, 0, 0.5 )
@@ -499,7 +500,7 @@ margin_left = -100.0
 margin_top = -40.0
 margin_right = 100.0
 margin_bottom = 40.0
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 13 )
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -562,7 +563,7 @@ margin_left = -51.5
 margin_top = -19.5
 margin_right = 51.5
 margin_bottom = 19.5
-custom_fonts/font = SubResource( 13 )
+custom_fonts/font = SubResource( 14 )
 custom_colors/font_color = Color( 0.0117647, 0.309804, 0.592157, 1 )
 text = "Back"
 align = 1
@@ -593,7 +594,7 @@ margin_left = -83.0
 margin_top = -19.5
 margin_right = 83.0
 margin_bottom = 19.5
-custom_fonts/font = SubResource( 13 )
+custom_fonts/font = SubResource( 14 )
 custom_colors/font_color = Color( 0.0117647, 0.309804, 0.592157, 1 )
 text = "Try Again"
 align = 1
@@ -624,7 +625,7 @@ margin_left = -98.5
 margin_top = -24.0
 margin_right = 98.5
 margin_bottom = 24.0
-custom_fonts/font = SubResource( 14 )
+custom_fonts/font = SubResource( 15 )
 custom_colors/font_color = Color( 0.0117647, 0.309804, 0.478431, 1 )
 text = "You LOSE"
 align = 1
@@ -642,7 +643,7 @@ margin_left = -66.4475
 margin_top = -18.9865
 margin_right = 61.5525
 margin_bottom = 13.0135
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 16 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 3
 valign = 3
@@ -700,7 +701,7 @@ margin_left = -51.5
 margin_top = -19.5
 margin_right = 51.5
 margin_bottom = 19.5
-custom_fonts/font = SubResource( 16 )
+custom_fonts/font = SubResource( 17 )
 custom_colors/font_color = Color( 0.0117647, 0.309804, 0.592157, 1 )
 text = "NEXT"
 align = 1
@@ -731,7 +732,7 @@ margin_left = -69.5
 margin_top = -16.0
 margin_right = 69.5
 margin_bottom = 16.0
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 18 )
 custom_colors/font_color = Color( 0.0117647, 0.309804, 0.478431, 1 )
 text = "YOU WIN"
 __meta__ = {
@@ -747,7 +748,7 @@ margin_left = -66.4475
 margin_top = -18.9865
 margin_right = 61.5525
 margin_bottom = 13.0135
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 16 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 3
 valign = 3
