@@ -240,3 +240,11 @@ func _on_retry_pressed():
 	
 	get_tree().reload_current_scene()
 	pass # Replace with function body.
+
+
+func _on_Next_Button_pressed():
+	Global.pvelvl;
+	Global.WorldsDetails;
+	
+	pass # Replace with function body.
+
