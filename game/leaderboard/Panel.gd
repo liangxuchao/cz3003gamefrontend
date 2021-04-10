@@ -29,7 +29,7 @@ func _on_request_completed(result, response_code,headers, body):
 	
 	var headerScore = Label.new()
 	headerScore.set_align(Label.ALIGN_LEFT)
-	headerScore.set_text("SCORE")
+	headerScore.set_text("SCORE ")
 	headerScore.size_flags_horizontal = Control.SIZE_SHRINK_END + Control.SIZE_EXPAND
 	headerScore.add_color_override("font_color",Color(0.5,0.66,0.48))
 	headerScore.set("custom_fonts/font",dynamic_font)
@@ -64,7 +64,7 @@ func _on_request_completed(result, response_code,headers, body):
 				
 				var score = Label.new()
 				score.set_align(Label.ALIGN_LEFT)
-				score.set_text(str(player.score))
+				score.set_text(str(player.score) + " ")
 				score.size_flags_horizontal = Control.SIZE_SHRINK_END + Control.SIZE_EXPAND
 				score.add_color_override("font_color",Color(0.5,0.66,0.48))
 				score.set("custom_fonts/font",dynamic_font)
