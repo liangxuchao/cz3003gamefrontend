@@ -5,7 +5,7 @@
 
 [sub_resource type="DynamicFont" id=1]
 resource_local_to_scene = true
-size = 48
+size = 42
 extra_spacing_char = 3
 font_data = ExtResource( 2 )
 
@@ -13,6 +13,7 @@ font_data = ExtResource( 2 )
 margin_right = 360.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 360, 60 )
+button_mask = 0
 flat = true
 script = ExtResource( 1 )
 __meta__ = {
@@ -27,6 +28,8 @@ custom_colors/font_color = Color( 0.933333, 0.462745, 0.235294, 1 )
 custom_colors/font_color_shadow = Color( 0.188235, 0.12549, 0.0627451, 1 )
 custom_constants/shadow_offset_y = 4
 text = "Leader Broad"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }

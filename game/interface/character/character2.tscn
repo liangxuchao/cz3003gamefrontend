@@ -14,7 +14,7 @@ centered = false
 [node name="Hit Box" parent="." instance=ExtResource( 2 )]
 
 [node name="CollisionShape2D" parent="Hit Box" index="0"]
-position = Vector2( 188.013, 202.043 )
+position = Vector2( 188.013, 195.743 )
 scale = Vector2( 5, 8 )
 shape = SubResource( 1 )
 

@@ -3,12 +3,12 @@
 [ext_resource path="res://game/leaderboard/Panel.gd" type="Script" id=1]
 [ext_resource path="res://public/image/common/bgMain.jpg" type="Texture" id=2]
 [ext_resource path="res://game/backbutton/back.tscn" type="PackedScene" id=3]
-[ext_resource path="res://public/image/common/leaderboardBG.png" type="Texture" id=4]
+[ext_resource path="res://public/image/common/leaderboardNew.png" type="Texture" id=4]
 [ext_resource path="res://public/fonts/soupofjustice.ttf" type="DynamicFontData" id=5]
 
-[sub_resource type="StyleBoxTexture" id=3]
+[sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 4 )
-region_rect = Rect2( 0, 0, 585, 771 )
+region_rect = Rect2( 0, 0, 353, 512 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 30
@@ -26,8 +26,10 @@ __meta__ = {
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -3.0
-margin_right = -3.0
+margin_left = -1.50171
+margin_top = -0.163452
+margin_right = -1.50171
+margin_bottom = -0.163452
 texture = ExtResource( 2 )
 expand = true
 __meta__ = {
@@ -37,15 +39,15 @@ __meta__ = {
 [node name="Panel" type="Panel" parent="."]
 modulate = Color( 0.984314, 1, 1, 1 )
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 0.501182
 anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -266.384
-margin_top = -312.044
-margin_right = 213.616
-margin_bottom = 287.956
+anchor_bottom = 0.501183
+margin_left = -224.0
+margin_top = -328.851
+margin_right = 242.0
+margin_bottom = 279.148
 size_flags_stretch_ratio = 0.0
-custom_styles/panel = SubResource( 3 )
+custom_styles/panel = SubResource( 1 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -54,11 +56,14 @@ __meta__ = {
 [node name="HTTPRequest" type="HTTPRequest" parent="Panel"]
 
 [node name="Title" type="Label" parent="Panel"]
-margin_left = 155.0
-margin_top = 12.0
-margin_right = 337.0
-margin_bottom = 43.0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -91.0
+margin_top = 7.6425
+margin_right = 91.0
+margin_bottom = 38.6425
 custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.772549, 0.533333, 0.376471, 1 )
 text = "Leader Board"
 align = 1
 valign = 1
@@ -68,16 +73,44 @@ __meta__ = {
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
 modulate = Color( 0.8, 0.807843, 0.827451, 1 )
-margin_left = 53.0
-margin_top = 105.0
-margin_right = 455.0
-margin_bottom = 550.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -142.0
+margin_top = -145.0
+margin_right = 143.0
+margin_bottom = 21.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer"]
-custom_constants/separation = 30
+[node name="GridContainer" type="GridContainer" parent="Panel/ScrollContainer"]
+margin_right = 285.0
+size_flags_horizontal = 3
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+margin_left = 63.0
+margin_top = 118.478
+margin_right = 398.0
+margin_bottom = 181.478
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="backbutton" parent="." instance=ExtResource( 3 )]
 scene_to_load = "res://game/title_screen/TitleScreen.tscn"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 983.0
+margin_top = 94.0
+margin_right = 983.0
+margin_bottom = 94.0
+custom_constants/separation = 30
+__meta__ = {
+"_edit_use_anchors_": false
+}

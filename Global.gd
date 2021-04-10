@@ -15,10 +15,12 @@ var Username;
 var TokenExpire;
 var lastlogin;
 var pvebossselection;
-
+var playerid;
 var WorldsDetails = {};
 
 var worldmapper = {"Taming the Python": "World1",  "Understanding PHP": "World2", "Surfing on Java" : "World3"}
+
+var currentlevels;
 
 func _ready():
 	var file = File.new()
@@ -31,6 +33,7 @@ func _ready():
 	AccessToken = dict["AccessToken"];
 	TokenExpire = dict["TokenExpire"];
 	lastlogin = dict["lastlogin"];
+	playerid = dict["Playerid"];
 	
 	if AccessToken != "" and lastlogin !=0:
 		
@@ -57,7 +60,6 @@ func _on_request_completed_renewtoken(result, response_code,headers, body):
 	var json = JSON.parse(body.get_string_from_utf8())
 	
 	if response_code == 200:
-		print(json.result)
 		var time = OS.get_unix_time()
 		Global.updateConfig({"AccessToken":json.result["access_token"], "TokenExpire": json.result["expires_in"], "lastlogin":time })
 		Global.AccessToken = json.result["access_token"];

@@ -12,14 +12,17 @@ onready var level3label = $levelpopup/TextureRect/level3
 var worlddetail = Global.pveworld
 func _ready():
 	if(worlddetail.has("sections")):
+		
 		if(0 <= worlddetail.sections.size()-1):
 			section1label.text = worlddetail.sections[0].name
+			
 		if(1 <= worlddetail.sections.size()-1):
 #			Global.pvesection = worlddetail.sections[1]
 			section2label.text = worlddetail.sections[1].name
 		if(2 <= worlddetail.sections.size()-1):
 #			Global.pvesection = worlddetail.sections[2]
 			section3label.text = worlddetail.sections[2].name
+		
 		pass # Replace with function body.
 
 func _on_SectionButton_pressed(index):
@@ -35,6 +38,23 @@ func _on_SectionButton_pressed(index):
 	
 	leveltitle.text = sectiondetail.name
 	Global.pvesection = sectiondetail
+	print(Global.pvesection.name)
+	print(Global.pveworld.name)
+	for key in Global.currentlevels:
+		
+		#print(key["world"])
+		#print(key["section"])
+		#print(key["level"])
+		if(key["world"] == Global.pveworld.name && key["section"] == Global.pvesection.name):
+			if(key["level"] == level1label.text):
+				level1label.disabled = false
+			if(key["level"] == level2label.text):
+				level2label.disabled = false
+			if(key["level"] == level3label.text):
+				level3label.disabled = false
+			
+			print(key["level"])
+	
 	levelpopup.popup()
 
 func _on_Close_pressed():
@@ -42,10 +62,7 @@ func _on_Close_pressed():
 	levelpopup.visible = false
 
 func _on_level_pressed(level):
-
 	Global.pvelvl = Global.pvesection.levels[level]
-	print(level)
-	print(Global.pvesection.levels[0])
 	get_tree().change_scene("res://game/pve/"+ Global.worldmapper[Global.pveworld.name] +"/PVECombat.tscn")
 	pass # Replace with function body.
 
