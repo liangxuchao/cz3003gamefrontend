@@ -42,7 +42,6 @@ func _on_Close_pressed():
 	levelpopup.visible = false
 
 func _on_level_pressed(level):
-
 	Global.pvelvl = Global.pvesection.levels[level]
 	print(level)
 	print(Global.pvesection.levels[0])
