@@ -6,7 +6,7 @@ onready var labelnode = $Label
 onready var animation = $Label/AnimationPlayer
 
 func _ready():
-	animation.play("loading")
+	animation.play("Loading")
 	yield(get_tree().create_timer(2),"timeout")
 	
 	if Global.AccessToken != "":
@@ -16,13 +16,14 @@ func _ready():
 			print("yes")
 			httpNode.connect("request_completed", self, "_on_request_completed_renewtoken")
 			httpNode.request(Global.APIrooturl +  "/login/renew",authheader,false,HTTPClient.METHOD_POST)
-		
+			
 		else:
 			
 			httpNode.connect("request_completed", self, "_on_request_completed_tokenstatus")
 			httpNode.request(Global.APIrooturl +  "/api/v1/user/tokenDetails",authheader,false,HTTPClient.METHOD_GET)
 		
 	else:
+		print("NO")
 		get_tree().change_scene('res://login/login.tscn')
 			
 	

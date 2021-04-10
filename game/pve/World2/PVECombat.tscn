@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://game/pve/PVECombat.gd" type="Script" id=1]
 [ext_resource path="res://public/image/world2/world2 bg.jpg" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://public/image/world2/4Z_2101.w017.n001.354B.p15.354-removebg-preview copy 2.png" type="Texture" id=10]
 [ext_resource path="res://public/image/world2/4Z_2101.w017.n001.354B.p15.354-removebg-preview copy.png" type="Texture" id=11]
 [ext_resource path="res://public/image/world2/4Z_2101.w017.n001.354B.p15.354-removebg-preview copy 4.png" type="Texture" id=12]
+[ext_resource path="res://game/interface/lifebar/lifebar.tscn" type="PackedScene" id=13]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
@@ -108,6 +109,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="QuestionTimerLabel" type="Label" parent="."]
+margin_top = 20.0
+margin_right = 1280.0
+margin_bottom = 80.0
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="QuestionBox" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
@@ -115,7 +125,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect2" type="TextureRect" parent="QuestionBox"]
+[node name="ColorRect" type="TextureRect" parent="QuestionBox"]
 modulate = Color( 0.352941, 0.215686, 0.0627451, 0.54902 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -246,7 +256,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Question" type="RichTextLabel" parent="."]
+[node name="Question" type="RichTextLabel" parent="QuestionBox"]
 margin_left = 10.0
 margin_top = 488.606
 margin_right = 1280.0
@@ -257,6 +267,18 @@ text = "Q1: BAlabala"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="BossLifeBar" parent="." instance=ExtResource( 13 )]
+margin_left = 870.0
+margin_top = 190.0
+margin_right = -410.0
+margin_bottom = -530.0
+
+[node name="CharLifeBar" parent="." instance=ExtResource( 13 )]
+margin_left = 120.0
+margin_top = 190.0
+margin_right = -1160.0
+margin_bottom = -530.0
 
 [node name="character" type="VBoxContainer" parent="."]
 margin_left = 144.0
@@ -291,8 +313,18 @@ anims/bossAttack = SubResource( 3 )
 position = Vector2( 216, 328 )
 shape = SubResource( 4 )
 
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 77.0
+margin_bottom = 77.0
+texture_normal = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Popup" type="Popup" parent="."]
-visible = true
 margin_right = 1280.0
 margin_bottom = 720.0
 script = SubResource( 5 )
@@ -415,23 +447,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureButton" type="TextureButton" parent="."]
-margin_left = 10.0
-margin_top = 10.0
-margin_right = 77.0
-margin_bottom = 77.0
-texture_normal = ExtResource( 5 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="countdown" type="Popup" parent="."]
-visible = true
+[node name="countdown" type="Popup" parent="Popup"]
 margin_right = 40.0
 margin_bottom = 40.0
 
-[node name="ColorRect" type="ColorRect" parent="countdown"]
+[node name="ColorRect" type="ColorRect" parent="Popup/countdown"]
 margin_right = 1280.0
 margin_bottom = 720.0
 color = Color( 0, 0, 0, 0.501961 )
@@ -439,7 +459,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="countdown"]
+[node name="Label" type="Label" parent="Popup/countdown"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -697,11 +717,14 @@ custom_colors/font_color = Color( 1, 1, 1, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="QuestionBox/Answer1" to="." method="_on_Answer1_pressed"]
-[connection signal="pressed" from="QuestionBox/Answer3" to="." method="_win_pressed"]
-[connection signal="pressed" from="QuestionBox/Answer4" to="." method="_lose_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="QuestionTimer" to="." method="_on_QuestionTimer_timeout"]
+[connection signal="pressed" from="QuestionBox/Answer1" to="." method="_on_Answer_pressed"]
+[connection signal="pressed" from="QuestionBox/Answer2" to="." method="_on_Answer_pressed"]
+[connection signal="pressed" from="QuestionBox/Answer3" to="." method="_on_Answer_pressed"]
+[connection signal="pressed" from="QuestionBox/Answer4" to="." method="_on_Answer_pressed"]
 [connection signal="area_entered" from="boss/bossAttack/AnimationPlayer/Hit Box" to="." method="_on_Hit_Box_area_entered"]
-[connection signal="pressed" from="Popup/TextureRect/CloseButton" to="." method="_on_CloseButton_pressed"]
 [connection signal="pressed" from="TextureButton" to="." method="_on_MenuButton_pressed"]
+[connection signal="pressed" from="Popup/TextureRect/CloseButton" to="." method="_on_CloseButton_pressed"]
 
 [editable path="boss/bossAttack/AnimationPlayer/Hit Box"]

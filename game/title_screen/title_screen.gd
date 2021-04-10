@@ -7,8 +7,7 @@ func _ready():
 	$Buttons/pveBtn.grab_focus()
 	for button in $Buttons.get_children():
 		button.connect("pressed", self, "_on_Button_pressed", [button.scene_to_load])
-	
-	
+		
 	var authheader: PoolStringArray = ['Authorization: Bearer ' + Global.AccessToken ] 
 	
 	httpNode.connect("request_completed", self, "_on_request_completed_getWorlds")
