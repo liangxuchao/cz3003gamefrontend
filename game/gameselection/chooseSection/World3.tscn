@@ -57,6 +57,8 @@ __meta__ = {
 [node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 0.943848
+margin_right = 0.943848
 rect_clip_content = true
 texture = ExtResource( 2 )
 expand = true
@@ -212,10 +214,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -638.415
-margin_top = -360.0
-margin_right = 641.589
-margin_bottom = 360.0
+margin_left = -636.527
+margin_top = -353.393
+margin_right = 643.477
+margin_bottom = 366.607
 color = Color( 0.0117647, 0.309804, 0.478431, 0.505882 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -227,9 +229,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -171.0
-margin_top = -190.0
+margin_top = -189.056
 margin_right = 171.0
-margin_bottom = 190.0
+margin_bottom = 190.944
 texture = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false

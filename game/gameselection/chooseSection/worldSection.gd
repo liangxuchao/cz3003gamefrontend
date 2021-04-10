@@ -24,10 +24,10 @@ func _ready():
 
 func _on_SectionButton_pressed(index):
 	var sectiondetail = worlddetail.sections[index]
-	
+
 	if(sectiondetail.has("levels")):
 		if(0 <= sectiondetail.levels.size()-1):
-			level1label.text = sectiondetail.levels[0].name
+			level1label.text =sectiondetail.levels[0].name
 		if(1 <= sectiondetail.levels.size()-1):
 			level2label.text = sectiondetail.levels[1].name
 		if(2 <= sectiondetail.levels.size()-1):

@@ -6,7 +6,7 @@ onready var labelnode = $Label
 onready var animation = $Label/AnimationPlayer
 
 func _ready():
-	animation.play("loading")
+	animation.play("Loading")
 	yield(get_tree().create_timer(2),"timeout")
 	
 	if Global.AccessToken != "":

@@ -179,9 +179,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Answer1" type="TextureButton" parent="QuestionBOX" groups=[
-"A",
-]]
+[node name="Answer1" type="TextureButton" parent="QuestionBOX"]
 margin_left = 200.0
 margin_top = 60.0
 margin_right = 580.0
@@ -515,6 +513,7 @@ __meta__ = {
 }
 
 [node name="lose" type="Popup" parent="."]
+visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -528,8 +527,8 @@ __meta__ = {
 [node name="ColorRect" type="ColorRect" parent="lose"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 1.0
-margin_bottom = 1.0
+margin_top = -0.887756
+margin_bottom = -0.887756
 color = Color( 0, 0, 0, 0.52 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -582,7 +581,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Try Again" type="TextureButton" parent="lose/TextureRect"]
+[node name="TryAgain" type="TextureButton" parent="lose/TextureRect"]
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = 15.0
@@ -595,7 +594,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="lose/TextureRect/Try Again"]
+[node name="Label" type="Label" parent="lose/TextureRect/TryAgain"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -687,7 +686,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Back Button" type="TextureButton" parent="win/TextureRect"]
+[node name="BackButton" type="TextureButton" parent="win/TextureRect"]
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = 51.0
@@ -700,7 +699,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="win/TextureRect/Back Button"]
+[node name="Label" type="Label" parent="win/TextureRect/BackButton"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -718,7 +717,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Next Button" type="TextureButton" parent="win/TextureRect"]
+[node name="NextButton" type="TextureButton" parent="win/TextureRect"]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -733,7 +732,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="win/TextureRect/Next Button"]
+[node name="Label" type="Label" parent="win/TextureRect/NextButton"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -810,9 +809,9 @@ __meta__ = {
 [connection signal="pressed" from="Popup/TextureRect/retry" to="." method="_on_retry_pressed"]
 [connection signal="pressed" from="Popup/TextureRect/quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="lose/TextureRect/Back" to="." method="_on_Back_pressed"]
-[connection signal="pressed" from="lose/TextureRect/Try Again" to="." method="_on_Try_Again_pressed"]
-[connection signal="pressed" from="win/TextureRect/Back Button" to="." method="_on_Back_pressed"]
-[connection signal="pressed" from="win/TextureRect/Next Button" to="." method="_on_Next_Button_pressed"]
+[connection signal="pressed" from="lose/TextureRect/TryAgain" to="." method="_on_Try_Again_pressed"]
+[connection signal="pressed" from="win/TextureRect/BackButton" to="." method="_on_Back_pressed"]
+[connection signal="pressed" from="win/TextureRect/NextButton" to="." method="_on_Next_Button_pressed"]
 
 [editable path="character/charAttack/Hit Box"]
 
