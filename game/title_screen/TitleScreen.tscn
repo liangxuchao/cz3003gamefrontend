@@ -31,10 +31,10 @@ __meta__ = {
 [node name="Logo" type="TextureRect" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -425.0
-margin_top = -78.0
-margin_right = 432.0
-margin_bottom = 463.0
+margin_left = -428.5
+margin_top = -82.0553
+margin_right = 428.5
+margin_bottom = 458.945
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 1
@@ -54,10 +54,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 491.0
+margin_left = 483.0
 margin_top = 361.0
-margin_right = 769.0
-margin_bottom = 409.0
+margin_right = 843.0
+margin_bottom = 421.0
 
 [node name="pvpBtn" parent="Buttons" instance=ExtResource( 4 )]
 visible = false
@@ -67,17 +67,17 @@ margin_right = 638.0
 margin_bottom = 459.592
 
 [node name="leaderboardButton" parent="Buttons" instance=ExtResource( 11 )]
-margin_left = 487.336
+margin_left = 479.336
 margin_top = 459.592
-margin_right = 1005.34
+margin_right = 997.34
 margin_bottom = 519.592
 scene_to_load = "res://game/leaderboard/leaderboard.tscn"
 
 [node name="quitButton" parent="Buttons" instance=ExtResource( 5 )]
-margin_left = 596.0
-margin_top = 540.224
-margin_right = 956.0
-margin_bottom = 600.224
+margin_left = 592.0
+margin_top = 538.224
+margin_right = 952.0
+margin_bottom = 598.224
 
 [node name="FadeIn" parent="." instance=ExtResource( 8 )]
 [connection signal="fade_finished" from="FadeIn" to="." method="_on_FadeIn_fade_finished"]
