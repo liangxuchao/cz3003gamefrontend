@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://game/pve/PVECombat.gd" type="Script" id=1]
 [ext_resource path="res://public/image/world2/world2 bg.jpg" type="Texture" id=2]
@@ -13,6 +13,10 @@
 [ext_resource path="res://public/image/world2/4Z_2101.w017.n001.354B.p15.354-removebg-preview copy.png" type="Texture" id=11]
 [ext_resource path="res://public/image/world2/4Z_2101.w017.n001.354B.p15.354-removebg-preview copy 4.png" type="Texture" id=12]
 [ext_resource path="res://game/interface/lifebar/lifebar.tscn" type="PackedScene" id=13]
+
+[sub_resource type="DynamicFont" id=18]
+size = 50
+font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -36,6 +40,9 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( 90, 0 ), Vector2( 700, 0 ), Vector2( -47.806, -432.294 ) ]
 }
+
+[sub_resource type="CircleShape2D" id=17]
+radius = 18.1108
 
 [sub_resource type="Animation" id=4]
 length = 1.1
@@ -146,6 +153,7 @@ __meta__ = {
 margin_top = 20.0
 margin_right = 1280.0
 margin_bottom = 80.0
+custom_fonts/font = SubResource( 18 )
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -305,12 +313,16 @@ __meta__ = {
 }
 
 [node name="charAttack" parent="character" instance=ExtResource( 3 )]
-position = Vector2( 90, 0 )
+position = Vector2( -47.806, -432.294 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="character/charAttack"]
 anims/charAttack = SubResource( 3 )
 
 [node name="Hit Box" parent="character/charAttack/AnimationPlayer" instance=ExtResource( 7 )]
+
+[node name="CollisionShape2D" parent="character/charAttack/AnimationPlayer/Hit Box" index="0"]
+position = Vector2( 342, 326 )
+shape = SubResource( 17 )
 
 [node name="boss" type="VBoxContainer" parent="."]
 margin_left = 900.0
@@ -322,7 +334,8 @@ __meta__ = {
 }
 
 [node name="bossAttack" parent="boss" instance=ExtResource( 6 )]
-position = Vector2( 0, 104 )
+position = Vector2( -700, 104 )
+rotation = -6.28319
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="boss/bossAttack"]
 autoplay = "bossAttack"
@@ -332,7 +345,7 @@ anims/bossAttack = SubResource( 4 )
 position = Vector2( 904, 328 )
 
 [node name="CollisionShape2D" parent="boss/bossAttack/AnimationPlayer/Hit Box" index="0"]
-position = Vector2( 688, 427 )
+position = Vector2( -20, 0 )
 shape = SubResource( 5 )
 
 [node name="TextureButton" type="TextureButton" parent="."]
@@ -347,8 +360,12 @@ __meta__ = {
 }
 
 [node name="countdown" type="Popup" parent="."]
+visible = true
 margin_right = 40.0
 margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ColorRect" type="ColorRect" parent="countdown"]
 margin_right = 1280.0
@@ -497,6 +514,7 @@ __meta__ = {
 }
 
 [node name="lose" type="Popup" parent="."]
+visible = true
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -560,7 +578,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Try Again" type="TextureButton" parent="lose/TextureRect"]
+[node name="TryAgain" type="TextureButton" parent="lose/TextureRect"]
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_top = -80.0
@@ -571,7 +589,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="lose/TextureRect/Try Again"]
+[node name="Label" type="Label" parent="lose/TextureRect/TryAgain"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -637,6 +655,7 @@ __meta__ = {
 }
 
 [node name="win" type="Popup" parent="."]
+visible = true
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -649,6 +668,9 @@ anchor_bottom = 1.0
 margin_right = 1240.0
 margin_bottom = 680.0
 color = Color( 0, 0, 0, 0.501961 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="TextureRect" type="TextureRect" parent="win"]
 anchor_left = 0.5
@@ -665,7 +687,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Back Button" type="TextureButton" parent="win/TextureRect"]
+[node name="BackButton" type="TextureButton" parent="win/TextureRect"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -679,7 +701,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="win/TextureRect/Back Button"]
+[node name="Label" type="Label" parent="win/TextureRect/BackButton"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -698,7 +720,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Next Button" type="TextureButton" parent="win/TextureRect"]
+[node name="NextButton" type="TextureButton" parent="win/TextureRect"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -712,7 +734,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="win/TextureRect/Next Button"]
+[node name="Label" type="Label" parent="win/TextureRect/NextButton"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -789,8 +811,10 @@ __meta__ = {
 [connection signal="pressed" from="Popup/TextureRect/retry" to="." method="_on_retry_pressed"]
 [connection signal="pressed" from="Popup/TextureRect/quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="lose/TextureRect/Back" to="." method="_on_Back_pressed"]
-[connection signal="pressed" from="lose/TextureRect/Try Again" to="." method="_on_Try_Again_pressed"]
-[connection signal="pressed" from="win/TextureRect/Back Button" to="." method="_on_Back_Button_pressed"]
-[connection signal="pressed" from="win/TextureRect/Next Button" to="." method="_on_Next_Button_pressed"]
+[connection signal="pressed" from="lose/TextureRect/TryAgain" to="." method="_on_Try_Again_pressed"]
+[connection signal="pressed" from="win/TextureRect/BackButton" to="." method="_on_Back_pressed"]
+[connection signal="pressed" from="win/TextureRect/NextButton" to="." method="_on_Next_Button_pressed"]
+
+[editable path="character/charAttack/AnimationPlayer/Hit Box"]
 
 [editable path="boss/bossAttack/AnimationPlayer/Hit Box"]
