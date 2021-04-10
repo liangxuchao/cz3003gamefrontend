@@ -10,25 +10,22 @@
 [ext_resource path="res://public/image/world3/QuizBG.png" type="Texture" id=8]
 [ext_resource path="res://public/image/world3/PVP_Title.png" type="Texture" id=9]
 [ext_resource path="res://public/image/world3/menuButton.png" type="Texture" id=10]
+[ext_resource path="res://game/interface/lifebar/lifebar.tscn" type="PackedScene" id=11]
 
 [sub_resource type="StreamTexture" id=1]
 flags = 4
 load_path = "res://.import/PVP BG.jpg-7f19383d3849c9d6a8cd95e10fb56576.stex"
-
-[sub_resource type="DynamicFont" id=19]
-size = 50
-font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 50
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 20
+size = 50
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=4]
-size = 48
+size = 38
 font_data = ExtResource( 4 )
 
 [sub_resource type="Animation" id=5]
@@ -42,7 +39,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.9, 1 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 90, 0 ), Vector2( 700, 0 ), Vector2( 90, 0 ) ]
+"values": [ Vector2( 90, 0 ), Vector2( 700, 0 ), Vector2( -47.8057, -432.294 ) ]
 }
 
 [sub_resource type="CircleShape2D" id=6]
@@ -59,7 +56,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1, 1.1 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 25 ), Vector2( -700, 25 ), Vector2( 0, 25 ) ]
+"values": [ Vector2( 0, 63 ), Vector2( -700, 63 ), Vector2( 13.4543, -340.79 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:rotation_degrees")
@@ -76,22 +73,22 @@ tracks/1/keys = {
 
 [sub_resource type="CircleShape2D" id=8]
 
-[sub_resource type="DynamicFont" id=13]
+[sub_resource type="DynamicFont" id=9]
 size = 50
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=9]
+[sub_resource type="DynamicFont" id=10]
 size = 38
 font_data = ExtResource( 4 )
 
-[sub_resource type="StyleBoxFlat" id=10]
+[sub_resource type="StyleBoxFlat" id=11]
 bg_color = Color( 0.2, 0.337255, 0.541176, 0.862745 )
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=12]
 size = 40
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=12]
+[sub_resource type="DynamicFont" id=13]
 size = 32
 font_data = ExtResource( 4 )
 
@@ -143,7 +140,7 @@ __meta__ = {
 margin_top = 20.0
 margin_right = 1280.0
 margin_bottom = 80.0
-custom_fonts/font = SubResource( 19 )
+custom_fonts/font = SubResource( 2 )
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -175,136 +172,134 @@ __meta__ = {
 [node name="RespondLabel" type="Label" parent="QuestionBOX"]
 margin_right = 1280.0
 margin_bottom = 240.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Answer1" type="TextureButton" parent="QuestionBOX"]
+[node name="Answer1" type="TextureButton" parent="QuestionBOX" groups=[
+"A",
+]]
 margin_left = 200.0
-margin_top = 80.0
-margin_right = 560.0
-margin_bottom = 160.0
+margin_top = 60.0
+margin_right = 580.0
+margin_bottom = 150.0
 texture_normal = ExtResource( 3 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label1" type="Label" parent="QuestionBOX/Answer1"]
+[node name="Label1" type="RichTextLabel" parent="QuestionBOX/Answer1"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -125.0
-margin_top = -20.0
-margin_right = 125.0
-margin_bottom = 20.0
-custom_fonts/font = SubResource( 3 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-align = 1
-valign = 1
+margin_left = -145.0
+margin_top = -18.0
+margin_right = 145.0
+margin_bottom = 22.0
+mouse_filter = 2
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Answer2" type="TextureButton" parent="QuestionBOX"]
 margin_left = 750.0
-margin_top = 80.0
-margin_right = 1110.0
-margin_bottom = 160.0
+margin_top = 60.0
+margin_right = 1130.0
+margin_bottom = 150.0
 texture_normal = ExtResource( 3 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label2" type="Label" parent="QuestionBOX/Answer2"]
+[node name="Label2" type="RichTextLabel" parent="QuestionBOX/Answer2"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -125.0
-margin_top = -20.0
-margin_right = 125.0
-margin_bottom = 20.0
-custom_fonts/font = SubResource( 3 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+margin_left = -145.0
+margin_top = -18.0
+margin_right = 145.0
+margin_bottom = 22.0
+mouse_filter = 2
+custom_colors/default_color = Color( 0, 0, 0, 1 )
 
 [node name="Answer3" type="TextureButton" parent="QuestionBOX"]
 margin_left = 200.0
-margin_top = 160.0
-margin_right = 560.0
-margin_bottom = 240.0
+margin_top = 155.0
+margin_right = 580.0
+margin_bottom = 245.0
 texture_normal = ExtResource( 3 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label3" type="Label" parent="QuestionBOX/Answer3"]
+[node name="Label3" type="RichTextLabel" parent="QuestionBOX/Answer3"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -125.0
-margin_top = -20.0
-margin_right = 125.0
-margin_bottom = 20.0
-custom_fonts/font = SubResource( 3 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+margin_left = -145.0
+margin_top = -18.0
+margin_right = 145.0
+margin_bottom = 22.0
+mouse_filter = 2
+custom_colors/default_color = Color( 0, 0, 0, 1 )
 
 [node name="Answer4" type="TextureButton" parent="QuestionBOX"]
 margin_left = 750.0
-margin_top = 160.0
-margin_right = 1110.0
-margin_bottom = 240.0
+margin_top = 155.0
+margin_right = 1130.0
+margin_bottom = 245.0
 texture_normal = ExtResource( 3 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label4" type="Label" parent="QuestionBOX/Answer4"]
+[node name="Label4" type="RichTextLabel" parent="QuestionBOX/Answer4"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -125.0
-margin_top = -20.0
-margin_right = 125.0
-margin_bottom = 20.0
-custom_fonts/font = SubResource( 3 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+margin_left = -145.0
+margin_top = -18.0
+margin_right = 145.0
+margin_bottom = 22.0
+mouse_filter = 2
+custom_colors/default_color = Color( 0, 0, 0, 1 )
 
 [node name="Question" type="RichTextLabel" parent="QuestionBOX"]
-margin_left = 10.0
-margin_top = 10.0
-margin_right = 1280.0
-margin_bottom = 80.0
+margin_left = 31.3816
+margin_top = 16.2363
+margin_right = 1301.38
+margin_bottom = 86.2363
 custom_fonts/normal_font = SubResource( 4 )
 custom_colors/default_color = Color( 1, 1, 1, 1 )
 text = "Q1: "
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="BossLifeBar" parent="." instance=ExtResource( 11 )]
+margin_left = 870.0
+margin_top = 190.0
+margin_right = 870.0
+margin_bottom = 190.0
+
+[node name="CharLifeBar" parent="." instance=ExtResource( 11 )]
+margin_left = 120.0
+margin_top = 190.0
+margin_right = 120.0
+margin_bottom = 190.0
 
 [node name="character" type="VBoxContainer" parent="."]
 margin_left = 144.0
@@ -316,7 +311,7 @@ __meta__ = {
 }
 
 [node name="charAttack" parent="character" instance=ExtResource( 7 )]
-position = Vector2( -92.873, -451.176 )
+position = Vector2( -47.8057, -432.294 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="character/charAttack"]
 anims/charAttack = SubResource( 5 )
@@ -338,7 +333,7 @@ __meta__ = {
 }
 
 [node name="bossAttack" parent="boss" instance=ExtResource( 5 )]
-position = Vector2( 0, 25 )
+position = Vector2( 13.4543, -340.79 )
 rotation = -6.9115
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="boss/bossAttack"]
@@ -386,7 +381,7 @@ margin_left = -100.0
 margin_top = -40.0
 margin_right = 100.0
 margin_bottom = 40.0
-custom_fonts/font = SubResource( 13 )
+custom_fonts/font = SubResource( 9 )
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -449,7 +444,7 @@ margin_left = -51.5
 margin_top = -19.5
 margin_right = 51.5
 margin_bottom = 19.5
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 10 )
 custom_colors/font_color = Color( 0.0117647, 0.309804, 0.592157, 1 )
 text = "Close"
 align = 1
@@ -465,8 +460,8 @@ margin_left = -86.0
 margin_top = 100.0
 margin_right = 86.0
 margin_bottom = 161.0
-custom_styles/normal = SubResource( 10 )
-custom_fonts/font = SubResource( 11 )
+custom_styles/normal = SubResource( 11 )
+custom_fonts/font = SubResource( 12 )
 text = "Retry"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -481,8 +476,8 @@ margin_left = -88.0
 margin_top = -8.00005
 margin_right = 84.0
 margin_bottom = 52.9999
-custom_styles/normal = SubResource( 10 )
-custom_fonts/font = SubResource( 11 )
+custom_styles/normal = SubResource( 11 )
+custom_fonts/font = SubResource( 12 )
 text = "Quit"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -510,7 +505,7 @@ margin_left = -69.5
 margin_top = -16.0
 margin_right = 69.5
 margin_bottom = 16.0
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 13 )
 custom_colors/font_color = Color( 0.0117647, 0.309804, 0.478431, 1 )
 text = "Menu"
 align = 1
@@ -533,6 +528,8 @@ __meta__ = {
 [node name="ColorRect" type="ColorRect" parent="lose"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = 1.0
+margin_bottom = 1.0
 color = Color( 0, 0, 0, 0.52 )
 __meta__ = {
 "_edit_use_anchors_": false
