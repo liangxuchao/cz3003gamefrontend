@@ -6,7 +6,7 @@
 [ext_resource path="res://public/image/common/leaderboardBG.png" type="Texture" id=4]
 [ext_resource path="res://public/fonts/soupofjustice.ttf" type="DynamicFontData" id=5]
 
-[sub_resource type="StyleBoxTexture" id=3]
+[sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 4 )
 region_rect = Rect2( 0, 0, 585, 771 )
 
@@ -37,15 +37,15 @@ __meta__ = {
 [node name="Panel" type="Panel" parent="."]
 modulate = Color( 0.984314, 1, 1, 1 )
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 0.501182
 anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -266.384
-margin_top = -312.044
-margin_right = 213.616
-margin_bottom = 287.956
+anchor_bottom = 0.501183
+margin_left = -212.851
+margin_top = -321.173
+margin_right = 231.149
+margin_bottom = 278.827
 size_flags_stretch_ratio = 0.0
-custom_styles/panel = SubResource( 3 )
+custom_styles/panel = SubResource( 1 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -54,10 +54,10 @@ __meta__ = {
 [node name="HTTPRequest" type="HTTPRequest" parent="Panel"]
 
 [node name="Title" type="Label" parent="Panel"]
-margin_left = 155.0
-margin_top = 12.0
-margin_right = 337.0
-margin_bottom = 43.0
+margin_left = 135.976
+margin_top = 13.7042
+margin_right = 317.976
+margin_bottom = 44.7042
 custom_fonts/font = SubResource( 2 )
 text = "Leader Board"
 align = 1
@@ -68,16 +68,39 @@ __meta__ = {
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
 modulate = Color( 0.8, 0.807843, 0.827451, 1 )
-margin_left = 53.0
-margin_top = 105.0
-margin_right = 455.0
-margin_bottom = 550.0
+anchor_top = 0.00283813
+anchor_bottom = 0.00283813
+margin_left = 42.0
+margin_top = 202.446
+margin_right = 404.0
+margin_bottom = 547.446
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer"]
-custom_constants/separation = 30
+[node name="GridContainer" type="GridContainer" parent="Panel/ScrollContainer"]
+margin_right = 362.0
+size_flags_horizontal = 3
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+margin_left = 63.0
+margin_top = 99.0
+margin_right = 398.0
+margin_bottom = 162.0
 
 [node name="backbutton" parent="." instance=ExtResource( 3 )]
 scene_to_load = "res://game/title_screen/TitleScreen.tscn"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 982.987
+margin_top = 94.3969
+margin_right = 982.987
+margin_bottom = 94.3969
+custom_constants/separation = 30
+__meta__ = {
+"_edit_use_anchors_": false
+}
