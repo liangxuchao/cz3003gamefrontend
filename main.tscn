@@ -8,7 +8,4 @@
 
 [node name="Control" parent="Interface" instance=ExtResource( 1 )]
 
-[node name="Label" parent="Interface/Control" index="2"]
-text = ""
-
 [editable path="Interface/Control"]

@@ -31,13 +31,29 @@ func _on_request_completed_login(result, response_code,headers, body):
 		var time = OS.get_unix_time()
 		Global.updateConfig({"Username":username.text, "AccessToken":json.result["access_token"], "TokenExpire": json.result["expires_in"], "lastlogin":time })
 		Global.AccessToken = json.result["access_token"];
+		httpNode.disconnect("request_completed",self,"_on_request_completed_login")
+	
+		var authheader: PoolStringArray = ['Authorization: Bearer ' + Global.AccessToken ] 
+	
+	
+		httpNode.connect("request_completed", self, "_on_request_commpleted_profile")
+		httpNode.request(Global.APIrooturl +  "/api/v1/user/profile",authheader,false,HTTPClient.METHOD_GET)
 		
-		get_tree().change_scene('res://game/title_screen/TitleScreen.tscn');
 	else:
 		alertLabel.text = "Login failed! \n Please try again!"
 		alertpopup.popup()
 
-
+func _on_request_commpleted_profile(result, response_code,headers, body):	
+	var json = JSON.parse(body.get_string_from_utf8())
+	print(json.result)
+	if response_code == 200:
+		
+		get_tree().change_scene('res://game/title_screen/TitleScreen.tscn');
+	else:
+		httpNode.disconnect("request_completed",self,"_on_request_completed_login")
+		alertLabel.text = "Login failed! \n Please try again!"
+		alertpopup.popup()
+		httpNode.connect("request_completed", self, "_on_request_completed_login")
 		
 func _on_enter_pressed():
 	alertpopup.visible = false;

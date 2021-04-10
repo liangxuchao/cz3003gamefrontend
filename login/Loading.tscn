@@ -59,7 +59,6 @@ custom_colors/font_outline_modulate = Color( 0.827451, 0.827451, 0.827451, 1 )
 custom_colors/font_color_shadow = Color( 0.623529, 0.623529, 0.623529, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 7
-text = "loading..."
 align = 1
 valign = 1
 __meta__ = {
