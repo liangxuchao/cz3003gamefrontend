@@ -89,6 +89,8 @@ func _on_MenuButton_pressed():
 
 
 func _on_Answer_pressed(option):
+	print("yes")
+	print(option)
 	questiontimerlabel.visible = false
 	questionAns1.visible = false
 	questionAns2.visible = false
@@ -289,8 +291,12 @@ func _on_Next_Button_pressed():
 	pass # Replace with function body.
 
 
+func _on_retry_pressed():
+	
+	get_tree().reload_current_scene()
+	pass # Replace with function body.
+
 
 func _on_Try_Again_pressed():
-	
 	get_tree().reload_current_scene()
 	pass # Replace with function body.
