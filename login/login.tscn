@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://public/fonts/soupofjustice.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://public/fonts/main.tres" type="DynamicFont" id=2]
 [ext_resource path="res://login/login.gd" type="Script" id=3]
 [ext_resource path="res://public/image/common/bgMain.jpg" type="Texture" id=4]
-[ext_resource path="res://public/image/common/LoginUI.png" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
@@ -46,7 +45,6 @@ margin_left = -263.94
 margin_top = -328.0
 margin_right = 268.06
 margin_bottom = 328.0
-texture = ExtResource( 5 )
 expand = true
 stretch_mode = 1
 

@@ -199,6 +199,7 @@ margin_left = -145.0
 margin_top = -18.0
 margin_right = 145.0
 margin_bottom = 22.0
+mouse_filter = 2
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
 __meta__ = {
@@ -225,6 +226,7 @@ margin_left = -145.0
 margin_top = -18.0
 margin_right = 145.0
 margin_bottom = 22.0
+mouse_filter = 2
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 
 [node name="Answer3" type="TextureButton" parent="QuestionBOX"]
@@ -247,6 +249,7 @@ margin_left = -145.0
 margin_top = -18.0
 margin_right = 145.0
 margin_bottom = 22.0
+mouse_filter = 2
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 
 [node name="Answer4" type="TextureButton" parent="QuestionBOX"]
@@ -269,6 +272,7 @@ margin_left = -145.0
 margin_top = -18.0
 margin_right = 145.0
 margin_bottom = 22.0
+mouse_filter = 2
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 
 [node name="Question" type="RichTextLabel" parent="QuestionBOX"]
