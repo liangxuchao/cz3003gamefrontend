@@ -11,8 +11,8 @@
 [ext_resource path="res://public/image/common/WorldPython.png" type="Texture" id=9]
 
 [sub_resource type="DynamicFont" id=1]
-size = 61
-extra_spacing_char = 6
+size = 63
+extra_spacing_char = 7
 font_data = ExtResource( 1 )
 
 [node name="Control" type="Control"]
@@ -71,19 +71,21 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="."]
-anchor_left = 0.286328
-anchor_top = 0.0916667
-anchor_right = 0.713672
-anchor_bottom = 0.177778
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -289.0
+margin_top = 64.3182
+margin_right = 289.0
+margin_bottom = 128.318
 custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.0771484, 0.488861, 0.617188, 1 )
-custom_colors/font_color_shadow = Color( 0.6, 0.6, 0.6, 1 )
-custom_constants/shadow_offset_x = 0
-custom_constants/shadow_offset_y = 5
+custom_colors/font_color = Color( 0.780392, 0.290196, 0.211765, 1 )
+custom_colors/font_color_shadow = Color( 0.870588, 0.737255, 0.619608, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 8
 text = "Start advanture"
 align = 1
 __meta__ = {
-"_edit_use_anchors_": true
+"_edit_use_anchors_": false
 }
 
 [node name="backbutton" parent="." instance=ExtResource( 3 )]
