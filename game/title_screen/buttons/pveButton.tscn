@@ -18,3 +18,5 @@ custom_colors/font_color = Color( 0.933333, 0.462745, 0.235294, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0.188235, 0.12549, 0.0627451, 1 )
 text = "Start game"
+align = 1
+valign = 1
