@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://game/pve/PVECombat.gd" type="Script" id=1]
 [ext_resource path="res://public/image/world2/world2 bg.jpg" type="Texture" id=2]
@@ -23,6 +23,21 @@ size = 48
 font_data = ExtResource( 4 )
 
 [sub_resource type="Animation" id=3]
+resource_name = "charAttack"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 90, 0 ), Vector2( 700, 0 ), Vector2( -47.806, -432.294 ) ]
+}
+
+[sub_resource type="Animation" id=4]
 length = 1.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
@@ -49,13 +64,14 @@ tracks/1/keys = {
 "values": [ 0.0, -72.0, -108.0, -144.0, -180.0, -216.0, -252.0, -288.0, -324.0, -360.0 ]
 }
 
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=5]
+radius = 24.5153
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=6]
 size = 50
 font_data = ExtResource( 4 )
 
-[sub_resource type="GDScript" id=6]
+[sub_resource type="GDScript" id=7]
 script/source = "extends Control
 
 func _ready():
@@ -67,37 +83,37 @@ func _on_CloseButton_pressed():
 	get_tree().change_scene(\"res://game/gameselection/world2/world2Section.tscn\") 
 "
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=8]
 size = 38
 font_data = ExtResource( 4 )
 
-[sub_resource type="StyleBoxFlat" id=8]
+[sub_resource type="StyleBoxFlat" id=9]
 bg_color = Color( 0.396078, 0.12549, 0.0156863, 1 )
 
-[sub_resource type="DynamicFont" id=9]
+[sub_resource type="DynamicFont" id=10]
 size = 40
 font_data = ExtResource( 4 )
 
-[sub_resource type="StyleBoxFlat" id=10]
+[sub_resource type="StyleBoxFlat" id=11]
 bg_color = Color( 0.396078, 0.12549, 0.0156863, 1 )
-
-[sub_resource type="DynamicFont" id=11]
-size = 40
-font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=12]
-size = 48
+size = 40
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=13]
-size = 28
+size = 48
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=14]
-size = 32
+size = 28
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=15]
+size = 32
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=16]
 size = 32
 font_data = ExtResource( 4 )
 
@@ -289,6 +305,12 @@ __meta__ = {
 }
 
 [node name="charAttack" parent="character" instance=ExtResource( 3 )]
+position = Vector2( 90, 0 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="character/charAttack"]
+anims/charAttack = SubResource( 3 )
+
+[node name="Hit Box" parent="character/charAttack/AnimationPlayer" instance=ExtResource( 7 )]
 
 [node name="boss" type="VBoxContainer" parent="."]
 margin_left = 900.0
@@ -300,17 +322,18 @@ __meta__ = {
 }
 
 [node name="bossAttack" parent="boss" instance=ExtResource( 6 )]
-position = Vector2( -700, 104 )
-rotation = -6.28319
+position = Vector2( 0, 104 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="boss/bossAttack"]
-anims/bossAttack = SubResource( 3 )
+autoplay = "bossAttack"
+anims/bossAttack = SubResource( 4 )
 
 [node name="Hit Box" parent="boss/bossAttack/AnimationPlayer" instance=ExtResource( 7 )]
+position = Vector2( 904, 328 )
 
 [node name="CollisionShape2D" parent="boss/bossAttack/AnimationPlayer/Hit Box" index="0"]
-position = Vector2( 216, 328 )
-shape = SubResource( 4 )
+position = Vector2( 688, 427 )
+shape = SubResource( 5 )
 
 [node name="TextureButton" type="TextureButton" parent="."]
 margin_left = 10.0
@@ -344,14 +367,14 @@ margin_left = 520.0
 margin_top = 300.0
 margin_right = 720.0
 margin_bottom = 380.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 align = 1
 
 [node name="Popup" type="Popup" parent="."]
 visible = true
 margin_right = 1280.0
 margin_bottom = 720.0
-script = SubResource( 6 )
+script = SubResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -405,7 +428,7 @@ margin_left = -51.5
 margin_top = -19.5
 margin_right = 51.5
 margin_bottom = 19.5
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 0.352941, 0.215686, 0.0627451, 1 )
 text = "Close"
 align = 1
@@ -421,8 +444,8 @@ margin_left = -83.0001
 margin_top = 72.0
 margin_right = 88.9999
 margin_bottom = 133.0
-custom_styles/normal = SubResource( 8 )
-custom_fonts/font = SubResource( 9 )
+custom_styles/normal = SubResource( 9 )
+custom_fonts/font = SubResource( 10 )
 text = "Retry"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -435,8 +458,8 @@ margin_left = -80.0
 margin_top = 155.0
 margin_right = 92.0
 margin_bottom = 216.0
-custom_styles/normal = SubResource( 10 )
-custom_fonts/font = SubResource( 11 )
+custom_styles/normal = SubResource( 11 )
+custom_fonts/font = SubResource( 12 )
 text = "Quit"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -464,7 +487,7 @@ margin_left = -69.5
 margin_top = -24.0
 margin_right = 69.5
 margin_bottom = 24.0
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 13 )
 custom_colors/font_color = Color( 0.396078, 0.12549, 0.0156863, 1 )
 text = "Menu"
 align = 1
@@ -528,7 +551,7 @@ margin_top = -19.5
 margin_right = 52.1843
 margin_bottom = 19.5
 rect_min_size = Vector2( 103, 39 )
-custom_fonts/font = SubResource( 13 )
+custom_fonts/font = SubResource( 14 )
 custom_colors/font_color = Color( 0.352941, 0.215686, 0.0627451, 1 )
 text = "Back"
 align = 1
@@ -558,7 +581,7 @@ margin_top = -19.5
 margin_right = 61.5
 margin_bottom = 19.5
 rect_min_size = Vector2( 103, 39 )
-custom_fonts/font = SubResource( 13 )
+custom_fonts/font = SubResource( 14 )
 custom_colors/font_color = Color( 0.352941, 0.215686, 0.0627451, 1 )
 text = "Try Again"
 align = 1
@@ -589,7 +612,7 @@ margin_left = -66.0
 margin_top = -16.0
 margin_right = 66.0
 margin_bottom = 16.0
-custom_fonts/font = SubResource( 14 )
+custom_fonts/font = SubResource( 15 )
 custom_colors/font_color = Color( 0.352941, 0.215686, 0.0627451, 1 )
 text = "You LOSE"
 align = 1
@@ -607,7 +630,7 @@ margin_left = -43.5
 margin_top = -16.0
 margin_right = 43.5
 margin_bottom = 16.0
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 16 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -666,9 +689,9 @@ margin_top = -19.5
 margin_right = 52.1843
 margin_bottom = 19.5
 rect_min_size = Vector2( 103, 39 )
-custom_fonts/font = SubResource( 13 )
+custom_fonts/font = SubResource( 14 )
 custom_colors/font_color = Color( 0.352941, 0.215686, 0.0627451, 1 )
-text = "NEXT"
+text = "BACK"
 align = 1
 valign = 1
 __meta__ = {
@@ -699,7 +722,7 @@ margin_top = -19.5
 margin_right = 52.1843
 margin_bottom = 19.5
 rect_min_size = Vector2( 103, 39 )
-custom_fonts/font = SubResource( 13 )
+custom_fonts/font = SubResource( 14 )
 custom_colors/font_color = Color( 0.352941, 0.215686, 0.0627451, 1 )
 text = "NEXT"
 align = 1
@@ -730,7 +753,7 @@ margin_left = -66.0
 margin_top = -16.0
 margin_right = 66.0
 margin_bottom = 16.0
-custom_fonts/font = SubResource( 14 )
+custom_fonts/font = SubResource( 15 )
 custom_colors/font_color = Color( 0.352941, 0.215686, 0.0627451, 1 )
 text = "You win"
 align = 1
@@ -748,7 +771,7 @@ margin_left = -43.5
 margin_top = -16.0
 margin_right = 43.5
 margin_bottom = 16.0
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 16 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -759,6 +782,7 @@ __meta__ = {
 [connection signal="pressed" from="QuestionBOX/Answer2" to="." method="_on_Answer_pressed" binds= [ 1 ]]
 [connection signal="pressed" from="QuestionBOX/Answer3" to="." method="_on_Answer_pressed" binds= [ 2 ]]
 [connection signal="pressed" from="QuestionBOX/Answer4" to="." method="_on_Answer_pressed" binds= [ 3 ]]
+[connection signal="area_entered" from="character/charAttack/AnimationPlayer/Hit Box" to="." method="_on_Hit_Box_area_entered"]
 [connection signal="area_entered" from="boss/bossAttack/AnimationPlayer/Hit Box" to="." method="_on_Hit_Box_area_entered"]
 [connection signal="pressed" from="TextureButton" to="." method="_on_MenuButton_pressed"]
 [connection signal="pressed" from="Popup/TextureRect/CloseButton" to="." method="_on_CloseButton_pressed"]
@@ -766,5 +790,7 @@ __meta__ = {
 [connection signal="pressed" from="Popup/TextureRect/quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="lose/TextureRect/Back" to="." method="_on_Back_pressed"]
 [connection signal="pressed" from="lose/TextureRect/Try Again" to="." method="_on_Try_Again_pressed"]
+[connection signal="pressed" from="win/TextureRect/Back Button" to="." method="_on_Back_Button_pressed"]
+[connection signal="pressed" from="win/TextureRect/Next Button" to="." method="_on_Next_Button_pressed"]
 
 [editable path="boss/bossAttack/AnimationPlayer/Hit Box"]
