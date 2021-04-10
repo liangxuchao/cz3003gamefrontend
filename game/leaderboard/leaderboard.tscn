@@ -3,12 +3,12 @@
 [ext_resource path="res://game/leaderboard/Panel.gd" type="Script" id=1]
 [ext_resource path="res://public/image/common/bgMain.jpg" type="Texture" id=2]
 [ext_resource path="res://game/backbutton/back.tscn" type="PackedScene" id=3]
-[ext_resource path="res://public/image/common/leaderboardBG.png" type="Texture" id=4]
+[ext_resource path="res://public/image/common/leaderboardNew.png" type="Texture" id=4]
 [ext_resource path="res://public/fonts/soupofjustice.ttf" type="DynamicFontData" id=5]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 4 )
-region_rect = Rect2( 0, 0, 585, 771 )
+region_rect = Rect2( 0, 0, 353, 512 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 30
@@ -40,10 +40,10 @@ anchor_left = 0.5
 anchor_top = 0.501182
 anchor_right = 0.5
 anchor_bottom = 0.501183
-margin_left = -212.851
-margin_top = -321.173
-margin_right = 231.149
-margin_bottom = 278.827
+margin_left = -244.0
+margin_top = -362.851
+margin_right = 262.0
+margin_bottom = 321.148
 size_flags_stretch_ratio = 0.0
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 1 )
@@ -54,11 +54,14 @@ __meta__ = {
 [node name="HTTPRequest" type="HTTPRequest" parent="Panel"]
 
 [node name="Title" type="Label" parent="Panel"]
-margin_left = 135.976
-margin_top = 13.7042
-margin_right = 317.976
-margin_bottom = 44.7042
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -91.0
+margin_top = 132.002
+margin_right = 91.0
+margin_bottom = 163.002
 custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.621094, 0.432065, 0.310547, 1 )
 text = "Leader Board"
 align = 1
 valign = 1
@@ -68,18 +71,20 @@ __meta__ = {
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
 modulate = Color( 0.8, 0.807843, 0.827451, 1 )
-anchor_top = 0.00283813
-anchor_bottom = 0.00283813
-margin_left = 42.0
-margin_top = 202.446
-margin_right = 404.0
-margin_bottom = 547.446
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -147.0
+margin_top = -161.0
+margin_right = 147.0
+margin_bottom = 12.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="GridContainer" type="GridContainer" parent="Panel/ScrollContainer"]
-margin_right = 362.0
+margin_right = 294.0
 size_flags_horizontal = 3
 columns = 2
 __meta__ = {
@@ -91,6 +96,9 @@ margin_left = 63.0
 margin_top = 99.0
 margin_right = 398.0
 margin_bottom = 162.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="backbutton" parent="." instance=ExtResource( 3 )]
 scene_to_load = "res://game/title_screen/TitleScreen.tscn"
