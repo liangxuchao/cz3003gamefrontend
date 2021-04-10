@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/LoginUI.png-dbc0282894f3cdc7793e744d39c9c17d.stex"
+path="res://.import/ChooseCharDisSel.png-9061f9ed46cd061d1fd941f2f230c53e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://public/image/common/LoginUI.png"
-dest_files=[ "res://.import/LoginUI.png-dbc0282894f3cdc7793e744d39c9c17d.stex" ]
+source_file="res://public/image/common/ChooseCharDisSel.png"
+dest_files=[ "res://.import/ChooseCharDisSel.png-9061f9ed46cd061d1fd941f2f230c53e.stex" ]
 
 [params]
 
