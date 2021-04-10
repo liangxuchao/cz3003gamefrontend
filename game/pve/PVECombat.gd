@@ -90,8 +90,6 @@ func _on_MenuButton_pressed():
 
 
 func _on_Answer_pressed(option):
-	print("yes")
-	print(option)
 	questiontimerlabel.visible = false
 	questionAns1.visible = false
 	questionAns2.visible = false
@@ -148,6 +146,7 @@ func _on_Answer_pressed(option):
 	if(questionIndex <= questions.size()-1):
 		showQuestion()	
 	else:
+		
 		winScore.text = "Score " + str(currentscore)
 		win.popup()	
 		qTimer.stop()
