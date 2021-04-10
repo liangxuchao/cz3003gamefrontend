@@ -1,7 +1,19 @@
-[gd_scene format=2]
+[gd_scene load_steps=3 format=2]
 
-[node name="Node2D" type="StaticBody2D"]
+[ext_resource path="res://game/interface/boss/World1/Attack/section1.png" type="Texture" id=1]
+
+[sub_resource type="CapsuleShape2D" id=1]
+height = 0.0
+
+[node name="bossAttack" type="StaticBody2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 8.49472, 25.485 )
+scale = Vector2( 0.964078, 0.849815 )
+texture = ExtResource( 1 )
+hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 7.55093, 15.102 )
+scale = Vector2( 5, 5 )
+shape = SubResource( 1 )
