@@ -1,11 +1,8 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://public/image/world1/SectionUI/board.png" type="Texture" id=1]
-[ext_resource path="res://public/image/world1/SectionUI/easy.png" type="Texture" id=2]
-[ext_resource path="res://public/image/world1/SectionUI/HARD.png" type="Texture" id=3]
 [ext_resource path="res://public/image/world1/SectionUI/jungleBG3.jpg" type="Texture" id=4]
 [ext_resource path="res://public/image/world1/SectionUI/PopupBoard.png" type="Texture" id=5]
-[ext_resource path="res://public/image/world1/SectionUI/MEDIUM.png" type="Texture" id=6]
 [ext_resource path="res://public/image/world1/SectionUI/cancelBtn.png" type="Texture" id=7]
 [ext_resource path="res://game/interface/boss/World1/section3.tscn" type="PackedScene" id=8]
 [ext_resource path="res://game/interface/boss/World1/section1.tscn" type="PackedScene" id=9]
@@ -85,6 +82,7 @@ __meta__ = {
 }
 
 [node name="SectionButton2" type="TextureButton" parent="."]
+visible = false
 anchor_left = 0.382813
 anchor_top = 0.326389
 anchor_right = 0.617188
@@ -147,10 +145,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -20.0
-margin_top = -20.0
-margin_right = 20.0
-margin_bottom = 20.0
+margin_left = -640.0
+margin_top = -360.0
+margin_right = 640.0
+margin_bottom = 360.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -162,66 +160,30 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -640.0
-margin_top = -360.0
+margin_top = -365.775
 margin_right = 640.0
-margin_bottom = 360.0
-color = Color( 0.0509804, 0.984314, 0.482353, 1 )
+margin_bottom = 354.225
+color = Color( 0.0509804, 0.862745, 0.662745, 0.996078 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="TextureRect" type="TextureRect" parent="levelpopup"]
-anchor_left = -5.75
-anchor_top = -5.96476
-anchor_right = 6.75
-anchor_bottom = 5.53524
-margin_bottom = 1.52588e-05
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -225.0
+margin_top = -225.0
+margin_right = 225.0
+margin_bottom = 225.0
 texture = ExtResource( 5 )
 expand = true
 __meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="level1" type="TextureButton" parent="levelpopup/TextureRect"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -96.5
-margin_top = 128.691
-margin_right = 96.5
-margin_bottom = 213.691
-texture_normal = ExtResource( 2 )
-expand = true
-__meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="level2" type="TextureButton" parent="levelpopup/TextureRect"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -96.5
-margin_top = 222.447
-margin_right = 96.5
-margin_bottom = 307.447
-texture_normal = ExtResource( 6 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="level3" type="TextureButton" parent="levelpopup/TextureRect"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -96.5
-margin_top = 317.0
-margin_right = 96.5
-margin_bottom = 402.0
-texture_normal = ExtResource( 3 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Close" type="TextureButton" parent="levelpopup/TextureRect"]
+[node name="CloseButton" type="TextureButton" parent="levelpopup/TextureRect"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -236,12 +198,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="levelpopup/TextureRect"]
+[node name="levelTitle" type="TextureRect" parent="levelpopup/TextureRect"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="levelpopup/TextureRect/levelTitle"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -78.5
+margin_left = 151.5
 margin_top = 15.0
-margin_right = 78.5
+margin_right = 318.5
 margin_bottom = 55.0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.77124, 0.914063, 0.868155, 1 )
@@ -252,10 +221,40 @@ text = "section i"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="level1" type="Button" parent="levelpopup/TextureRect"]
+margin_left = 145.0
+margin_top = 142.0
+margin_right = 343.0
+margin_bottom = 202.0
+text = "Easy"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="level2" type="Button" parent="levelpopup/TextureRect"]
+margin_left = 140.0
+margin_top = 229.0
+margin_right = 337.0
+margin_bottom = 289.0
+text = "Medium"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="level3" type="Button" parent="levelpopup/TextureRect"]
+margin_left = 146.0
+margin_top = 319.0
+margin_right = 336.0
+margin_bottom = 383.0
+text = "Hard"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="SectionButton1" to="." method="_on_SectionButton_pressed" binds= [ 0 ]]
 [connection signal="pressed" from="SectionButton2" to="." method="_on_SectionButton_pressed" binds= [ 1 ]]
 [connection signal="pressed" from="SectionButton3" to="." method="_on_SectionButton_pressed" binds= [ 2 ]]
+[connection signal="pressed" from="levelpopup/TextureRect/CloseButton" to="." method="_on_Close_pressed"]
 [connection signal="pressed" from="levelpopup/TextureRect/level1" to="." method="_on_level_pressed" binds= [ 0 ]]
 [connection signal="pressed" from="levelpopup/TextureRect/level2" to="." method="_on_level_pressed" binds= [ 1 ]]
 [connection signal="pressed" from="levelpopup/TextureRect/level3" to="." method="_on_level_pressed" binds= [ 2 ]]
-[connection signal="pressed" from="levelpopup/TextureRect/Close" to="." method="_on_Close_pressed"]
