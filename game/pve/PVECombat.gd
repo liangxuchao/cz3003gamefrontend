@@ -3,7 +3,8 @@ onready var charattackanimation = $character/charAttack/AnimationPlayer
 onready var charAttack = $character/charAttack/Sprite
 onready var bossattackanimation = $boss/bossAttack/AnimationPlayer
 onready var bossAttack = $boss/bossAttack/Sprite
-
+onready var bossLifebar=$BossLifeBar/lifebar/TextureProgress.value
+onready var charLifebar=$CharLifeBar/lifebar/TextureProgress.value
 
 onready var httpNode = $HTTPRequest
 onready var boss = $boss
@@ -119,6 +120,8 @@ func _on_Answer_pressed(option):
 		RespondLabel.visible = true
 		yield(charattackanimation, "animation_finished")
 		RespondLabel.visible = false
+		$BossLifeBar/lifebar/TextureProgress.value=bossLifebar-30
+	   
 	else:
 		failAns += 1
 		# boss animation
@@ -131,6 +134,7 @@ func _on_Answer_pressed(option):
 		RespondLabel.set("custom_colors/font_color", Color(1,0,0,1))
 		RespondLabel.visible = true
 		yield(bossattackanimation, "animation_finished")
+		$CharLifeBar/lifebar/TextureProgress.value=charLifebar-30
 		
 		RespondLabel.visible = false
 		if failAns == 2:
@@ -210,6 +214,7 @@ func _on_QuestionTimer_timeout():
 		RespondLabel.set("custom_colors/font_color", Color(1,0,0,1))
 		RespondLabel.visible = true
 		yield(bossattackanimation, "animation_finished")
+		$CharLifeBar/lifebar/TextureProgress.value=charLifebar-30
 		
 		RespondLabel.visible = false
 		questionIndex += 1
