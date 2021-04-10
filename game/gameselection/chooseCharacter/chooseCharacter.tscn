@@ -4,15 +4,19 @@
 [ext_resource path="res://game/gameselection/route.gd" type="Script" id=2]
 [ext_resource path="res://game/backbutton/back.tscn" type="PackedScene" id=3]
 [ext_resource path="res://public/image/common/bgMain.jpg" type="Texture" id=4]
-[ext_resource path="res://public/image/common/Ninja.png" type="Texture" id=5]
-[ext_resource path="res://public/image/common/KNIGHT.png" type="Texture" id=7]
-[ext_resource path="res://public/image/common/CAPTAIN2.png" type="Texture" id=8]
+[ext_resource path="res://public/image/common/1_normal.png" type="Texture" id=5]
+[ext_resource path="res://public/image/common/2_normal.png" type="Texture" id=6]
+[ext_resource path="res://public/image/common/ChooseCharDisSel.png" type="Texture" id=7]
+[ext_resource path="res://public/image/common/3_normal.png" type="Texture" id=8]
 [ext_resource path="res://game/gameselection/chooseCharacter/chooseCharacter.gd" type="Script" id=9]
-[ext_resource path="res://public/image/common/CAPTAIN.png" type="Texture" id=10]
-[ext_resource path="res://public/image/common/KNIGHT2.png" type="Texture" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 41
+extra_spacing_char = 2
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFontData" id=2]
@@ -33,6 +37,10 @@ __meta__ = {
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 1.5874
+margin_top = 4.4158
+margin_right = 1.5874
+margin_bottom = 4.41577
 texture = ExtResource( 4 )
 expand = true
 __meta__ = {
@@ -71,12 +79,37 @@ margin_left = -475.0
 margin_top = -150.0
 margin_right = -225.0
 margin_bottom = 150.0
-texture_normal = ExtResource( 5 )
-texture_pressed = ExtResource( 5 )
+texture_normal = ExtResource( 7 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Ninja" type="TextureRect" parent="character1"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -92.0
+margin_top = -92.0
+margin_right = 92.0
+margin_bottom = 92.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinjaLabel" type="Label" parent="character1"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -56.5
+margin_top = 6.23627
+margin_right = 56.5
+margin_bottom = 48.2363
+custom_fonts/font = SubResource( 4 )
+text = "NINJA"
 
 [node name="character2" type="TextureButton" parent="."]
 anchor_left = 0.5
@@ -87,9 +120,37 @@ margin_left = -125.0
 margin_top = -150.0
 margin_right = 125.0
 margin_bottom = 150.0
-texture_normal = ExtResource( 8 )
-texture_pressed = ExtResource( 10 )
+texture_normal = ExtResource( 7 )
 expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Captain" type="TextureRect" parent="character2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -92.0
+margin_top = -92.0
+margin_right = 92.0
+margin_bottom = 92.0
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CaptainLabel" type="Label" parent="character2"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -80.5
+margin_top = 6.23627
+margin_right = 80.5
+margin_bottom = 48.2363
+custom_fonts/font = SubResource( 4 )
+text = "captain"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -103,9 +164,37 @@ margin_left = 225.0
 margin_top = -150.0
 margin_right = 475.0
 margin_bottom = 150.0
-texture_normal = ExtResource( 11 )
-texture_pressed = ExtResource( 7 )
+texture_normal = ExtResource( 7 )
 expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Knight" type="TextureRect" parent="character3"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -92.0
+margin_top = -92.0
+margin_right = 92.0
+margin_bottom = 92.0
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KnightLabel" type="Label" parent="character3"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -67.5
+margin_top = 6.23627
+margin_right = 67.5
+margin_bottom = 48.2363
+custom_fonts/font = SubResource( 4 )
+text = "knight"
 __meta__ = {
 "_edit_use_anchors_": false
 }
