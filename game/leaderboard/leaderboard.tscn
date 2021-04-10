@@ -1,8 +1,18 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://game/leaderboard/Panel.gd" type="Script" id=1]
 [ext_resource path="res://public/image/common/bgMain.jpg" type="Texture" id=2]
 [ext_resource path="res://game/backbutton/back.tscn" type="PackedScene" id=3]
+[ext_resource path="res://public/image/common/leaderboardBG.png" type="Texture" id=4]
+[ext_resource path="res://public/fonts/soupofjustice.ttf" type="DynamicFontData" id=5]
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 585, 771 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 5 )
 
 [node name="leaderboard" type="Control"]
 anchor_right = 1.0
@@ -16,6 +26,8 @@ __meta__ = {
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = -3.0
+margin_right = -3.0
 texture = ExtResource( 2 )
 expand = true
 __meta__ = {
@@ -23,21 +35,49 @@ __meta__ = {
 }
 
 [node name="Panel" type="Panel" parent="."]
+modulate = Color( 0.984314, 1, 1, 1 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -250.0
-margin_top = -300.0
-margin_right = 250.0
-margin_bottom = 300.0
+margin_left = -266.384
+margin_top = -312.044
+margin_right = 213.616
+margin_bottom = 287.956
 size_flags_stretch_ratio = 0.0
+custom_styles/panel = SubResource( 3 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HTTPRequest" type="HTTPRequest" parent="Panel"]
+
+[node name="Title" type="Label" parent="Panel"]
+margin_left = 155.0
+margin_top = 12.0
+margin_right = 337.0
+margin_bottom = 43.0
+custom_fonts/font = SubResource( 2 )
+text = "Leader Board"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+modulate = Color( 0.8, 0.807843, 0.827451, 1 )
+margin_left = 53.0
+margin_top = 105.0
+margin_right = 455.0
+margin_bottom = 550.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer"]
+custom_constants/separation = 30
 
 [node name="backbutton" parent="." instance=ExtResource( 3 )]
 scene_to_load = "res://game/title_screen/TitleScreen.tscn"

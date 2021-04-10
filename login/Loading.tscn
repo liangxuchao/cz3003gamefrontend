@@ -12,7 +12,6 @@ font_data = ExtResource( 2 )
 [sub_resource type="Animation" id=2]
 resource_name = "Loading"
 length = 2.0
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:text")
 tracks/0/interp = 1
@@ -60,6 +59,7 @@ custom_colors/font_outline_modulate = Color( 0.827451, 0.827451, 0.827451, 1 )
 custom_colors/font_color_shadow = Color( 0.623529, 0.623529, 0.623529, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 7
+text = "loading..."
 align = 1
 valign = 1
 __meta__ = {

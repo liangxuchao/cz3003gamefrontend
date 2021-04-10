@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://game/pve/PVECombat.gd" type="Script" id=1]
 [ext_resource path="res://public/image/world3/Section_BG.png" type="Texture" id=2]
@@ -14,6 +14,10 @@
 [sub_resource type="StreamTexture" id=1]
 flags = 4
 load_path = "res://.import/PVP BG.jpg-7f19383d3849c9d6a8cd95e10fb56576.stex"
+
+[sub_resource type="DynamicFont" id=19]
+size = 50
+font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 50
@@ -72,6 +76,10 @@ tracks/1/keys = {
 
 [sub_resource type="CircleShape2D" id=8]
 
+[sub_resource type="DynamicFont" id=13]
+size = 50
+font_data = ExtResource( 4 )
+
 [sub_resource type="DynamicFont" id=9]
 size = 38
 font_data = ExtResource( 4 )
@@ -87,10 +95,6 @@ font_data = ExtResource( 4 )
 size = 32
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=13]
-size = 50
-font_data = ExtResource( 4 )
-
 [sub_resource type="DynamicFont" id=14]
 size = 28
 font_data = ExtResource( 4 )
@@ -104,7 +108,7 @@ size = 32
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=17]
-size = 38
+size = 28
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=18]
@@ -135,6 +139,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="QuestionTimerLabel" type="Label" parent="."]
+margin_top = 20.0
+margin_right = 1280.0
+margin_bottom = 80.0
+custom_fonts/font = SubResource( 19 )
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="QuestionBOX" type="Control" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
@@ -154,6 +168,9 @@ anchor_bottom = 1.0
 rect_clip_content = true
 texture = ExtResource( 8 )
 expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="RespondLabel" type="Label" parent="QuestionBOX"]
 margin_right = 1280.0
@@ -334,6 +351,47 @@ position = Vector2( -20, -33 )
 scale = Vector2( 3, 3 )
 shape = SubResource( 8 )
 
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 82.0
+margin_bottom = 84.0
+texture_normal = ExtResource( 10 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="countdown" type="Popup" parent="."]
+margin_right = 1280.0
+margin_bottom = 720.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="countdown"]
+margin_right = 1280.0
+margin_bottom = 720.0
+color = Color( 0, 0, 0, 0.5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="countdown"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -40.0
+margin_right = 100.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 13 )
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Popup" type="Popup" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
@@ -346,7 +404,6 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="Popup"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0.52 )
@@ -355,7 +412,6 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="Popup"]
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -370,7 +426,6 @@ __meta__ = {
 }
 
 [node name="CloseButton" type="TextureButton" parent="Popup/TextureRect"]
-visible = false
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -460,48 +515,6 @@ custom_colors/font_color = Color( 0.0117647, 0.309804, 0.478431, 1 )
 text = "Menu"
 align = 1
 valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureButton" type="TextureButton" parent="."]
-margin_left = 20.0
-margin_top = 20.0
-margin_right = 82.0
-margin_bottom = 84.0
-texture_normal = ExtResource( 10 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="countdown" type="Popup" parent="."]
-margin_right = 1280.0
-margin_bottom = 720.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="countdown"]
-visible = false
-margin_right = 1280.0
-margin_bottom = 720.0
-color = Color( 0, 0, 0, 0.5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="countdown"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -100.0
-margin_top = -40.0
-margin_right = 100.0
-margin_bottom = 40.0
-custom_fonts/font = SubResource( 13 )
-align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -677,15 +690,46 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Next Button" type="TextureButton" parent="win/TextureRect"]
-anchor_left = 0.5
+[node name="Back Button" type="TextureButton" parent="win/TextureRect"]
 anchor_top = 1.0
-anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -75.0
-margin_top = -49.0
-margin_right = 75.0
-margin_bottom = 31.0
+margin_left = 51.0
+margin_top = -54.0
+margin_right = 151.0
+margin_bottom = 26.0
+texture_normal = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="win/TextureRect/Back Button"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -51.5
+margin_top = -19.5
+margin_right = 51.5
+margin_bottom = 19.5
+custom_fonts/font = SubResource( 17 )
+custom_colors/font_color = Color( 0.0117647, 0.309804, 0.592157, 1 )
+text = "Back"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Next Button" type="TextureButton" parent="win/TextureRect"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -147.0
+margin_top = -54.0
+margin_right = -47.0
+margin_bottom = 26.0
 texture_normal = ExtResource( 3 )
 expand = true
 __meta__ = {
@@ -735,6 +779,7 @@ margin_bottom = 16.0
 custom_fonts/font = SubResource( 18 )
 custom_colors/font_color = Color( 0.0117647, 0.309804, 0.478431, 1 )
 text = "YOU WIN"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -756,18 +801,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="QuestionTimer" to="." method="_on_QuestionTimer_timeout"]
 [connection signal="pressed" from="QuestionBOX/Answer1" to="." method="_on_Answer_pressed" binds= [ 0 ]]
 [connection signal="pressed" from="QuestionBOX/Answer2" to="." method="_on_Answer_pressed" binds= [ 1 ]]
 [connection signal="pressed" from="QuestionBOX/Answer3" to="." method="_on_Answer_pressed" binds= [ 2 ]]
 [connection signal="pressed" from="QuestionBOX/Answer4" to="." method="_on_Answer_pressed" binds= [ 3 ]]
 [connection signal="area_entered" from="character/charAttack/Hit Box" to="." method="_on_Hit_Box_area_entered"]
 [connection signal="area_entered" from="boss/bossAttack/Hit Box" to="." method="_on_Hit_Box_area_entered"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_MenuButton_pressed"]
 [connection signal="pressed" from="Popup/TextureRect/CloseButton" to="." method="_on_CloseButton_pressed"]
 [connection signal="pressed" from="Popup/TextureRect/retry" to="." method="_on_retry_pressed"]
 [connection signal="pressed" from="Popup/TextureRect/quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="TextureButton" to="." method="_on_MenuButton_pressed"]
 [connection signal="pressed" from="lose/TextureRect/Back" to="." method="_on_Back_pressed"]
 [connection signal="pressed" from="lose/TextureRect/Try Again" to="." method="_on_Try_Again_pressed"]
+[connection signal="pressed" from="win/TextureRect/Back Button" to="." method="_on_Back_pressed"]
+[connection signal="pressed" from="win/TextureRect/Next Button" to="." method="_on_Next_Button_pressed"]
 
 [editable path="character/charAttack/Hit Box"]
 

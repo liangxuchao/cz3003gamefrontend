@@ -13,7 +13,7 @@ onready var startgameTimer = $Timer
 onready var countdownlabel = $countdown/Label
 onready var countdown = $countdown
 
-onready var questionTimer = $QuestionTimer
+onready var qTimer = $QuestionTimer
 onready var questionBox = $QuestionBOX
 onready var questionText = $QuestionBOX/Question
 
@@ -34,7 +34,11 @@ onready var loseScore= $lose/TextureRect/Score
 
 
 onready var RespondLabel = $QuestionBOX/RespondLabel
+
+onready var questiontimerlabel = $QuestionTimerLabel
+
 var s = 3
+var QCount = 3;
 var questions = []
 
 var questionIndex = 0;
@@ -85,6 +89,7 @@ func _on_MenuButton_pressed():
 
 
 func _on_Answer_pressed(option):
+	questiontimerlabel.visible = false
 	questionAns1.visible = false
 	questionAns2.visible = false
 	questionAns3.visible = false
@@ -130,15 +135,17 @@ func _on_Answer_pressed(option):
 			#print("failed")
 			loseScore.text = "Score " + str(currentscore)
 			lose.popup()
-	
+			qTimer.stop()
+			return
+			
 	questionIndex += 1
-	print(questionIndex)
-	print(questions.size())
 	if(questionIndex <= questions.size()-1):
 		showQuestion()	
 	else:
 		winScore.text = "Score " + str(currentscore)
 		win.popup()	
+		qTimer.stop()
+		return
 	
 	pass # Replace with function body.
 	
@@ -186,10 +193,44 @@ func _on_Timer_timeout():
 		s -= 1
 	pass # Replace with function body.
 
+func _on_QuestionTimer_timeout():
+	if QCount == 0:
+		qTimer.stop()
+		failAns += 1
+		questiontimerlabel.visible = false
+		questionAns1.visible = false
+		questionAns2.visible = false
+		questionAns3.visible = false
+		questionAns4.visible = false
+		bossAttack.frame = 0
+		bossattackanimation.play("bossAttack")
+		RespondLabel.text = "Wrong!"
+		RespondLabel.set("custom_colors/font_color", Color(1,0,0,1))
+		RespondLabel.visible = true
+		yield(bossattackanimation, "animation_finished")
+		
+		RespondLabel.visible = false
+		questionIndex += 1
+		if failAns == 2:
+			#print("failed")
+			
+			loseScore.text = "Score " + str(currentscore)
+			lose.popup()
+			return
+			
+		if(questionIndex <= questions.size()-1):
+			showQuestion()	
+		else:
+			winScore.text = "Score " + str(currentscore)
+			win.popup()	
+	else:
+		QCount -= 1
+		questiontimerlabel.text = str(QCount)
 
 func showQuestion():
 	if(questionIndex <= questions.size()-1):
 			if questions[questionIndex].active == true:
+				
 				questionText.text = "Q" + str(questionCount) + ": " + questions[questionIndex].value
 				print(questions[questionIndex].answerOptions)
 				
@@ -221,7 +262,11 @@ func showQuestion():
 					questionAns4.visible = false
 					questionAnsLabel4.text = ""
 				
+				qTimer.start()
 				questionCount += 1
+				QCount = 3
+				questiontimerlabel.text = str(QCount)
+				questiontimerlabel.visible = true
 			else:
 				questionIndex += 1
 				showQuestion()
@@ -236,7 +281,16 @@ func select_Boss_Attack(boss):
 	pass
 
 
-func _on_retry_pressed():
+
+func _on_Next_Button_pressed():
+	Global.pvelvl;
+	Global.WorldsDetails;
+	
+	pass # Replace with function body.
+
+
+
+func _on_Try_Again_pressed():
 	
 	get_tree().reload_current_scene()
 	pass # Replace with function body.

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/knife.png-fe28b175c0a52b4f013bde068e3a7e05.stex"
+path="res://.import/leaderboardBG.png-93b3ec58de240b878b19b9fe4a50373e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/interface/boss/World2/Attack/knife.png"
-dest_files=[ "res://.import/knife.png-fe28b175c0a52b4f013bde068e3a7e05.stex" ]
+source_file="res://public/image/common/leaderboardBG.png"
+dest_files=[ "res://.import/leaderboardBG.png-93b3ec58de240b878b19b9fe4a50373e.stex" ]
 
 [params]
 
