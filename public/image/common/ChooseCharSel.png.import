@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/CAPTAIN2.png-6bb6aa874e3565555b2b38a679b12fc8.stex"
+path="res://.import/ChooseCharSel.png-0d63e6bfec485435e1b472ea5b4f1c0f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://public/image/common/CAPTAIN2.png"
-dest_files=[ "res://.import/CAPTAIN2.png-6bb6aa874e3565555b2b38a679b12fc8.stex" ]
+source_file="res://public/image/common/ChooseCharSel.png"
+dest_files=[ "res://.import/ChooseCharSel.png-0d63e6bfec485435e1b472ea5b4f1c0f.stex" ]
 
 [params]
 
