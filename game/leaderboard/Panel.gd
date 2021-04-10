@@ -19,7 +19,7 @@ func _on_request_completed(result, response_code,headers, body):
 	$ScrollContainer/GridContainer.set_columns(2)
 	var dynamic_font = DynamicFont.new()
 	dynamic_font.font_data = load("res://public/fonts/soupofjustice.ttf")
-	dynamic_font.size = 30
+	dynamic_font.size = 25
 	
 	var headerName = Label.new()
 	headerName.set_align(Label.ALIGN_LEFT)
