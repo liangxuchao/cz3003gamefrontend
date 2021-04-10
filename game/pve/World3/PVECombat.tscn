@@ -290,9 +290,9 @@ __meta__ = {
 }
 
 [node name="BossLifeBar" parent="." instance=ExtResource( 11 )]
-margin_left = 870.0
+margin_left = 850.0
 margin_top = 190.0
-margin_right = 870.0
+margin_right = 850.0
 margin_bottom = 190.0
 
 [node name="CharLifeBar" parent="." instance=ExtResource( 11 )]

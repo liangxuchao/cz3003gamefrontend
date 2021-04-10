@@ -295,6 +295,7 @@ margin_right = 86.0
 margin_bottom = 31.0
 custom_styles/normal = SubResource( 5 )
 custom_fonts/font = SubResource( 6 )
+disabled = true
 text = "Medium"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -311,6 +312,7 @@ margin_right = 86.0
 margin_bottom = 111.0
 custom_styles/normal = SubResource( 5 )
 custom_fonts/font = SubResource( 6 )
+disabled = true
 text = "hard"
 __meta__ = {
 "_edit_use_anchors_": false

@@ -169,7 +169,6 @@ func _on_quit_pressed():
 
 func _on_request_completed_checkanswer(result, response_code,headers, body):	
 	var json = JSON.parse(body.get_string_from_utf8())
-	print(json.result)
 	if response_code == 200:
 		if json.result[0].isAnswerCorrect == true:
 			checkAnsValid = true
