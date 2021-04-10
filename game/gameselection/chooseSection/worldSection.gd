@@ -62,7 +62,6 @@ func _on_Close_pressed():
 	levelpopup.visible = false
 
 func _on_level_pressed(level):
-
 	Global.pvelvl = Global.pvesection.levels[level]
 	get_tree().change_scene("res://game/pve/"+ Global.worldmapper[Global.pveworld.name] +"/PVECombat.tscn")
 	pass # Replace with function body.
