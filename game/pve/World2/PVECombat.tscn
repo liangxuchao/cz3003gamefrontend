@@ -512,8 +512,8 @@ __meta__ = {
 }
 
 [node name="lose" type="Popup" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -521,22 +521,20 @@ __meta__ = {
 [node name="ColorRect" type="ColorRect" parent="lose"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 1240.0
-margin_bottom = 680.0
 color = Color( 0, 0, 0, 0.501961 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="TextureRect" type="TextureRect" parent="lose"]
-anchor_left = 16.075
-anchor_top = 9.6
-anchor_right = 16.075
-anchor_bottom = 9.6
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 margin_left = -195.0
-margin_top = -216.0
+margin_top = -193.0
 margin_right = 195.0
-margin_bottom = 170.0
+margin_bottom = 193.0
 texture = ExtResource( 11 )
 expand = true
 __meta__ = {
@@ -652,8 +650,8 @@ __meta__ = {
 }
 
 [node name="win" type="Popup" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_right = 1280.0
+margin_bottom = 720.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -661,8 +659,6 @@ __meta__ = {
 [node name="ColorRect" type="ColorRect" parent="win"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 1240.0
-margin_bottom = 680.0
 color = Color( 0, 0, 0, 0.501961 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -673,10 +669,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 428.0
-margin_top = 148.0
-margin_right = 818.0
-margin_bottom = 534.0
+margin_left = -195.0
+margin_top = -193.0
+margin_right = 195.0
+margin_bottom = 193.0
 texture = ExtResource( 11 )
 expand = true
 __meta__ = {
