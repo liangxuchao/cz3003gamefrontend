@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/section2.png-e58eb6aa27fb4f04b213ffbdd79579f0.stex"
+path="res://.import/ButtonBG3.png-2a5e3b6354a4504ed6f3d6e8ab55f42e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/interface/boss/world1/Attack/section2.png"
-dest_files=[ "res://.import/section2.png-e58eb6aa27fb4f04b213ffbdd79579f0.stex" ]
+source_file="res://public/image/world1/SectionUI/ButtonBG3.png"
+dest_files=[ "res://.import/ButtonBG3.png-2a5e3b6354a4504ed6f3d6e8ab55f42e.stex" ]
 
 [params]
 
