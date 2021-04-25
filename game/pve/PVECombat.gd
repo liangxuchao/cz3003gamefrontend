@@ -57,8 +57,6 @@ func _ready():
 	httpNode.request(Global.APIrooturl +  "/api/v1/question/" + str(Global.pvelvl.id),authheader,false,HTTPClient.METHOD_GET)
 	#httpNode.request(Global.APIrooturl +  "/api/v1/question/1",authheader,false,HTTPClient.METHOD_GET)
 	
-	#end 
-	print(Global.pvesection.id)
 	
 	var bossscence = load("res://game/interface/boss/" + Global.worldmapper[Global.pveworld.name] +"/section" + str(Global.pvesection.id)  + ".tscn").instance()
 	bossAttack.texture = load("res://game/interface/boss/" + Global.worldmapper[Global.pveworld.name] +"/Attack/section" + str(Global.pvesection.id)  + ".png")
@@ -310,10 +308,8 @@ func showQuestion():
 				questionIndex += 1
 				showQuestion()
 
-
-
-
 func _on_Back_pressed():
+	print(Global.pveworld)
 	get_tree().change_scene("res://game/gameselection/chooseSection/"+ Global.worldmapper[Global.pveworld.name] +".tscn")
 	
 func select_Boss_Attack(boss):
