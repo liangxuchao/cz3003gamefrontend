@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/icefire.png-b5a4bc05d5fb5902d3e277f47c63ac4c.stex"
+path="res://.import/section4.png-edfd6f8238a744fd8e3655c2c8a51e26.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/interface/boss/world2/Attack/icefire.png"
-dest_files=[ "res://.import/icefire.png-b5a4bc05d5fb5902d3e277f47c63ac4c.stex" ]
+source_file="res://game/interface/boss/world2/Attack/section4.png"
+dest_files=[ "res://.import/section4.png-edfd6f8238a744fd8e3655c2c8a51e26.stex" ]
 
 [params]
 
