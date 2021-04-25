@@ -26,10 +26,6 @@ __meta__ = {
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -1.50171
-margin_top = -0.163452
-margin_right = -1.50171
-margin_bottom = -0.163452
 texture = ExtResource( 2 )
 expand = true
 __meta__ = {
@@ -103,6 +99,7 @@ __meta__ = {
 }
 
 [node name="backbutton" parent="." instance=ExtResource( 3 )]
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 scene_to_load = "res://game/title_screen/TitleScreen.tscn"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
