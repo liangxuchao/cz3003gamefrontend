@@ -9,6 +9,7 @@
 scale = Vector2( 0.276759, 0.284613 )
 texture = ExtResource( 1 )
 centered = false
+flip_h = true
 
 [node name="Hit Box" parent="." instance=ExtResource( 2 )]
 
