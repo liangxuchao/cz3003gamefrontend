@@ -1,12 +1,11 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://public/image/world1/CombatUI/CombatBGSmall.png" type="Texture" id=1]
 [ext_resource path="res://public/image/world1/CombatUI/94.png" type="Texture" id=2]
 [ext_resource path="res://public/fonts/soupofjustice.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://public/image/world1/SectionUI/sectionBtn.png" type="Texture" id=4]
+[ext_resource path="res://public/image/world1/PVE_WinUI/ButtonBG2.png" type="Texture" id=4]
 [ext_resource path="res://public/image/world1/CombatUI/menu.png" type="Texture" id=5]
 [ext_resource path="res://game/interface/boss/World1/bossAttack.tscn" type="PackedScene" id=6]
-[ext_resource path="res://public/image/world1/PVE_WinUI/NextBtn.png" type="Texture" id=7]
 [ext_resource path="res://game/interface/lifebar/lifebar.tscn" type="PackedScene" id=9]
 [ext_resource path="res://public/image/world1/SectionUI/cancelBtn.png" type="Texture" id=11]
 [ext_resource path="res://public/image/world1/SectionUI/PopupBoard.png" type="Texture" id=12]
@@ -77,6 +76,10 @@ font_path = "res://public/fonts/soupofjustice.ttf"
 size = 50
 font_data = SubResource( 10 )
 
+[sub_resource type="DynamicFont" id=22]
+size = 35
+font_data = ExtResource( 3 )
+
 [sub_resource type="DynamicFontData" id=12]
 font_path = "res://public/fonts/soupofjustice.ttf"
 
@@ -91,19 +94,27 @@ font_path = "res://public/fonts/soupofjustice.ttf"
 size = 42
 font_data = SubResource( 14 )
 
-[sub_resource type="DynamicFontData" id=16]
+[sub_resource type="DynamicFont" id=16]
+size = 35
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFontData" id=17]
 font_path = "res://public/fonts/soupofjustice.ttf"
 
-[sub_resource type="DynamicFont" id=17]
+[sub_resource type="DynamicFont" id=18]
 size = 28
-font_data = SubResource( 16 )
+font_data = SubResource( 17 )
 
-[sub_resource type="DynamicFontData" id=18]
+[sub_resource type="DynamicFontData" id=19]
 font_path = "res://public/fonts/soupofjustice.ttf"
 
-[sub_resource type="DynamicFont" id=19]
+[sub_resource type="DynamicFont" id=20]
 size = 28
-font_data = SubResource( 18 )
+font_data = SubResource( 19 )
+
+[sub_resource type="DynamicFont" id=21]
+size = 35
+font_data = ExtResource( 3 )
 
 [node name="Control" type="Control"]
 script = ExtResource( 15 )
@@ -391,10 +402,14 @@ texture = ExtResource( 12 )
 expand = true
 
 [node name="CloseButton" type="TextureButton" parent="Popup/TextureRect"]
-margin_left = 81.9194
-margin_top = 398.297
-margin_right = 278.919
-margin_bottom = 467.297
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -98.4998
+margin_top = -55.0
+margin_right = 98.4998
+margin_bottom = 14.0
 texture_normal = ExtResource( 11 )
 expand = true
 __meta__ = {
@@ -406,15 +421,16 @@ margin_right = 40.0
 margin_bottom = 14.0
 
 [node name="retry" type="Button" parent="Popup/TextureRect"]
+light_mask = -2147483647
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -86.0
 margin_top = -75.0
-margin_right = 86.0
-margin_bottom = -14.0
-text = "Rerey"
+margin_right = 88.0
+margin_bottom = -10.0
+text = "Retry"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -440,15 +456,17 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Popup/TextureRect/TextureRect"]
-margin_left = 56.9233
-margin_top = 15.8316
-margin_right = 151.923
-margin_bottom = 48.8316
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -40.5
+margin_top = 11.4364
+margin_right = 40.5
+margin_bottom = 47.4364
+custom_fonts/font = SubResource( 22 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Menu"
 
 [node name="win" type="Popup" parent="."]
-visible = true
 margin_left = 1.0
 margin_top = -3.56763
 margin_right = 1281.0
@@ -512,7 +530,7 @@ margin_left = 200.976
 margin_top = 293.734
 margin_right = 350.976
 margin_bottom = 378.734
-texture_normal = ExtResource( 7 )
+texture_normal = ExtResource( 4 )
 expand = true
 
 [node name="Label" type="Label" parent="win/TextureRect/Nextbutton"]
@@ -539,10 +557,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -20.0
-margin_top = -7.0
-margin_right = 20.0
-margin_bottom = 7.0
+margin_left = -57.6769
+margin_top = -19.4731
+margin_right = 66.3231
+margin_bottom = 16.5269
+custom_fonts/font = SubResource( 16 )
+text = "YOU WIN"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -593,7 +613,7 @@ margin_left = -31.5
 margin_top = -14.0
 margin_right = 31.5
 margin_bottom = 14.0
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 18 )
 text = "Back"
 
 [node name="TryAgain" type="TextureButton" parent="lose/TextureRect"]
@@ -616,7 +636,7 @@ margin_left = -61.5
 margin_top = -14.0
 margin_right = 61.5
 margin_bottom = 14.0
-custom_fonts/font = SubResource( 19 )
+custom_fonts/font = SubResource( 20 )
 text = "Try Again"
 
 [node name="Title" type="TextureRect" parent="lose/TextureRect"]
@@ -626,14 +646,15 @@ margin_right = 351.724
 margin_bottom = 44.6483
 
 [node name="Label" type="Label" parent="lose/TextureRect/Title"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -20.0
-margin_top = -7.0
-margin_right = 20.0
-margin_bottom = 7.0
+anchor_left = 0.483
+anchor_top = 0.532
+anchor_right = 0.483
+anchor_bottom = 0.532
+margin_left = -71.573
+margin_top = -17.9923
+margin_right = 71.427
+margin_bottom = 18.0077
+custom_fonts/font = SubResource( 21 )
 text = "You LOSE"
 
 [node name="Score" type="Label" parent="lose/TextureRect"]

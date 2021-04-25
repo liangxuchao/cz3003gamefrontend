@@ -208,11 +208,13 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="levelpopup/TextureRect/levelTitle"]
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-margin_left = 151.5
-margin_top = 15.0
-margin_right = 318.5
-margin_bottom = 55.0
+anchor_bottom = 0.5
+margin_left = 126.0
+margin_top = -3.0
+margin_right = 293.0
+margin_bottom = 37.0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.77124, 0.914063, 0.868155, 1 )
 custom_colors/font_color_shadow = Color( 0.121307, 0.207031, 0.179425, 1 )
@@ -224,30 +226,42 @@ __meta__ = {
 }
 
 [node name="level1" type="Button" parent="levelpopup/TextureRect"]
-margin_left = 145.0
-margin_top = 142.0
-margin_right = 343.0
-margin_bottom = 202.0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -99.0
+margin_top = 137.0
+margin_right = 99.0
+margin_bottom = 197.0
 text = "Easy"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="level2" type="Button" parent="levelpopup/TextureRect"]
-margin_left = 140.0
-margin_top = 229.0
-margin_right = 337.0
-margin_bottom = 289.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -98.5
+margin_top = -0.205902
+margin_right = 98.5
+margin_bottom = 59.7941
+disabled = true
 text = "Medium"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="level3" type="Button" parent="levelpopup/TextureRect"]
-margin_left = 146.0
-margin_top = 319.0
-margin_right = 336.0
-margin_bottom = 383.0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -99.0
+margin_top = -137.0
+margin_right = 99.0
+margin_bottom = -81.0
+disabled = true
 text = "Hard"
 __meta__ = {
 "_edit_use_anchors_": false
