@@ -9,8 +9,15 @@ onready var level1label = $levelpopup/TextureRect/level1
 onready var level2label = $levelpopup/TextureRect/level2
 onready var level3label = $levelpopup/TextureRect/level3
 
+onready var httpNode = $HTTPRequest
 var worlddetail = Global.pveworld
 func _ready():
+	var authheader: PoolStringArray = ['Authorization: Bearer ' + Global.AccessToken ] 
+	
+	httpNode.connect("request_completed", self, "_on_request_completed_getprocess")
+	httpNode.request(Global.APIrooturl +  "/api/v1/dashboard/playerProgress/" + str(Global.playerid),authheader,false,HTTPClient.METHOD_GET)
+	
+	yield(httpNode, "request_completed")
 	if(worlddetail.has("sections")):
 		
 		if(0 <= worlddetail.sections.size()-1):
@@ -38,8 +45,6 @@ func _on_SectionButton_pressed(index):
 	
 	leveltitle.text = sectiondetail.name
 	Global.pvesection = sectiondetail
-	print(Global.pvesection.name)
-	print(Global.pveworld.name)
 	for key in Global.currentlevels:
 		
 		#print(key["world"])
@@ -47,10 +52,8 @@ func _on_SectionButton_pressed(index):
 		#print(key["level"])
 		if(key["world"] == Global.pveworld.name && key["section"] == Global.pvesection.name):
 			if(key["level"] == level1label.text):
-				level1label.disabled = false
-			if(key["level"] == level2label.text):
 				level2label.disabled = false
-			if(key["level"] == level3label.text):
+			if(key["level"] == level2label.text):
 				level3label.disabled = false
 			
 			print(key["level"])
@@ -67,4 +70,11 @@ func _on_level_pressed(level):
 	pass # Replace with function body.
 
 
+func _on_request_completed_getprocess(result, response_code,headers, body):	
+	var json = JSON.parse(body.get_string_from_utf8())
+	
+	if response_code == 200:
+		Global.currentlevels = json.result
+	httpNode.disconnect("request_completed",self,"_on_request_completed_getprocess")
+	
 
