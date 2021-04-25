@@ -34,7 +34,7 @@ func _ready():
 	
 func _on_SectionButton_pressed(index):
 	var sectiondetail = worlddetail.sections[index]
-
+	
 	if(sectiondetail.has("levels")):
 		if(0 <= sectiondetail.levels.size()-1):
 			level1label.text =sectiondetail.levels[0].name
@@ -45,6 +45,8 @@ func _on_SectionButton_pressed(index):
 	
 	leveltitle.text = sectiondetail.name
 	Global.pvesection = sectiondetail
+	print(sectiondetail)
+	print(Global.currentlevels)
 	for key in Global.currentlevels:
 		
 		if(key["world"] == Global.pveworld.name && key["section"] == Global.pvesection.name):
