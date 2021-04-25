@@ -46,7 +46,7 @@ var questionCount = 1;
 var currentscore = 0;
 var correctAns = 0;
 var failAns = 0;
-
+var answeredquestionAll =  "";
 var checkAnsValid = false;
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -54,11 +54,11 @@ func _ready():
 	var authheader: PoolStringArray = ['Authorization: Bearer ' + Global.AccessToken ] 
 	
 	httpNode.connect("request_completed", self, "_on_request_completed_questionlist")
-	#httpNode.request(Global.APIrooturl +  "/api/v1/question/" + str(Global.pvelvl.id),authheader,false,HTTPClient.METHOD_GET)
-	httpNode.request(Global.APIrooturl +  "/api/v1/question/1",authheader,false,HTTPClient.METHOD_GET)
+	httpNode.request(Global.APIrooturl +  "/api/v1/question/" + str(Global.pvelvl.id),authheader,false,HTTPClient.METHOD_GET)
+	#httpNode.request(Global.APIrooturl +  "/api/v1/question/1",authheader,false,HTTPClient.METHOD_GET)
 	
 	#end 
-	#print(Global.pvesection)
+	print(Global.pvesection.id)
 	
 	var bossscence = load("res://game/interface/boss/" + Global.worldmapper[Global.pveworld.name] +"/section" + str(Global.pvesection.id)  + ".tscn").instance()
 	bossAttack.texture = load("res://game/interface/boss/" + Global.worldmapper[Global.pveworld.name] +"/Attack/section" + str(Global.pvesection.id)  + ".png")
@@ -77,7 +77,6 @@ func _ready():
 	countdown.popup()
 	
 	yield(httpNode, "request_completed")
-	print(questions.size())
 	$BossLifeBar/lifebar/TextureProgress.set_max(questions.size())
 	
 	$CharLifeBar/lifebar/TextureProgress.set_max(2)
@@ -107,14 +106,19 @@ func _on_Answer_pressed(option):
 	var userinputAns = questions[questionIndex].answerOptions[option]
 	var authheader: PoolStringArray = ['Authorization: Bearer ' + Global.AccessToken, 'Content-Type: application/json', ] 
 	
-	var body = '[{ "answerIds" : [' + str(userinputAns.id) +'],"levelId":1, "questionId": '+ str(userinputAns.questionId) +', "questionValue" : "'+ str(userinputAns.value) +'" }]'
+	var body = '{ "answerId" :' + str(userinputAns.id) +', "questionId": '+ str(userinputAns.questionId) +' }'
+	var postbody = '[' + body + ']'
 	#check answer
 	httpNode.connect("request_completed", self, "_on_request_completed_checkanswer")
 	#httpNode.request(Global.APIrooturl +  "/api/v1/question/1",authheader,false,HTTPClient.METHOD_GET)
-	httpNode.request(Global.APIrooturl +  "/api/v1/pve/answerLevel?levelId=1",authheader,false,HTTPClient.METHOD_POST,body)
+	httpNode.request(Global.APIrooturl +  "/api/v1/pve/answerLevel?levelId=" + str(Global.pvelvl.id), authheader,false,HTTPClient.METHOD_POST,postbody)
 	
 	yield(httpNode, "request_completed")
-
+	if answeredquestionAll == "":
+		answeredquestionAll = body
+	else:
+		answeredquestionAll = answeredquestionAll + "," + body
+		
 	if checkAnsValid == true:
 		currentscore += 1
 		correctAns += 1
@@ -158,6 +162,10 @@ func _on_Answer_pressed(option):
 		showQuestion()	
 	else:
 		
+		var savelevelbody = "[" + answeredquestionAll +"]";
+		httpNode.connect("request_completed", self, "_on_request_completed_level")
+		httpNode.request(Global.APIrooturl +  "/api/v1/pve/saveLevel?levelId=" + str(Global.pvelvl.id) + "&userId=" + Global.playerid,authheader,false,HTTPClient.METHOD_POST,savelevelbody)
+		
 		winScore.text = "Score " + str(currentscore)
 		win.popup()	
 		qTimer.stop()
@@ -194,6 +202,14 @@ func _on_request_completed_questionlist(result, response_code,headers, body):
 	if response_code == 200:
 		questions = json.result
 	httpNode.disconnect("request_completed",self,"_on_request_completed_questionlist")
+
+func _on_request_completed_level(result, response_code,headers, body):
+	var json = JSON.parse(body.get_string_from_utf8())
+
+	if response_code != 200:
+		_on_quit_pressed();
+	
+	httpNode.disconnect("request_completed",self,"_on_request_completed_level")
 
 func _on_Timer_timeout():
 	if s == 0:
