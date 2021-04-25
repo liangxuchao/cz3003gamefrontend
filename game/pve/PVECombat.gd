@@ -161,17 +161,10 @@ func _on_Answer_pressed(option):
 	if(questionIndex <= questions.size()-1):
 		showQuestion()	
 	else:
-		RespondLabel.text = "Level Accomplished!"
-		RespondLabel.set("custom_colors/font_color", Color(0,1,0,1))
-		RespondLabel.visible = true
-		$BossLifeBar/lifebar/TextureProgress.value = 0
-	
 		
 		var savelevelbody = "[" + answeredquestionAll +"]";
-		print(savelevelbody)
-		print(Global.APIrooturl +  "/api/v1/pve/saveLevel?levelId=" + str(Global.pvelvl.id) + "&userId=" + str(Global.playerid))
 		httpNode.connect("request_completed", self, "_on_request_completed_level")
-		httpNode.request(Global.APIrooturl +  "/api/v1/pve/saveLevel?levelId=" + str(Global.pvelvl.id) + "&userId=" + str(Global.playerid),authheader,false,HTTPClient.METHOD_POST,savelevelbody)
+		httpNode.request(Global.APIrooturl +  "/api/v1/pve/saveLevel?levelId=" + str(Global.pvelvl.id) + "&userId=" + Global.playerid,authheader,false,HTTPClient.METHOD_POST,savelevelbody)
 		
 		winScore.text = "Score " + str(currentscore)
 		win.popup()	
@@ -195,8 +188,7 @@ func _on_quit_pressed():
 func _on_request_completed_checkanswer(result, response_code,headers, body):	
 	var json = JSON.parse(body.get_string_from_utf8())
 	if response_code == 200:
-		
-		if json.result[0].answerCorrect == true:
+		if json.result[0].isAnswerCorrect == true:
 			checkAnsValid = true
 		else:
 			checkAnsValid = false
@@ -213,7 +205,7 @@ func _on_request_completed_questionlist(result, response_code,headers, body):
 
 func _on_request_completed_level(result, response_code,headers, body):
 	var json = JSON.parse(body.get_string_from_utf8())
-	print(json.result)
+
 	if response_code != 200:
 		_on_quit_pressed();
 	
@@ -272,6 +264,7 @@ func showQuestion():
 			if questions[questionIndex].active == true:
 				
 				questionText.text = "Q" + str(questionCount) + ": " + questions[questionIndex].value
+				print(questions[questionIndex].answerOptions)
 				
 				if(0 <= questions[questionIndex].answerOptions.size()-1):
 					questionAns1.visible = true

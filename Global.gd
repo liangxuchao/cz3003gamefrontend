@@ -2,7 +2,7 @@ extends Node
 
 onready var httpNode = HTTPRequest.new();
 
-var APIrooturl = "http://cz3003.southeastasia.cloudapp.azure.com:8080";
+var APIrooturl = "http://cz3003ntu.southeastasia.cloudapp.azure.com:8080";
 var dict = {} 
 var AccessToken;
 
