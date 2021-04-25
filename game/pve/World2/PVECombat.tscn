@@ -19,11 +19,11 @@ size = 50
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 50
+size = 58
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 48
+size = 30
 font_data = ExtResource( 4 )
 
 [sub_resource type="Animation" id=4]
@@ -153,6 +153,7 @@ margin_top = 20.0
 margin_right = 1280.0
 margin_bottom = 80.0
 custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.352941, 0.215686, 0.0627451, 1 )
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -181,9 +182,9 @@ __meta__ = {
 }
 
 [node name="RespondLabel" type="Label" parent="QuestionBOX"]
-margin_top = 476.0
+margin_top = 480.0
 margin_right = 1280.0
-margin_bottom = 716.0
+margin_bottom = 720.0
 custom_fonts/font = SubResource( 2 )
 align = 1
 valign = 1
@@ -359,7 +360,6 @@ __meta__ = {
 }
 
 [node name="countdown" type="Popup" parent="."]
-visible = true
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -387,7 +387,6 @@ custom_fonts/font = SubResource( 8 )
 align = 1
 
 [node name="Popup" type="Popup" parent="."]
-visible = true
 margin_right = 1280.0
 margin_bottom = 720.0
 script = SubResource( 9 )
@@ -513,7 +512,6 @@ __meta__ = {
 }
 
 [node name="lose" type="Popup" parent="."]
-visible = true
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -654,7 +652,6 @@ __meta__ = {
 }
 
 [node name="win" type="Popup" parent="."]
-visible = true
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
