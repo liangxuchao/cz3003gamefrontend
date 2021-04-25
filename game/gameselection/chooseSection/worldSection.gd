@@ -12,12 +12,6 @@ onready var level3label = $levelpopup/TextureRect/level3
 onready var httpNode = $HTTPRequest
 var worlddetail = Global.pveworld
 func _ready():
-	var authheader: PoolStringArray = ['Authorization: Bearer ' + Global.AccessToken ] 
-	
-	httpNode.connect("request_completed", self, "_on_request_completed_getprocess")
-	httpNode.request(Global.APIrooturl +  "/api/v1/dashboard/playerProgress/" + str(Global.playerid),authheader,false,HTTPClient.METHOD_GET)
-	
-	yield(httpNode, "request_completed")
 	if(worlddetail.has("sections")):
 		
 		if(0 <= worlddetail.sections.size()-1):
@@ -30,8 +24,14 @@ func _ready():
 #			Global.pvesection = worlddetail.sections[2]
 			section3label.text = worlddetail.sections[2].name
 		
-		pass # Replace with function body.
+		
 
+	var authheader: PoolStringArray = ['Authorization: Bearer ' + Global.AccessToken ] 
+	
+	httpNode.connect("request_completed", self, "_on_request_completed_getprocess")
+	httpNode.request(Global.APIrooturl +  "/api/v1/dashboard/playerProgress/" + str(Global.playerid),authheader,false,HTTPClient.METHOD_GET)
+	yield(httpNode, "request_completed")
+	
 func _on_SectionButton_pressed(index):
 	var sectiondetail = worlddetail.sections[index]
 
@@ -47,9 +47,6 @@ func _on_SectionButton_pressed(index):
 	Global.pvesection = sectiondetail
 	for key in Global.currentlevels:
 		
-		#print(key["world"])
-		#print(key["section"])
-		#print(key["level"])
 		if(key["world"] == Global.pveworld.name && key["section"] == Global.pvesection.name):
 			if(key["level"] == level1label.text):
 				level2label.disabled = false

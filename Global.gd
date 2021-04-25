@@ -18,7 +18,7 @@ var pvebossselection;
 var playerid;
 var WorldsDetails = {};
 
-var worldmapper = {"Taming the Python": "World1",  "Understanding PHP": "World2", "Surfing on Java" : "World3"}
+var worldmapper = {"Surfing on Python": "World1",  "Surfing on PHP": "World2", "Surfing on Java" : "World3"}
 
 var currentlevels;
 
