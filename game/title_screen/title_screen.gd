@@ -15,10 +15,7 @@ func _ready():
 	
 	yield(httpNode, "request_completed")
 	
-	httpNode.connect("request_completed", self, "_on_request_completed_getprocess")
-	httpNode.request(Global.APIrooturl +  "/api/v1/dashboard/playerProgress/" + str(Global.playerid),authheader,false,HTTPClient.METHOD_GET)
-	
-	yield(httpNode, "request_completed")
+
 
 func _on_Button_pressed(scene_to_load):
 	if scene_to_load == "quit":
@@ -43,10 +40,3 @@ func _on_request_completed_getWorlds(result, response_code,headers, body):
 	
 	
 
-func _on_request_completed_getprocess(result, response_code,headers, body):	
-	var json = JSON.parse(body.get_string_from_utf8())
-	
-	if response_code == 200:
-		Global.currentlevels = json.result
-	httpNode.disconnect("request_completed",self,"_on_request_completed_getprocess")
-	
