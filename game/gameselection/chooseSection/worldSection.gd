@@ -48,10 +48,11 @@ func _on_SectionButton_pressed(index):
 	print(sectiondetail)
 	print(Global.currentlevels)
 	for key in Global.currentlevels:
-		
+		print(key)
 		if(key["world"] == Global.pveworld.name && key["section"] == Global.pvesection.name):
 			if(key["level"] == level1label.text):
 				level2label.disabled = false
+			
 			if(key["level"] == level2label.text):
 				level3label.disabled = false
 			
@@ -61,6 +62,8 @@ func _on_SectionButton_pressed(index):
 
 func _on_Close_pressed():
 	Global.pvesection = {}
+	level2label.disabled = true
+	level3label.disabled = true
 	levelpopup.visible = false
 
 func _on_level_pressed(level):
