@@ -26,8 +26,6 @@ __meta__ = {
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -3.0
-margin_right = -3.0
 texture = ExtResource( 2 )
 expand = true
 __meta__ = {
@@ -40,10 +38,10 @@ anchor_left = 0.5
 anchor_top = 0.501182
 anchor_right = 0.5
 anchor_bottom = 0.501183
-margin_left = -244.0
-margin_top = -362.851
-margin_right = 262.0
-margin_bottom = 321.148
+margin_left = -224.0
+margin_top = -328.851
+margin_right = 242.0
+margin_bottom = 279.148
 size_flags_stretch_ratio = 0.0
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 1 )
@@ -57,11 +55,11 @@ __meta__ = {
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -91.0
-margin_top = 132.002
+margin_top = 7.6425
 margin_right = 91.0
-margin_bottom = 163.002
+margin_bottom = 38.6425
 custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 0.621094, 0.432065, 0.310547, 1 )
+custom_colors/font_color = Color( 0.772549, 0.533333, 0.376471, 1 )
 text = "Leader Board"
 align = 1
 valign = 1
@@ -75,16 +73,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -147.0
-margin_top = -161.0
-margin_right = 147.0
-margin_bottom = 12.0
+margin_left = -142.0
+margin_top = -145.0
+margin_right = 143.0
+margin_bottom = 21.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="GridContainer" type="GridContainer" parent="Panel/ScrollContainer"]
-margin_right = 294.0
+margin_right = 285.0
 size_flags_horizontal = 3
 columns = 2
 __meta__ = {
@@ -93,21 +91,22 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 margin_left = 63.0
-margin_top = 99.0
+margin_top = 118.478
 margin_right = 398.0
-margin_bottom = 162.0
+margin_bottom = 181.478
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="backbutton" parent="." instance=ExtResource( 3 )]
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 scene_to_load = "res://game/title_screen/TitleScreen.tscn"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_left = 982.987
-margin_top = 94.3969
-margin_right = 982.987
-margin_bottom = 94.3969
+margin_left = 983.0
+margin_top = 94.0
+margin_right = 983.0
+margin_bottom = 94.0
 custom_constants/separation = 30
 __meta__ = {
 "_edit_use_anchors_": false

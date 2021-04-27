@@ -28,7 +28,7 @@ export(String) var sectiontitle
 "
 
 [sub_resource type="DynamicFont" id=3]
-size = 42
+size = 30
 font_data = ExtResource( 7 )
 
 [sub_resource type="DynamicFont" id=4]
@@ -43,7 +43,7 @@ size = 40
 font_data = ExtResource( 7 )
 
 [sub_resource type="DynamicFont" id=7]
-size = 27
+size = 20
 font_data = ExtResource( 7 )
 
 [node name="Control" type="Control"]
@@ -53,6 +53,8 @@ script = ExtResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
 
 [node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.0
@@ -123,10 +125,11 @@ anchor_bottom = 1.0
 margin_left = -110.0
 margin_top = 27.0
 margin_right = 110.0
-margin_bottom = 70.0
+margin_bottom = 127.0
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.0117647, 0.309804, 0.478431, 1 )
 align = 1
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -155,10 +158,11 @@ anchor_bottom = 1.0
 margin_left = -125.0
 margin_top = 27.0
 margin_right = 125.0
-margin_bottom = 70.0
+margin_bottom = 127.0
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.0117647, 0.309804, 0.478431, 1 )
 align = 1
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -186,10 +190,11 @@ anchor_bottom = 1.0
 margin_left = -110.0
 margin_top = 27.0
 margin_right = 110.0
-margin_bottom = 70.0
+margin_bottom = 127.0
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.0117647, 0.309804, 0.478431, 1 )
 align = 1
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -214,10 +219,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -636.527
-margin_top = -353.393
-margin_right = 643.477
-margin_bottom = 366.607
+margin_left = -640.0
+margin_top = -360.0
+margin_right = 640.0
+margin_bottom = 360.0
 color = Color( 0.0117647, 0.309804, 0.478431, 0.505882 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -345,6 +350,7 @@ margin_bottom = -14.0
 custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0.0117647, 0.309804, 0.478431, 1 )
 align = 1
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -2,7 +2,7 @@ extends Node
 
 onready var httpNode = HTTPRequest.new();
 
-var APIrooturl = "http://cz3003ntu.southeastasia.cloudapp.azure.com:8080";
+var APIrooturl = "http://cz3003.southeastasia.cloudapp.azure.com:8080";
 var dict = {} 
 var AccessToken;
 
@@ -18,7 +18,7 @@ var pvebossselection;
 var playerid;
 var WorldsDetails = {};
 
-var worldmapper = {"Taming the Python": "World1",  "Understanding PHP": "World2", "Surfing on Java" : "World3"}
+var worldmapper = {"Surfing on Python": "World1",  "Surfing on PHP": "World2", "Surfing on Java" : "World3"}
 
 var currentlevels;
 

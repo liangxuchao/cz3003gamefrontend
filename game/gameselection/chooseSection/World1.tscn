@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://public/image/world1/SectionUI/board.png" type="Texture" id=1]
 [ext_resource path="res://public/image/world1/SectionUI/jungleBG3.jpg" type="Texture" id=4]
@@ -13,12 +13,30 @@
 [ext_resource path="res://game/gameselection/chooseSection/worldSection.gd" type="Script" id=14]
 
 [sub_resource type="DynamicFont" id=1]
-size = 35
+size = 30
 font_data = ExtResource( 12 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 37
 extra_spacing_char = 2
+font_data = ExtResource( 12 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.917647, 0.698039, 0.466667, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.533333, 0.305882, 0.0823529, 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 46
+outline_color = Color( 0.027451, 0.027451, 0.027451, 1 )
+font_data = ExtResource( 12 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.533333, 0.305882, 0.0823529, 1 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 46
 font_data = ExtResource( 12 )
 
 [node name="Control" type="Control"]
@@ -28,6 +46,8 @@ script = ExtResource( 14 )
 __meta__ = {
 "_edit_use_anchors_": true
 }
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
 
 [node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.0
@@ -76,13 +96,14 @@ anchor_left = 0.248333
 anchor_top = 1.16407
 anchor_right = 0.751667
 anchor_bottom = 1.31607
+margin_right = 1.52588e-05
+rect_pivot_offset = Vector2( 75.5001, 18.9999 )
 custom_fonts/font = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="SectionButton2" type="TextureButton" parent="."]
-visible = false
 anchor_left = 0.382813
 anchor_top = 0.326389
 anchor_right = 0.617188
@@ -94,15 +115,16 @@ __meta__ = {
 }
 
 [node name="boss2" parent="SectionButton2" instance=ExtResource( 10 )]
-position = Vector2( 156.123, 124.794 )
+position = Vector2( 141.999, 124.794 )
 centered = true
 
 [node name="Label" type="Label" parent="SectionButton2"]
 modulate = Color( 0.960784, 0.960784, 0.960784, 1 )
-anchor_left = 0.246667
+anchor_left = 0.366665
 anchor_top = 1.16407
-anchor_right = 0.753333
+anchor_right = 0.873331
 anchor_bottom = 1.31607
+rect_pivot_offset = Vector2( 75.9999, 18.9999 )
 custom_fonts/font = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": true
@@ -125,10 +147,11 @@ centered = true
 
 [node name="Label" type="Label" parent="SectionButton3"]
 modulate = Color( 0.960784, 0.960784, 0.960784, 1 )
-anchor_left = 0.23
+anchor_left = -0.16
 anchor_top = 1.16407
-anchor_right = 0.77
+anchor_right = 0.38
 anchor_bottom = 1.31607
+rect_pivot_offset = Vector2( 79.114, 17.9826 )
 custom_fonts/font = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": true
@@ -206,47 +229,75 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="levelpopup/TextureRect/levelTitle"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = 151.5
-margin_top = 15.0
-margin_right = 318.5
-margin_bottom = 55.0
+anchor_left = 3.65
+anchor_top = 0.5
+anchor_right = 7.825
+anchor_bottom = 1.425
+margin_left = -185.0
+margin_top = -27.0
+margin_right = 176.0
+margin_bottom = 15.0
+rect_pivot_offset = Vector2( 83.5, 20 )
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.77124, 0.914063, 0.868155, 1 )
 custom_colors/font_color_shadow = Color( 0.121307, 0.207031, 0.179425, 1 )
 custom_constants/shadow_offset_x = 3
 custom_constants/shadow_offset_y = 5
-text = "section i"
+text = "SECTION I"
+align = 1
+valign = 1
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="level1" type="Button" parent="levelpopup/TextureRect"]
-margin_left = 145.0
-margin_top = 142.0
-margin_right = 343.0
-margin_bottom = 202.0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -99.0
+margin_top = 137.0
+margin_right = 99.0
+margin_bottom = 197.0
+custom_styles/hover = SubResource( 8 )
+custom_styles/normal = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 text = "Easy"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="level2" type="Button" parent="levelpopup/TextureRect"]
-margin_left = 140.0
-margin_top = 229.0
-margin_right = 337.0
-margin_bottom = 289.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -99.0
+margin_top = -0.205902
+margin_right = 98.0
+margin_bottom = 59.7941
+custom_styles/hover = SubResource( 8 )
+custom_styles/normal = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
+disabled = true
 text = "Medium"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="level3" type="Button" parent="levelpopup/TextureRect"]
-margin_left = 146.0
-margin_top = 319.0
-margin_right = 336.0
-margin_bottom = 383.0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -99.0
+margin_top = -137.0
+margin_right = 99.0
+margin_bottom = -81.0
+custom_styles/hover = SubResource( 8 )
+custom_styles/normal = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
+disabled = true
 text = "Hard"
 __meta__ = {
 "_edit_use_anchors_": false

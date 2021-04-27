@@ -46,7 +46,7 @@ var questionCount = 1;
 var currentscore = 0;
 var correctAns = 0;
 var failAns = 0;
-
+var answeredquestionAll =  "";
 var checkAnsValid = false;
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -54,11 +54,9 @@ func _ready():
 	var authheader: PoolStringArray = ['Authorization: Bearer ' + Global.AccessToken ] 
 	
 	httpNode.connect("request_completed", self, "_on_request_completed_questionlist")
-	#httpNode.request(Global.APIrooturl +  "/api/v1/question/" + str(Global.pvelvl.id),authheader,false,HTTPClient.METHOD_GET)
-	httpNode.request(Global.APIrooturl +  "/api/v1/question/1",authheader,false,HTTPClient.METHOD_GET)
+	httpNode.request(Global.APIrooturl +  "/api/v1/question/" + str(Global.pvelvl.id),authheader,false,HTTPClient.METHOD_GET)
+	#httpNode.request(Global.APIrooturl +  "/api/v1/question/1",authheader,false,HTTPClient.METHOD_GET)
 	
-	#end 
-	#print(Global.pvesection)
 	
 	var bossscence = load("res://game/interface/boss/" + Global.worldmapper[Global.pveworld.name] +"/section" + str(Global.pvesection.id)  + ".tscn").instance()
 	bossAttack.texture = load("res://game/interface/boss/" + Global.worldmapper[Global.pveworld.name] +"/Attack/section" + str(Global.pvesection.id)  + ".png")
@@ -77,7 +75,6 @@ func _ready():
 	countdown.popup()
 	
 	yield(httpNode, "request_completed")
-	print(questions.size())
 	$BossLifeBar/lifebar/TextureProgress.set_max(questions.size())
 	
 	$CharLifeBar/lifebar/TextureProgress.set_max(2)
@@ -107,15 +104,19 @@ func _on_Answer_pressed(option):
 	var userinputAns = questions[questionIndex].answerOptions[option]
 	var authheader: PoolStringArray = ['Authorization: Bearer ' + Global.AccessToken, 'Content-Type: application/json', ] 
 	
-	#var body = '[{ "answerIds" : ' + str(userinputAns.id) +', "questionId": '+ str(userinputAns.questionId) +'}]'
-	var body = '[{ "answerIds" : [' + str(userinputAns.id) +'],"levelId":1, "questionId": '+ str(userinputAns.questionId) +', "questionValue" : "'+ str(userinputAns.value) +'" }]'
+	var body = '{ "answerId" :' + str(userinputAns.id) +', "questionId": '+ str(userinputAns.questionId) +' }'
+	var postbody = '[' + body + ']'
 	#check answer
 	httpNode.connect("request_completed", self, "_on_request_completed_checkanswer")
-	#httpNode.request(Global.APIrooturl +  "/api/v1/pve/answerLevel?levelId=" + str(Global.pvelvl.id),authheader,false,HTTPClient.METHOD_POST,body)
-	httpNode.request(Global.APIrooturl +  "/api/v1/pve/answerLevel?levelId=1",authheader,false,HTTPClient.METHOD_POST,body)
+	#httpNode.request(Global.APIrooturl +  "/api/v1/question/1",authheader,false,HTTPClient.METHOD_GET)
+	httpNode.request(Global.APIrooturl +  "/api/v1/pve/answerLevel?levelId=" + str(Global.pvelvl.id), authheader,false,HTTPClient.METHOD_POST,postbody)
 	
 	yield(httpNode, "request_completed")
-
+	if answeredquestionAll == "":
+		answeredquestionAll = body
+	else:
+		answeredquestionAll = answeredquestionAll + "," + body
+		
 	if checkAnsValid == true:
 		currentscore += 1
 		correctAns += 1
@@ -127,6 +128,8 @@ func _on_Answer_pressed(option):
 		RespondLabel.visible = true
 		yield(charattackanimation, "animation_finished")
 		RespondLabel.visible = false
+		
+		
 		
 		$BossLifeBar/lifebar/TextureProgress.value=$BossLifeBar/lifebar/TextureProgress.value-1
 	   
@@ -156,6 +159,17 @@ func _on_Answer_pressed(option):
 	if(questionIndex <= questions.size()-1):
 		showQuestion()	
 	else:
+		RespondLabel.text = "Level Accomplished!"
+		RespondLabel.set("custom_colors/font_color", Color(0,1,0,1))
+		RespondLabel.visible = true
+		$BossLifeBar/lifebar/TextureProgress.value = 0
+	
+		
+		var savelevelbody = "[" + answeredquestionAll +"]";
+		print(savelevelbody)
+		print(Global.APIrooturl +  "/api/v1/pve/saveLevel?levelId=" + str(Global.pvelvl.id) + "&userId=" + str(Global.playerid))
+		httpNode.connect("request_completed", self, "_on_request_completed_level")
+		httpNode.request(Global.APIrooturl +  "/api/v1/pve/saveLevel?levelId=" + str(Global.pvelvl.id) + "&userId=" + str(Global.playerid),authheader,false,HTTPClient.METHOD_POST,savelevelbody)
 		
 		winScore.text = "Score " + str(currentscore)
 		win.popup()	
@@ -179,7 +193,8 @@ func _on_quit_pressed():
 func _on_request_completed_checkanswer(result, response_code,headers, body):	
 	var json = JSON.parse(body.get_string_from_utf8())
 	if response_code == 200:
-		if json.result[0].isAnswerCorrect == true:
+		
+		if json.result[0].answerCorrect == true:
 			checkAnsValid = true
 		else:
 			checkAnsValid = false
@@ -193,6 +208,14 @@ func _on_request_completed_questionlist(result, response_code,headers, body):
 	if response_code == 200:
 		questions = json.result
 	httpNode.disconnect("request_completed",self,"_on_request_completed_questionlist")
+
+func _on_request_completed_level(result, response_code,headers, body):
+	var json = JSON.parse(body.get_string_from_utf8())
+	print(json.result)
+	if response_code != 200:
+		_on_quit_pressed();
+	
+	httpNode.disconnect("request_completed",self,"_on_request_completed_level")
 
 func _on_Timer_timeout():
 	if s == 0:
@@ -247,7 +270,6 @@ func showQuestion():
 			if questions[questionIndex].active == true:
 				
 				questionText.text = "Q" + str(questionCount) + ": " + questions[questionIndex].value
-				print(questions[questionIndex].answerOptions)
 				
 				if(0 <= questions[questionIndex].answerOptions.size()-1):
 					questionAns1.visible = true
@@ -286,10 +308,8 @@ func showQuestion():
 				questionIndex += 1
 				showQuestion()
 
-
-
-
 func _on_Back_pressed():
+	print(Global.pveworld)
 	get_tree().change_scene("res://game/gameselection/chooseSection/"+ Global.worldmapper[Global.pveworld.name] +".tscn")
 	
 func select_Boss_Attack(boss):

@@ -44,7 +44,7 @@ size = 48
 font_data = ExtResource( 10 )
 
 [sub_resource type="DynamicFont" id=9]
-size = 27
+size = 20
 font_data = ExtResource( 10 )
 
 [node name="Control" type="Control"]
@@ -54,6 +54,8 @@ script = ExtResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
 
 [node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.0
@@ -279,6 +281,7 @@ margin_right = 80.7206
 margin_bottom = 237.228
 custom_styles/normal = SubResource( 5 )
 custom_fonts/font = SubResource( 6 )
+disabled = true
 text = "MEDIUM"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -295,6 +298,7 @@ margin_right = 80.0842
 margin_bottom = -120.043
 custom_styles/normal = SubResource( 7 )
 custom_fonts/font = SubResource( 8 )
+disabled = true
 text = "HARD"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -320,13 +324,14 @@ custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0.396078, 0.12549, 0.0156863, 1 )
 align = 1
 valign = 1
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="pressed" from="SectionButton1" to="." method="_on_SectionButton_pressed" binds= [ 0 ]]
 [connection signal="pressed" from="SectionButton2" to="." method="_on_SectionButton_pressed" binds= [ 1 ]]
-[connection signal="pressed" from="SectionButton3" to="." method="_on_SectionButton_pressed" binds= [ 6 ]]
+[connection signal="pressed" from="SectionButton3" to="." method="_on_SectionButton_pressed" binds= [ 2 ]]
 [connection signal="pressed" from="levelpopup/TextureRect/CloseButton" to="." method="_on_Close_pressed"]
 [connection signal="pressed" from="levelpopup/TextureRect/level1" to="." method="_on_level_pressed" binds= [ 0 ]]
-[connection signal="pressed" from="levelpopup/TextureRect/level2" to="." method="_on_level_pressed" binds= [ "2" ]]
+[connection signal="pressed" from="levelpopup/TextureRect/level2" to="." method="_on_level_pressed" binds= [ 1 ]]
 [connection signal="pressed" from="levelpopup/TextureRect/level3" to="." method="_on_level_pressed" binds= [ 2 ]]

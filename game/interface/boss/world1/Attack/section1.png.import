@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/rock all.png-f5638133190c8fc229ace453fb1583c1.stex"
+path="res://.import/section1.png-1b478bc3cf80a2dc0658b0ff75a61409.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/interface/boss/world2/Attack/rock all.png"
-dest_files=[ "res://.import/rock all.png-f5638133190c8fc229ace453fb1583c1.stex" ]
+source_file="res://game/interface/boss/world1/Attack/section1.png"
+dest_files=[ "res://.import/section1.png-1b478bc3cf80a2dc0658b0ff75a61409.stex" ]
 
 [params]
 

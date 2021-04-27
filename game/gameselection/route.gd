@@ -9,7 +9,6 @@ func _on_redirectCharacter_pressed():
 
 
 func _on_world_pressed(title):
-	print(title)
 	for key in Global.WorldsDetails.size():
 		if Global.WorldsDetails[key].name == title:
 			Global.pveworld = Global.WorldsDetails[key]
@@ -17,7 +16,7 @@ func _on_world_pressed(title):
 		else:
 			Global.pveworld = {}
 			
-	
+	print(Global.pveworld)
 	get_tree().change_scene("res://game/gameselection/chooseSection/" + Global.worldmapper[title] + ".tscn")
 	
 	pass # Replace with function body.

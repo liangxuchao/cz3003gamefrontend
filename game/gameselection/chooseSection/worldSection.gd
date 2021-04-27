@@ -9,6 +9,7 @@ onready var level1label = $levelpopup/TextureRect/level1
 onready var level2label = $levelpopup/TextureRect/level2
 onready var level3label = $levelpopup/TextureRect/level3
 
+onready var httpNode = $HTTPRequest
 var worlddetail = Global.pveworld
 func _ready():
 	if(worlddetail.has("sections")):
@@ -23,11 +24,17 @@ func _ready():
 #			Global.pvesection = worlddetail.sections[2]
 			section3label.text = worlddetail.sections[2].name
 		
-		pass # Replace with function body.
+		
 
+	var authheader: PoolStringArray = ['Authorization: Bearer ' + Global.AccessToken ] 
+	
+	httpNode.connect("request_completed", self, "_on_request_completed_getprocess")
+	httpNode.request(Global.APIrooturl +  "/api/v1/dashboard/playerProgress/" + str(Global.playerid),authheader,false,HTTPClient.METHOD_GET)
+	yield(httpNode, "request_completed")
+	
 func _on_SectionButton_pressed(index):
 	var sectiondetail = worlddetail.sections[index]
-
+	
 	if(sectiondetail.has("levels")):
 		if(0 <= sectiondetail.levels.size()-1):
 			level1label.text =sectiondetail.levels[0].name
@@ -38,19 +45,15 @@ func _on_SectionButton_pressed(index):
 	
 	leveltitle.text = sectiondetail.name
 	Global.pvesection = sectiondetail
-	print(Global.pvesection.name)
-	print(Global.pveworld.name)
+	print(sectiondetail)
+	print(Global.currentlevels)
 	for key in Global.currentlevels:
-		
-		#print(key["world"])
-		#print(key["section"])
-		#print(key["level"])
+		print(key)
 		if(key["world"] == Global.pveworld.name && key["section"] == Global.pvesection.name):
 			if(key["level"] == level1label.text):
-				level1label.disabled = false
-			if(key["level"] == level2label.text):
 				level2label.disabled = false
-			if(key["level"] == level3label.text):
+			
+			if(key["level"] == level2label.text):
 				level3label.disabled = false
 			
 			print(key["level"])
@@ -59,12 +62,22 @@ func _on_SectionButton_pressed(index):
 
 func _on_Close_pressed():
 	Global.pvesection = {}
+	level2label.disabled = true
+	level3label.disabled = true
 	levelpopup.visible = false
 
 func _on_level_pressed(level):
+	#print(Global.pvesection.levels[1])
 	Global.pvelvl = Global.pvesection.levels[level]
 	get_tree().change_scene("res://game/pve/"+ Global.worldmapper[Global.pveworld.name] +"/PVECombat.tscn")
 	pass # Replace with function body.
 
 
+func _on_request_completed_getprocess(result, response_code,headers, body):	
+	var json = JSON.parse(body.get_string_from_utf8())
+	
+	if response_code == 200:
+		Global.currentlevels = json.result
+	httpNode.disconnect("request_completed",self,"_on_request_completed_getprocess")
+	
 
