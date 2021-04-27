@@ -107,10 +107,11 @@ func _on_Answer_pressed(option):
 	var userinputAns = questions[questionIndex].answerOptions[option]
 	var authheader: PoolStringArray = ['Authorization: Bearer ' + Global.AccessToken, 'Content-Type: application/json', ] 
 	
+	#var body = '[{ "answerIds" : ' + str(userinputAns.id) +', "questionId": '+ str(userinputAns.questionId) +'}]'
 	var body = '[{ "answerIds" : [' + str(userinputAns.id) +'],"levelId":1, "questionId": '+ str(userinputAns.questionId) +', "questionValue" : "'+ str(userinputAns.value) +'" }]'
 	#check answer
 	httpNode.connect("request_completed", self, "_on_request_completed_checkanswer")
-	#httpNode.request(Global.APIrooturl +  "/api/v1/question/1",authheader,false,HTTPClient.METHOD_GET)
+	#httpNode.request(Global.APIrooturl +  "/api/v1/pve/answerLevel?levelId=" + str(Global.pvelvl.id),authheader,false,HTTPClient.METHOD_POST,body)
 	httpNode.request(Global.APIrooturl +  "/api/v1/pve/answerLevel?levelId=1",authheader,false,HTTPClient.METHOD_POST,body)
 	
 	yield(httpNode, "request_completed")
@@ -126,8 +127,6 @@ func _on_Answer_pressed(option):
 		RespondLabel.visible = true
 		yield(charattackanimation, "animation_finished")
 		RespondLabel.visible = false
-		
-		
 		
 		$BossLifeBar/lifebar/TextureProgress.value=$BossLifeBar/lifebar/TextureProgress.value-1
 	   
