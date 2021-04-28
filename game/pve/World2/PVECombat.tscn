@@ -309,6 +309,7 @@ margin_top = 225.0
 margin_right = 294.0
 margin_bottom = 375.0
 __meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
@@ -332,6 +333,7 @@ margin_top = 225.0
 margin_right = 1050.0
 margin_bottom = 375.0
 __meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
