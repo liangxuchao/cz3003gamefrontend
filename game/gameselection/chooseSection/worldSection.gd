@@ -45,8 +45,8 @@ func _on_SectionButton_pressed(index):
 	
 	leveltitle.text = sectiondetail.name
 	Global.pvesection = sectiondetail
-	print(sectiondetail)
-	print(Global.currentlevels)
+	#print(sectiondetail)
+	#print(Global.currentlevels)
 	for key in Global.currentlevels:
 		print(key)
 		if(key["world"] == Global.pveworld.name && key["section"] == Global.pvesection.name):

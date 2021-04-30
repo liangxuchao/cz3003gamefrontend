@@ -166,8 +166,8 @@ func _on_Answer_pressed(option):
 	
 		
 		var savelevelbody = "[" + answeredquestionAll +"]";
-		print(savelevelbody)
-		print(Global.APIrooturl +  "/api/v1/pve/saveLevel?levelId=" + str(Global.pvelvl.id) + "&userId=" + str(Global.playerid))
+		#print(savelevelbody)
+		#print(Global.APIrooturl +  "/api/v1/pve/saveLevel?levelId=" + str(Global.pvelvl.id) + "&userId=" + str(Global.playerid))
 		httpNode.connect("request_completed", self, "_on_request_completed_level")
 		httpNode.request(Global.APIrooturl +  "/api/v1/pve/saveLevel?levelId=" + str(Global.pvelvl.id) + "&userId=" + str(Global.playerid),authheader,false,HTTPClient.METHOD_POST,savelevelbody)
 		
@@ -211,7 +211,7 @@ func _on_request_completed_questionlist(result, response_code,headers, body):
 
 func _on_request_completed_level(result, response_code,headers, body):
 	var json = JSON.parse(body.get_string_from_utf8())
-	print(json.result)
+	#print(json.result)
 	if response_code != 200:
 		_on_quit_pressed();
 	
@@ -260,7 +260,11 @@ func _on_QuestionTimer_timeout():
 			showQuestion()	
 		else:
 			winScore.text = "Score " + str(currentscore)
+		
+			
 			win.popup()	
+			
+			
 	else:
 		QCount -= 1
 		questiontimerlabel.text = str(QCount)
@@ -309,7 +313,7 @@ func showQuestion():
 				showQuestion()
 
 func _on_Back_pressed():
-	print(Global.pveworld)
+	#print(Global.pveworld)
 	get_tree().change_scene("res://game/gameselection/chooseSection/"+ Global.worldmapper[Global.pveworld.name] +".tscn")
 	
 func select_Boss_Attack(boss):
@@ -318,9 +322,20 @@ func select_Boss_Attack(boss):
 
 
 func _on_Next_Button_pressed():
-	Global.pvelvl;
-	Global.WorldsDetails;
+	print(Global.pvelvl);
+	print(Global.WorldsDetails);
+	var level = 0;
+
+	if(Global.pvelvl.name == "Easy"):
+		level = 1
+	if(Global.pvelvl.name == "Medium"):
+		level = 2
+	if(Global.pvelvl.name == "Hard"):
+		get_tree().change_scene("res://game/gameselection/chooseSection/"+ Global.worldmapper[Global.pveworld.name] +".tscn")
 	
+	Global.pvelvl = Global.pvesection.levels[level]
+
+	get_tree().reload_current_scene()
 	pass # Replace with function body.
 
 
@@ -333,3 +348,14 @@ func _on_retry_pressed():
 func _on_Try_Again_pressed():
 	get_tree().reload_current_scene()
 	pass # Replace with function body.
+
+
+
+func _on_request_completed_getprocess(result, response_code,headers, body):	
+	var json = JSON.parse(body.get_string_from_utf8())
+	
+	if response_code == 200:
+		Global.currentlevels = json.result
+	httpNode.disconnect("request_completed",self,"_on_request_completed_getprocess")
+	
+

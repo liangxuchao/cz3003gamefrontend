@@ -64,10 +64,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 0.0, -72.0, -108.0, -144.0, -180.0, -216.0, -252.0, -288.0, -324.0, -360.0 ]
+"values": [ 0.0, -36.0, -72.0, -108.0, -144.0, -180.0, -216.0, -252.0, -288.0, -324.0, -360.0 ]
 }
 
 [sub_resource type="CircleShape2D" id=7]
@@ -160,8 +160,9 @@ __meta__ = {
 }
 
 [node name="QuestionBOX" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_top = 480.0
+margin_right = 1280.0
+margin_bottom = 720.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -170,9 +171,8 @@ __meta__ = {
 modulate = Color( 0.352941, 0.215686, 0.0627451, 0.54902 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 432.0
-margin_right = 1240.0
-margin_bottom = 755.0
+margin_top = -23.0
+margin_bottom = 61.0
 rect_clip_content = true
 texture = ExtResource( 8 )
 expand = true
@@ -182,9 +182,8 @@ __meta__ = {
 }
 
 [node name="RespondLabel" type="Label" parent="QuestionBOX"]
-margin_top = 480.0
 margin_right = 1280.0
-margin_bottom = 720.0
+margin_bottom = 240.0
 custom_fonts/font = SubResource( 2 )
 align = 1
 valign = 1
@@ -194,9 +193,9 @@ __meta__ = {
 
 [node name="Answer1" type="TextureButton" parent="QuestionBOX"]
 margin_left = 200.0
-margin_top = 560.0
+margin_top = 76.0
 margin_right = 560.0
-margin_bottom = 640.0
+margin_bottom = 156.0
 texture_normal = ExtResource( 9 )
 expand = true
 __meta__ = {
@@ -213,12 +212,15 @@ margin_top = -20.0
 margin_right = 140.0
 margin_bottom = 20.0
 mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Answer2" type="TextureButton" parent="QuestionBOX"]
 margin_left = 750.0
-margin_top = 560.0
+margin_top = 76.0
 margin_right = 1110.0
-margin_bottom = 640.0
+margin_bottom = 156.0
 texture_normal = ExtResource( 9 )
 expand = true
 __meta__ = {
@@ -235,12 +237,15 @@ margin_top = -20.0
 margin_right = 140.0
 margin_bottom = 20.0
 mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Answer3" type="TextureButton" parent="QuestionBOX"]
 margin_left = 200.0
-margin_top = 640.0
+margin_top = 156.0
 margin_right = 560.0
-margin_bottom = 720.0
+margin_bottom = 236.0
 texture_normal = ExtResource( 9 )
 expand = true
 __meta__ = {
@@ -257,12 +262,15 @@ margin_top = -20.0
 margin_right = 140.0
 margin_bottom = 20.0
 mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Answer4" type="TextureButton" parent="QuestionBOX"]
 margin_left = 750.0
-margin_top = 640.0
+margin_top = 156.0
 margin_right = 1110.0
-margin_bottom = 720.0
+margin_bottom = 236.0
 texture_normal = ExtResource( 9 )
 expand = true
 __meta__ = {
@@ -279,12 +287,15 @@ margin_top = -20.0
 margin_right = 140.0
 margin_bottom = 20.0
 mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Question" type="RichTextLabel" parent="QuestionBOX"]
 margin_left = 10.0
-margin_top = 488.606
+margin_top = 19.606
 margin_right = 1280.0
-margin_bottom = 558.606
+margin_bottom = 89.606
 custom_fonts/normal_font = SubResource( 3 )
 custom_colors/default_color = Color( 1, 1, 1, 1 )
 __meta__ = {
@@ -309,12 +320,11 @@ margin_top = 225.0
 margin_right = 294.0
 margin_bottom = 375.0
 __meta__ = {
-"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="charAttack" parent="character" instance=ExtResource( 3 )]
-position = Vector2( 90, 0 )
+position = Vector2( 92.6697, -431.153 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="character/charAttack"]
 anims/charAttack = SubResource( 4 )
@@ -333,23 +343,20 @@ margin_top = 225.0
 margin_right = 1050.0
 margin_bottom = 375.0
 __meta__ = {
-"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="bossAttack" parent="boss" instance=ExtResource( 6 )]
-position = Vector2( -700, -400 )
-rotation = -6.28319
+position = Vector2( -60, 119 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="boss/bossAttack"]
-autoplay = "bossAttack"
 anims/bossAttack = SubResource( 6 )
 
 [node name="Hit Box" parent="boss/bossAttack" instance=ExtResource( 7 )]
 position = Vector2( -4, -1 )
 
 [node name="CollisionShape2D" parent="boss/bossAttack/Hit Box" index="0"]
-position = Vector2( 8, 0 )
+position = Vector2( -10.6877, -16.0181 )
 shape = SubResource( 7 )
 
 [node name="TextureButton" type="TextureButton" parent="."]
