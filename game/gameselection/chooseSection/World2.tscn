@@ -6,12 +6,12 @@
 [ext_resource path="res://public/image/world2/4Z_2101.w017.n001.354B.p15.354-removebg-preview copy 4.png" type="Texture" id=4]
 [ext_resource path="res://public/image/world2/BG desert.jpg" type="Texture" id=5]
 [ext_resource path="res://public/image/world2/wood bg world.png" type="Texture" id=6]
-[ext_resource path="res://game/interface/boss/World2/section4.tscn" type="PackedScene" id=7]
-[ext_resource path="res://game/interface/boss/World2/section5.tscn" type="PackedScene" id=8]
+[ext_resource path="res://game/interface/boss/world2/section4.tscn" type="PackedScene" id=7]
+[ext_resource path="res://game/interface/boss/world2/section5.tscn" type="PackedScene" id=8]
 [ext_resource path="res://game/backbutton/back.tscn" type="PackedScene" id=9]
 [ext_resource path="res://public/fonts/soupofjustice.ttf" type="DynamicFontData" id=10]
 [ext_resource path="res://public/fonts/main.tres" type="DynamicFont" id=11]
-[ext_resource path="res://public/image/world2/iShot2021-03-13_16.21.44-removebg-preview.png" type="Texture" id=12]
+[ext_resource path="res://game/interface/boss/world2/section6.tscn" type="PackedScene" id=12]
 [ext_resource path="res://game/gameselection/chooseSection/worldSection.gd" type="Script" id=13]
 
 [sub_resource type="DynamicFont" id=1]
@@ -103,11 +103,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="boss1" parent="SectionButton1" instance=ExtResource( 7 )]
-position = Vector2( 154.965, 123.339 )
-scale = Vector2( 0.368969, 0.35523 )
-centered = true
-
 [node name="Label" type="Label" parent="SectionButton1"]
 anchor_left = 0.5
 anchor_top = 0.5
@@ -116,14 +111,18 @@ anchor_bottom = 0.5
 margin_left = -101.0
 margin_top = 152.0
 margin_right = 119.0
-margin_bottom = 188.0
+margin_bottom = 252.0
 custom_fonts/font = ExtResource( 11 )
 custom_colors/font_color = Color( 0.992157, 0.980392, 0.968627, 1 )
 align = 1
 valign = 1
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="boss1" parent="SectionButton1" instance=ExtResource( 7 )]
+position = Vector2( 90.5097, 45.2548 )
 
 [node name="SectionButton2" type="TextureButton" parent="."]
 margin_left = 490.0
@@ -136,11 +135,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="boss2" parent="SectionButton2" instance=ExtResource( 8 )]
-position = Vector2( 149.961, 135.509 )
-scale = Vector2( 0.430849, 0.384902 )
-centered = true
-
 [node name="Label" type="Label" parent="SectionButton2"]
 anchor_left = 0.5
 anchor_top = 1.0
@@ -149,14 +143,18 @@ anchor_bottom = 1.0
 margin_left = -110.0
 margin_top = 27.0
 margin_right = 110.0
-margin_bottom = 63.0
+margin_bottom = 127.0
 custom_fonts/font = ExtResource( 11 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 align = 1
 valign = 1
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="boss2" parent="SectionButton2" instance=ExtResource( 8 )]
+position = Vector2( 96.1665, 50.9117 )
 
 [node name="SectionButton3" type="TextureButton" parent="."]
 margin_left = 880.0
@@ -169,11 +167,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Sprite" type="Sprite" parent="SectionButton3"]
-position = Vector2( 139.191, 136.331 )
-scale = Vector2( 0.389421, 0.330914 )
-texture = ExtResource( 12 )
-
 [node name="Label" type="Label" parent="SectionButton3"]
 anchor_left = 0.5
 anchor_top = 1.0
@@ -182,14 +175,18 @@ anchor_bottom = 1.0
 margin_left = -110.0
 margin_top = 27.0
 margin_right = 110.0
-margin_bottom = 63.0
+margin_bottom = 127.0
 custom_fonts/font = ExtResource( 11 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 align = 1
 valign = 1
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="boss3" parent="SectionButton3" instance=ExtResource( 12 )]
+position = Vector2( 98.9949, 41.0122 )
 
 [node name="backbutton" parent="." instance=ExtResource( 9 )]
 custom_colors/font_color = Color( 1, 1, 1, 1 )
@@ -197,7 +194,6 @@ custom_colors/font_color_hover = Color( 1, 1, 1, 0.65 )
 scene_to_load = "res://game/gameselection/chooseWorld/chooseWorld.tscn"
 
 [node name="levelpopup" type="Popup" parent="."]
-visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5

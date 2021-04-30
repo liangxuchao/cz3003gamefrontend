@@ -4,7 +4,7 @@
 [ext_resource path="res://public/image/world3/Section_BG.png" type="Texture" id=2]
 [ext_resource path="res://public/image/world3/Button.png" type="Texture" id=3]
 [ext_resource path="res://public/fonts/soupofjustice.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://game/interface/boss/World3/bossAttack.tscn" type="PackedScene" id=5]
+[ext_resource path="res://game/interface/boss/world3/bossAttack.tscn" type="PackedScene" id=5]
 [ext_resource path="res://game/interface/lifebar/Hit Box.tscn" type="PackedScene" id=6]
 [ext_resource path="res://game/interface/character/charAttack.tscn" type="PackedScene" id=7]
 [ext_resource path="res://public/image/world3/QuizBG.png" type="Texture" id=8]
@@ -309,7 +309,7 @@ __meta__ = {
 }
 
 [node name="charAttack" parent="character" instance=ExtResource( 7 )]
-position = Vector2( -47.8057, -432.294 )
+position = Vector2( 90, 0 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="character/charAttack"]
 anims/charAttack = SubResource( 5 )
@@ -332,12 +332,14 @@ __meta__ = {
 
 [node name="bossAttack" parent="boss" instance=ExtResource( 5 )]
 position = Vector2( 13.4543, -340.79 )
-rotation = -6.9115
+rotation = -0.628315
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="boss/bossAttack"]
 anims/bossAttack = SubResource( 7 )
 
 [node name="Hit Box" parent="boss/bossAttack" instance=ExtResource( 6 )]
+position = Vector2( -248.225, 318.766 )
+rotation = -3.8445e-06
 
 [node name="CollisionShape2D" parent="boss/bossAttack/Hit Box" index="0"]
 position = Vector2( -20, -33 )

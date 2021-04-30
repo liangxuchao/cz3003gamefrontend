@@ -5,7 +5,7 @@
 [ext_resource path="res://public/fonts/soupofjustice.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://public/image/world1/PVE_WinUI/ButtonBG2.png" type="Texture" id=4]
 [ext_resource path="res://public/image/world1/CombatUI/menu.png" type="Texture" id=5]
-[ext_resource path="res://game/interface/boss/World1/bossAttack.tscn" type="PackedScene" id=6]
+[ext_resource path="res://game/interface/boss/world1/bossAttack.tscn" type="PackedScene" id=6]
 [ext_resource path="res://game/interface/lifebar/lifebar.tscn" type="PackedScene" id=9]
 [ext_resource path="res://public/image/world1/SectionUI/cancelBtn.png" type="Texture" id=11]
 [ext_resource path="res://public/image/world1/SectionUI/PopupBoard.png" type="Texture" id=12]
@@ -80,43 +80,43 @@ font_data = SubResource( 10 )
 size = 35
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=23]
+[sub_resource type="DynamicFont" id=13]
 size = 32
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFontData" id=13]
+[sub_resource type="DynamicFontData" id=14]
 font_path = "res://public/fonts/soupofjustice.ttf"
 
-[sub_resource type="DynamicFont" id=14]
+[sub_resource type="DynamicFont" id=15]
 size = 42
-font_data = SubResource( 13 )
+font_data = SubResource( 14 )
 
-[sub_resource type="DynamicFontData" id=15]
+[sub_resource type="DynamicFontData" id=16]
 font_path = "res://public/fonts/soupofjustice.ttf"
-
-[sub_resource type="DynamicFont" id=16]
-size = 42
-font_data = SubResource( 15 )
 
 [sub_resource type="DynamicFont" id=17]
+size = 42
+font_data = SubResource( 16 )
+
+[sub_resource type="DynamicFont" id=18]
 size = 35
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFontData" id=18]
+[sub_resource type="DynamicFontData" id=19]
 font_path = "res://public/fonts/soupofjustice.ttf"
 
-[sub_resource type="DynamicFont" id=19]
+[sub_resource type="DynamicFont" id=20]
 size = 28
-font_data = SubResource( 18 )
+font_data = SubResource( 19 )
 
-[sub_resource type="DynamicFontData" id=20]
+[sub_resource type="DynamicFontData" id=21]
 font_path = "res://public/fonts/soupofjustice.ttf"
-
-[sub_resource type="DynamicFont" id=21]
-size = 28
-font_data = SubResource( 20 )
 
 [sub_resource type="DynamicFont" id=22]
+size = 28
+font_data = SubResource( 21 )
+
+[sub_resource type="DynamicFont" id=23]
 size = 35
 font_data = ExtResource( 3 )
 
@@ -301,16 +301,16 @@ __meta__ = {
 }
 
 [node name="boss" type="VBoxContainer" parent="."]
-margin_left = 944.0
+margin_left = 900.0
 margin_top = 240.0
-margin_right = 1129.0
+margin_right = 1085.0
 margin_bottom = 408.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="bossAttack" parent="boss" instance=ExtResource( 6 )]
-position = Vector2( 23.8609, -381.137 )
+position = Vector2( -29, 30 )
 scale = Vector2( 0.8, 0.8 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="boss/bossAttack"]
@@ -326,18 +326,18 @@ shape = SubResource( 7 )
 [node name="BossLifeBar" parent="." instance=ExtResource( 9 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 980.0
+margin_left = 900.0
 margin_top = 154.586
-margin_right = 1164.0
+margin_right = 1084.0
 margin_bottom = 154.586
 
 [node name="CharLifeBar" parent="." instance=ExtResource( 9 )]
 anchor_left = -0.745946
 anchor_right = -0.745946
 anchor_bottom = 0.0
-margin_left = 130.0
+margin_left = 200.0
 margin_top = 156.0
-margin_right = 314.0
+margin_right = 384.0
 margin_bottom = 156.0
 
 [node name="character" type="VBoxContainer" parent="."]
@@ -522,7 +522,7 @@ margin_left = -50.0
 margin_top = -23.5
 margin_right = 50.0
 margin_bottom = 23.5
-custom_fonts/font = SubResource( 23 )
+custom_fonts/font = SubResource( 13 )
 align = 1
 valign = 1
 __meta__ = {
@@ -549,7 +549,7 @@ margin_left = -47.5
 margin_top = -21.5
 margin_right = 47.5
 margin_bottom = 21.5
-custom_fonts/font = SubResource( 14 )
+custom_fonts/font = SubResource( 15 )
 text = "Back"
 
 [node name="Nextbutton" type="TextureButton" parent="win/TextureRect"]
@@ -569,7 +569,7 @@ margin_left = -45.0
 margin_top = -21.5
 margin_right = 45.0
 margin_bottom = 21.5
-custom_fonts/font = SubResource( 16 )
+custom_fonts/font = SubResource( 17 )
 text = "Next"
 
 [node name="Title" type="TextureRect" parent="win/TextureRect"]
@@ -588,7 +588,7 @@ margin_left = -57.6769
 margin_top = -19.4731
 margin_right = 66.3231
 margin_bottom = 16.5269
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 18 )
 text = "YOU WIN"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -640,7 +640,7 @@ margin_left = -31.5
 margin_top = -14.0
 margin_right = 31.5
 margin_bottom = 14.0
-custom_fonts/font = SubResource( 19 )
+custom_fonts/font = SubResource( 20 )
 text = "Back"
 
 [node name="TryAgain" type="TextureButton" parent="lose/TextureRect"]
@@ -663,7 +663,7 @@ margin_left = -61.5
 margin_top = -14.0
 margin_right = 61.5
 margin_bottom = 14.0
-custom_fonts/font = SubResource( 21 )
+custom_fonts/font = SubResource( 22 )
 text = "Try Again"
 
 [node name="Title" type="TextureRect" parent="lose/TextureRect"]
@@ -681,7 +681,7 @@ margin_left = -71.573
 margin_top = -17.9923
 margin_right = 71.427
 margin_bottom = 18.0077
-custom_fonts/font = SubResource( 22 )
+custom_fonts/font = SubResource( 23 )
 text = "You LOSE"
 
 [node name="Score" type="Label" parent="lose/TextureRect"]

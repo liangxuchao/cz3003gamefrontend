@@ -3,5 +3,6 @@
   "Playerid": 1,
   "TokenExpire": "10080",
   "Username": "std1",
-  "lastlogin": 1619337771
+  "lastlogin": 1619337771,
+  "ApiUrl": "http://cz3003.southeastasia.cloudapp.azure.com:8080"
 }

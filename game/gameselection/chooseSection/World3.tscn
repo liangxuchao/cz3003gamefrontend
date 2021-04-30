@@ -2,9 +2,9 @@
 
 [ext_resource path="res://public/image/world3/SectionTitle.png" type="Texture" id=1]
 [ext_resource path="res://public/image/world3/Background.jpg" type="Texture" id=2]
-[ext_resource path="res://game/interface/boss/World3/section8.tscn" type="PackedScene" id=3]
-[ext_resource path="res://game/interface/boss/World3/section9.tscn" type="PackedScene" id=4]
-[ext_resource path="res://game/interface/boss/World3/section7.tscn" type="PackedScene" id=5]
+[ext_resource path="res://game/interface/boss/world3/section8.tscn" type="PackedScene" id=3]
+[ext_resource path="res://game/interface/boss/world3/section7.tscn" type="PackedScene" id=4]
+[ext_resource path="res://game/interface/boss/world3/section9.tscn" type="PackedScene" id=5]
 [ext_resource path="res://game/backbutton/back.tscn" type="PackedScene" id=6]
 [ext_resource path="res://public/fonts/soupofjustice.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://public/image/world3/Section_BG.png" type="Texture" id=8]
@@ -113,9 +113,8 @@ __meta__ = {
 }
 sectiontitle = "SECTION I"
 
-[node name="Boss1" parent="SectionButton1" instance=ExtResource( 5 )]
-position = Vector2( 150, 135.509 )
-centered = true
+[node name="Boss1" parent="SectionButton1" instance=ExtResource( 4 )]
+position = Vector2( 93.3381, 66.468 )
 
 [node name="Label" type="Label" parent="SectionButton1"]
 anchor_left = 0.5
@@ -147,8 +146,7 @@ __meta__ = {
 }
 
 [node name="Boss2" parent="SectionButton2" instance=ExtResource( 3 )]
-position = Vector2( 150, 135.509 )
-centered = true
+position = Vector2( 94.7523, 60.8112 )
 
 [node name="Label" type="Label" parent="SectionButton2"]
 anchor_left = 0.5
@@ -178,9 +176,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Boss3" parent="SectionButton3" instance=ExtResource( 4 )]
-position = Vector2( 150, 135.509 )
-centered = true
+[node name="Boss3" parent="SectionButton3" instance=ExtResource( 5 )]
+position = Vector2( 98.995, 65.0538 )
 
 [node name="Label" type="Label" parent="SectionButton3"]
 anchor_left = 0.5
@@ -205,7 +202,6 @@ custom_colors/font_color_hover = Color( 1, 1, 1, 0.65 )
 scene_to_load = "res://game/gameselection/chooseWorld/chooseWorld.tscn"
 
 [node name="levelpopup" type="Popup" parent="."]
-visible = true
 margin_right = 1280.0
 margin_bottom = 720.0
 __meta__ = {

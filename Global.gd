@@ -18,7 +18,7 @@ var pvebossselection;
 var playerid;
 var WorldsDetails = {};
 
-var worldmapper = {"Surfing on Python": "World1",  "Surfing on PHP": "World2", "Surfing on Java" : "World3"}
+var worldmapper = {"Surfing on Python": "world1",  "Surfing on PHP": "world2", "Surfing on Java" : "world3"}
 
 var currentlevels;
 
@@ -34,6 +34,7 @@ func _ready():
 	TokenExpire = dict["TokenExpire"];
 	lastlogin = dict["lastlogin"];
 	playerid = dict["Playerid"];
+	APIrooturl = dict["ApiUrl"];
 	
 	if AccessToken != "" and lastlogin !=0:
 		
